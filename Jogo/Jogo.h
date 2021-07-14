@@ -1,5 +1,7 @@
 #pragma once
 
+#include "MenuPrincipal.h"
+
 /* Classe Principal */
 class Jogo
 {
@@ -8,8 +10,9 @@ private:
 	sf::RenderWindow janela;
 	sf::Event eventosSFML;
 
-	// REMOVER
-	sf::RectangleShape test;
+	// Armazena todos os entes
+	std::stack<Ente* > entes;
+	EnteInfo enteInfo;
 
 public:
 	// Construtoras e Destrutoras
@@ -18,6 +21,7 @@ public:
 
 	// Métodos de Inicialização
 	void iniciarJanela();
+	void iniciarEnte();
 
 	// Métodos de Atualização
 	void atualizar();

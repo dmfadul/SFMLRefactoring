@@ -6,10 +6,7 @@ Jogo::Jogo()
 {
     // Inicia Variaveis
 	this->iniciarJanela();
-
-    // REMOVER
-    this->test.setFillColor(sf::Color::Red);
-    this->test.setSize(sf::Vector2f(100.f, 100.f));
+    this->iniciarEnte();
 }
 
 // _______________________________________________________________________________
@@ -21,15 +18,22 @@ Jogo::~Jogo()
 void Jogo::iniciarJanela()
 {
 	/* Inicia a janela principal do jogo*/
-
-    // inicia a janela
-	sf::VideoMode dimensoes_janela;
-	dimensoes_janela.width = 800;
-	dimensoes_janela.height = 600;
-    this->janela.create(dimensoes_janela, "NOME DO JOGO (ALTERAR)");
+    this->janela.create(sf::VideoMode(800, 600), "NOME DO JOGO (ALTERAR)");
 
     // define taxa de frame
     this->janela.setFramerateLimit(60);
+}
+
+// _______________________________________________________________________________
+void Jogo::iniciarEnte()
+{
+    /* Inicia os dados dos entes */
+    this->enteInfo.tamEntidade = 32.f;
+    this->enteInfo.janela = &this->janela;
+    this->enteInfo.entes = &this->entes;
+
+    // Inicia com o Menu Principal
+    this->entes.push(new MenuPrincipal(&this->enteInfo));
 }
 
 // _______________________________________________________________________________
@@ -37,10 +41,9 @@ void Jogo::atualizar()
 {
     /* Limpa o frame anterior e prepara um novo frame*/
     this->janela.clear();
+    this->entes.top()->atualizar();
 	this->atualizarEventos();
 
-    // REMOVER
-    this->test.move(1.f, 1.f);
 }
 
 // _______________________________________________________________________________
@@ -49,6 +52,10 @@ void Jogo::atualizarEventos()
     /* Checa por eventos SFML */
     while (this->janela.pollEvent(this->eventosSFML))
     {
+        // Atualiza eventos no ente
+        this->entes.top()->atualizarEventos(this->eventosSFML);
+
+        // checa por fechamento de tela
         if (this->eventosSFML.type == sf::Event::Closed)
             this->janela.close();
     }
@@ -58,13 +65,9 @@ void Jogo::atualizarEventos()
 void Jogo::desenhar()
 {
     /* Desenha o novo frame na janela */
-
-    // REMOVER
-    this->janela.draw(this->test);
+    this->entes.top()->desenhar(this->janela);
 
     this->janela.display();
-
- 
 }
 
 // _______________________________________________________________________________

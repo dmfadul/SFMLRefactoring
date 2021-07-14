@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Entes">
+      <UniqueIdentifier>{31fabe23-2a1b-4de5-9a6c-908164a9c166}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graficos">
+      <UniqueIdentifier>{134f7fbe-c0b7-422f-96c5-2dd686eedd44}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Origem.cpp">
@@ -24,13 +30,49 @@
     <ClCompile Include="Jogo.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
+    <ClCompile Include="Ente.cpp">
+      <Filter>Entes</Filter>
+    </ClCompile>
+    <ClCompile Include="Fase.cpp">
+      <Filter>Entes</Filter>
+    </ClCompile>
+    <ClCompile Include="Pontuacao.cpp">
+      <Filter>Entes</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuPrincipal.cpp">
+      <Filter>Entes</Filter>
+    </ClCompile>
+    <ClCompile Include="VelhoOeste.cpp">
+      <Filter>Entes</Filter>
+    </ClCompile>
+    <ClCompile Include="Botao.cpp">
+      <Filter>Graficos</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Jogo.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
+    <ClInclude Include="Ente.h">
+      <Filter>Entes</Filter>
+    </ClInclude>
+    <ClInclude Include="Fase.h">
+      <Filter>Entes</Filter>
+    </ClInclude>
+    <ClInclude Include="Pontuacao.h">
+      <Filter>Entes</Filter>
+    </ClInclude>
     <ClInclude Include="stdafx.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
+      <Filter>Entes</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuPrincipal.h">
+      <Filter>Entes</Filter>
+    </ClInclude>
+    <ClInclude Include="VelhoOeste.h">
+      <Filter>Entes</Filter>
+    </ClInclude>
+    <ClInclude Include="Botao.h">
+      <Filter>Graficos</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
