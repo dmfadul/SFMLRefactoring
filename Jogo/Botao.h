@@ -22,6 +22,7 @@ namespace gui {
 		~Botao();
 
 		// Metodos de inicialização
+		void iniciarBotao(float pos_x, float pos_y, std::string texto);
 		void iniciarCaixa(float pos_x, float pos_y);
 		void iniciarTexto(float pos_x, float pos_y, std::string texto);
 

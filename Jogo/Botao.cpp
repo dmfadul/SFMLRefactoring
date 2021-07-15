@@ -11,17 +11,23 @@ gui::Botao::Botao()
 gui::Botao::Botao(float pos_x, float pos_y, std::string texto)
 {
 	// Inicia Botão
+	this->iniciarBotao(pos_x, pos_y, texto);
+}
+
+// _______________________________________________________________________________
+gui::Botao::~Botao()
+{
+}
+
+// _______________________________________________________________________________
+void gui::Botao::iniciarBotao(float pos_x, float pos_y, std::string texto)
+{
 	this->ativado = false;
 	this->corAtivado = sf::Color::White;
 	this->corDesativado = sf::Color(150, 150, 150);
 
 	this->iniciarCaixa(pos_x, pos_y);
 	this->iniciarTexto(pos_x, pos_y, texto);
-}
-
-// _______________________________________________________________________________
-gui::Botao::~Botao()
-{
 }
 
 // _______________________________________________________________________________

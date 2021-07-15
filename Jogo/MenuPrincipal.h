@@ -1,11 +1,12 @@
 #pragma once
 
 #include "VelhoOeste.h"
+#include "Pontuacao.h"
 
 // enumera botoes
 enum numeroBotao {
     NovoJogo = 0,
-    Pontuacao,
+    ListaPontuacao,
     Sair
 };
 
@@ -35,6 +36,6 @@ public:
     void GerenciarCliqueBotao();
 
     // Métodos de Renderização
-    void desenhar(sf::RenderWindow& janela);
+    void desenhar(sf::RenderTarget& janela);
 };
 

@@ -1,15 +1,15 @@
 #pragma once
 #include "Fase.h"
-class VelhoOeste :
+class NinhoDoDragao :
     public Fase
 {
 private:
 
 public:
     // Construtoras e Destrutoras
-    VelhoOeste();
-    VelhoOeste(EnteInfo* pei);
-    ~VelhoOeste();
+    NinhoDoDragao();
+    NinhoDoDragao(EnteInfo* pei);
+    ~NinhoDoDragao();
 
     // Métodos de Atualização
     void atualizar();

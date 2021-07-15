@@ -16,6 +16,7 @@ VelhoOeste::VelhoOeste(EnteInfo* pei)
 // _______________________________________________________________________________
 VelhoOeste::~VelhoOeste()
 {
+	delete this->enteInfo;
 }
 
 // _______________________________________________________________________________
@@ -29,13 +30,14 @@ void VelhoOeste::atualizarEventos(sf::Event& evento_sfml)
 	/* Checa por eventos SFML*/
 	if (evento_sfml.type == sf::Event::KeyReleased)
 	{
-		if (evento_sfml.key.code == sf::Keyboard::Escape)
+		if (evento_sfml.key.code == sf::Keyboard::Escape){
 			this->enteInfo->entes->pop(); // volta ao menu principal
+		}
 	}
 }
 
 // _______________________________________________________________________________
-void VelhoOeste::desenhar(sf::RenderWindow& janela)
+void VelhoOeste::desenhar(sf::RenderTarget& janela)
 {
 	/* Desenha o novo frame */
 	janela.draw(this->background);

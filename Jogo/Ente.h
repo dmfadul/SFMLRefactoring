@@ -30,7 +30,7 @@ public:
     virtual void atualizarEventos(sf::Event& evento_sfml) = 0;
 
     // Métodos de Renderização
-    virtual void desenhar(sf::RenderWindow& janela) = 0;
+    virtual void desenhar(sf::RenderTarget& janela) = 0;
 
 };
 

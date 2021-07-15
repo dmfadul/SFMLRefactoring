@@ -20,6 +20,7 @@ MenuPrincipal::MenuPrincipal(EnteInfo* pei):
 // _______________________________________________________________________________
 MenuPrincipal::~MenuPrincipal()
 {
+	delete this->enteInfo;
 	// desaloca botoes
 	for (auto& botao : this->botoes)
 		delete botao.second;
@@ -30,7 +31,7 @@ void MenuPrincipal::iniciarBotoes()
 {
 	/* Inicia todos os botoes do menu principal */
 	this->botoes[NovoJogo] = new gui::Botao(this->enteInfo->janela->getSize().x / 2 - 100.f, 200.f, "Novo Jogo");
-	this->botoes[Pontuacao] = new gui::Botao(this->enteInfo->janela->getSize().x / 2 - 100.f, 260.f, "Pontuação");
+	this->botoes[ListaPontuacao] = new gui::Botao(this->enteInfo->janela->getSize().x / 2 - 100.f, 260.f, "Pontuação");
 	this->botoes[Sair] = new gui::Botao(this->enteInfo->janela->getSize().x / 2 - 100.f, 380.f, "Sair");
 	this->botoes[Sair]->setCorAtivado(sf::Color::Red); // botao sair será vermelho quando ativo
 
@@ -88,13 +89,16 @@ void MenuPrincipal::GerenciarCliqueBotao()
 	if (this->botaoAtivo == NovoJogo)
 		this->enteInfo->entes->push(new VelhoOeste(this->enteInfo));
 
-	if (this->botaoAtivo == Sair)
+	else if (this->botaoAtivo == ListaPontuacao)
+		this->enteInfo->entes->push(new Pontuacao(this->enteInfo));
+
+	else if (this->botaoAtivo == Sair)
 		this->enteInfo->janela->close();
 
 }
 
 // _______________________________________________________________________________
-void MenuPrincipal::desenhar(sf::RenderWindow& janela)
+void MenuPrincipal::desenhar(sf::RenderTarget& janela)
 {
 	/* Desenha o novo frame na janela */
 

@@ -48,6 +48,9 @@
     <ClCompile Include="Botao.cpp">
       <Filter>Graficos</Filter>
     </ClCompile>
+    <ClCompile Include="NinhoDoDragao.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Jogo.h">
@@ -73,6 +76,9 @@
     </ClInclude>
     <ClInclude Include="Botao.h">
       <Filter>Graficos</Filter>
+    </ClInclude>
+    <ClInclude Include="NinhoDoDragao.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

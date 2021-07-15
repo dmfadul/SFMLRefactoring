@@ -160,6 +160,7 @@
     <ClCompile Include="Fase.cpp" />
     <ClCompile Include="Jogo.cpp" />
     <ClCompile Include="MenuPrincipal.cpp" />
+    <ClCompile Include="NinhoDoDragao.cpp" />
     <ClCompile Include="Origem.cpp" />
     <ClCompile Include="Pontuacao.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -176,6 +177,7 @@
     <ClInclude Include="Fase.h" />
     <ClInclude Include="Jogo.h" />
     <ClInclude Include="MenuPrincipal.h" />
+    <ClInclude Include="NinhoDoDragao.h" />
     <ClInclude Include="Pontuacao.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="VelhoOeste.h" />
