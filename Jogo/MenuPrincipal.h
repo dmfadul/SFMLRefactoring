@@ -4,7 +4,7 @@
 #include "Pontuacao.h"
 
 // enumera botoes
-enum numeroBotao {
+enum BotoesMenuPrincipal {
     NovoJogo = 0,
     ListaPontuacao,
     Sair

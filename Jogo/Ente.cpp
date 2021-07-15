@@ -16,7 +16,7 @@ Ente::Ente(EnteInfo* pei)
 // _______________________________________________________________________________
 Ente::~Ente()
 {
-	delete this->enteInfo;
+	this->enteInfo = NULL;
 }
 
 // _______________________________________________________________________________
@@ -27,4 +27,16 @@ void Ente::iniciarBackground(std::string diretorio)
 		std::cout << "ENTE::FALHA AO CARREGAR BACKGROUND" << std::endl;
 	}
 	this->background.setTexture(this->texturaBg);
+}
+
+// _______________________________________________________________________________
+const bool Ente::getEncerrar() const
+{
+	return this->enteInfo->encerrarEnte;
+}
+
+// _______________________________________________________________________________
+void Ente::setEncerrar(const bool e)
+{
+	this->enteInfo->encerrarEnte = e;
 }

@@ -20,7 +20,9 @@ Pontuacao::Pontuacao(EnteInfo* pei) :
 // _______________________________________________________________________________
 Pontuacao::~Pontuacao()
 {
-	delete this->enteInfo;
+	this->enteInfo = NULL;
+	for (auto& linha : this->linhas)
+		delete linha;
 }
 
 // _______________________________________________________________________________
@@ -77,7 +79,7 @@ void Pontuacao::atualizarEventos(sf::Event& evento_sfml)
 	if (evento_sfml.type == sf::Event::KeyReleased)
 	{
 		if (evento_sfml.key.code == sf::Keyboard::Enter)
-			this->enteInfo->entes->pop(); // volta ao menu principal
+			this->enteInfo->encerrarEnte = true; // volta ao menu principal
 	}
 }
 // _______________________________________________________________________________

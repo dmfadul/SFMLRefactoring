@@ -25,6 +25,10 @@ public:
     // Metodos de Inicialização
     void iniciarBackground(std::string diretorio);
 
+    // Setters e getters
+    const bool getEncerrar() const;
+    void setEncerrar(const bool e);
+
     // Métodos de Atualização
     virtual void atualizar() = 0;
     virtual void atualizarEventos(sf::Event& evento_sfml) = 0;
@@ -38,6 +42,7 @@ public:
 struct EnteInfo {
     // Variaveis
     float tamEntidade = 0.f;
+    bool encerrarEnte = false;
     sf::RenderWindow* janela = NULL;
     std::stack<Ente* >* entes = NULL;
 };

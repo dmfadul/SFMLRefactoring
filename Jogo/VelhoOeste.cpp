@@ -16,7 +16,7 @@ VelhoOeste::VelhoOeste(EnteInfo* pei)
 // _______________________________________________________________________________
 VelhoOeste::~VelhoOeste()
 {
-	delete this->enteInfo;
+	this->enteInfo = NULL;
 }
 
 // _______________________________________________________________________________
@@ -31,7 +31,7 @@ void VelhoOeste::atualizarEventos(sf::Event& evento_sfml)
 	if (evento_sfml.type == sf::Event::KeyReleased)
 	{
 		if (evento_sfml.key.code == sf::Keyboard::Escape){
-			this->enteInfo->entes->pop(); // volta ao menu principal
+			this->enteInfo->encerrarEnte = true;; // volta ao menu principal
 		}
 	}
 }

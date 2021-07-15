@@ -41,6 +41,14 @@ void Jogo::atualizar()
 {
     /* Limpa o frame anterior e prepara um novo frame*/
     this->janela.clear();
+
+    // desaloca o ente caso ele foi encerrado
+    if (this->entes.top()->getEncerrar()) {
+        delete this->entes.top();
+        this->entes.pop();
+        this->entes.top()->setEncerrar(false);
+    }
+
     this->entes.top()->atualizar();
 	this->atualizarEventos();
 
