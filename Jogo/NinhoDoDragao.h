@@ -8,7 +8,7 @@ private:
 public:
     // Construtoras e Destrutoras
     NinhoDoDragao();
-    NinhoDoDragao(EnteInfo* pei);
+    NinhoDoDragao(JogoInfo* pji);
     ~NinhoDoDragao();
 
     // Métodos de Atualização

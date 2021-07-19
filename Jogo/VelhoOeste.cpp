@@ -7,8 +7,8 @@ VelhoOeste::VelhoOeste()
 }
 
 // _______________________________________________________________________________
-VelhoOeste::VelhoOeste(EnteInfo* pei)
-	: Fase(pei)
+VelhoOeste::VelhoOeste(JogoInfo* pji)
+	: Fase(pji)
 {
 	this->iniciarBackground("./Recursos/Imagens/velho_oeste.png");
 }
@@ -16,7 +16,7 @@ VelhoOeste::VelhoOeste(EnteInfo* pei)
 // _______________________________________________________________________________
 VelhoOeste::~VelhoOeste()
 {
-	this->enteInfo = NULL;
+	this->jogoInfo = NULL;
 }
 
 // _______________________________________________________________________________
@@ -31,7 +31,7 @@ void VelhoOeste::atualizarEventos(sf::Event& evento_sfml)
 	if (evento_sfml.type == sf::Event::KeyReleased)
 	{
 		if (evento_sfml.key.code == sf::Keyboard::Escape){
-			this->enteInfo->encerrarEnte = true;; // volta ao menu principal
+			this->jogoInfo->setEncerrarEnte(true); // volta ao menu principal
 		}
 	}
 }

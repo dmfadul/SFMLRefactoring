@@ -23,7 +23,7 @@ private:
 public:
     // Construtoras e Destrutoras
     MenuPrincipal();
-    MenuPrincipal(EnteInfo* pei);
+    MenuPrincipal(JogoInfo* pji);
     ~MenuPrincipal();
     
     // Metodos de Inicialização

@@ -8,7 +8,7 @@ private:
 public:
     // Construtoras e Destrutoras
     VelhoOeste();
-    VelhoOeste(EnteInfo* pei);
+    VelhoOeste(JogoInfo* pji);
     ~VelhoOeste();
 
     // Métodos de Atualização

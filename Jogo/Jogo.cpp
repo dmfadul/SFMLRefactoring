@@ -12,6 +12,11 @@ Jogo::Jogo()
 // _______________________________________________________________________________
 Jogo::~Jogo()
 {
+    while(!this->entes.empty())
+    {
+        delete this->entes.top();
+        this->entes.pop();
+    }
 }
 
 // _______________________________________________________________________________
@@ -28,12 +33,12 @@ void Jogo::iniciarJanela()
 void Jogo::iniciarEnte()
 {
     /* Inicia os dados dos entes */
-    this->enteInfo.tamEntidade = 32.f;
-    this->enteInfo.janela = &this->janela;
-    this->enteInfo.entes = &this->entes;
+    this->jogoInfo.setTamEntidade(32.f);
+    this->jogoInfo.setJanela(&this->janela);
+    this->jogoInfo.setEntes(&this->entes);
 
     // Inicia com o Menu Principal
-    this->entes.push(new MenuPrincipal(&this->enteInfo));
+    this->entes.push(new MenuPrincipal(&this->jogoInfo));
 }
 
 // _______________________________________________________________________________
@@ -43,10 +48,10 @@ void Jogo::atualizar()
     this->janela.clear();
 
     // desaloca o ente caso ele foi encerrado
-    if (this->entes.top()->getEncerrar()) {
+    if (this->jogoInfo.getEncerrarEnte()) {
         delete this->entes.top();
         this->entes.pop();
-        this->entes.top()->setEncerrar(false);
+        this->jogoInfo.setEncerrarEnte(false);
     }
 
     this->entes.top()->atualizar();

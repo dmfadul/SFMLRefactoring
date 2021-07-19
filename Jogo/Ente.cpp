@@ -4,19 +4,19 @@
 // _______________________________________________________________________________
 Ente::Ente() 
 { 
-	this->enteInfo = NULL;
+	this->jogoInfo = NULL;
 }
 
 // _______________________________________________________________________________
-Ente::Ente(EnteInfo* pei)
+Ente::Ente(JogoInfo* pji)
 {
-	this->enteInfo = pei;
+	this->jogoInfo = pji;
 }
 
 // _______________________________________________________________________________
 Ente::~Ente()
 {
-	this->enteInfo = NULL;
+	this->jogoInfo = NULL;
 }
 
 // _______________________________________________________________________________
@@ -32,11 +32,11 @@ void Ente::iniciarBackground(std::string diretorio)
 // _______________________________________________________________________________
 const bool Ente::getEncerrar() const
 {
-	return this->enteInfo->encerrarEnte;
+	return this->jogoInfo->getEncerrarEnte();
 }
 
 // _______________________________________________________________________________
 void Ente::setEncerrar(const bool e)
 {
-	this->enteInfo->encerrarEnte = e;
+	this->jogoInfo->setEncerrarEnte(e);
 }

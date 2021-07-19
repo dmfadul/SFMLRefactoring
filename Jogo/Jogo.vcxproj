@@ -159,6 +159,7 @@
     <ClCompile Include="Ente.cpp" />
     <ClCompile Include="Fase.cpp" />
     <ClCompile Include="Jogo.cpp" />
+    <ClCompile Include="JogoInfo.cpp" />
     <ClCompile Include="MenuPrincipal.cpp" />
     <ClCompile Include="NinhoDoDragao.cpp" />
     <ClCompile Include="Origem.cpp" />
@@ -176,6 +177,7 @@
     <ClInclude Include="Ente.h" />
     <ClInclude Include="Fase.h" />
     <ClInclude Include="Jogo.h" />
+    <ClInclude Include="JogoInfo.h" />
     <ClInclude Include="MenuPrincipal.h" />
     <ClInclude Include="NinhoDoDragao.h" />
     <ClInclude Include="Pontuacao.h" />

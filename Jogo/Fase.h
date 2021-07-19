@@ -10,7 +10,7 @@ protected:
 public:
     // Construtoras e Destrutoras
     Fase();
-    Fase(EnteInfo* ente);
+    Fase(JogoInfo* pji);
     virtual ~Fase();
 };
 

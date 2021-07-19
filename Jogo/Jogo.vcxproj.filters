@@ -19,6 +19,9 @@
     <Filter Include="Graficos">
       <UniqueIdentifier>{134f7fbe-c0b7-422f-96c5-2dd686eedd44}</UniqueIdentifier>
     </Filter>
+    <Filter Include="container">
+      <UniqueIdentifier>{a2c9c536-c6a2-4bd8-8288-b78b002db032}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Origem.cpp">
@@ -51,6 +54,9 @@
     <ClCompile Include="NinhoDoDragao.cpp">
       <Filter>Entes</Filter>
     </ClCompile>
+    <ClCompile Include="JogoInfo.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Jogo.h">
@@ -78,6 +84,9 @@
       <Filter>Entes</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="JogoInfo.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
   </ItemGroup>

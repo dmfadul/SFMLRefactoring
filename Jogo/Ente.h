@@ -1,16 +1,14 @@
 #pragma once
 
 #include "Botao.h"
-
-// Armazena informações de todos os entes
-struct EnteInfo;
+#include "JogoInfo.h"
 
 /* Classe abstrata de Entes */
 class Ente
 {
 protected:
 	// Variaveis
-    EnteInfo* enteInfo;
+    JogoInfo* jogoInfo;
 
     // background
     sf::Texture texturaBg;
@@ -19,7 +17,7 @@ protected:
 public:
     // Construtoras e Destrutoras
     Ente();
-    Ente(EnteInfo* pei);
+    Ente(JogoInfo* pji);
     virtual ~Ente();
 
     // Metodos de Inicialização
@@ -36,14 +34,5 @@ public:
     // Métodos de Renderização
     virtual void desenhar(sf::RenderTarget& janela) = 0;
 
-};
-
-/* Estrutura que guarda as informações do Ente. */
-struct EnteInfo {
-    // Variaveis
-    float tamEntidade = 0.f;
-    bool encerrarEnte = false;
-    sf::RenderWindow* janela = NULL;
-    std::stack<Ente* >* entes = NULL;
 };
 

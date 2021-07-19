@@ -7,7 +7,7 @@ NinhoDoDragao::NinhoDoDragao()
 }
 
 // _______________________________________________________________________________
-NinhoDoDragao::NinhoDoDragao(EnteInfo* pei)
+NinhoDoDragao::NinhoDoDragao(JogoInfo* pji)
 {
 }
 

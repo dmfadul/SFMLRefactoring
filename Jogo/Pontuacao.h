@@ -59,7 +59,7 @@ private:
 public:
     // Construtoras e Destrutoras
     Pontuacao();
-    Pontuacao(EnteInfo* pei);
+    Pontuacao(JogoInfo* pji);
     ~Pontuacao();
 
     // Métodos de Inicialização

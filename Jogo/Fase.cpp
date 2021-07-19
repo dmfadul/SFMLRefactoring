@@ -7,8 +7,8 @@ Fase::Fase()
 }
 
 // _______________________________________________________________________________
-Fase::Fase(EnteInfo* pei):
-	Ente(pei)
+Fase::Fase(JogoInfo* pji):
+	Ente(pji)
 {
 }
 

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "MenuPrincipal.h"
+#include "JogoInfo.h"
 
 /* Classe Principal */
 class Jogo
@@ -10,9 +11,9 @@ private:
 	sf::RenderWindow janela;
 	sf::Event eventosSFML;
 
-	// Armazena todos os entes
+	// Armazena as informaçoes do jogo
 	std::stack<Ente* > entes;
-	EnteInfo enteInfo;
+	JogoInfo jogoInfo;
 
 public:
 	// Construtoras e Destrutoras

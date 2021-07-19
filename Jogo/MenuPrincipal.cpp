@@ -9,8 +9,8 @@ MenuPrincipal::MenuPrincipal():
 }
 
 // _______________________________________________________________________________
-MenuPrincipal::MenuPrincipal(EnteInfo* pei):
-	Ente(pei)
+MenuPrincipal::MenuPrincipal(JogoInfo* pji):
+	Ente(pji)
 {
 	this->botaoAtivo = NovoJogo;
 	this->iniciarBotoes();
@@ -20,7 +20,7 @@ MenuPrincipal::MenuPrincipal(EnteInfo* pei):
 // _______________________________________________________________________________
 MenuPrincipal::~MenuPrincipal()
 {
-	delete this->enteInfo;
+	this->jogoInfo = NULL;
 	// desaloca botoes
 	for (auto& botao : this->botoes)
 		delete botao.second;
@@ -30,15 +30,15 @@ MenuPrincipal::~MenuPrincipal()
 void MenuPrincipal::iniciarBotoes()
 {
 	/* Inicia todos os botoes do menu principal */
-	this->botoes[NovoJogo] = new gui::Botao(this->enteInfo->janela->getSize().x / 2 - 100.f, 200.f, "Novo Jogo");
-	this->botoes[ListaPontuacao] = new gui::Botao(this->enteInfo->janela->getSize().x / 2 - 100.f, 260.f, "Pontuação");
-	this->botoes[Sair] = new gui::Botao(this->enteInfo->janela->getSize().x / 2 - 100.f, 380.f, "Sair");
+	this->botoes[NovoJogo] = new gui::Botao(this->jogoInfo->getJanela()->getSize().x / 2 - 100.f, 200.f, "Novo Jogo");
+	this->botoes[ListaPontuacao] = new gui::Botao(this->jogoInfo->getJanela()->getSize().x / 2 - 100.f, 260.f, "Pontuação");
+	this->botoes[Sair] = new gui::Botao(this->jogoInfo->getJanela()->getSize().x / 2 - 100.f, 380.f, "Sair");
 	this->botoes[Sair]->setCorAtivado(sf::Color::Red); // botao sair será vermelho quando ativo
 
 	// Inicia a caixa que contem os botoes
 	this->caixaBotoes.setFillColor(sf::Color(0, 0, 0, 150));
 	this->caixaBotoes.setSize(sf::Vector2f(300.f, 270.f));
-	this->caixaBotoes.setPosition(this->enteInfo->janela->getSize().x /2 - this->caixaBotoes.getGlobalBounds().width / 2, 180.f);
+	this->caixaBotoes.setPosition(this->jogoInfo->getJanela()->getSize().x /2 - this->caixaBotoes.getGlobalBounds().width / 2, 180.f);
 
 	this->botoes[this->botaoAtivo]->ativar();
 }
@@ -87,13 +87,13 @@ void MenuPrincipal::GerenciarCliqueBotao()
 	/* Realiza a ação vinculada com o botao ativo */
 
 	if (this->botaoAtivo == NovoJogo)
-		this->enteInfo->entes->push(new VelhoOeste(this->enteInfo));
+		this->jogoInfo->pushEnte(new VelhoOeste(this->jogoInfo));
 
 	else if (this->botaoAtivo == ListaPontuacao)
-		this->enteInfo->entes->push(new Pontuacao(this->enteInfo));
+		this->jogoInfo->pushEnte(new Pontuacao(this->jogoInfo));
 
 	else if (this->botaoAtivo == Sair)
-		this->enteInfo->janela->close();
+		this->jogoInfo->fecharJanela();
 
 }
 

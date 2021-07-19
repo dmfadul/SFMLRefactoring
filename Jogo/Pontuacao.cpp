@@ -7,8 +7,8 @@ Pontuacao::Pontuacao()
 }
 
 // _______________________________________________________________________________
-Pontuacao::Pontuacao(EnteInfo* pei) :
-	Ente(pei)
+Pontuacao::Pontuacao(JogoInfo* pji) :
+	Ente(pji)
 {
 	// chama os metodos de inicialização
 	this->iniciarBackground("./Recursos/Imagens/pontuacao.png");
@@ -20,7 +20,7 @@ Pontuacao::Pontuacao(EnteInfo* pei) :
 // _______________________________________________________________________________
 Pontuacao::~Pontuacao()
 {
-	this->enteInfo = NULL;
+	this->jogoInfo = NULL;
 	for (auto& linha : this->linhas)
 		delete linha;
 }
@@ -33,14 +33,14 @@ void Pontuacao::iniciarCaixa()
 
 	// Inicia a caixa com 80% do tamanho da janela em comprimento e 60% em altura
 	this->caixaPontuacao.setSize(sf::Vector2f(
-		0.8f * static_cast<float>(this->enteInfo->janela->getSize().x),
-		0.6f * static_cast<float>(this->enteInfo->janela->getSize().y)
+		0.8f * static_cast<float>(this->jogoInfo->getJanela()->getSize().x),
+		0.6f * static_cast<float>(this->jogoInfo->getJanela()->getSize().y)
 	));
 
 	// centraliza na tela
 	this->caixaPontuacao.setPosition(
-		this->enteInfo->janela->getSize().x / 2 - this->caixaPontuacao.getGlobalBounds().width / 2,
-		this->enteInfo->janela->getSize().y / 2 - this->caixaPontuacao.getGlobalBounds().height / 2
+		this->jogoInfo->getJanela()->getSize().x / 2 - this->caixaPontuacao.getGlobalBounds().width / 2,
+		this->jogoInfo->getJanela()->getSize().y / 2 - this->caixaPontuacao.getGlobalBounds().height / 2
 	);
 }
 
@@ -49,8 +49,8 @@ void Pontuacao::iniciarBotao()
 {
 	/* Inicia o botao de voltar */
 	this->botaoVoltar.iniciarBotao(
-		this->enteInfo->janela->getSize().x / 2 - 100.f,
-		this->enteInfo->janela->getSize().y - 100.f,
+		this->jogoInfo->getJanela()->getSize().x / 2 - 100.f,
+		this->jogoInfo->getJanela()->getSize().y - 100.f,
 		"Voltar"
 	);
 	this->botaoVoltar.ativar();
@@ -79,7 +79,7 @@ void Pontuacao::atualizarEventos(sf::Event& evento_sfml)
 	if (evento_sfml.type == sf::Event::KeyReleased)
 	{
 		if (evento_sfml.key.code == sf::Keyboard::Enter)
-			this->enteInfo->encerrarEnte = true; // volta ao menu principal
+			this->jogoInfo->setEncerrarEnte(true); // volta ao menu principal
 	}
 }
 // _______________________________________________________________________________
