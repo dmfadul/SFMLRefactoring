@@ -2,13 +2,14 @@
 #include "VelhoOeste.h"
 
 // _______________________________________________________________________________
-VelhoOeste::VelhoOeste()
+VelhoOeste::VelhoOeste() :
+	mapa(this->jogoInfo, "./Recursos/src/velho_oeste.txt")
 {
 }
 
 // _______________________________________________________________________________
 VelhoOeste::VelhoOeste(JogoInfo* pji)
-	: Fase(pji)
+	: Fase(pji), mapa(this->jogoInfo, "./Recursos/src/velho_oeste.txt")
 {
 	this->iniciarBackground("./Recursos/Imagens/velho_oeste.png");
 }
@@ -41,4 +42,5 @@ void VelhoOeste::desenhar(sf::RenderTarget& janela)
 {
 	/* Desenha o novo frame */
 	janela.draw(this->background);
+	this->mapa.desenharMapa(janela);
 }

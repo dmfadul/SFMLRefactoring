@@ -157,12 +157,15 @@
   <ItemGroup>
     <ClCompile Include="Botao.cpp" />
     <ClCompile Include="Ente.cpp" />
+    <ClCompile Include="Entidade.cpp" />
     <ClCompile Include="Fase.cpp" />
     <ClCompile Include="Jogo.cpp" />
     <ClCompile Include="JogoInfo.cpp" />
+    <ClCompile Include="Mapa.cpp" />
     <ClCompile Include="MenuPrincipal.cpp" />
     <ClCompile Include="NinhoDoDragao.cpp" />
     <ClCompile Include="Origem.cpp" />
+    <ClCompile Include="Plataforma.cpp" />
     <ClCompile Include="Pontuacao.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -175,11 +178,14 @@
   <ItemGroup>
     <ClInclude Include="Botao.h" />
     <ClInclude Include="Ente.h" />
+    <ClInclude Include="Entidade.h" />
     <ClInclude Include="Fase.h" />
     <ClInclude Include="Jogo.h" />
     <ClInclude Include="JogoInfo.h" />
+    <ClInclude Include="Mapa.h" />
     <ClInclude Include="MenuPrincipal.h" />
     <ClInclude Include="NinhoDoDragao.h" />
+    <ClInclude Include="Plataforma.h" />
     <ClInclude Include="Pontuacao.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="VelhoOeste.h" />

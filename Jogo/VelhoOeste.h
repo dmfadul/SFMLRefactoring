@@ -1,10 +1,11 @@
 #pragma once
 #include "Fase.h"
+#include "Mapa.h"
 class VelhoOeste :
     public Fase
 {
 private:
-
+    Mapa mapa;
 public:
     // Construtoras e Destrutoras
     VelhoOeste();

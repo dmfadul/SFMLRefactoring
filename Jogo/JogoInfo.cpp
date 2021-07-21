@@ -5,6 +5,8 @@
 // _______________________________________________________________________________
 JogoInfo::JogoInfo() {
     this->tamEntidade = 0.f;
+    this->tamMapaX = 0;
+    this->tamMapaY = 0;
     this->encerrarEnte = false;
     this->janela = NULL;
     this->entes = NULL;
@@ -18,52 +20,30 @@ JogoInfo::~JogoInfo()
 }
 
 // _______________________________________________________________________________
-void JogoInfo::setTamEntidade(const float te)
-{
-    this->tamEntidade = te;
-}
+void JogoInfo::setTamEntidade(const float te) { this->tamEntidade = te; }
+
+void JogoInfo::setEncerrarEnte(const bool ee) { this->encerrarEnte = ee; }
+
+void JogoInfo::setJanela(sf::RenderWindow* j) { this->janela = j; }
+
+void JogoInfo::setEntes(std::stack<Ente* >* e) { this->entes = e; }
+
+void JogoInfo::setTamMapaX(const unsigned int tx) { this->tamMapaX = tx; }
+
+void JogoInfo::setTamMapaY(const unsigned int ty) { this->tamMapaY = ty; }
 
 // _______________________________________________________________________________
-void JogoInfo::setEncerrarEnte(const bool ee)
-{
-    this->encerrarEnte = ee;
-}
+const unsigned int JogoInfo::getTamMapaX() const { return this->tamMapaX; }
 
-// _______________________________________________________________________________
-void JogoInfo::setJanela(sf::RenderWindow* j)
-{
-    this->janela = j;
-}
+const unsigned int JogoInfo::getTamMapaY() const { return this->tamMapaY; }
 
-// _______________________________________________________________________________
-void JogoInfo::setEntes(std::stack<Ente* >* e)
-{
-    this->entes = e;
-}
+const float JogoInfo::getTamEntidade() const { return this->tamEntidade; }
 
-// _______________________________________________________________________________
-const float JogoInfo::getTamEntidade() const
-{
-    return this->tamEntidade;
-}
+const bool JogoInfo::getEncerrarEnte() const { return this->encerrarEnte; }
 
-// _______________________________________________________________________________
-const bool JogoInfo::getEncerrarEnte() const
-{
-    return encerrarEnte;
-}
+const sf::RenderWindow* JogoInfo::getJanela() const { return this->janela; }
 
-// _______________________________________________________________________________
-const sf::RenderWindow* JogoInfo::getJanela() const
-{
-    return this->janela;
-}
-
-// _______________________________________________________________________________
-const std::stack<Ente*>* JogoInfo::getEntes() const
-{
-    return this->entes;
-}
+const std::stack<Ente*>* JogoInfo::getEntes() const { return this->entes;}
 
 // _______________________________________________________________________________
 void JogoInfo::pushEnte(Ente* e)
