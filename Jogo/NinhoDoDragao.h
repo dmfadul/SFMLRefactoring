@@ -4,11 +4,11 @@ class NinhoDoDragao :
     public Fase
 {
 private:
+    Mapa mapa;
 
 public:
     // Construtoras e Destrutoras
-    NinhoDoDragao();
-    NinhoDoDragao(JogoInfo* pji);
+    NinhoDoDragao(JogoInfo* pji = NULL);
     ~NinhoDoDragao();
 
     // Métodos de Atualização

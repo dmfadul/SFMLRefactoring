@@ -11,7 +11,7 @@ Pontuacao::Pontuacao(JogoInfo* pji) :
 	Ente(pji)
 {
 	// chama os metodos de inicialização
-	this->iniciarBackground("./Recursos/Imagens/pontuacao.png");
+	this->iniciarBackground("./Recursos/Imagens/backgrounds/pontuacao.png");
 	this->iniciarCaixa();
 	this->iniciarBotao();
 	this->iniciarLinhas();
@@ -79,7 +79,7 @@ void Pontuacao::atualizarEventos(sf::Event& evento_sfml)
 	if (evento_sfml.type == sf::Event::KeyReleased)
 	{
 		if (evento_sfml.key.code == sf::Keyboard::Enter)
-			this->jogoInfo->setEncerrarEnte(true); // volta ao menu principal
+			this->jogoInfo->popEnte(); // volta ao menu principal
 	}
 }
 // _______________________________________________________________________________

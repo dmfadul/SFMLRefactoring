@@ -2,14 +2,10 @@
 #include "Mapa.h"
 
 // _______________________________________________________________________________
-Mapa::Mapa(JogoInfo* pji, std::string diretorio)
-	:jogoinfo(pji)
+Mapa::Mapa(JogoInfo* pji, std::string diretorio, int ini, int qtd)
+	:jogoinfo(pji), inicioPlataformas(ini), qtdPlataformas(qtd)
 {
-
-	this->tamMapaX = pji->getTamMapaX();
-	this->tamMapaY = pji->getTamMapaY();
-	this->tamEntidade = pji->getTamEntidade();
-
+	this->iniciarVariaveis();
 	this->carregarMapa(diretorio);
 	this->iniciarEntidades();
 }
@@ -28,7 +24,18 @@ Mapa::~Mapa()
 	for (auto& ent : this->entidades) {
 		delete ent;
 	}
-} 
+	
+	this->jogoinfo = NULL;
+
+}
+
+// _______________________________________________________________________________
+void Mapa::iniciarVariaveis()
+{
+	this->tamMapaX = this->jogoinfo->getTamMapaX();
+	this->tamMapaY = this->jogoinfo->getTamMapaY();
+	this->tamEntidade = this->jogoinfo->getTamEntidade();
+}
 
 // _______________________________________________________________________________
 void Mapa::carregarMapa(std::string diretorio)
@@ -58,9 +65,13 @@ void Mapa::carregarMapa(std::string diretorio)
 // _______________________________________________________________________________
 void Mapa::iniciarEntidades()
 {
-	for (int i = 1; i < 10; i++) {
-		entidades.push_back(new Plataforma(i, true));
+	/* Inicia todas as plataformas e obstaculos*/
+	// inicia todas as plataformas
+	for (int i = 0; i < this->qtdPlataformas; i++) {
+		this->entidades.push_back(new Plataforma(this->inicioPlataformas + i));
 	}
+	
+	this->entidades.push_back(new Cactus(1));
 }
 
 // _______________________________________________________________________________
@@ -70,7 +81,7 @@ void Mapa::desenharMapa(sf::RenderTarget& janela)
 	for (int x = 0; x < this->tamMapaX; x++) {
 		for (int y = 0; y < this->tamMapaY; y++) {
 			int ent = mapa[x][y] - 1;
-			if (ent > 0) {
+			if (ent >= 0) {
 				entidades[ent]->setPosicao(x * this->tamEntidade, y * this->tamEntidade);
 				entidades[ent]->desenharEntidade(janela);
 			}

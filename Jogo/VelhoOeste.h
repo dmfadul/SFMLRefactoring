@@ -1,15 +1,14 @@
 #pragma once
-#include "Fase.h"
-#include "Mapa.h"
+#include "NinhoDoDragao.h"
 class VelhoOeste :
     public Fase
 {
 private:
     Mapa mapa;
+
 public:
     // Construtoras e Destrutoras
-    VelhoOeste();
-    VelhoOeste(JogoInfo* pji);
+    VelhoOeste(JogoInfo* pji = NULL);
     ~VelhoOeste();
 
     // Métodos de Atualização

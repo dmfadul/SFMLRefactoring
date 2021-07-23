@@ -12,11 +12,7 @@ Jogo::Jogo()
 // _______________________________________________________________________________
 Jogo::~Jogo()
 {
-    while(!this->entes.empty())
-    {
-        delete this->entes.top();
-        this->entes.pop();
-    }
+    
 }
 
 // _______________________________________________________________________________
@@ -37,10 +33,9 @@ void Jogo::iniciarEnte()
     this->jogoInfo.setTamMapaY(19);
     this->jogoInfo.setTamEntidade(32.f);
     this->jogoInfo.setJanela(&this->janela);
-    this->jogoInfo.setEntes(&this->entes);
 
     // Inicia com o Menu Principal
-    this->entes.push(new MenuPrincipal(&this->jogoInfo));
+    this->jogoInfo.pushEnte(static_cast<Ente*>(new MenuPrincipal(&this->jogoInfo)));
 }
 
 // _______________________________________________________________________________
@@ -49,15 +44,8 @@ void Jogo::atualizar()
     /* Limpa o frame anterior e prepara um novo frame*/
     this->janela.clear();
 
-    // desaloca o ente caso ele foi encerrado
-    if (this->jogoInfo.getEncerrarEnte()) {
-        delete this->entes.top();
-        this->entes.pop();
-        this->jogoInfo.setEncerrarEnte(false);
-    }
-
-    this->entes.top()->atualizar();
-	this->atualizarEventos();
+    this->atualizarEventos();
+    this->jogoInfo.enteTop()->atualizar();
 
 }
 
@@ -68,7 +56,7 @@ void Jogo::atualizarEventos()
     while (this->janela.pollEvent(this->eventosSFML))
     {
         // Atualiza eventos no ente
-        this->entes.top()->atualizarEventos(this->eventosSFML);
+        this->jogoInfo.enteTop()->atualizarEventos(this->eventosSFML);
 
         // checa por fechamento de tela
         if (this->eventosSFML.type == sf::Event::Closed)
@@ -80,7 +68,7 @@ void Jogo::atualizarEventos()
 void Jogo::desenhar()
 {
     /* Desenha o novo frame na janela */
-    this->entes.top()->desenhar(this->janela);
+    this->jogoInfo.enteTop()->desenhar(this->janela);
 
     this->janela.display();
 }

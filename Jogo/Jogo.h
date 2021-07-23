@@ -12,7 +12,6 @@ private:
 	sf::Event eventosSFML;
 
 	// Armazena as informaçoes do jogo
-	std::stack<Ente* > entes;
 	JogoInfo jogoInfo;
 
 public:

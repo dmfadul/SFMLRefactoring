@@ -10,9 +10,8 @@ private:
     float tamEntidade;
     unsigned int tamMapaX;
     unsigned int tamMapaY;
-    bool encerrarEnte;
     sf::RenderWindow* janela;
-    std::stack<Ente* >* entes;
+    std::stack<Ente* > entes;
 
 public:
     JogoInfo();
@@ -22,7 +21,6 @@ public:
     void setTamEntidade(const float te);
     void setEncerrarEnte(const bool ee);
     void setJanela(sf::RenderWindow* j);
-    void setEntes(std::stack<Ente* >* e);
     void setTamMapaX(const unsigned int tx);
     void setTamMapaY(const unsigned int ty);
 
@@ -32,10 +30,12 @@ public:
     const float getTamEntidade() const;
     const bool getEncerrarEnte() const;
     const sf::RenderWindow* getJanela() const;
-    const std::stack<Ente* >* getEntes() const;
+    Ente* enteTop();
     
     // metodos
     void pushEnte(Ente* e);
+    void popEnte();
+    void trocarEnte(Ente* e);
     void fecharJanela();
 };
 

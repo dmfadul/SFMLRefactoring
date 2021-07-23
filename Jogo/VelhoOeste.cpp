@@ -2,16 +2,10 @@
 #include "VelhoOeste.h"
 
 // _______________________________________________________________________________
-VelhoOeste::VelhoOeste() :
-	mapa(this->jogoInfo, "./Recursos/src/velho_oeste.txt")
-{
-}
-
-// _______________________________________________________________________________
 VelhoOeste::VelhoOeste(JogoInfo* pji)
-	: Fase(pji), mapa(this->jogoInfo, "./Recursos/src/velho_oeste.txt")
+	: Fase(pji), mapa(this->jogoInfo, "./Recursos/mapas/velho_oeste.txt", 1, 11)
 {
-	this->iniciarBackground("./Recursos/Imagens/velho_oeste.png");
+	this->iniciarBackground("./Recursos/Imagens/backgrounds/velho_oeste.png");
 }
 
 // _______________________________________________________________________________
@@ -32,7 +26,7 @@ void VelhoOeste::atualizarEventos(sf::Event& evento_sfml)
 	if (evento_sfml.type == sf::Event::KeyReleased)
 	{
 		if (evento_sfml.key.code == sf::Keyboard::Escape){
-			this->jogoInfo->setEncerrarEnte(true); // volta ao menu principal
+			this->jogoInfo->popEnte(); // volta ao menu principal
 		}
 	}
 }

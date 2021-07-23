@@ -58,13 +58,22 @@
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
     <ClCompile Include="Mapa.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="Entidade.cpp">
-      <Filter>Arquivos de Origem</Filter>
+      <Filter>Graficos</Filter>
     </ClCompile>
     <ClCompile Include="Plataforma.cpp">
-      <Filter>Arquivos de Origem</Filter>
+      <Filter>Graficos</Filter>
+    </ClCompile>
+    <ClCompile Include="Entidade.cpp">
+      <Filter>Graficos</Filter>
+    </ClCompile>
+    <ClCompile Include="Obstaculo.cpp">
+      <Filter>Graficos</Filter>
+    </ClCompile>
+    <ClCompile Include="Cactus.cpp">
+      <Filter>Graficos</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuEscolhaFases.cpp">
+      <Filter>Entes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -98,14 +107,23 @@
     <ClInclude Include="JogoInfo.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
-    <ClInclude Include="Mapa.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
+    <ClInclude Include="Plataforma.h">
+      <Filter>Graficos</Filter>
     </ClInclude>
     <ClInclude Include="Entidade.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
+      <Filter>Graficos</Filter>
     </ClInclude>
-    <ClInclude Include="Plataforma.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
+    <ClInclude Include="Mapa.h">
+      <Filter>Graficos</Filter>
+    </ClInclude>
+    <ClInclude Include="Obstaculo.h">
+      <Filter>Graficos</Filter>
+    </ClInclude>
+    <ClInclude Include="Cactus.h">
+      <Filter>Graficos</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuEscolhaFases.h">
+      <Filter>Entes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

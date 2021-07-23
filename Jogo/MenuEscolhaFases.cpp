@@ -1,17 +1,18 @@
 #include "stdafx.h"
-#include "MenuPrincipal.h"
+#include "MenuEscolhaFases.h"
 
 // _______________________________________________________________________________
-MenuPrincipal::MenuPrincipal(JogoInfo* pji):
-	Ente(pji)
+MenuEscolhaFases::MenuEscolhaFases(JogoInfo* pji)
+	:Ente(pji)
 {
-	this->botaoAtivo = novo_jogo;
+	this->botaoAtivo = velho_oeste;
 	this->iniciarBotoes();
-	this->iniciarBackground("./Recursos/Imagens/backgrounds/menu.png");
+	this->iniciarBackground("./Recursos/Imagens/backgrounds/bg.png");
+
 }
 
 // _______________________________________________________________________________
-MenuPrincipal::~MenuPrincipal()
+MenuEscolhaFases::~MenuEscolhaFases()
 {
 	this->jogoInfo = NULL;
 	// desaloca botoes
@@ -20,30 +21,28 @@ MenuPrincipal::~MenuPrincipal()
 }
 
 // _______________________________________________________________________________
-void MenuPrincipal::iniciarBotoes()
+void MenuEscolhaFases::iniciarBotoes()
 {
 	/* Inicia todos os botoes do menu principal */
-	this->botoes[novo_jogo] = new gui::Botao(this->jogoInfo->getJanela()->getSize().x / 2 - 100.f, 200.f, "Novo Jogo");
-	this->botoes[escolha_de_fases] = new gui::Botao(this->jogoInfo->getJanela()->getSize().x / 2 - 100.f, 255.f, "Escolher Fase");
-	this->botoes[lista_de_pontuacoes] = new gui::Botao(this->jogoInfo->getJanela()->getSize().x / 2 - 100.f, 320.f, "Pontuação");
-	this->botoes[sair] = new gui::Botao(this->jogoInfo->getJanela()->getSize().x / 2 - 100.f, 380.f, "Sair");
-	this->botoes[sair]->setCorAtivado(sf::Color::Red); // botao sair será vermelho quando ativo
+	this->botoes[velho_oeste] = new gui::Botao(this->jogoInfo->getJanela()->getSize().x / 2 - 100.f, 200.f, "Velho Oeste");
+	this->botoes[ninho_do_dragao] = new gui::Botao(this->jogoInfo->getJanela()->getSize().x / 2 - 100.f, 260.f, "Ninho Do Dragão");
+	this->botoes[voltar] = new gui::Botao(this->jogoInfo->getJanela()->getSize().x / 2 - 100.f, 380.f, "Voltar");
 
 	// Inicia a caixa que contem os botoes
 	this->caixaBotoes.setFillColor(sf::Color(0, 0, 0, 150));
 	this->caixaBotoes.setSize(sf::Vector2f(300.f, 270.f));
-	this->caixaBotoes.setPosition(this->jogoInfo->getJanela()->getSize().x /2 - this->caixaBotoes.getGlobalBounds().width / 2, 180.f);
+	this->caixaBotoes.setPosition(this->jogoInfo->getJanela()->getSize().x / 2 - this->caixaBotoes.getGlobalBounds().width / 2, 180.f);
 
 	this->botoes[this->botaoAtivo]->ativar();
 }
 
 // _______________________________________________________________________________
-void MenuPrincipal::atualizar()
+void MenuEscolhaFases::atualizar()
 {
 }
 
 // _______________________________________________________________________________
-void MenuPrincipal::atualizarEventos(sf::Event& evento_sfml)
+void MenuEscolhaFases::atualizarEventos(sf::Event& evento_sfml)
 {
 	/* Checa por eventos SFML*/
 	if (evento_sfml.type == sf::Event::KeyReleased)
@@ -58,7 +57,7 @@ void MenuPrincipal::atualizarEventos(sf::Event& evento_sfml)
 }
 
 // _______________________________________________________________________________
-void MenuPrincipal::trocarBotao(int direcao)
+void MenuEscolhaFases::trocarBotao(int direcao)
 {
 	/* Muda o botao ativo */
 
@@ -76,25 +75,22 @@ void MenuPrincipal::trocarBotao(int direcao)
 }
 
 // _______________________________________________________________________________
-void MenuPrincipal::GerenciarCliqueBotao()
+void MenuEscolhaFases::GerenciarCliqueBotao()
 {
 	/* Realiza a ação vinculada com o botao ativo */
 
-	if (this->botaoAtivo == novo_jogo)
-		this->jogoInfo->pushEnte(static_cast<Ente* >(new VelhoOeste(this->jogoInfo)));
-	
-	else if(this->botaoAtivo == escolha_de_fases)
-		this->jogoInfo->pushEnte(static_cast<Ente*>(new MenuEscolhaFases(this->jogoInfo)));
+	if (this->botaoAtivo == velho_oeste)
+		this->jogoInfo->trocarEnte(static_cast<Ente*>(new VelhoOeste(this->jogoInfo)));
 
-	else if (this->botaoAtivo == lista_de_pontuacoes)
-		this->jogoInfo->pushEnte(static_cast<Ente* >(new Pontuacao(this->jogoInfo)));
+	else if (this->botaoAtivo == ninho_do_dragao)
+		this->jogoInfo->trocarEnte(static_cast<Ente*>(new NinhoDoDragao(this->jogoInfo)));
 
-	else if (this->botaoAtivo == sair)
-		this->jogoInfo->fecharJanela();
+	else if (this->botaoAtivo == voltar)
+		this->jogoInfo->popEnte();
 }
 
 // _______________________________________________________________________________
-void MenuPrincipal::desenhar(sf::RenderTarget& janela)
+void MenuEscolhaFases::desenhar(sf::RenderTarget& janela)
 {
 	/* Desenha o novo frame na janela */
 

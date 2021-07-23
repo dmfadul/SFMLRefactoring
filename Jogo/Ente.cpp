@@ -28,15 +28,3 @@ void Ente::iniciarBackground(std::string diretorio)
 	}
 	this->background.setTexture(this->texturaBg);
 }
-
-// _______________________________________________________________________________
-const bool Ente::getEncerrar() const
-{
-	return this->jogoInfo->getEncerrarEnte();
-}
-
-// _______________________________________________________________________________
-void Ente::setEncerrar(const bool e)
-{
-	this->jogoInfo->setEncerrarEnte(e);
-}

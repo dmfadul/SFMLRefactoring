@@ -13,10 +13,12 @@ public:
 	Entidade(int indice = 0, const bool colidir = true);
 	virtual ~Entidade();
 
-	// metodos
+	// getters e setters
 	const bool getColidir() const;
 	void setPosicao(const float x, const float y);
-	void iniciarSprite(int indice);
+
+	// metodos
+	virtual void iniciarSprite(int indice) = 0;
 	void desenharEntidade(sf::RenderTarget& janela);
 
 };

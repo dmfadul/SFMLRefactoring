@@ -1,5 +1,6 @@
 #pragma once
 #include "Ente.h"
+#include "Mapa.h"
 
 /* Classe abstrata de Fase */
 class Fase :
@@ -9,8 +10,7 @@ protected:
 
 public:
     // Construtoras e Destrutoras
-    Fase();
-    Fase(JogoInfo* pji);
+    Fase(JogoInfo* pji = NULL);
     virtual ~Fase();
 };
 

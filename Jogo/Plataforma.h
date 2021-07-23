@@ -12,6 +12,6 @@ public:
     Plataforma(int indice = 0,const bool colidir = true);
     ~Plataforma();
 
-
+    void iniciarSprite(int indice);
 };
 

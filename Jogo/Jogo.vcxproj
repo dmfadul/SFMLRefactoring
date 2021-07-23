@@ -156,14 +156,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Botao.cpp" />
+    <ClCompile Include="Cactus.cpp" />
     <ClCompile Include="Ente.cpp" />
     <ClCompile Include="Entidade.cpp" />
     <ClCompile Include="Fase.cpp" />
     <ClCompile Include="Jogo.cpp" />
     <ClCompile Include="JogoInfo.cpp" />
     <ClCompile Include="Mapa.cpp" />
+    <ClCompile Include="MenuEscolhaFases.cpp" />
     <ClCompile Include="MenuPrincipal.cpp" />
     <ClCompile Include="NinhoDoDragao.cpp" />
+    <ClCompile Include="Obstaculo.cpp" />
     <ClCompile Include="Origem.cpp" />
     <ClCompile Include="Plataforma.cpp" />
     <ClCompile Include="Pontuacao.cpp" />
@@ -177,14 +180,17 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Botao.h" />
+    <ClInclude Include="Cactus.h" />
     <ClInclude Include="Ente.h" />
     <ClInclude Include="Entidade.h" />
     <ClInclude Include="Fase.h" />
     <ClInclude Include="Jogo.h" />
     <ClInclude Include="JogoInfo.h" />
     <ClInclude Include="Mapa.h" />
+    <ClInclude Include="MenuEscolhaFases.h" />
     <ClInclude Include="MenuPrincipal.h" />
     <ClInclude Include="NinhoDoDragao.h" />
+    <ClInclude Include="Obstaculo.h" />
     <ClInclude Include="Plataforma.h" />
     <ClInclude Include="Pontuacao.h" />
     <ClInclude Include="stdafx.h" />

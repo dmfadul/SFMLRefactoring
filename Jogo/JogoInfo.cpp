@@ -3,30 +3,30 @@
 #include "Ente.h"
 
 // _______________________________________________________________________________
-JogoInfo::JogoInfo() {
+JogoInfo::JogoInfo():
+    entes()
+{
     this->tamEntidade = 0.f;
     this->tamMapaX = 0;
     this->tamMapaY = 0;
-    this->encerrarEnte = false;
     this->janela = NULL;
-    this->entes = NULL;
 }
 
 // _______________________________________________________________________________
 JogoInfo::~JogoInfo()
 {
     this->janela = NULL;
-    this->entes = NULL;
+    while (!this->entes.empty())
+    {
+        delete this->entes.top();
+        this->entes.pop();
+    }
 }
 
 // _______________________________________________________________________________
 void JogoInfo::setTamEntidade(const float te) { this->tamEntidade = te; }
 
-void JogoInfo::setEncerrarEnte(const bool ee) { this->encerrarEnte = ee; }
-
 void JogoInfo::setJanela(sf::RenderWindow* j) { this->janela = j; }
-
-void JogoInfo::setEntes(std::stack<Ente* >* e) { this->entes = e; }
 
 void JogoInfo::setTamMapaX(const unsigned int tx) { this->tamMapaX = tx; }
 
@@ -39,16 +39,29 @@ const unsigned int JogoInfo::getTamMapaY() const { return this->tamMapaY; }
 
 const float JogoInfo::getTamEntidade() const { return this->tamEntidade; }
 
-const bool JogoInfo::getEncerrarEnte() const { return this->encerrarEnte; }
-
 const sf::RenderWindow* JogoInfo::getJanela() const { return this->janela; }
 
-const std::stack<Ente*>* JogoInfo::getEntes() const { return this->entes;}
+Ente* JogoInfo::enteTop() { return this->entes.top(); }
 
 // _______________________________________________________________________________
 void JogoInfo::pushEnte(Ente* e)
 {
-    this->entes->push(e);
+    this->entes.push(e);
+}
+
+// _______________________________________________________________________________
+void JogoInfo::popEnte()
+{
+    delete this->entes.top();
+    this->entes.pop();
+}
+
+// _______________________________________________________________________________
+void JogoInfo::trocarEnte(Ente* e)
+{
+    /* Substitui o ente atual pelo novo */
+    this->popEnte();
+    this->pushEnte(e);
 }
 
 // _______________________________________________________________________________
