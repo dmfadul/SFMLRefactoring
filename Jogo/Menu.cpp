@@ -33,6 +33,9 @@ void Menu::trocarBotao(int direcao)
 {
 	/* Muda o botao ativo */
 
+	// toca som de troca de botao
+	this->jogoInfo->getTocaDisco()->tocarTrocaBotao();
+
 	// desativa o botao atual
 	this->botoes[this->botaoAtivo]->desativar();
 

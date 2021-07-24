@@ -16,6 +16,7 @@ JogoInfo::JogoInfo():
 JogoInfo::~JogoInfo()
 {
     this->janela = NULL;
+    this->tocaDisco = NULL;
     while (!this->entes.empty())
     {
         delete this->entes.top();
@@ -29,6 +30,8 @@ void JogoInfo::setTamEntidade(const float te) { this->tamEntidade = te; }
 
 void JogoInfo::setJanela(sf::RenderWindow* j) { this->janela = j; }
 
+void JogoInfo::setTocaDisco(TocaDisco* td) { this->tocaDisco = td; }
+
 void JogoInfo::setTamMapa(unsigned x, unsigned y) { this->tamMapa = sf::Vector2u(x, y); }
 
 // _______________________________________________________________________________
@@ -36,6 +39,8 @@ void JogoInfo::setTamMapa(unsigned x, unsigned y) { this->tamMapa = sf::Vector2u
 const sf::Vector2u JogoInfo::getTamMapa() const { return this->tamMapa; }
 
 const float JogoInfo::getTamEntidade() const { return this->tamEntidade; }
+
+TocaDisco* JogoInfo::getTocaDisco() const { return this->tocaDisco; }
 
 const sf::Vector2u JogoInfo::getTamJanela() const { return this->janela->getSize(); }
 

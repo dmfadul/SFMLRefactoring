@@ -40,8 +40,10 @@ void MenuQtdJogadores::GerenciarCliqueBotao()
 {
 	/* Realiza a ação vinculada com o botao ativo */
 
-	if (this->botaoAtivo == um_jogador || this->botaoAtivo == dois_jogadores)
+	if (this->botaoAtivo == um_jogador || this->botaoAtivo == dois_jogadores) {
+		this->jogoInfo->getTocaDisco()->pararMusica();
 		this->jogoInfo->trocarEnte(static_cast<Ente*>(new VelhoOeste(this->jogoInfo)));
+	}
 
 	else if (this->botaoAtivo == voltar)
 		this->jogoInfo->popEnte();

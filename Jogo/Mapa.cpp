@@ -14,8 +14,8 @@ Mapa::Mapa(JogoInfo* pji, std::string diretorio, int ini, int qtd)
 Mapa::~Mapa()
 {
 	// desaloca mapa
-	for (int y = 0; y < this->tamMapa.y; y++) {
-		for (int x = 0; x < this->tamMapa.x; x++) {
+	for (unsigned int y = 0; y < this->tamMapa.y; y++) {
+		for (unsigned int x = 0; x < this->tamMapa.x; x++) {
 			this->mapa[x][y] = NULL;
 		}
 	}
@@ -41,7 +41,7 @@ void Mapa::carregarMapa(std::string diretorio)
 {
 	/* le o mapa apartir de um arquivo */
 	this->mapa.resize(tamMapa.x);
-	for (int i = 0; i < tamMapa.x; i++)
+	for (unsigned int i = 0; i < tamMapa.x; i++)
 		this->mapa[i].resize(tamMapa.y);
 
 	// abre o arquivo com o mapa
@@ -50,8 +50,8 @@ void Mapa::carregarMapa(std::string diretorio)
 	int n = 0;
 
 	// salva o mapa na matriz mapa
-	for (int y = 0; y < tamMapa.y; y++) {
-		for (int x = 0; x < tamMapa.x; x++) {
+	for (unsigned int y = 0; y < tamMapa.y; y++) {
+		for (unsigned int x = 0; x < tamMapa.x; x++) {
 			if (arquivo_mapa >> n)
 				this->mapa[x][y] = n;
 		}
@@ -77,8 +77,8 @@ void Mapa::iniciarEntidades()
 void Mapa::desenharMapa(sf::RenderTarget& janela)
 {
 	/* desenha todas as entidades */
-	for (int x = 0; x < this->tamMapa.x; x++) {
-		for (int y = 0; y < this->tamMapa.y; y++) {
+	for (unsigned int x = 0; x < this->tamMapa.x; x++) {
+		for (unsigned int y = 0; y < this->tamMapa.y; y++) {
 			int ent = mapa[x][y] - 1;
 			if (ent >= 0) {
 				entidades[ent]->setPosicao(x * this->tamEntidade, y * this->tamEntidade);

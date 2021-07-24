@@ -4,9 +4,9 @@
 // _______________________________________________________________________________
 Jogo::Jogo()
 {
-    // Inicia Variaveis
+    // Inicia Configurações iniciais do jogo
 	this->iniciarJanela();
-    this->iniciarEnte();
+    this->iniciarJogoInfo();
 }
 
 // _______________________________________________________________________________
@@ -19,19 +19,20 @@ Jogo::~Jogo()
 void Jogo::iniciarJanela()
 {
 	/* Inicia a janela principal do jogo*/
-    this->janela.create(sf::VideoMode(800, 600), "NOME DO JOGO (ALTERAR)");
+    this->janela.create(sf::VideoMode(800, 600), "Corre Do Gaucho");
 
     // define taxa de frame
     this->janela.setFramerateLimit(60);
 }
 
 // _______________________________________________________________________________
-void Jogo::iniciarEnte()
+void Jogo::iniciarJogoInfo()
 {
-    /* Inicia os dados dos entes */
+    /* Inicia informações do jogo */
     this->jogoInfo.setTamMapa(25, 19);
     this->jogoInfo.setTamEntidade(32.f);
     this->jogoInfo.setJanela(&this->janela);
+    this->jogoInfo.setTocaDisco(&this->tocaDisco);
 
     // Inicia com o Menu Principal
     this->jogoInfo.pushEnte(static_cast<Ente*>(new MenuPrincipal(&this->jogoInfo)));

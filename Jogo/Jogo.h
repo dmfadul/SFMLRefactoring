@@ -2,6 +2,7 @@
 
 #include "MenuPrincipal.h"
 #include "JogoInfo.h"
+#include "TocaDisco.h"
 
 /* Classe Principal */
 class Jogo
@@ -14,6 +15,8 @@ private:
 	// Armazena as informaçoes do jogo
 	JogoInfo jogoInfo;
 
+	TocaDisco tocaDisco;
+
 public:
 	// Construtoras e Destrutoras
 	Jogo();
@@ -21,7 +24,7 @@ public:
 
 	// Métodos de Inicialização
 	void iniciarJanela();
-	void iniciarEnte();
+	void iniciarJogoInfo();
 
 	// Métodos de Atualização
 	void atualizar();

@@ -45,11 +45,15 @@ void MenuEscolhaFases::GerenciarCliqueBotao()
 {
 	/* Realiza a ação vinculada com o botao ativo */
 
-	if (this->botaoAtivo == velho_oeste)
+	if (this->botaoAtivo == velho_oeste) {
+		this->jogoInfo->getTocaDisco()->pararMusica();
 		this->jogoInfo->trocarEnte(static_cast<Ente*>(new VelhoOeste(this->jogoInfo)));
+	}
 
-	else if (this->botaoAtivo == ninho_do_dragao)
+	else if (this->botaoAtivo == ninho_do_dragao) {
+		this->jogoInfo->getTocaDisco()->pararMusica();
 		this->jogoInfo->trocarEnte(static_cast<Ente*>(new NinhoDoDragao(this->jogoInfo)));
+	}
 
 	else if (this->botaoAtivo == voltar)
 		this->jogoInfo->popEnte();

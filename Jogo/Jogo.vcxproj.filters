@@ -22,12 +22,12 @@
     <Filter Include="container">
       <UniqueIdentifier>{a2c9c536-c6a2-4bd8-8288-b78b002db032}</UniqueIdentifier>
     </Filter>
+    <Filter Include="sons">
+      <UniqueIdentifier>{e572a3a7-b0fc-4864-951e-30dd668159fc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Origem.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="stdafx.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
     <ClCompile Include="Jogo.cpp">
@@ -54,9 +54,6 @@
     <ClCompile Include="NinhoDoDragao.cpp">
       <Filter>Entes</Filter>
     </ClCompile>
-    <ClCompile Include="JogoInfo.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
     <ClCompile Include="Mapa.cpp">
       <Filter>Graficos</Filter>
     </ClCompile>
@@ -80,6 +77,15 @@
     </ClCompile>
     <ClCompile Include="MenuQtdJogadores.cpp">
       <Filter>Entes</Filter>
+    </ClCompile>
+    <ClCompile Include="JogoInfo.cpp">
+      <Filter>container</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Arquivos de Recurso</Filter>
+    </ClCompile>
+    <ClCompile Include="TocaDisco.cpp">
+      <Filter>sons</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -107,12 +113,6 @@
     <ClInclude Include="NinhoDoDragao.h">
       <Filter>Entes</Filter>
     </ClInclude>
-    <ClInclude Include="stdafx.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="JogoInfo.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
     <ClInclude Include="Plataforma.h">
       <Filter>Graficos</Filter>
     </ClInclude>
@@ -136,6 +136,15 @@
     </ClInclude>
     <ClInclude Include="MenuQtdJogadores.h">
       <Filter>Entes</Filter>
+    </ClInclude>
+    <ClInclude Include="JogoInfo.h">
+      <Filter>container</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Arquivos de Recurso</Filter>
+    </ClInclude>
+    <ClInclude Include="TocaDisco.h">
+      <Filter>sons</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

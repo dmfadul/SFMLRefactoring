@@ -8,6 +8,7 @@ MenuPrincipal::MenuPrincipal(JogoInfo* pji):
 	this->botaoAtivo = novo_jogo;
 	this->iniciarBotoes();
 	this->iniciarBackground("./Recursos/Imagens/backgrounds/menu.png");
+	this->jogoInfo->getTocaDisco()->tocarMusicaInicio();
 }
 
 // _______________________________________________________________________________
