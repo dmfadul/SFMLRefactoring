@@ -7,8 +7,8 @@ JogoInfo::JogoInfo():
     entes()
 {
     this->tamEntidade = 0.f;
-    this->tamMapaX = 0;
-    this->tamMapaY = 0;
+    this->tamMapa.x = 0;
+    this->tamMapa.y = 0;
     this->janela = NULL;
 }
 
@@ -24,22 +24,20 @@ JogoInfo::~JogoInfo()
 }
 
 // _______________________________________________________________________________
+/* Setters */
 void JogoInfo::setTamEntidade(const float te) { this->tamEntidade = te; }
 
 void JogoInfo::setJanela(sf::RenderWindow* j) { this->janela = j; }
 
-void JogoInfo::setTamMapaX(const unsigned int tx) { this->tamMapaX = tx; }
-
-void JogoInfo::setTamMapaY(const unsigned int ty) { this->tamMapaY = ty; }
+void JogoInfo::setTamMapa(unsigned x, unsigned y) { this->tamMapa = sf::Vector2u(x, y); }
 
 // _______________________________________________________________________________
-const unsigned int JogoInfo::getTamMapaX() const { return this->tamMapaX; }
-
-const unsigned int JogoInfo::getTamMapaY() const { return this->tamMapaY; }
+/* Getters */
+const sf::Vector2u JogoInfo::getTamMapa() const { return this->tamMapa; }
 
 const float JogoInfo::getTamEntidade() const { return this->tamEntidade; }
 
-const sf::RenderWindow* JogoInfo::getJanela() const { return this->janela; }
+const sf::Vector2u JogoInfo::getTamJanela() const { return this->janela->getSize(); }
 
 Ente* JogoInfo::enteTop() { return this->entes.top(); }
 

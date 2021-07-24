@@ -75,6 +75,12 @@
     <ClCompile Include="MenuEscolhaFases.cpp">
       <Filter>Entes</Filter>
     </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Entes</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuQtdJogadores.cpp">
+      <Filter>Entes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Jogo.h">
@@ -123,6 +129,12 @@
       <Filter>Graficos</Filter>
     </ClInclude>
     <ClInclude Include="MenuEscolhaFases.h">
+      <Filter>Entes</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Entes</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuQtdJogadores.h">
       <Filter>Entes</Filter>
     </ClInclude>
   </ItemGroup>

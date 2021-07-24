@@ -1,27 +1,23 @@
 #pragma once
+#include "Menu.h"
 #include "VelhoOeste.h"
-#include "Pontuacao.h"
-#include "MenuEscolhaFases.h"
-#include "MenuQtdJogadores.h"
 
-/* Classe do Menu Principal */
-class MenuPrincipal :
+class MenuQtdJogadores :
     public Menu
 {
 private:
     // enumera botoes
     enum BotoesMenu {
-        novo_jogo = 0,
-        escolha_de_fases,
-        lista_de_pontuacoes,
-        sair
+        um_jogador,
+        dois_jogadores,
+        voltar
     };
 
 public:
     // Construtoras e Destrutoras
-    MenuPrincipal(JogoInfo* pji = NULL);
-    ~MenuPrincipal();
-    
+    MenuQtdJogadores(JogoInfo* pji = NULL);
+    ~MenuQtdJogadores();
+
     // Metodos de Inicialização
     void iniciarBotoes();
 

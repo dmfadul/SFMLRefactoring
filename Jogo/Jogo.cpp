@@ -29,8 +29,7 @@ void Jogo::iniciarJanela()
 void Jogo::iniciarEnte()
 {
     /* Inicia os dados dos entes */
-    this->jogoInfo.setTamMapaX(25);
-    this->jogoInfo.setTamMapaY(19);
+    this->jogoInfo.setTamMapa(25, 19);
     this->jogoInfo.setTamEntidade(32.f);
     this->jogoInfo.setJanela(&this->janela);
 

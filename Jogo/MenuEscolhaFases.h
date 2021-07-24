@@ -1,24 +1,19 @@
 #pragma once
 #include "VelhoOeste.h"
 #include "Pontuacao.h"
+#include "Menu.h"
 
-// enumera botoes
-enum BotoesEscolhaFase {
-    velho_oeste = 0,
-    ninho_do_dragao,
-    voltar
-};
 
 class MenuEscolhaFases :
-    public Ente
+    public Menu
 {
-
 private:
-    // armazena os botoes do menu de escolha de fases
-    std::map<int, gui::Botao* > botoes;
-    sf::RectangleShape caixaBotoes;
-    int botaoAtivo;
-
+    // enumera botoes
+    enum BotoesMenu {
+        velho_oeste = 0,
+        ninho_do_dragao,
+        voltar
+    };
 public:
     // Construtoras e Destrutoras
     MenuEscolhaFases(JogoInfo* pji = NULL);
@@ -29,11 +24,6 @@ public:
 
     // Métodos de Atualização
     void atualizar();
-    void atualizarEventos(sf::Event& evento_sfml);
-    void trocarBotao(int direcao);
     void GerenciarCliqueBotao();
-
-    // Métodos de Renderização
-    void desenhar(sf::RenderTarget& janela);
 };
 

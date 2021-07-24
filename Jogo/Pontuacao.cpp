@@ -33,14 +33,14 @@ void Pontuacao::iniciarCaixa()
 
 	// Inicia a caixa com 80% do tamanho da janela em comprimento e 60% em altura
 	this->caixaPontuacao.setSize(sf::Vector2f(
-		0.8f * static_cast<float>(this->jogoInfo->getJanela()->getSize().x),
-		0.6f * static_cast<float>(this->jogoInfo->getJanela()->getSize().y)
+		0.8f * static_cast<float>(this->jogoInfo->getTamJanela().x),
+		0.6f * static_cast<float>(this->jogoInfo->getTamJanela().y)
 	));
 
 	// centraliza na tela
 	this->caixaPontuacao.setPosition(
-		this->jogoInfo->getJanela()->getSize().x / 2 - this->caixaPontuacao.getGlobalBounds().width / 2,
-		this->jogoInfo->getJanela()->getSize().y / 2 - this->caixaPontuacao.getGlobalBounds().height / 2
+		this->jogoInfo->getTamJanela().x / 2 - this->caixaPontuacao.getGlobalBounds().width / 2,
+		this->jogoInfo->getTamJanela().y / 2 - this->caixaPontuacao.getGlobalBounds().height / 2
 	);
 }
 
@@ -49,8 +49,8 @@ void Pontuacao::iniciarBotao()
 {
 	/* Inicia o botao de voltar */
 	this->botaoVoltar.iniciarBotao(
-		this->jogoInfo->getJanela()->getSize().x / 2 - 100.f,
-		this->jogoInfo->getJanela()->getSize().y - 100.f,
+		this->jogoInfo->getTamJanela().x / 2 - 100.f,
+		this->jogoInfo->getTamJanela().y - 100.f,
 		"Voltar"
 	);
 	this->botaoVoltar.ativar();

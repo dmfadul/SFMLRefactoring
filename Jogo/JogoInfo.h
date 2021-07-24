@@ -2,14 +2,13 @@
 
 class Ente;
 
-/* Classe container para as informações do jogo */
+/* Classe container para as informaï¿½ï¿½es do jogo */
 class JogoInfo
 {
 private:
     // Variaveis
     float tamEntidade;
-    unsigned int tamMapaX;
-    unsigned int tamMapaY;
+    sf::Vector2u tamMapa;
     sf::RenderWindow* janela;
     std::stack<Ente* > entes;
 
@@ -19,17 +18,13 @@ public:
 
     // setters
     void setTamEntidade(const float te);
-    void setEncerrarEnte(const bool ee);
     void setJanela(sf::RenderWindow* j);
-    void setTamMapaX(const unsigned int tx);
-    void setTamMapaY(const unsigned int ty);
+    void setTamMapa(unsigned x, unsigned y);
 
     // getters
-    const unsigned int getTamMapaX() const;
-    const unsigned int getTamMapaY() const;
+    const sf::Vector2u getTamMapa() const;
+    const sf::Vector2u getTamJanela() const;
     const float getTamEntidade() const;
-    const bool getEncerrarEnte() const;
-    const sf::RenderWindow* getJanela() const;
     Ente* enteTop();
     
     // metodos

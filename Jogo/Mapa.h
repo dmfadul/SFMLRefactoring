@@ -11,8 +11,7 @@ private:
 	JogoInfo* jogoinfo;
 
 	// armazena informações sobre o mapa
-	int tamMapaX;
-	int tamMapaY;
+	sf::Vector2u tamMapa;
 	float tamEntidade;
 
 	// os arquivos estão nomeados como "<nomemapa><numero>.png"
