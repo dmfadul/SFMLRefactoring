@@ -3,7 +3,7 @@
 class Jogador :
     public Personagem
 {
-
+public:
     Jogador();
     ~Jogador();
 
