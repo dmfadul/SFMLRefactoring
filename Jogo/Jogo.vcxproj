@@ -157,9 +157,16 @@
   <ItemGroup>
     <ClCompile Include="Botao.cpp" />
     <ClCompile Include="Cactus.cpp" />
+    <ClCompile Include="Cowboy.cpp" />
+    <ClCompile Include="Cowboy2.cpp" />
+    <ClCompile Include="Dragao.cpp" />
     <ClCompile Include="Ente.cpp" />
     <ClCompile Include="Entidade.cpp" />
     <ClCompile Include="Fase.cpp" />
+    <ClCompile Include="Inimigo.cpp" />
+    <ClCompile Include="Inimigo1.cpp" />
+    <ClCompile Include="Inimigo2.cpp" />
+    <ClCompile Include="Jogador.cpp" />
     <ClCompile Include="Jogo.cpp" />
     <ClCompile Include="JogoInfo.cpp" />
     <ClCompile Include="Mapa.cpp" />
@@ -170,6 +177,7 @@
     <ClCompile Include="NinhoDoDragao.cpp" />
     <ClCompile Include="Obstaculo.cpp" />
     <ClCompile Include="Origem.cpp" />
+    <ClCompile Include="Personagem.cpp" />
     <ClCompile Include="Plataforma.cpp" />
     <ClCompile Include="Pontuacao.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -184,9 +192,16 @@
   <ItemGroup>
     <ClInclude Include="Botao.h" />
     <ClInclude Include="Cactus.h" />
+    <ClInclude Include="Cowboy.h" />
+    <ClInclude Include="Cowboy2.h" />
+    <ClInclude Include="Dragao.h" />
     <ClInclude Include="Ente.h" />
     <ClInclude Include="Entidade.h" />
     <ClInclude Include="Fase.h" />
+    <ClInclude Include="Inimigo.h" />
+    <ClInclude Include="Inimigo1.h" />
+    <ClInclude Include="Inimigo2.h" />
+    <ClInclude Include="Jogador.h" />
     <ClInclude Include="Jogo.h" />
     <ClInclude Include="JogoInfo.h" />
     <ClInclude Include="Mapa.h" />
@@ -196,6 +211,7 @@
     <ClInclude Include="MenuPrincipal.h" />
     <ClInclude Include="NinhoDoDragao.h" />
     <ClInclude Include="Obstaculo.h" />
+    <ClInclude Include="Personagem.h" />
     <ClInclude Include="Plataforma.h" />
     <ClInclude Include="Pontuacao.h" />
     <ClInclude Include="stdafx.h" />
