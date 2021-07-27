@@ -114,6 +114,9 @@
     <ClCompile Include="Cowboy2.cpp">
       <Filter>Personagens</Filter>
     </ClCompile>
+    <ClCompile Include="TelaMorte.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Jogo.h">
@@ -198,6 +201,9 @@
       <Filter>Personagens</Filter>
     </ClInclude>
     <ClInclude Include="configuracoes.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="TelaMorte.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
   </ItemGroup>

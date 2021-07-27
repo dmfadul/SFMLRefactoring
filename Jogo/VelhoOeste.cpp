@@ -31,6 +31,10 @@ void VelhoOeste::atualizarEventos(sf::Event& evento_sfml)
 			this->jogoInfo->getTocaDisco()->tocarMusicaInicio();
 			this->jogoInfo->popEnte(); // volta ao menu principal
 		}
+		if (evento_sfml.key.code == sf::Keyboard::K) {
+			this->jogoInfo->getTocaDisco()->pararMusica();
+			this->jogoInfo->trocarEnte(new TelaMorte(this->jogoInfo, 100)); // tela de morte
+		}
 	}
 }
 

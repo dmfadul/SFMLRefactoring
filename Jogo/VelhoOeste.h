@@ -1,6 +1,8 @@
 #pragma once
 #include "NinhoDoDragao.h"
 #include "Jogador.h"
+#include "TelaMorte.h"
+
 class VelhoOeste :
     public Fase
 {
