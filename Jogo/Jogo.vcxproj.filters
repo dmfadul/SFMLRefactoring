@@ -197,5 +197,8 @@
     <ClInclude Include="Cowboy2.h">
       <Filter>Personagens</Filter>
     </ClInclude>
+    <ClInclude Include="configuracoes.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

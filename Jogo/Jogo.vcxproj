@@ -192,6 +192,7 @@
   <ItemGroup>
     <ClInclude Include="Botao.h" />
     <ClInclude Include="Cactus.h" />
+    <ClInclude Include="configuracoes.h" />
     <ClInclude Include="Cowboy.h" />
     <ClInclude Include="Cowboy2.h" />
     <ClInclude Include="Dragao.h" />

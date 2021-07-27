@@ -24,16 +24,19 @@ MenuPrincipal::~MenuPrincipal()
 void MenuPrincipal::iniciarBotoes()
 {
 	/* Inicia todos os botoes do menu principal */
-	this->botoes[novo_jogo] = new gui::Botao(this->jogoInfo->getTamJanela().x / 2 - 100.f, 200.f, "Novo Jogo");
-	this->botoes[escolha_de_fases] = new gui::Botao(this->jogoInfo->getTamJanela().x / 2 - 100.f, 255.f, "Escolher Fase");
-	this->botoes[lista_de_pontuacoes] = new gui::Botao(this->jogoInfo->getTamJanela().x / 2 - 100.f, 320.f, "Pontuação");
-	this->botoes[sair] = new gui::Botao(this->jogoInfo->getTamJanela().x / 2 - 100.f, 380.f, "Sair");
+	this->botoes[novo_jogo] = new gui::Botao(TAM_JANELA_X / 2 - 100.f, 220.f, "Novo Jogo");
+	this->botoes[escolha_de_fases] = new gui::Botao(TAM_JANELA_X / 2 - 100.f, 275.f, "Escolher Fase");
+	this->botoes[lista_de_pontuacoes] = new gui::Botao(TAM_JANELA_X / 2 - 100.f, 340.f, "Pontuação");
+	this->botoes[sair] = new gui::Botao(TAM_JANELA_X / 2 - 100.f, 430.f, "Sair");
 	this->botoes[sair]->setCorAtivado(sf::Color::Red); // botao sair será vermelho quando ativo
 
 	// Inicia a caixa que contem os botoes
 	this->caixaBotoes.setFillColor(sf::Color(0, 0, 0, 150));
-	this->caixaBotoes.setSize(sf::Vector2f(300.f, 270.f));
-	this->caixaBotoes.setPosition(this->jogoInfo->getTamJanela().x /2 - this->caixaBotoes.getGlobalBounds().width / 2, 180.f);
+	this->caixaBotoes.setSize(sf::Vector2f(300, 350.f));
+	this->caixaBotoes.setPosition(
+		TAM_JANELA_X / 2 - this->caixaBotoes.getGlobalBounds().width / 2,
+		TAM_JANELA_Y / 2 - this->caixaBotoes.getGlobalBounds().height / 2
+	);
 
 	this->botoes[this->botaoAtivo]->ativar();
 }
@@ -58,5 +61,5 @@ void MenuPrincipal::GerenciarCliqueBotao()
 		this->jogoInfo->pushEnte(static_cast<Ente* >(new Pontuacao(this->jogoInfo)));
 
 	else if (this->botaoAtivo == sair)
-		this->jogoInfo->fecharJanela();
+		this->jogoInfo->setEncerrar(true);
 }

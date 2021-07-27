@@ -17,10 +17,9 @@ private:
     public:
         // Construtores e Destrutores
         Linha() { this->tam_char = 0; }
-        Linha(float pos_x, float pos_y, std::string n, std::string p) 
+        Linha(sf::Vector2f pos, sf::Vector2f tam, std::string n, std::string p) 
         {
-            /* NECESSARIO ALTERAR DEPOIS */
-            this->tam_char = 22;
+            this->tam_char = 30;
             // carrega a fonte
             if (!this->fonte.loadFromFile("./Recursos/Fontes/Bebas.ttf")) {
                 std::cout << "PONTUACAO::FALHA AO CARREGAR FONTE" << std::endl;
@@ -30,14 +29,14 @@ private:
             this->nome.setFont(this->fonte);
             this->nome.setString(n);
             this->nome.setCharacterSize(this->tam_char);
-            this->nome.setPosition(pos_x, pos_y);
+            this->nome.setPosition(pos.x + 20.f, pos.y + 15.f);
             this->nome.setFillColor(sf::Color::White);
 
             // pontuacao
             this->ponto.setFont(this->fonte);
             this->ponto.setString(p);
             this->ponto.setCharacterSize(this->tam_char);
-            this->ponto.setPosition(pos_x + 300.f, pos_y);
+            this->ponto.setPosition(pos.x + tam.x/2.f, pos.y + 15.f);
             this->ponto.setFillColor(sf::Color::White);
 
         }
@@ -74,4 +73,3 @@ public:
     // Métodos de Renderização
     void desenhar(sf::RenderTarget& janela);
 };
-

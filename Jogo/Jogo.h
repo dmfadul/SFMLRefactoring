@@ -15,8 +15,6 @@ private:
 	// Armazena as informaçoes do jogo
 	JogoInfo jogoInfo;
 
-	TocaDisco tocaDisco;
-
 public:
 	// Construtoras e Destrutoras
 	Jogo();
@@ -24,7 +22,6 @@ public:
 
 	// Métodos de Inicialização
 	void iniciarJanela();
-	void iniciarJogoInfo();
 
 	// Métodos de Atualização
 	void atualizar();
