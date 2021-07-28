@@ -5,37 +5,38 @@ Cowboy::Cowboy()
 {
 }
 
-Cowboy::Cowboy(std::string imgDirectory)
+Cowboy::Cowboy(std::string imgCaminho)
 {
-	if (!texture.loadFromFile(imgDirectory))
+	if (!texture.loadFromFile(imgCaminho))
 	{
 		std::cerr << "Erro\n";
 	}
 	sprite.setTexture(texture);
-	sprite.setPosition(sf::Vector2f(0.0,400.0));
+	sprite.setPosition(sf::Vector2f(100.0,400.0));
+	sprite.setScale(sf::Vector2f(2.0, 2.0));
 }
 
-void Cowboy::move(char direction, float speed)
+void Cowboy::mover(char direcao, float velocidade)
 {
-	if (direction == 'u')
+	if (direcao == 'u')
 	{
-		sprite.move(0, -speed);
+		sprite.move(0, -velocidade);
 	}
-	else if (direction == 'd')
+	else if (direcao == 'd')
 	{
-		sprite.move(0, speed);
+		sprite.move(0, velocidade);
 	}
-	else if (direction == 'l')
+	else if (direcao == 'l')
 	{
-		sprite.move(-speed, 0);
+		sprite.move(-velocidade, 0);
 	}
-	else if (direction == 'r')
+	else if (direcao == 'r')
 	{
-		sprite.move(speed, 0);
+		sprite.move(velocidade, 0);
 	}
 }
 
-void Cowboy::draw(sf::RenderTarget& janela)
+void Cowboy::desenhar(sf::RenderTarget& janela)
 {
 	janela.draw(sprite);
 }
@@ -44,20 +45,61 @@ void Cowboy::atualizar()
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 	{
-		this->move('u', 6.0);
+		this->mover('u', 6.0);
 	} 
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
-		this->move('l', 6.0);
+		this->mover('l', 6.0);
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
-		this->move('d', 6.0);
+		this->mover('d', 6.0);
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
-		this->move('r', 6.0);
+		this->mover('r', 6.0);
 	}
+}
+
+bool Cowboy::verificarColisao(sf::Vector2f posicao, sf::Vector2f tamanho, float push)
+{
+	float deltaX = posicao.x - sprite.getPosition().x;
+	float deltaY = posicao.y - sprite.getPosition().y;
+
+	float intersectX = abs(deltaX) - (tamanho.x / 2 + sprite.getTexture()->getSize().x * sprite.getScale().x / 2);
+	float intersectY = abs(deltaY) - (tamanho.y / 2 + sprite.getTexture()->getSize().y * sprite.getScale().y / 2);
+
+	if (intersectX < 0.0f && intersectY < 0.0f)
+	{
+		push = std::min(std::max(push, 0.0f), 1.0f);
+
+		if (intersectX > intersectY)
+		{
+			if (deltaX > 0.0f)
+			{
+				this->mover('r', intersectX * push);
+			}
+			else
+			{
+				this->mover('l', intersectX * push);
+			}
+		}
+		else
+		{
+			if (deltaX > 0.0f)
+			{
+				this->mover('u', intersectY * push);
+			}
+			else
+			{
+				this->mover('d', intersectY * push);
+			}
+		}
+
+		return true;
+	}
+
+	return false;
 }
 
 Cowboy::~Cowboy()
