@@ -3,5 +3,6 @@
 
 Jogador::Jogador(){}
 
+
 Jogador::~Jogador(){}
 

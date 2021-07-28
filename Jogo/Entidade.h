@@ -1,5 +1,4 @@
 #pragma once
-
 /* Classe para entidades */
 class Entidade
 {

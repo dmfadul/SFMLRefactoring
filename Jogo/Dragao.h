@@ -6,6 +6,5 @@ class Dragao :
 public:
 	Dragao();
 	~Dragao();
-
 };
 

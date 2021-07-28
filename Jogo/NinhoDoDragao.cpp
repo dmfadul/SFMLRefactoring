@@ -3,7 +3,7 @@
 #include "VelhoOeste.h"
 // _______________________________________________________________________________
 NinhoDoDragao::NinhoDoDragao(JogoInfo* pji)
-	: Fase(pji), mapa(pji, "./Recursos/mapas/ninho_dragao.txt", 101, 12)
+	: Fase(pji), mapa(pji, "./Recursos/mapas/ninho_dragao.txt", 101, 12), cowboy("./Recursos/Imagens/Personagens/Cowboy/tile000.png")
 {
 	this->iniciarBackground("./Recursos/Imagens/backgrounds/ninho_do_dragao.png");
 	this->jogoInfo->getTocaDisco()->tocarSpearOfJustice();
@@ -18,6 +18,7 @@ NinhoDoDragao::~NinhoDoDragao()
 // _______________________________________________________________________________
 void NinhoDoDragao::atualizar()
 {
+	cowboy.atualizar();
 }
 
 // _______________________________________________________________________________
@@ -38,6 +39,9 @@ void NinhoDoDragao::atualizarEventos(sf::Event& evento_sfml)
 void NinhoDoDragao::desenhar(sf::RenderTarget& janela)
 {
 	/* Desenha o novo frame */
+	janela.clear();
 	janela.draw(this->background);
+	cowboy.draw(janela);
 	this->mapa.desenharMapa(janela);
+	
 }

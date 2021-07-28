@@ -46,6 +46,7 @@ const sf::Vector2u JogoInfo::getTamJanela() const { return this->janela->getSize
 
 Ente* JogoInfo::enteTop() { return this->entes.top(); }
 
+
 // _______________________________________________________________________________
 void JogoInfo::pushEnte(Ente* e)
 {

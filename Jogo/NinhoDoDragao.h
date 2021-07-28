@@ -1,10 +1,13 @@
 #pragma once
 #include "Fase.h"
+#include "Cowboy.h"
+
 class NinhoDoDragao :
     public Fase
 {
 private:
     Mapa mapa;
+    Cowboy cowboy;
 
 public:
     // Construtoras e Destrutoras
