@@ -35,7 +35,7 @@ void Cowboy::move(char direction, float speed)
 	}
 }
 
-void Cowboy::draw(sf::RenderTarget& janela)
+void Cowboy::desenhar(sf::RenderTarget& janela)
 {
 	janela.draw(sprite);
 }

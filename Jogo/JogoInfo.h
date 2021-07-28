@@ -8,26 +8,20 @@ class JogoInfo
 {
 private:
     // Variaveis
-    float tamEntidade;
-    TocaDisco* tocaDisco;
-    sf::Vector2u tamMapa;
-    sf::RenderWindow* janela;
+    sf::View* view;
     std::stack<Ente* > entes;
+    TocaDisco* tocaDisco;
+    bool encerrar;
 
 public:
     JogoInfo();
     ~JogoInfo();
 
     // setters
-    void setTamEntidade(const float te);
-    void setJanela(sf::RenderWindow* j);
-    void setTocaDisco(TocaDisco* td);
-    void setTamMapa(unsigned x, unsigned y);
+    void setEncerrar(const bool e);
 
     // getters
-    const sf::Vector2u getTamMapa() const;
-    const sf::Vector2u getTamJanela() const;
-    const float getTamEntidade() const;
+    const bool getEncerrar() const;
     TocaDisco* getTocaDisco() const;
     Ente* enteTop();
     
@@ -35,6 +29,5 @@ public:
     void pushEnte(Ente* e);
     void popEnte();
     void trocarEnte(Ente* e);
-    void fecharJanela();
 };
 

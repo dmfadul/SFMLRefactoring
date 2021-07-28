@@ -20,5 +20,7 @@ public:
 	int getDano() const;
 	void setDano(int d);
 
+	virtual void desenhar(sf::RenderTarget& janela) = 0;
+
 };
 

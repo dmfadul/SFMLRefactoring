@@ -114,6 +114,9 @@
     <ClCompile Include="Cowboy2.cpp">
       <Filter>Personagens</Filter>
     </ClCompile>
+    <ClCompile Include="TelaMorte.cpp">
+      <Filter>Entes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Jogo.h">
@@ -196,6 +199,12 @@
     </ClInclude>
     <ClInclude Include="Cowboy2.h">
       <Filter>Personagens</Filter>
+    </ClInclude>
+    <ClInclude Include="configuracoes.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="TelaMorte.h">
+      <Filter>Entes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

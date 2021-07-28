@@ -14,7 +14,7 @@ public:
     Cowboy(std::string imgDirectory);
     ~Cowboy();
 
-    void draw(sf::RenderTarget& janela);
+    void desenhar(sf::RenderTarget& janela);
     void move(char direction, float speed);
     void atualizar();
 };
