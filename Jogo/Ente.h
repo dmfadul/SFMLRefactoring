@@ -2,6 +2,7 @@
 
 #include "Botao.h"
 #include "JogoInfo.h"
+#include "configuracoes.h"
 
 /* Classe abstrata de Entes */
 class Ente

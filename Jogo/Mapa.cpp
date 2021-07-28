@@ -2,10 +2,9 @@
 #include "Mapa.h"
 
 // _______________________________________________________________________________
-Mapa::Mapa(JogoInfo* pji, std::string diretorio, int ini, int qtd)
-	:jogoinfo(pji), inicioPlataformas(ini), qtdPlataformas(qtd)
+Mapa::Mapa(std::string diretorio, int ini, int qtd)
+	:inicioPlataformas(ini), qtdPlataformas(qtd)
 {
-	this->iniciarVariaveis();
 	this->carregarMapa(diretorio);
 	this->iniciarEntidades();
 }
@@ -14,8 +13,8 @@ Mapa::Mapa(JogoInfo* pji, std::string diretorio, int ini, int qtd)
 Mapa::~Mapa()
 {
 	// desaloca mapa
-	for (unsigned int y = 0; y < this->tamMapa.y; y++) {
-		for (unsigned int x = 0; x < this->tamMapa.x; x++) {
+	for (unsigned int y = 0; y < TAM_MAPA_Y; y++) {
+		for (unsigned int x = 0; x < TAM_MAPA_X; x++) {
 			this->mapa[x][y] = NULL;
 		}
 	}
@@ -24,25 +23,15 @@ Mapa::~Mapa()
 	for (auto& ent : this->entidades) {
 		delete ent;
 	}
-	
-	this->jogoinfo = NULL;
-
-}
-
-// _______________________________________________________________________________
-void Mapa::iniciarVariaveis()
-{
-	this->tamMapa = this->jogoinfo->getTamMapa();
-	this->tamEntidade = this->jogoinfo->getTamEntidade();
 }
 
 // _______________________________________________________________________________
 void Mapa::carregarMapa(std::string diretorio)
 {
 	/* le o mapa apartir de um arquivo */
-	this->mapa.resize(tamMapa.x);
-	for (unsigned int i = 0; i < tamMapa.x; i++)
-		this->mapa[i].resize(tamMapa.y);
+	this->mapa.resize(TAM_MAPA_X);
+	for (unsigned int i = 0; i < TAM_MAPA_X; i++)
+		this->mapa[i].resize(TAM_MAPA_Y);
 
 	// abre o arquivo com o mapa
 	std::fstream arquivo_mapa;
@@ -50,8 +39,8 @@ void Mapa::carregarMapa(std::string diretorio)
 	int n = 0;
 
 	// salva o mapa na matriz mapa
-	for (unsigned int y = 0; y < tamMapa.y; y++) {
-		for (unsigned int x = 0; x < tamMapa.x; x++) {
+	for (unsigned int y = 0; y < TAM_MAPA_Y; y++) {
+		for (unsigned int x = 0; x < TAM_MAPA_X; x++) {
 			if (arquivo_mapa >> n)
 				this->mapa[x][y] = n;
 		}
@@ -77,11 +66,11 @@ void Mapa::iniciarEntidades()
 void Mapa::desenharMapa(sf::RenderTarget& janela)
 {
 	/* desenha todas as entidades */
-	for (unsigned int x = 0; x < this->tamMapa.x; x++) {
-		for (unsigned int y = 0; y < this->tamMapa.y; y++) {
+	for (unsigned int x = 0; x < TAM_MAPA_X; x++) {
+		for (unsigned int y = 0; y < TAM_MAPA_Y; y++) {
 			int ent = mapa[x][y] - 1;
 			if (ent >= 0) {
-				entidades[ent]->setPosicao(x * this->tamEntidade, y * this->tamEntidade);
+				entidades[ent]->setPosicao(static_cast<const float>(x * TAM_BLOCO), static_cast<const float>(y * TAM_BLOCO));
 				entidades[ent]->desenharEntidade(janela);
 			}
 		}

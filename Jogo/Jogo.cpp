@@ -1,12 +1,16 @@
 #include "stdafx.h"
+#include "configuracoes.h"
 #include "Jogo.h"
 
 // _______________________________________________________________________________
 Jogo::Jogo()
+    : jogoInfo()
 {
     // Inicia Configurações iniciais do jogo
 	this->iniciarJanela();
-    this->iniciarJogoInfo();
+
+    // Inicia o jogo com o Menu Principal
+    this->jogoInfo.pushEnte(static_cast<Ente*>(new MenuPrincipal(&this->jogoInfo)));
 }
 
 // _______________________________________________________________________________
@@ -19,23 +23,10 @@ Jogo::~Jogo()
 void Jogo::iniciarJanela()
 {
 	/* Inicia a janela principal do jogo*/
-    this->janela.create(sf::VideoMode(800, 600), "Corre Do Gaucho");
+    this->janela.create(sf::VideoMode(TAM_JANELA_X, TAM_JANELA_Y), "Corre Do Gaucho");
 
     // define taxa de frame
-    this->janela.setFramerateLimit(60);
-}
-
-// _______________________________________________________________________________
-void Jogo::iniciarJogoInfo()
-{
-    /* Inicia informações do jogo */
-    this->jogoInfo.setTamMapa(25, 19);
-    this->jogoInfo.setTamEntidade(32.f);
-    this->jogoInfo.setJanela(&this->janela);
-    this->jogoInfo.setTocaDisco(&this->tocaDisco);
-
-    // Inicia com o Menu Principal
-    this->jogoInfo.pushEnte(static_cast<Ente*>(new MenuPrincipal(&this->jogoInfo)));
+    this->janela.setFramerateLimit(FRAME_RATE);
 }
 
 // _______________________________________________________________________________
@@ -43,6 +34,8 @@ void Jogo::atualizar()
 {
     /* Limpa o frame anterior e prepara um novo frame*/
     this->janela.clear();
+    if (this->jogoInfo.getEncerrar())
+        this->janela.close();
 
     this->atualizarEventos();
     this->jogoInfo.enteTop()->atualizar();

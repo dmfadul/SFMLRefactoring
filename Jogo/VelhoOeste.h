@@ -1,10 +1,14 @@
 #pragma once
 #include "NinhoDoDragao.h"
+#include "Jogador.h"
+#include "TelaMorte.h"
+
 class VelhoOeste :
     public Fase
 {
 private:
     Mapa mapa;
+
 
 public:
     // Construtoras e Destrutoras
@@ -19,4 +23,3 @@ public:
     void desenhar(sf::RenderTarget& janela);
 
 };
-

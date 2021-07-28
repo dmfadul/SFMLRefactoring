@@ -186,12 +186,14 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="TelaMorte.cpp" />
     <ClCompile Include="TocaDisco.cpp" />
     <ClCompile Include="VelhoOeste.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Botao.h" />
     <ClInclude Include="Cactus.h" />
+    <ClInclude Include="configuracoes.h" />
     <ClInclude Include="Cowboy.h" />
     <ClInclude Include="Cowboy2.h" />
     <ClInclude Include="Dragao.h" />
@@ -215,6 +217,7 @@
     <ClInclude Include="Plataforma.h" />
     <ClInclude Include="Pontuacao.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="TelaMorte.h" />
     <ClInclude Include="TocaDisco.h" />
     <ClInclude Include="VelhoOeste.h" />
   </ItemGroup>

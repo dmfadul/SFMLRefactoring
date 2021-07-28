@@ -3,7 +3,7 @@
 
 // _______________________________________________________________________________
 VelhoOeste::VelhoOeste(JogoInfo* pji)
-	: Fase(pji), mapa(this->jogoInfo, "./Recursos/mapas/velho_oeste.txt", 1, 13)
+	: Fase(pji), mapa("./Recursos/mapas/velho_oeste.txt", 1, 13)
 {
 	this->iniciarBackground("./Recursos/Imagens/backgrounds/velho_oeste.png");
 	this->jogoInfo->getTocaDisco()->tocarFallenDown();
@@ -30,6 +30,10 @@ void VelhoOeste::atualizarEventos(sf::Event& evento_sfml)
 			this->jogoInfo->getTocaDisco()->pararMusica();
 			this->jogoInfo->getTocaDisco()->tocarMusicaInicio();
 			this->jogoInfo->popEnte(); // volta ao menu principal
+		}
+		if (evento_sfml.key.code == sf::Keyboard::K) {
+			this->jogoInfo->getTocaDisco()->pararMusica();
+			this->jogoInfo->trocarEnte(new TelaMorte(this->jogoInfo, 100)); // tela de morte
 		}
 	}
 }
