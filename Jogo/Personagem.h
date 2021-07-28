@@ -1,5 +1,5 @@
 #pragma once
-#include "Entidade.h"
+
 class Personagem {
 
 protected:
@@ -19,8 +19,6 @@ public:
 
 	int getDano() const;
 	void setDano(int d);
-
-	virtual void desenhar(sf::RenderTarget& janela) = 0;
 
 };
 

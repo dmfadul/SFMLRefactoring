@@ -11,11 +11,12 @@ private:
 public:
 
     Cowboy();
-    Cowboy(std::string imgDirectory);
+    Cowboy(std::string imgCaminho);
     ~Cowboy();
 
     void desenhar(sf::RenderTarget& janela);
-    void move(char direction, float speed);
+    void mover(char direcao, float velocidade);
     void atualizar();
+    bool verificarColisao(sf::Vector2f posicao, sf::Vector2f tamanho, float push);
 };
 
