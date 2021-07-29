@@ -45,6 +45,7 @@ void NinhoDoDragao::desenhar(sf::RenderTarget& janela)
 	janela.clear();
 	janela.draw(this->background);
 	cowboy.desenhar(janela);
+	cowboy2.desenhar(janela);
 	this->mapa.desenharMapa(janela);
 	
 }

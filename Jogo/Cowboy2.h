@@ -5,8 +5,7 @@ class Cowboy2 :
 {
 
 private:
-    sf::Texture texture;
-    sf::Sprite sprite;
+
 
 public:
     Cowboy2();

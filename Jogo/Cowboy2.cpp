@@ -14,6 +14,7 @@ Cowboy2::Cowboy2(std::string imgCaminho)
 	sprite.setTexture(texture);
 	sprite.setPosition(sf::Vector2f(100.0, 400.0));
 	sprite.setScale(sf::Vector2f(2.0, 2.0));
+	this->iniciarHitbox();
 }
 
 void Cowboy2::mover(char direcao, float velocidade)
@@ -39,10 +40,12 @@ void Cowboy2::mover(char direcao, float velocidade)
 void Cowboy2::desenhar(sf::RenderTarget& janela)
 {
 	janela.draw(sprite);
+	this->hitbox.desenhar(janela);
 }
 
 void Cowboy2::atualizar()
 {
+	this->hitbox.atualizarPosicao();
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 	{
 		this->mover('u', 6.0);

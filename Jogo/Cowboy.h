@@ -5,8 +5,6 @@ class Cowboy :
 {
 
 private:
-    sf::Texture texture;
-    sf::Sprite sprite;
 
 public:
 

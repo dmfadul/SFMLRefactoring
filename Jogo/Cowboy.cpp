@@ -1,10 +1,12 @@
 #include "stdafx.h"
 #include "Cowboy.h"
 
+// _______________________________________________________________________________
 Cowboy::Cowboy()
 {
 }
 
+// _______________________________________________________________________________
 Cowboy::Cowboy(std::string imgCaminho)
 {
 	if (!texture.loadFromFile(imgCaminho))
@@ -14,8 +16,10 @@ Cowboy::Cowboy(std::string imgCaminho)
 	sprite.setTexture(texture);
 	sprite.setPosition(sf::Vector2f(100.0,400.0));
 	sprite.setScale(sf::Vector2f(2.0, 2.0));
+	this->iniciarHitbox();
 }
 
+// _______________________________________________________________________________
 void Cowboy::mover(char direcao, float velocidade)
 {
 	if (direcao == 'u')
@@ -36,13 +40,18 @@ void Cowboy::mover(char direcao, float velocidade)
 	}
 }
 
+// _______________________________________________________________________________
 void Cowboy::desenhar(sf::RenderTarget& janela)
 {
+	this->hitbox.desenhar(janela);
 	janela.draw(sprite);
 }
 
+// _______________________________________________________________________________
 void Cowboy::atualizar()
 {
+
+	this->hitbox.atualizarPosicao();
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 	{
 		this->mover('u', 6.0);
@@ -61,6 +70,7 @@ void Cowboy::atualizar()
 	}
 }
 
+// _______________________________________________________________________________
 bool Cowboy::verificarColisao(sf::Vector2f posicao, sf::Vector2f tamanho, float push)
 {
 	float deltaX = posicao.x - sprite.getPosition().x;
@@ -102,6 +112,7 @@ bool Cowboy::verificarColisao(sf::Vector2f posicao, sf::Vector2f tamanho, float 
 	return false;
 }
 
+// _______________________________________________________________________________
 Cowboy::~Cowboy()
 {
 }

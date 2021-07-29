@@ -5,14 +5,11 @@ class Jogador :
 {
 
 private:
-    sf::Texture pTexture;
-    sf::Sprite pSprite;
 
 public:
     Jogador();
-
     ~Jogador();
 
-
+    void iniciarHitbox();
 };
 

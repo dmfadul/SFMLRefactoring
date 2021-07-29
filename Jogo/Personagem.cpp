@@ -3,7 +3,8 @@
 
 Personagem::Personagem():
 hp(100),
-dano(100){}
+dano(100),
+hitbox(){}
 
 Personagem::~Personagem(){}
 

@@ -165,6 +165,7 @@
     <ClCompile Include="Entidade.cpp" />
     <ClCompile Include="Espinho.cpp" />
     <ClCompile Include="Fase.cpp" />
+    <ClCompile Include="HitBox.cpp" />
     <ClCompile Include="Inimigo.cpp" />
     <ClCompile Include="Inimigo1.cpp" />
     <ClCompile Include="Inimigo2.cpp" />
@@ -204,6 +205,7 @@
     <ClInclude Include="Entidade.h" />
     <ClInclude Include="Espinho.h" />
     <ClInclude Include="Fase.h" />
+    <ClInclude Include="HitBox.h" />
     <ClInclude Include="Inimigo.h" />
     <ClInclude Include="Inimigo1.h" />
     <ClInclude Include="Inimigo2.h" />

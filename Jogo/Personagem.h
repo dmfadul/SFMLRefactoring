@@ -1,10 +1,13 @@
 #pragma once
 #include "Entidade.h"
+#include "HitBox.h"
 
 class Personagem {
 
 protected:
-
+	sf::Texture texture;
+	sf::Sprite sprite;
+	HitBox hitbox;
 	int hp;
 	int dano;
 
