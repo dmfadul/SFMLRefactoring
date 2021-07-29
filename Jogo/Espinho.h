@@ -1,12 +1,13 @@
 #pragma once
 #include "Obstaculo.h"
-class Cactus :
+class Espinho :
     public Obstaculo
 {
 private:
 
 
 public:
-    Cactus(const int indice = 0);
-    ~Cactus();
+    Espinho(const int indice = 0);
+    ~Espinho();
 };
+

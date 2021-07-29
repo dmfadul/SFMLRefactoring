@@ -117,6 +117,12 @@
     <ClCompile Include="TelaMorte.cpp">
       <Filter>Entes</Filter>
     </ClCompile>
+    <ClCompile Include="Espinho.cpp">
+      <Filter>Graficos</Filter>
+    </ClCompile>
+    <ClCompile Include="AreiaDasAlmas.cpp">
+      <Filter>Graficos</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Jogo.h">
@@ -205,6 +211,12 @@
     </ClInclude>
     <ClInclude Include="TelaMorte.h">
       <Filter>Entes</Filter>
+    </ClInclude>
+    <ClInclude Include="AreiaDasAlmas.h">
+      <Filter>Graficos</Filter>
+    </ClInclude>
+    <ClInclude Include="Espinho.h">
+      <Filter>Graficos</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

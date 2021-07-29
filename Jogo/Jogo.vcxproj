@@ -155,6 +155,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AreiaDasAlmas.cpp" />
     <ClCompile Include="Botao.cpp" />
     <ClCompile Include="Cactus.cpp" />
     <ClCompile Include="Cowboy.cpp" />
@@ -162,6 +163,7 @@
     <ClCompile Include="Dragao.cpp" />
     <ClCompile Include="Ente.cpp" />
     <ClCompile Include="Entidade.cpp" />
+    <ClCompile Include="Espinho.cpp" />
     <ClCompile Include="Fase.cpp" />
     <ClCompile Include="Inimigo.cpp" />
     <ClCompile Include="Inimigo1.cpp" />
@@ -191,6 +193,7 @@
     <ClCompile Include="VelhoOeste.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AreiaDasAlmas.h" />
     <ClInclude Include="Botao.h" />
     <ClInclude Include="Cactus.h" />
     <ClInclude Include="configuracoes.h" />
@@ -199,6 +202,7 @@
     <ClInclude Include="Dragao.h" />
     <ClInclude Include="Ente.h" />
     <ClInclude Include="Entidade.h" />
+    <ClInclude Include="Espinho.h" />
     <ClInclude Include="Fase.h" />
     <ClInclude Include="Inimigo.h" />
     <ClInclude Include="Inimigo1.h" />

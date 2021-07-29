@@ -5,24 +5,42 @@
 Mapa::Mapa(std::string diretorio, int ini, int qtd)
 	:inicioPlataformas(ini), qtdPlataformas(qtd)
 {
+	this->qtdObstaculos = rand() % 8 + 2;
 	this->carregarMapa(diretorio);
+	this->iniciaPosicoesLivres();
 	this->iniciarEntidades();
 }
 
 // _______________________________________________________________________________
 Mapa::~Mapa()
 {
-	// desaloca mapa
+	// desaloca mapa e posicoes livres
 	for (unsigned int y = 0; y < TAM_MAPA_Y; y++) {
 		for (unsigned int x = 0; x < TAM_MAPA_X; x++) {
 			this->mapa[x][y] = NULL;
+			this->posLivres[x][y] = NULL;
 		}
 	}
 
-	// desaloca entidades
+	// desaloca plataformas
 	for (auto& ent : this->entidades) {
 		delete ent;
 	}
+}
+
+// _______________________________________________________________________________
+Obstaculo* Mapa::getObsAleatorio()
+{
+	/* Retorna um obstaculo aleatorio */
+	int aleatorio = rand() % 3 + 1;
+	
+	if (aleatorio == 1)
+		return static_cast<Obstaculo*>(new Cactus(rand() % 3 + 1));
+	else if (aleatorio == 2)
+		return static_cast<Obstaculo*>(new Espinho(4));
+	else
+		return static_cast<Obstaculo*>(new AreiaDasAlmas(5));
+
 }
 
 // _______________________________________________________________________________
@@ -51,15 +69,45 @@ void Mapa::carregarMapa(std::string diretorio)
 }
 
 // _______________________________________________________________________________
+void Mapa::iniciaPosicoesLivres()
+{
+	/* aloca memoria suficiente*/
+	this->posLivres.resize(TAM_MAPA_X);
+	for (unsigned int i = 0; i < TAM_MAPA_X; i++)
+		this->posLivres[i].resize(TAM_MAPA_Y);
+
+	// inicia posicoes que podem recebem um obstaculo
+	for (unsigned int y = 0; y < TAM_MAPA_Y - 1; y++) {
+		for (unsigned int x = 0; x < TAM_MAPA_X; x++) {
+			if ((this->mapa[x][y+1] == 2 || this->mapa[x][y+1] == 8) && this->mapa[x][y] == 0) // se for uma plataforma
+				this->posLivres[x][y] = 1;
+			else
+				this->posLivres[x][y] = 0;
+		}
+	}
+}
+
+// _______________________________________________________________________________
 void Mapa::iniciarEntidades()
 {
 	/* Inicia todas as plataformas e obstaculos*/
 	// inicia todas as plataformas
 	for (int i = 0; i < this->qtdPlataformas; i++) {
-		this->entidades.push_back(new Plataforma(this->inicioPlataformas + i));
+		this->entidades.push_back(static_cast<Entidade* >(new Plataforma(this->inicioPlataformas + i)));
 	}
 	
-	this->entidades.push_back(new Cactus(1));
+	// define as posiçoes dos obstaculos
+	for (unsigned int x = 0; x < TAM_MAPA_X; x++) {
+		for (unsigned int y = 0; y < TAM_MAPA_Y; y++) {
+			if (posLivres[x][y] == 1 && rand() % 3 == 0)
+				this->mapa[x][y] = this->qtdPlataformas + rand() % 3 + 1;
+		}
+	}
+
+	// incia obstaculos;
+	this->entidades.push_back(static_cast<Entidade*>(new Cactus(1)));
+	this->entidades.push_back(static_cast<Entidade*>(new Espinho(2)));
+	this->entidades.push_back(static_cast<Entidade*>(new AreiaDasAlmas(3)));
 }
 
 // _______________________________________________________________________________
@@ -70,7 +118,7 @@ void Mapa::desenharMapa(sf::RenderTarget& janela)
 		for (unsigned int y = 0; y < TAM_MAPA_Y; y++) {
 			int ent = mapa[x][y] - 1;
 			if (ent >= 0) {
-				entidades[ent]->setPosicao(static_cast<const float>(x * TAM_BLOCO), static_cast<const float>(y * TAM_BLOCO));
+				entidades[ent]->setPosicao((float)(x * TAM_BLOCO), (float)(y * TAM_BLOCO));
 				entidades[ent]->desenharEntidade(janela);
 			}
 		}
