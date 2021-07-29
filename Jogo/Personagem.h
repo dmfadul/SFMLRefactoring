@@ -1,5 +1,9 @@
 #pragma once
-
+#include "Entidade.h"
+<<<<<<<<< Temporary merge branch 1
+class Personagem 
+{
+=========
 class Personagem {
 
 protected:
