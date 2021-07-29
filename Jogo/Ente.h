@@ -17,8 +17,7 @@ protected:
 
 public:
     // Construtoras e Destrutoras
-    Ente();
-    Ente(JogoInfo* pji);
+    Ente(JogoInfo* pji = NULL);
     virtual ~Ente();
 
     // Metodos de Inicialização

@@ -124,7 +124,7 @@
       <Filter>Graficos</Filter>
     </ClCompile>
     <ClCompile Include="HitBox.cpp">
-      <Filter>Arquivos de Origem</Filter>
+      <Filter>Personagens</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -222,7 +222,7 @@
       <Filter>Graficos</Filter>
     </ClInclude>
     <ClInclude Include="HitBox.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
+      <Filter>Personagens</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

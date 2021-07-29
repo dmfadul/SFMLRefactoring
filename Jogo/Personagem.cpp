@@ -1,29 +1,21 @@
 #include "stdafx.h"
 #include "Personagem.h"
 
+// _______________________________________________________________________________
 Personagem::Personagem():
 hp(100),
 dano(100),
 hitbox(){}
 
+// _______________________________________________________________________________
 Personagem::~Personagem(){}
 
-int Personagem::getHP() const
-{
-	return hp;
-}
+// _______________________________________________________________________________
+void Personagem::setHP(int h) { this->hp = h; }
 
-void Personagem::setHP(int h)
-{
-	hp = h;
-}
+void Personagem::setDano(int d) { this->dano = d; }
 
-int Personagem::getDano() const
-{
-	return dano;
-}
+// _______________________________________________________________________________
+const int Personagem::getHP() const { return this->hp; }
 
-void Personagem::setDano(int d)
-{
-	dano = d;
-}
+const int Personagem::getDano() const { return this->dano; }

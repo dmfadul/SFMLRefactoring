@@ -7,9 +7,7 @@ class Cowboy :
 private:
 
 public:
-
-    Cowboy();
-    Cowboy(std::string imgCaminho);
+    Cowboy(std::string imgCaminho = "");
     ~Cowboy();
 
     void desenhar(sf::RenderTarget& janela);

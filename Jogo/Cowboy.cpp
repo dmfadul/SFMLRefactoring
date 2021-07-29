@@ -2,11 +2,6 @@
 #include "Cowboy.h"
 
 // _______________________________________________________________________________
-Cowboy::Cowboy()
-{
-}
-
-// _______________________________________________________________________________
 Cowboy::Cowboy(std::string imgCaminho)
 {
 	if (!texture.loadFromFile(imgCaminho))

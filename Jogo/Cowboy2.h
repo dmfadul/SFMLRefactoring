@@ -6,12 +6,10 @@ class Cowboy2 :
 
 private:
 
-
 public:
-    Cowboy2();
+    // construtoras e destrutoras
+    Cowboy2(std::string imgCaminho = "");
     ~Cowboy2();
-
-    Cowboy2(std::string imgCaminho);
 
     void desenhar(sf::RenderTarget& janela);
     void mover(char direcao, float velocidade);

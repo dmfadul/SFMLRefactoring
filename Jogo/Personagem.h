@@ -2,6 +2,7 @@
 #include "Entidade.h"
 #include "HitBox.h"
 
+/* Classe Abstrata de Personagem */
 class Personagem {
 
 protected:
@@ -18,11 +19,11 @@ public:
 	~Personagem();
 
 	//Funcoes
-	int getHP() const;
 	void setHP(int h);
-
-	int getDano() const;
 	void setDano(int d);
+
+	const int getHP() const;
+	const int getDano() const;
 
 };
 

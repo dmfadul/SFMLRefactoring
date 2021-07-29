@@ -5,7 +5,6 @@
 Mapa::Mapa(std::string diretorio, int ini, int qtd)
 	:inicioPlataformas(ini), qtdPlataformas(qtd)
 {
-	this->qtdObstaculos = rand() % 8 + 2;
 	this->carregarMapa(diretorio);
 	this->iniciaPosicoesLivres();
 	this->iniciarEntidades();
@@ -29,21 +28,6 @@ Mapa::~Mapa()
 }
 
 // _______________________________________________________________________________
-Obstaculo* Mapa::getObsAleatorio()
-{
-	/* Retorna um obstaculo aleatorio */
-	int aleatorio = rand() % 3 + 1;
-	
-	if (aleatorio == 1)
-		return static_cast<Obstaculo*>(new Cactus(rand() % 3 + 1));
-	else if (aleatorio == 2)
-		return static_cast<Obstaculo*>(new Espinho(4));
-	else
-		return static_cast<Obstaculo*>(new AreiaDasAlmas(5));
-
-}
-
-// _______________________________________________________________________________
 void Mapa::carregarMapa(std::string diretorio)
 {
 	/* le o mapa apartir de um arquivo */
@@ -63,8 +47,6 @@ void Mapa::carregarMapa(std::string diretorio)
 				this->mapa[x][y] = n;
 		}
 	}
-
-	// fecha arquivo
 	arquivo_mapa.close();
 }
 
@@ -79,7 +61,7 @@ void Mapa::iniciaPosicoesLivres()
 	// inicia posicoes que podem recebem um obstaculo
 	for (unsigned int y = 0; y < TAM_MAPA_Y - 1; y++) {
 		for (unsigned int x = 0; x < TAM_MAPA_X; x++) {
-			if ((this->mapa[x][y+1] == 2 || this->mapa[x][y+1] == 8) && this->mapa[x][y] == 0) // se for uma plataforma
+			if ((this->mapa[x][y + (size_t)(1)] == 2 || this->mapa[x][y + (size_t)(1)] == 8) && this->mapa[x][y] == 0) // se for uma plataforma
 				this->posLivres[x][y] = 1;
 			else
 				this->posLivres[x][y] = 0;

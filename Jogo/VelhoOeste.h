@@ -9,7 +9,6 @@ class VelhoOeste :
 private:
     Mapa mapa;
 
-
 public:
     // Construtoras e Destrutoras
     VelhoOeste(JogoInfo* pji = NULL);

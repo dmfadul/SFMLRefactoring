@@ -1,10 +1,7 @@
 #include "stdafx.h"
 #include "Cowboy2.h"
 
-Cowboy2::Cowboy2()
-{
-}
-
+// _______________________________________________________________________________
 Cowboy2::Cowboy2(std::string imgCaminho)
 {
 	if (!texture.loadFromFile(imgCaminho))
@@ -17,6 +14,7 @@ Cowboy2::Cowboy2(std::string imgCaminho)
 	this->iniciarHitbox();
 }
 
+// _______________________________________________________________________________
 void Cowboy2::mover(char direcao, float velocidade)
 {
 	if (direcao == 'u')
@@ -37,12 +35,14 @@ void Cowboy2::mover(char direcao, float velocidade)
 	}
 }
 
+// _______________________________________________________________________________
 void Cowboy2::desenhar(sf::RenderTarget& janela)
 {
 	janela.draw(sprite);
 	this->hitbox.desenhar(janela);
 }
 
+// _______________________________________________________________________________
 void Cowboy2::atualizar()
 {
 	this->hitbox.atualizarPosicao();
@@ -64,6 +64,7 @@ void Cowboy2::atualizar()
 	}
 }
 
+// _______________________________________________________________________________
 bool Cowboy2::verificarColisao(sf::Vector2f posicao, sf::Vector2f tamanho, float push)
 {
 	float deltaX = posicao.x - sprite.getPosition().x;
@@ -105,16 +106,19 @@ bool Cowboy2::verificarColisao(sf::Vector2f posicao, sf::Vector2f tamanho, float
 	return false;
 }
 
+// _______________________________________________________________________________
 sf::Vector2f Cowboy2::getPosition()
 {
 	return sprite.getPosition();
 }
 
+// _______________________________________________________________________________
 sf::Vector2f Cowboy2::getSize()
 {
 	return sf::Vector2f(sprite.getTexture()->getSize().x * sprite.getScale().x, sprite.getTexture()->getSize().y * sprite.getScale().y);
 }
 
+// _______________________________________________________________________________
 Cowboy2::~Cowboy2()
 {
 }
