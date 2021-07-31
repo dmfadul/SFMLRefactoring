@@ -1,6 +1,8 @@
 #pragma once
 #include "Mapa.h"
 #include "Cowboy.h"
+#include "HitBox.h"
+
 class GerenciadorColisoes
 {
 private:

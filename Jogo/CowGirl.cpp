@@ -1,8 +1,8 @@
 #include "stdafx.h"
-#include "Cowboy2.h"
+#include "CowGirl.h"
 
 // _______________________________________________________________________________
-Cowboy2::Cowboy2(std::string imgCaminho)
+CowGirl::CowGirl(std::string imgCaminho)
 {
 	if (!texture.loadFromFile(imgCaminho))
 	{
@@ -11,19 +11,19 @@ Cowboy2::Cowboy2(std::string imgCaminho)
 	sprite.setTexture(texture);
 	sprite.setPosition(sf::Vector2f(100.0, 400.0));
 	sprite.setScale(sf::Vector2f(2.0, 2.0));
+	sprite.setTextureRect(sf::IntRect(0, 0, 32, 32));
 	this->iniciarHitbox();
 	this->iniciarCompMov();
 }
 
 // _______________________________________________________________________________
-void Cowboy2::desenhar(sf::RenderTarget& janela)
+void CowGirl::desenhar(sf::RenderTarget& janela)
 {
 	janela.draw(sprite);
-	this->hitbox.desenhar(janela);
 }
 
 // _______________________________________________________________________________
-void Cowboy2::atualizar()
+void CowGirl::atualizar()
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 		this->compMov.acelerarX(-0.2f);
@@ -32,7 +32,7 @@ void Cowboy2::atualizar()
 		this->compMov.acelerarX(0.2f);
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && this->compMov.getCaindo() == false)
-		this->compMov.setVelY(-10.f);
+		this->compMov.setVelY(-13.f);
 
 	this->hitbox.atualizarPosicao();
 	this->compMov.mover();
@@ -40,7 +40,7 @@ void Cowboy2::atualizar()
 
 /*
 // _______________________________________________________________________________
-bool Cowboy2::verificarColisao(sf::Vector2f posicao, sf::Vector2f tamanho, float push)
+bool CowGirl::verificarColisao(sf::Vector2f posicao, sf::Vector2f tamanho, float push)
 {
 	float deltaX = posicao.x - sprite.getPosition().x;
 	float deltaY = posicao.y - sprite.getPosition().y;
@@ -82,18 +82,18 @@ bool Cowboy2::verificarColisao(sf::Vector2f posicao, sf::Vector2f tamanho, float
 }
 */
 // _______________________________________________________________________________
-sf::Vector2f Cowboy2::getPosition()
+sf::Vector2f CowGirl::getPosition()
 {
 	return sprite.getPosition();
 }
 
 // _______________________________________________________________________________
-sf::Vector2f Cowboy2::getSize()
+sf::Vector2f CowGirl::getSize()
 {
 	return sf::Vector2f(sprite.getTexture()->getSize().x * sprite.getScale().x, sprite.getTexture()->getSize().y * sprite.getScale().y);
 }
 
 // _______________________________________________________________________________
-Cowboy2::~Cowboy2()
+CowGirl::~CowGirl()
 {
 }

@@ -17,19 +17,22 @@ public:
 	void setTamanho(const sf::Vector2f tam);
 	void setOffsetX(const int o);
 	void setOffSetY(const int o);
+	sf::FloatRect getBounds();
+
+	// limites do hitbox
 	const sf::Vector2f getEsquerda() const;
 	const sf::Vector2f getDireita() const;
 	const sf::Vector2f getCima() const;
-	const sf::Vector2f getCimaEsquerda() const;
-	const sf::Vector2f getCimaDireita() const;
 	const sf::Vector2f getBaixoEsquerda() const;
 	const sf::Vector2f getBaixoDireita() const;
-	const sf::FloatRect getBounds() const;
-	const float getWidth() const;
-	const float getHeight() const;
-	const int getOffsetX() const;
-	const int getOffsetY() const;
 
+	// offsets do hitbox com o sprite
+	const int getOffsetCima() const;
+	const int getOffsetBaixo() const;
+	const int getOffsetEsquerda() const;
+	const int getOffsetDireira() const;
+
+	// metodos
 	void atualizarPosicao();
 	void desenhar(sf::RenderTarget& janela);
 };

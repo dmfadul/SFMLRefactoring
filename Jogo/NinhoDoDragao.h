@@ -1,7 +1,7 @@
 #pragma once
 #include "Fase.h"
 #include "Cowboy.h"
-#include "Cowboy2.h"
+#include "CowGirl.h"
 
 class NinhoDoDragao :
     public Fase

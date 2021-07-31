@@ -1,6 +1,6 @@
 #pragma once
 #include "Jogador.h"
-class Cowboy2 :
+class CowGirl :
     public Jogador
 {
 
@@ -8,8 +8,8 @@ private:
 
 public:
     // construtoras e destrutoras
-    Cowboy2(std::string imgCaminho = "");
-    ~Cowboy2();
+    CowGirl(std::string imgCaminho = "");
+    ~CowGirl();
 
     void desenhar(sf::RenderTarget& janela);
     void mover(char direcao, float velocidade);

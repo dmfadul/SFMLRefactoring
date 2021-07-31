@@ -62,7 +62,8 @@ void ComponenteMovimento::mover()
     else                            this->vel.y = 0;
 
     // movimento em queda livre
-    if (this->caindo)   this->vel.y += GRAVIDADE;
+    if (this->caindo && this->vel.y < VEL_MAX_QUEDA)   
+        this->vel.y += GRAVIDADE;
 
     // executa o movimento
     this->sprite->move(this->vel);

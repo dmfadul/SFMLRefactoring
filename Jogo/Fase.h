@@ -1,7 +1,7 @@
 #pragma once
 #include "Ente.h"
 #include "Mapa.h"
-#include "Cowboy2.h"
+#include "CowGirl.h"
 #include "GerenciadorColisoes.h"
 
 /* Classe abstrata de Fase */

@@ -22,14 +22,10 @@ NinhoDoDragao::~NinhoDoDragao()
 // _______________________________________________________________________________
 void NinhoDoDragao::atualizar()
 {
-
 	for (auto& personagem : this->personagens)
 		personagem->atualizar();
 
 	this->gerColisoes.verificarColisoes();
-
-	// cowboy.verificarColisao(cowboy2.getPosition(), cowboy2.getSize(), 1.0);
-	//cowboy.atualizar();
 }
 
 // _______________________________________________________________________________

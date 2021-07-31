@@ -26,17 +26,17 @@ public:
 	void setHP(int h);
 	void setDano(int d);
 	void setPosicao(const float x, const float y);
-	void setVelX(const float x);
-	void setVelY(const float y);
-	void setCaindo(const bool c);
 	
 	// Getters
 	const int getId() const;
 	const int getHP() const;
 	const int getDano() const;
-	sf::FloatRect getBounds() const;
 	sf::Vector2f getPosition() const;
+	sf::Vector2i getPosGrid() const;
+
+	// get components
 	HitBox getHitbox() const;
+	ComponenteMovimento* getMovComp();
 
 	// metodos
 	virtual void atualizar() = 0;

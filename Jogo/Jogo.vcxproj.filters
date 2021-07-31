@@ -111,7 +111,7 @@
     <ClCompile Include="Personagem.cpp">
       <Filter>Personagens</Filter>
     </ClCompile>
-    <ClCompile Include="Cowboy2.cpp">
+    <ClCompile Include="CowGirl.cpp">
       <Filter>Personagens</Filter>
     </ClCompile>
     <ClCompile Include="TelaMorte.cpp">
@@ -212,7 +212,7 @@
     <ClInclude Include="Personagem.h">
       <Filter>Personagens</Filter>
     </ClInclude>
-    <ClInclude Include="Cowboy2.h">
+    <ClInclude Include="CowGirl.h">
       <Filter>Personagens</Filter>
     </ClInclude>
     <ClInclude Include="configuracoes.h">

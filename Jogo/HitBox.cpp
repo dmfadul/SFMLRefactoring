@@ -43,6 +43,11 @@ void HitBox::setOffSetY(const int o)
     this->offsetY = o;
 }
 
+sf::FloatRect HitBox::getBounds()
+{
+    return this->hitbox.getGlobalBounds();
+}
+
 // _______________________________________________________________________________
 const sf::Vector2f HitBox::getEsquerda() const
 {
@@ -71,24 +76,6 @@ const sf::Vector2f HitBox::getCima() const
 }
 
 // _______________________________________________________________________________
-const sf::Vector2f HitBox::getCimaEsquerda() const
-{
-    sf::Vector2f aux;
-    aux.x = this->hitbox.getPosition().x;
-    aux.y = this->hitbox.getPosition().y;
-    return aux;
-}
-
-// _______________________________________________________________________________
-const sf::Vector2f HitBox::getCimaDireita() const
-{
-    sf::Vector2f aux;
-    aux.x = this->hitbox.getPosition().x;
-    aux.y = this->hitbox.getPosition().y + this->hitbox.getGlobalBounds().width;
-    return aux;
-}
-
-// _______________________________________________________________________________
 const sf::Vector2f HitBox::getBaixoEsquerda() const
 {
     sf::Vector2f aux;
@@ -106,16 +93,25 @@ const sf::Vector2f HitBox::getBaixoDireita() const
     return aux;
 }
 
-// _______________________________________________________________________________
-const sf::FloatRect HitBox::getBounds() const { return this->hitbox.getGlobalBounds(); }
+const int HitBox::getOffsetCima() const
+{
+    return this->offsetY;
+}
 
-const float HitBox::getWidth() const { return this->hitbox.getGlobalBounds().width; }
+const int HitBox::getOffsetBaixo() const
+{
+    return this->sprite->getGlobalBounds().height - this->hitbox.getGlobalBounds().height - this->offsetY;
+}
 
-const float HitBox::getHeight() const { return this->hitbox.getGlobalBounds().height; }
+const int HitBox::getOffsetEsquerda() const
+{
+    return this->offsetX;
+}
 
-const int HitBox::getOffsetX() const { return this->offsetX; }
-
-const int HitBox::getOffsetY() const { return this->offsetY; }
+const int HitBox::getOffsetDireira() const
+{
+    return this->sprite->getGlobalBounds().width - this->hitbox.getGlobalBounds().width - this->offsetX;
+}
 
 // _______________________________________________________________________________
 void HitBox::atualizarPosicao()

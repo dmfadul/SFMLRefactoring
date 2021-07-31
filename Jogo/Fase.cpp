@@ -10,13 +10,15 @@ Fase::Fase(JogoInfo* pji):
 // _______________________________________________________________________________
 Fase::~Fase()
 {
+	for (auto& personagem : this->personagens)
+		delete personagem;
 }
 
 // _______________________________________________________________________________
 void Fase::iniciarPersonagens()
 {
-	this->personagens.push_back(new Cowboy("./Recursos/Imagens/Personagens/Cowboy/tile000.png"));
-	this->personagens.push_back(new Cowboy2("./Recursos/Imagens/Personagens/Cowboy/tile000.png"));
+	this->personagens.push_back(new Cowboy("./Recursos/Imagens/Personagens/Cowboy.png"));
+	this->personagens.push_back(new CowGirl("./Recursos/Imagens/Personagens/Cowgirl.png"));
 }
 
 // _______________________________________________________________________________
