@@ -20,10 +20,15 @@ private:
 
 public:
 	// construtoras e destrutoras
-	Mapa(std::string diretorio = "", int ini = 0, int qtd = 0);
+	Mapa();
 	~Mapa();
 
+	// Setters e getters
+	const int blocoAtual(sf::Vector2f pos) const;
+	Entidade* getEntidade(const int i) const;
+
 	// metodos de inicialização
+	void iniciarMapa(std::string diretorio , int ini, int qtd);
 	void carregarMapa(std::string diretorio);
 	void iniciaPosicoesLivres();
 	void iniciarEntidades();

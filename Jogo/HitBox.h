@@ -24,6 +24,11 @@ public:
 	const sf::Vector2f getCimaDireita() const;
 	const sf::Vector2f getBaixoEsquerda() const;
 	const sf::Vector2f getBaixoDireita() const;
+	const sf::FloatRect getBounds() const;
+	const float getWidth() const;
+	const float getHeight() const;
+	const int getOffsetX() const;
+	const int getOffsetY() const;
 
 	void atualizarPosicao();
 	void desenhar(sf::RenderTarget& janela);

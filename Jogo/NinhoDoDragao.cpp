@@ -1,11 +1,15 @@
 #include "stdafx.h"
 #include "NinhoDoDragao.h"
 #include "VelhoOeste.h"
+
 // _______________________________________________________________________________
 NinhoDoDragao::NinhoDoDragao(JogoInfo* pji)
-	: Fase(pji), mapa("./Recursos/mapas/ninho_dragao.txt", 101, 12), cowboy("./Recursos/Imagens/Personagens/Cowboy/tile000.png"), cowboy2("./Recursos/Imagens/Personagens/Cowboy/tile000.png")
+	: Fase(pji)
 {
+	this->iniciarPersonagens();
 	this->iniciarBackground("./Recursos/Imagens/backgrounds/ninho_do_dragao.png");
+	this->iniciarMapa("./Recursos/mapas/ninho_dragao.txt", 101, 12);
+	this->iniciarGerenciadorColisoes();
 	this->jogoInfo->getTocaDisco()->tocarSpearOfJustice();
 }
 
@@ -18,10 +22,14 @@ NinhoDoDragao::~NinhoDoDragao()
 // _______________________________________________________________________________
 void NinhoDoDragao::atualizar()
 {
-	cowboy.atualizar();
-	cowboy2.atualizar();
-	cowboy.verificarColisao(cowboy2.getPosition(), cowboy2.getSize(), 1.0);
-	cowboy.atualizar();
+
+	for (auto& personagem : this->personagens)
+		personagem->atualizar();
+
+	this->gerColisoes.verificarColisoes();
+
+	// cowboy.verificarColisao(cowboy2.getPosition(), cowboy2.getSize(), 1.0);
+	//cowboy.atualizar();
 }
 
 // _______________________________________________________________________________
@@ -44,8 +52,10 @@ void NinhoDoDragao::desenhar(sf::RenderTarget& janela)
 	/* Desenha o novo frame */
 	janela.clear();
 	janela.draw(this->background);
-	cowboy.desenhar(janela);
-	cowboy2.desenhar(janela);
+	
+	for (auto& personagem : this->personagens)
+		personagem->desenhar(janela);
+
 	this->mapa.desenharMapa(janela);
 	
 }

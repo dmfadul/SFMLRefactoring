@@ -7,7 +7,6 @@ class VelhoOeste :
     public Fase
 {
 private:
-    Mapa mapa;
 
 public:
     // Construtoras e Destrutoras

@@ -13,7 +13,7 @@ public:
 	virtual ~Entidade();
 
 	// getters e setters
-	const bool getColidir() const;
+	const bool getColidir();
 	void setPosicao(const float x, const float y);
 
 	// metodos

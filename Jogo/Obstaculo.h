@@ -7,7 +7,7 @@ protected:
     float dano;
 
 public:
-    Obstaculo(const int indice = 0, const bool colidir = true);
+    Obstaculo(const int indice = 0, const bool colidir = false);
     ~Obstaculo();
 
     void iniciarSprite(int indice);

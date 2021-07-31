@@ -12,27 +12,7 @@ Cowboy2::Cowboy2(std::string imgCaminho)
 	sprite.setPosition(sf::Vector2f(100.0, 400.0));
 	sprite.setScale(sf::Vector2f(2.0, 2.0));
 	this->iniciarHitbox();
-}
-
-// _______________________________________________________________________________
-void Cowboy2::mover(char direcao, float velocidade)
-{
-	if (direcao == 'u')
-	{
-		sprite.move(0, -velocidade);
-	}
-	else if (direcao == 'd')
-	{
-		sprite.move(0, velocidade);
-	}
-	else if (direcao == 'l')
-	{
-		sprite.move(-velocidade, 0);
-	}
-	else if (direcao == 'r')
-	{
-		sprite.move(velocidade, 0);
-	}
+	this->iniciarCompMov();
 }
 
 // _______________________________________________________________________________
@@ -45,25 +25,20 @@ void Cowboy2::desenhar(sf::RenderTarget& janela)
 // _______________________________________________________________________________
 void Cowboy2::atualizar()
 {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+		this->compMov.acelerarX(-0.2f);
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+		this->compMov.acelerarX(0.2f);
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && this->compMov.getCaindo() == false)
+		this->compMov.setVelY(-10.f);
+
 	this->hitbox.atualizarPosicao();
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-	{
-		this->mover('u', 6.0);
-	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-	{
-		this->mover('d', 6.0);
-	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-	{
-		this->mover('r', 6.0);
-	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-	{
-		this->mover('l', 6.0);
-	}
+	this->compMov.mover();
 }
 
+/*
 // _______________________________________________________________________________
 bool Cowboy2::verificarColisao(sf::Vector2f posicao, sf::Vector2f tamanho, float push)
 {
@@ -105,7 +80,7 @@ bool Cowboy2::verificarColisao(sf::Vector2f posicao, sf::Vector2f tamanho, float
 
 	return false;
 }
-
+*/
 // _______________________________________________________________________________
 sf::Vector2f Cowboy2::getPosition()
 {

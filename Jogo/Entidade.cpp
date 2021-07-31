@@ -14,7 +14,7 @@ Entidade::~Entidade()
 
 
 // _______________________________________________________________________________
-const bool Entidade::getColidir() const
+const bool Entidade::getColidir()
 {
 	return this->colidir;
 }

@@ -19,14 +19,14 @@
     <Filter Include="Graficos">
       <UniqueIdentifier>{134f7fbe-c0b7-422f-96c5-2dd686eedd44}</UniqueIdentifier>
     </Filter>
-    <Filter Include="container">
-      <UniqueIdentifier>{a2c9c536-c6a2-4bd8-8288-b78b002db032}</UniqueIdentifier>
-    </Filter>
     <Filter Include="sons">
       <UniqueIdentifier>{e572a3a7-b0fc-4864-951e-30dd668159fc}</UniqueIdentifier>
     </Filter>
     <Filter Include="Personagens">
       <UniqueIdentifier>{c36e387b-948c-49b4-a816-af99b631d2b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="containers e gerenciadores">
+      <UniqueIdentifier>{a2c9c536-c6a2-4bd8-8288-b78b002db032}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -82,7 +82,7 @@
       <Filter>Entes</Filter>
     </ClCompile>
     <ClCompile Include="JogoInfo.cpp">
-      <Filter>container</Filter>
+      <Filter>containers e gerenciadores</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>Arquivos de Recurso</Filter>
@@ -125,6 +125,12 @@
     </ClCompile>
     <ClCompile Include="HitBox.cpp">
       <Filter>Personagens</Filter>
+    </ClCompile>
+    <ClCompile Include="GerenciadorColisoes.cpp">
+      <Filter>containers e gerenciadores</Filter>
+    </ClCompile>
+    <ClCompile Include="ComponenteMovimento.cpp">
+      <Filter>Arquivos de Origem</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -177,7 +183,7 @@
       <Filter>Entes</Filter>
     </ClInclude>
     <ClInclude Include="JogoInfo.h">
-      <Filter>container</Filter>
+      <Filter>containers e gerenciadores</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>Arquivos de Recurso</Filter>
@@ -223,6 +229,12 @@
     </ClInclude>
     <ClInclude Include="HitBox.h">
       <Filter>Personagens</Filter>
+    </ClInclude>
+    <ClInclude Include="GerenciadorColisoes.h">
+      <Filter>containers e gerenciadores</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponenteMovimento.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

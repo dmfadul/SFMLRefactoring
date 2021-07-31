@@ -3,9 +3,12 @@
 
 // _______________________________________________________________________________
 VelhoOeste::VelhoOeste(JogoInfo* pji)
-	: Fase(pji), mapa("./Recursos/mapas/velho_oeste.txt", 1, 13)
+	: Fase(pji)
 {
+	this->iniciarPersonagens();
 	this->iniciarBackground("./Recursos/Imagens/backgrounds/velho_oeste.png");
+	this->iniciarMapa("./Recursos/mapas/velho_oeste.txt", 1, 13);
+	this->iniciarGerenciadorColisoes();
 	this->jogoInfo->getTocaDisco()->tocarFallenDown();
 }
 

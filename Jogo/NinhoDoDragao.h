@@ -7,9 +7,6 @@ class NinhoDoDragao :
     public Fase
 {
 private:
-    Mapa mapa;
-    Cowboy cowboy;
-    Cowboy2 cowboy2;
 
 public:
     // Construtoras e Destrutoras

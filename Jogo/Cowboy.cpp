@@ -9,30 +9,10 @@ Cowboy::Cowboy(std::string imgCaminho)
 		std::cerr << "Erro\n";
 	}
 	sprite.setTexture(texture);
-	sprite.setPosition(sf::Vector2f(100.0,400.0));
+	sprite.setPosition(sf::Vector2f(100.0,100.0));
 	sprite.setScale(sf::Vector2f(2.0, 2.0));
 	this->iniciarHitbox();
-}
-
-// _______________________________________________________________________________
-void Cowboy::mover(char direcao, float velocidade)
-{
-	if (direcao == 'u')
-	{
-		sprite.move(0, -velocidade);
-	}
-	else if (direcao == 'd')
-	{
-		sprite.move(0, velocidade);
-	}
-	else if (direcao == 'l')
-	{
-		sprite.move(-velocidade, 0);
-	}
-	else if (direcao == 'r')
-	{
-		sprite.move(velocidade, 0);
-	}
+	this->iniciarCompMov();
 }
 
 // _______________________________________________________________________________
@@ -45,27 +25,21 @@ void Cowboy::desenhar(sf::RenderTarget& janela)
 // _______________________________________________________________________________
 void Cowboy::atualizar()
 {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+		this->compMov.acelerarX(-0.2f);
+	
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+		this->compMov.acelerarX(0.2f);
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && this->compMov.getCaindo() == false)
+		this->compMov.setVelY(-10.f);
 
 	this->hitbox.atualizarPosicao();
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-	{
-		this->mover('u', 6.0);
-	} 
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-	{
-		this->mover('l', 6.0);
-	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-	{
-		this->mover('d', 6.0);
-	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-	{
-		this->mover('r', 6.0);
-	}
+	this->compMov.mover();
 }
 
 // _______________________________________________________________________________
+/*
 bool Cowboy::verificarColisao(sf::Vector2f posicao, sf::Vector2f tamanho, float push)
 {
 	float deltaX = posicao.x - sprite.getPosition().x;
@@ -106,7 +80,7 @@ bool Cowboy::verificarColisao(sf::Vector2f posicao, sf::Vector2f tamanho, float 
 
 	return false;
 }
-
+*/
 // _______________________________________________________________________________
 Cowboy::~Cowboy()
 {

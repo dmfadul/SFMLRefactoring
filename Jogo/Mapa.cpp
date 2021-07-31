@@ -2,12 +2,9 @@
 #include "Mapa.h"
 
 // _______________________________________________________________________________
-Mapa::Mapa(std::string diretorio, int ini, int qtd)
-	:inicioPlataformas(ini), qtdPlataformas(qtd)
-{
-	this->carregarMapa(diretorio);
-	this->iniciaPosicoesLivres();
-	this->iniciarEntidades();
+Mapa::Mapa() { 
+	this->inicioPlataformas = -1;
+	this->qtdPlataformas = -1;
 }
 
 // _______________________________________________________________________________
@@ -25,6 +22,35 @@ Mapa::~Mapa()
 	for (auto& ent : this->entidades) {
 		delete ent;
 	}
+}
+
+// _______________________________________________________________________________
+const int Mapa::blocoAtual(sf::Vector2f pos) const
+{
+	/* Retona o bloco na posição passada por parametro */
+	int pos_x = pos.x / 32;
+	int pos_y = pos.y / 32;
+
+	if (pos_x >= 0 && pos_y >= 0 && pos_x < TAM_MAPA_X && pos_y < TAM_MAPA_Y)
+		return this->mapa[pos_x][pos_y]; // retorna a plataforma na posicao
+	else
+		return 0;
+}
+
+// _______________________________________________________________________________
+Entidade* Mapa::getEntidade(const int i) const
+{
+	return this->entidades[i];
+}
+
+// _______________________________________________________________________________
+void Mapa::iniciarMapa(std::string diretorio, int ini, int qtd)
+{
+	this->inicioPlataformas = ini;
+	this->qtdPlataformas = qtd;
+	this->carregarMapa(diretorio);
+	this->iniciaPosicoesLivres();
+	this->iniciarEntidades();
 }
 
 // _______________________________________________________________________________

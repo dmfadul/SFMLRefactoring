@@ -92,7 +92,7 @@ const sf::Vector2f HitBox::getCimaDireita() const
 const sf::Vector2f HitBox::getBaixoEsquerda() const
 {
     sf::Vector2f aux;
-    aux.x = this->hitbox.getPosition().x;
+    aux.x = this->hitbox.getPosition().x + 5.f;
     aux.y = this->hitbox.getPosition().y + this->hitbox.getGlobalBounds().height;
     return aux;
 }
@@ -101,10 +101,21 @@ const sf::Vector2f HitBox::getBaixoEsquerda() const
 const sf::Vector2f HitBox::getBaixoDireita() const
 {
     sf::Vector2f aux;
-    aux.x = this->hitbox.getPosition().x + this->hitbox.getGlobalBounds().width;
+    aux.x = this->hitbox.getPosition().x + this->hitbox.getGlobalBounds().width - 5.f;
     aux.y = this->hitbox.getPosition().y + this->hitbox.getGlobalBounds().height;
     return aux;
 }
+
+// _______________________________________________________________________________
+const sf::FloatRect HitBox::getBounds() const { return this->hitbox.getGlobalBounds(); }
+
+const float HitBox::getWidth() const { return this->hitbox.getGlobalBounds().width; }
+
+const float HitBox::getHeight() const { return this->hitbox.getGlobalBounds().height; }
+
+const int HitBox::getOffsetX() const { return this->offsetX; }
+
+const int HitBox::getOffsetY() const { return this->offsetY; }
 
 // _______________________________________________________________________________
 void HitBox::atualizarPosicao()

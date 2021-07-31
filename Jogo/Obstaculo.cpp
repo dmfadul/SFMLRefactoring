@@ -21,7 +21,6 @@ void Obstaculo::iniciarSprite(int indice)
 	/* carrega textura e inicia o sprite */
 	std::string s = "./Recursos/Imagens/obstaculos/" + std::to_string(indice) + ".png";
 
-	this->colidir = true;
 	if (!this->textura.loadFromFile(s)) {
 		std::cout << "OBSTACULO::INICIARSPRITE FALHA AO CARREGAR TEXTURA" << std::endl;
 		std::cout << s << std::endl;
