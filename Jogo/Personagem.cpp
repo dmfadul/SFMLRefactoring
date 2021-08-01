@@ -27,15 +27,13 @@ const int Personagem::getHP() const { return this->hp; }
 
 const int Personagem::getDano() const { return this->dano; }
 
+sf::FloatRect Personagem::getBounds() const
+{
+	return this->sprite.getGlobalBounds();
+}
+
 sf::Vector2f Personagem::getPosition() const {  return this->sprite.getPosition(); }
 
-// _______________________________________________________________________________
-sf::Vector2i Personagem::getPosGrid() const { 
-	return sf::Vector2i(
-		this->sprite.getPosition().x / TAM_BLOCO,
-		this->sprite.getPosition().y / TAM_BLOCO
-	);
-}
 
 // _______________________________________________________________________________
 HitBox Personagem::getHitbox() const { return this->hitbox; }

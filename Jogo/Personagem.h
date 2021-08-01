@@ -31,8 +31,8 @@ public:
 	const int getId() const;
 	const int getHP() const;
 	const int getDano() const;
+	sf::FloatRect getBounds() const;
 	sf::Vector2f getPosition() const;
-	sf::Vector2i getPosGrid() const;
 
 	// get components
 	HitBox getHitbox() const;

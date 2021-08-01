@@ -58,7 +58,6 @@ void GerenciadorColisoes::verificarColisoes()
 void GerenciadorColisoes::colisaoPersonagemPlataforma()
 {
 	for (auto& personagem : *this->personagens) {
-
 		HitBox hitbox = personagem->getHitbox();
 
 		// colisao da direita da hitbox com uma plataforma
@@ -67,7 +66,7 @@ void GerenciadorColisoes::colisaoPersonagemPlataforma()
 		{
 			personagem->getMovComp()->setVelX(0.f);
 			personagem->setPosicao(
-				personagem->getPosGrid().x * TAM_BLOCO + hitbox.getOffsetDireira() - 0.1f,
+				hitbox.getPosGridBaixoDir().x * TAM_BLOCO - hitbox.getOffsetDireita() - 0.1f,
 				personagem->getPosition().y
 			);
 		}
@@ -78,7 +77,7 @@ void GerenciadorColisoes::colisaoPersonagemPlataforma()
 		{
 			personagem->getMovComp()->setVelX(0.f);
 			personagem->setPosicao(
-				(personagem->getPosGrid().x + 1) * TAM_BLOCO - hitbox.getOffsetEsquerda(),
+				(hitbox.getPosGridCimaEsq().x + 1) * TAM_BLOCO - hitbox.getOffsetEsquerda(),
 				personagem->getPosition().y
 			);
 		}
@@ -90,7 +89,7 @@ void GerenciadorColisoes::colisaoPersonagemPlataforma()
 			personagem->getMovComp()->setVelY(0.f);
 			personagem->setPosicao(
 				personagem->getPosition().x,
-				(personagem->getPosGrid().y + 2) * TAM_BLOCO - hitbox.getOffsetCima()
+				(hitbox.getPosGridCimaEsq().y + 1) * TAM_BLOCO - hitbox.getOffsetCima()
 			);
 		}
 
@@ -104,7 +103,7 @@ void GerenciadorColisoes::colisaoPersonagemPlataforma()
 			personagem->getMovComp()->setCaindo(false);
 			personagem->setPosicao(
 				personagem->getPosition().x,
-				personagem->getPosGrid().y * TAM_BLOCO + hitbox.getOffsetBaixo()
+				hitbox.getPosGridBaixoDir().y * TAM_BLOCO - hitbox.getOffsetBaixo() - 0.1f
 			);
 		}
 		else {
@@ -118,12 +117,11 @@ void GerenciadorColisoes::colisaoPersonagemTela()
 {
 	for (auto& personagem : *this->personagens) {
 		HitBox hitbox = personagem->getHitbox();
-
 		// colisao com a direita da tela
 		if (personagem->getHitbox().getDireita().x > TAM_JANELA_X) {
 			personagem->getMovComp()->setVelX(0.f);
 			personagem->setPosicao(
-				personagem->getPosGrid().x * TAM_BLOCO + hitbox.getOffsetDireira(),
+				TAM_JANELA_X - hitbox.getOffsetDireita(),
 				personagem->getPosition().y);
 		}
 

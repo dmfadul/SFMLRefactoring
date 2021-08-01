@@ -1,4 +1,5 @@
 #pragma once
+#include "configuracoes.h"
 class HitBox
 {
 private:
@@ -18,6 +19,8 @@ public:
 	void setOffsetX(const int o);
 	void setOffSetY(const int o);
 	sf::FloatRect getBounds();
+	sf::Vector2i getPosGridCimaEsq();
+	sf::Vector2i getPosGridBaixoDir();
 
 	// limites do hitbox
 	const sf::Vector2f getEsquerda() const;
@@ -30,7 +33,7 @@ public:
 	const int getOffsetCima() const;
 	const int getOffsetBaixo() const;
 	const int getOffsetEsquerda() const;
-	const int getOffsetDireira() const;
+	const int getOffsetDireita() const;
 
 	// metodos
 	void atualizarPosicao();

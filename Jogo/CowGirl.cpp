@@ -10,7 +10,7 @@ CowGirl::CowGirl(std::string imgCaminho)
 	}
 	sprite.setTexture(texture);
 	sprite.setPosition(sf::Vector2f(100.0, 400.0));
-	sprite.setScale(sf::Vector2f(2.0, 2.0));
+	sprite.setScale(sf::Vector2f(2, 2));
 	sprite.setTextureRect(sf::IntRect(0, 0, 32, 32));
 	this->iniciarHitbox();
 	this->iniciarCompMov();
@@ -20,6 +20,7 @@ CowGirl::CowGirl(std::string imgCaminho)
 void CowGirl::desenhar(sf::RenderTarget& janela)
 {
 	janela.draw(sprite);
+	this->hitbox.desenhar(janela);
 }
 
 // _______________________________________________________________________________
