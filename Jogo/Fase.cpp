@@ -5,6 +5,7 @@
 Fase::Fase(JogoInfo* pji):
 	Ente(pji)
 {
+	this->iniciarTextoScore();
 }
 
 // _______________________________________________________________________________
@@ -25,6 +26,23 @@ void Fase::iniciarPersonagens()
 void Fase::iniciarMapa(std::string dir, int ini, int qtd, int tipo)
 {
 	this->mapa.iniciarMapa(dir, ini, qtd, tipo);
+}
+
+// _______________________________________________________________________________
+void Fase::iniciarTextoScore()
+{
+	if (!this->fonte.loadFromFile("./Recursos/Fontes/Bebas.ttf")) {
+		std::cout << "BOTAO::FALHA AO CARREGAR FONTE" << std::endl;
+	}
+
+	// Inicia texto
+	this->textoScore.setString("Score: 0");
+	this->textoScore.setFont(this->fonte);
+	this->textoScore.setCharacterSize(38);
+	this->textoScore.setPosition(
+		TAM_JANELA_X / 2 - this->textoScore.getGlobalBounds().width / 2,
+		10.f
+	);
 }
 
 // _______________________________________________________________________________

@@ -9,3 +9,10 @@ AreiaDasAlmas::AreiaDasAlmas(const int indice)
 AreiaDasAlmas::~AreiaDasAlmas()
 {
 }
+
+void AreiaDasAlmas::realizarAcao(Personagem* p)
+{
+	// Diminui a velocidade do personagem
+	p->getMovComp()->setVelY(0);
+	p->getMovComp()->setVelX(VELOCIDADE_MAX);
+}

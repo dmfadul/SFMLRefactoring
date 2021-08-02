@@ -26,8 +26,8 @@ void gui::Botao::iniciarBotao(float pos_x, float pos_y, std::string texto)
 	this->corAtivado = sf::Color::White;
 	this->corDesativado = sf::Color(150, 150, 150);
 
-	this->iniciarCaixa(pos_x, pos_y);
 	this->iniciarTexto(pos_x, pos_y, texto);
+	this->iniciarCaixa(pos_x, pos_y);
 }
 
 // _______________________________________________________________________________
@@ -37,27 +37,13 @@ void gui::Botao::iniciarCaixa(float pos_x, float pos_y)
 	this->caixaBotao.setFillColor(sf::Color::Transparent);
 	this->caixaBotao.setPosition(pos_x, pos_y);
 	this->caixaBotao.setSize(sf::Vector2f(200.f, 50.f));
-}
 
-// _______________________________________________________________________________
-void gui::Botao::iniciarTexto(float pos_x, float pos_y, std::string texto)
-{
-	/* Inicia fonte e centraliza o texto no botão */
-	if (!this->fonte.loadFromFile("./Recursos/Fontes/Bebas.ttf")){
-		std::cout << "BOTAO::FALHA AO CARREGAR FONTE" << std::endl;
-	}
-
-	// Inicia texto
-	this->texto.setString(texto);
-	this->texto.setFont(this->fonte);
-	this->texto.setFillColor(this->corDesativado);
-	this->texto.setCharacterSize(38);
 
 	// centraliza o texto no botao
 	this->texto.setPosition(
 		pos_x + this->caixaBotao.getGlobalBounds().width / 2 - this->texto.getGlobalBounds().width / 2,
 		pos_y + this->caixaBotao.getGlobalBounds().height / 2 - this->texto.getGlobalBounds().height / 2 - this->texto.getCharacterSize() / 4);
-
+	this->texto.setFillColor(this->corDesativado);
 }
 
 // _______________________________________________________________________________

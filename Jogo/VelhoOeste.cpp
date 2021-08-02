@@ -21,6 +21,10 @@ VelhoOeste::~VelhoOeste()
 // _______________________________________________________________________________
 void VelhoOeste::atualizar()
 {
+	for (auto& personagem : this->personagens)
+		personagem->atualizar();
+
+	this->gerColisoes.verificarColisoes();
 }
 
 // _______________________________________________________________________________
@@ -46,5 +50,11 @@ void VelhoOeste::desenhar(sf::RenderTarget& janela)
 {
 	/* Desenha o novo frame */
 	janela.draw(this->background);
+
+	for (auto& personagem : this->personagens)
+		personagem->desenhar(janela);
+
+	janela.draw(this->textoScore);
+
 	this->mapa.desenharMapa(janela);
 }

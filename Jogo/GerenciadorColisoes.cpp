@@ -62,7 +62,11 @@ void GerenciadorColisoes::colisaoPersonagemPlataforma()
 
 		// colisao da direita da hitbox com uma plataforma
 		int bloco = this->mapa->blocoAtual(hitbox.getDireita()) - 1;
-		if (bloco >= 0 && this->mapa->getEntidade(bloco)->getColidir()) 
+		if (bloco >= 17) {
+			Obstaculo* obstaculo = static_cast<Obstaculo*>(this->mapa->getEntidade(bloco));
+			obstaculo->realizarAcao(personagem);
+		}
+		else if (bloco >= 0 && this->mapa->getEntidade(bloco)->getColidir()) 
 		{
 			personagem->getMovComp()->setVelX(0.f);
 			personagem->setPosicao(
@@ -73,7 +77,11 @@ void GerenciadorColisoes::colisaoPersonagemPlataforma()
 
 		// colisao da esquerda da hitbox com uma plataforma
 		bloco = this->mapa->blocoAtual(personagem->getHitbox().getEsquerda()) - 1;
-		if (bloco >= 0 && this->mapa->getEntidade(bloco)->getColidir()) 
+		if (bloco >= 17) {
+			Obstaculo* obstaculo = static_cast<Obstaculo*>(this->mapa->getEntidade(bloco));
+			obstaculo->realizarAcao(personagem);
+		}
+		else if (bloco >= 0 && this->mapa->getEntidade(bloco)->getColidir()) 
 		{
 			personagem->getMovComp()->setVelX(0.f);
 			personagem->setPosicao(
@@ -96,9 +104,18 @@ void GerenciadorColisoes::colisaoPersonagemPlataforma()
 		// colisao da parte de baixo da hitbox com uma plataforma
 		bloco = this->mapa->blocoAtual(hitbox.getBaixoEsquerda()) - 1;
 		int bloco2 = this->mapa->blocoAtual(hitbox.getBaixoDireita()) - 1;
-		if ( bloco >= 0 && this->mapa->getEntidade(bloco)->getColidir() ||
+
+		if (bloco >= 17) {
+			Obstaculo* obstaculo = static_cast<Obstaculo* >(this->mapa->getEntidade(bloco));
+			obstaculo->realizarAcao(personagem);
+		}
+		else if ( bloco >= 0 && this->mapa->getEntidade(bloco)->getColidir() ||
 			(bloco2 >= 0 && this->mapa->getEntidade(bloco2)->getColidir()) ) 
 		{
+			if (bloco >= 15) {
+				Obstaculo* obstaculo = static_cast<Obstaculo* > (this->mapa->getEntidade(bloco));
+				obstaculo->realizarAcao(personagem);
+			}
 			personagem->getMovComp()->setVelY(0.f);
 			personagem->getMovComp()->setCaindo(false);
 			personagem->setPosicao(

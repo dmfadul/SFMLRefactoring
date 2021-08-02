@@ -11,6 +11,8 @@ class Fase :
 protected:
     Mapa mapa;
     GerenciadorColisoes gerColisoes;
+    sf::Text textoScore;
+    sf::Font fonte;
     std::vector<Personagem* > personagens;
 
 public:
@@ -21,6 +23,7 @@ public:
     // metodos de inicializacao
     void iniciarPersonagens();
     void iniciarMapa(std::string dir, int ini, int qtd, int tipo = 1);
+    void iniciarTextoScore();
     void iniciarGerenciadorColisoes();
 };
 

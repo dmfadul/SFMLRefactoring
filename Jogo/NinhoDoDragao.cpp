@@ -52,6 +52,7 @@ void NinhoDoDragao::desenhar(sf::RenderTarget& janela)
 	for (auto& personagem : this->personagens)
 		personagem->desenhar(janela);
 
+	janela.draw(this->textoScore);
 	this->mapa.desenharMapa(janela);
 	
 }

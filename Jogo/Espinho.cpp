@@ -9,3 +9,9 @@ Espinho::Espinho(const int indice)
 Espinho::~Espinho()
 {
 }
+
+void Espinho::realizarAcao(Personagem* p)
+{
+	/* Cactus causa um dano de 15 */
+	p->receberDano(DANO_ESPINHO);
+}

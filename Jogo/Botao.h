@@ -1,14 +1,12 @@
 #pragma once
-
+#include "Gui.h"
 namespace gui {
 	/* Classe de um botão generico */
-	class Botao
+	class Botao : public Gui 
 	{
 	private:
 		// Variaveis SFML
 		sf::RectangleShape caixaBotao;
-		sf::Font fonte;
-		sf::Text texto;
 		sf::Color corAtivado;
 		sf::Color corDesativado;
 
@@ -24,7 +22,6 @@ namespace gui {
 		// Metodos de inicialização
 		void iniciarBotao(float pos_x, float pos_y, std::string texto);
 		void iniciarCaixa(float pos_x, float pos_y);
-		void iniciarTexto(float pos_x, float pos_y, std::string texto);
 
 		// Ativar e Desativar botao
 		void ativar();

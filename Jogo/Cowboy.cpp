@@ -8,10 +8,8 @@ Cowboy::Cowboy(std::string imgCaminho)
 	this->iniciarPersInfo(VIDA_INICIAL, DANO_ATAQUE);
 	this->iniciarHitbox(25.f, 36.f, 15.f, 25.f);
 	this->iniciarCompMov(VEL_MAX_PLAYER);
-
-	// APAGAR
-	std::cout << "Vida Inicial: " << pInfo.getHp() << std::endl;
-	std::cout << "Dano: " << pInfo.getDano() << std::endl;
+	this->barraVida.setTamTexto(22.f);
+	this->barraVida.identificarBarra("Cowboy", 10.f, 10.f);
 }
 
 // _______________________________________________________________________________
@@ -45,5 +43,6 @@ void Cowboy::desenhar(sf::RenderTarget& janela)
 {
 	janela.draw(sprite);
 	hitbox.desenhar(janela);
+	barraVida.desenharBarra(janela);
 }
 

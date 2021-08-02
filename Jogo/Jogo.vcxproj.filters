@@ -133,7 +133,13 @@
       <Filter>Personagens</Filter>
     </ClCompile>
     <ClCompile Include="PersonagemInfo.cpp">
-      <Filter>Arquivos de Origem</Filter>
+      <Filter>Personagens</Filter>
+    </ClCompile>
+    <ClCompile Include="Gui.cpp">
+      <Filter>Graficos</Filter>
+    </ClCompile>
+    <ClCompile Include="Barra.cpp">
+      <Filter>Graficos</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -240,7 +246,13 @@
       <Filter>Personagens</Filter>
     </ClInclude>
     <ClInclude Include="PersonagemInfo.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
+      <Filter>Personagens</Filter>
+    </ClInclude>
+    <ClInclude Include="Gui.h">
+      <Filter>Graficos</Filter>
+    </ClInclude>
+    <ClInclude Include="Barra.h">
+      <Filter>Graficos</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

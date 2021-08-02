@@ -9,6 +9,9 @@ CowGirl::CowGirl(std::string imgCaminho)
 	this->iniciarPersInfo(VIDA_INICIAL, DANO_ATAQUE);
 	this->iniciarHitbox(25.f, 36.f, 15.f, 25.f);
 	this->iniciarCompMov(VEL_MAX_PLAYER);
+	this->barraVida.setTamTexto(22.f);
+	this->barraVida.setPosicao(TAM_JANELA_X - 190.f, 40.f);
+	this->barraVida.identificarBarra("Cowgirl", TAM_JANELA_X - 70.f, 10.f);
 }
 
 // _______________________________________________________________________________
@@ -41,5 +44,6 @@ void CowGirl::atualizar()
 void CowGirl::desenhar(sf::RenderTarget& janela)
 {
 	janela.draw(sprite);
+	this->barraVida.desenharBarra(janela);
 	this->hitbox.desenhar(janela);
 }

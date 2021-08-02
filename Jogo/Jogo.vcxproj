@@ -156,6 +156,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AreiaDasAlmas.cpp" />
+    <ClCompile Include="Barra.cpp" />
     <ClCompile Include="Botao.cpp" />
     <ClCompile Include="Cactus.cpp" />
     <ClCompile Include="ComponenteMovimento.cpp" />
@@ -167,6 +168,7 @@
     <ClCompile Include="Espinho.cpp" />
     <ClCompile Include="Fase.cpp" />
     <ClCompile Include="GerenciadorColisoes.cpp" />
+    <ClCompile Include="Gui.cpp" />
     <ClCompile Include="HitBox.cpp" />
     <ClCompile Include="Inimigo.cpp" />
     <ClCompile Include="Inimigo1.cpp" />
@@ -198,6 +200,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AreiaDasAlmas.h" />
+    <ClInclude Include="Barra.h" />
     <ClInclude Include="Botao.h" />
     <ClInclude Include="Cactus.h" />
     <ClInclude Include="ComponenteMovimento.h" />
@@ -210,6 +213,7 @@
     <ClInclude Include="Espinho.h" />
     <ClInclude Include="Fase.h" />
     <ClInclude Include="GerenciadorColisoes.h" />
+    <ClInclude Include="Gui.h" />
     <ClInclude Include="HitBox.h" />
     <ClInclude Include="Inimigo.h" />
     <ClInclude Include="Inimigo1.h" />

@@ -13,5 +13,6 @@ public:
     ~Plataforma();
 
     void iniciarSprite(int indice);
+
 };
 

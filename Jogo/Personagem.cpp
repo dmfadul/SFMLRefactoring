@@ -5,7 +5,8 @@
 Personagem::Personagem():
 hitbox(),
 compMov(),
-pInfo()
+pInfo(),
+barraVida()
 {}
 
 // _______________________________________________________________________________
@@ -55,4 +56,20 @@ sf::Vector2f Personagem::getPosition() const {  return this->sprite.getPosition(
 
 HitBox Personagem::getHitbox() const { return this->hitbox; }
 
+PersonagemInfo* Personagem::getPersInfo() { return &this->pInfo; }
+
 ComponenteMovimento* Personagem::getMovComp() { return &this->compMov; }
+
+// _______________________________________________________________________________
+void Personagem::receberDano(int dano)
+{
+	/* Diminui a vida do personagem e atualiza sua barra de vida */
+	if (this->invulneravel.getElapsedTime().asMilliseconds() > 400) {
+		int vida = this->getPersInfo()->getHp();
+		vida = vida - dano;
+		this->getPersInfo()->setHP(vida);
+		this->barraVida.incrementaValor(-dano);
+		this->invulneravel.restart();
+	}
+}
+
