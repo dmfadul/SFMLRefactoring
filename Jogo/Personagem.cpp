@@ -1,41 +1,58 @@
 #include "stdafx.h"
 #include "Personagem.h"
 
-int Personagem::qtdPersonagens = 0;
-
 // _______________________________________________________________________________
 Personagem::Personagem():
-hp(100),
-dano(100),
 hitbox(),
-id(qtdPersonagens++){}
+compMov(),
+pInfo()
+{}
 
 // _______________________________________________________________________________
 Personagem::~Personagem(){}
 
 // _______________________________________________________________________________
-void Personagem::setHP(int h) { this->hp = h; }
+void Personagem::iniciarSprite(std::string imgCaminho, float scale_x, float scale_y)
+{
+	/* Inicia o sprite do personagem */
+	if (!texture.loadFromFile(imgCaminho)){
+		std::cerr << "Erro\n";
+	}
+	sprite.setTexture(texture);
+	sprite.setPosition(sf::Vector2f(rand() % TAM_JANELA_X, 0.f)); // Spawn em posicao aleatoria
+	sprite.setScale(sf::Vector2f(scale_x, scale_y));
+}
 
-void Personagem::setDano(int d) { this->dano = d; }
+// _______________________________________________________________________________
+void Personagem::iniciarPersInfo(int h, int d)
+{
+	this->pInfo.iniciarPersInfo(h, d);
+}
+
+// _______________________________________________________________________________
+void Personagem::iniciarHitbox(float comprimento, float altura, float off_x, float off_y)
+{
+	/* Inicia o hitbox sendo off_x e off_y o offset x e y da textura para a hitbox */
+	this->hitbox.setSprite(&this->sprite);
+	this->hitbox.setTamanho(sf::Vector2f(comprimento, altura));
+	this->hitbox.setOffsetX(off_x);
+	this->hitbox.setOffSetY(off_y);
+}
+
+// _______________________________________________________________________________
+void Personagem::iniciarCompMov(float vel_max)
+{
+	this->compMov.iniciarCompMov(&this->sprite, vel_max);
+}
+
+// _______________________________________________________________________________
 
 void Personagem::setPosicao(const float x, const float y) { this->sprite.setPosition(x,y); }
 
-// _______________________________________________________________________________
-const int Personagem::getId() const { return this->id; }
-
-const int Personagem::getHP() const { return this->hp; }
-
-const int Personagem::getDano() const { return this->dano; }
-
-sf::FloatRect Personagem::getBounds() const
-{
-	return this->sprite.getGlobalBounds();
-}
+sf::FloatRect Personagem::getBounds() const { return this->sprite.getGlobalBounds(); }
 
 sf::Vector2f Personagem::getPosition() const {  return this->sprite.getPosition(); }
 
-
-// _______________________________________________________________________________
 HitBox Personagem::getHitbox() const { return this->hitbox; }
 
 ComponenteMovimento* Personagem::getMovComp() { return &this->compMov; }

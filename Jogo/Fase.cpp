@@ -22,9 +22,9 @@ void Fase::iniciarPersonagens()
 }
 
 // _______________________________________________________________________________
-void Fase::iniciarMapa(std::string dir, int ini, int qtd)
+void Fase::iniciarMapa(std::string dir, int ini, int qtd, int tipo)
 {
-	this->mapa.iniciarMapa(dir, ini, qtd);
+	this->mapa.iniciarMapa(dir, ini, qtd, tipo);
 }
 
 // _______________________________________________________________________________

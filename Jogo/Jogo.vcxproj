@@ -183,6 +183,7 @@
     <ClCompile Include="Obstaculo.cpp" />
     <ClCompile Include="Origem.cpp" />
     <ClCompile Include="Personagem.cpp" />
+    <ClCompile Include="PersonagemInfo.cpp" />
     <ClCompile Include="Plataforma.cpp" />
     <ClCompile Include="Pontuacao.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -224,6 +225,7 @@
     <ClInclude Include="NinhoDoDragao.h" />
     <ClInclude Include="Obstaculo.h" />
     <ClInclude Include="Personagem.h" />
+    <ClInclude Include="PersonagemInfo.h" />
     <ClInclude Include="Plataforma.h" />
     <ClInclude Include="Pontuacao.h" />
     <ClInclude Include="stdafx.h" />

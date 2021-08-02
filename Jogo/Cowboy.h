@@ -10,9 +10,8 @@ public:
     Cowboy(std::string imgCaminho = "");
     ~Cowboy();
 
+    void mover();
     void desenhar(sf::RenderTarget& janela);
-    void mover(char direcao, float velocidade);
     void atualizar();
-    bool verificarColisao(sf::Vector2f posicao, sf::Vector2f tamanho, float push);
 };
 

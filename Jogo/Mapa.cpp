@@ -44,13 +44,13 @@ Entidade* Mapa::getEntidade(const int i) const
 }
 
 // _______________________________________________________________________________
-void Mapa::iniciarMapa(std::string diretorio, int ini, int qtd)
+void Mapa::iniciarMapa(std::string diretorio, int ini, int qtd, int tipo)
 {
 	this->inicioPlataformas = ini;
 	this->qtdPlataformas = qtd;
 	this->carregarMapa(diretorio);
 	this->iniciaPosicoesLivres();
-	this->iniciarEntidades();
+	this->iniciarEntidades(tipo);
 }
 
 // _______________________________________________________________________________
@@ -96,19 +96,22 @@ void Mapa::iniciaPosicoesLivres()
 }
 
 // _______________________________________________________________________________
-void Mapa::iniciarEntidades()
+void Mapa::iniciarEntidades(int tipo)
 {
-	/* Inicia todas as plataformas e obstaculos*/
+	/* Inicia todas as plataformas e obstaculos, se for do tipo 1 os obstaculos são cactus e espinhos*/
+	/* Se for do tipo 2 os obstaculos sao espinhos e areia das almas*/
 	// inicia todas as plataformas
+	bool colidir;
 	for (int i = 0; i < this->qtdPlataformas; i++) {
-		this->entidades.push_back(static_cast<Entidade* >(new Plataforma(this->inicioPlataformas + i)));
+		colidir = (i < 12) ? true : false;
+		this->entidades.push_back(static_cast<Entidade* >(new Plataforma(this->inicioPlataformas + i,colidir)));
 	}
 	
 	// define as posiçoes dos obstaculos
 	for (unsigned int x = 0; x < TAM_MAPA_X; x++) {
 		for (unsigned int y = 0; y < TAM_MAPA_Y; y++) {
-			if (posLivres[x][y] == 1 && rand() % 3 == 0)
-				this->mapa[x][y] = this->qtdPlataformas + rand() % 3 + 1;
+			if (posLivres[x][y] == 1 && rand() % 5 == 0)
+				this->mapa[x][y] = this->qtdPlataformas + rand() % 2 + tipo;
 		}
 	}
 

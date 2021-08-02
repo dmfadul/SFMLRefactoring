@@ -7,7 +7,7 @@ VelhoOeste::VelhoOeste(JogoInfo* pji)
 {
 	this->iniciarPersonagens();
 	this->iniciarBackground("./Recursos/Imagens/backgrounds/velho_oeste.png");
-	this->iniciarMapa("./Recursos/mapas/velho_oeste.txt", 1, 13);
+	this->iniciarMapa("./Recursos/mapas/velho_oeste.txt", 1, 17);
 	this->iniciarGerenciadorColisoes();
 	this->jogoInfo->getTocaDisco()->tocarFallenDown();
 }

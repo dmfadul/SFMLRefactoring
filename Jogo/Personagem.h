@@ -2,18 +2,18 @@
 #include "Entidade.h"
 #include "HitBox.h"
 #include "ComponenteMovimento.h"
+#include "PersonagemInfo.h"
 
 /* Classe Abstrata de Personagem */
 class Personagem {
 
 protected:
-	static int qtdPersonagens;
 	sf::Texture texture;
 	sf::Sprite sprite;
-	int id, hp, dano;
 
 	// Components
 	HitBox hitbox;
+	PersonagemInfo pInfo;
 	ComponenteMovimento compMov;
 
 public:
@@ -22,20 +22,22 @@ public:
 	Personagem();
 	~Personagem();
 
+	// metodos de inicializacao
+	void iniciarSprite(std::string imgCaminho, float scale_x, float scale_y);
+	void iniciarPersInfo(int h, int d);
+	void iniciarHitbox(float comprimento, float altura, float off_x, float off_y);
+	void iniciarCompMov(float vel_max);
+
 	// Setters
-	void setHP(int h);
-	void setDano(int d);
 	void setPosicao(const float x, const float y);
 	
 	// Getters
-	const int getId() const;
-	const int getHP() const;
-	const int getDano() const;
 	sf::FloatRect getBounds() const;
 	sf::Vector2f getPosition() const;
 
 	// get components
 	HitBox getHitbox() const;
+	PersonagemInfo* getPersInfo();
 	ComponenteMovimento* getMovComp();
 
 	// metodos

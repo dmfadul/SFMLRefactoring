@@ -1,6 +1,8 @@
 #pragma once
 #include "Personagem.h"
 #define VEL_MAX_PLAYER 4
+#define VIDA_INICIAL 100
+#define DANO_ATAQUE 20
 
 class Jogador :
     public Personagem
@@ -11,6 +13,4 @@ public:
     Jogador();
     ~Jogador();
 
-    void iniciarHitbox();
-    void iniciarCompMov();
 };

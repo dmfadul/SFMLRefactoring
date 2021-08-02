@@ -8,7 +8,7 @@ NinhoDoDragao::NinhoDoDragao(JogoInfo* pji)
 {
 	this->iniciarPersonagens();
 	this->iniciarBackground("./Recursos/Imagens/backgrounds/ninho_do_dragao.png");
-	this->iniciarMapa("./Recursos/mapas/ninho_dragao.txt", 101, 12);
+	this->iniciarMapa("./Recursos/mapas/ninho_dragao.txt", 101, 17, 2);
 	this->iniciarGerenciadorColisoes();
 	this->jogoInfo->getTocaDisco()->tocarSpearOfJustice();
 }

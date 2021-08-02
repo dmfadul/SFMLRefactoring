@@ -19,7 +19,6 @@ void Plataforma::iniciarSprite(int indice)
 	/* carrega textura e inicia o sprite */
 	std::string s = "./Recursos/Imagens/plataformas/" + std::to_string(indice) + ".png";
 
-	this->colidir = true;
 	if (!this->textura.loadFromFile(s)) {
 		std::cout << "ENTIDADE::INICIARSPRITE FALHA AO CARREGAR TEXTURA" << std::endl;
 		std::cout << s << std::endl;

@@ -130,6 +130,9 @@
       <Filter>containers e gerenciadores</Filter>
     </ClCompile>
     <ClCompile Include="ComponenteMovimento.cpp">
+      <Filter>Personagens</Filter>
+    </ClCompile>
+    <ClCompile Include="PersonagemInfo.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
   </ItemGroup>
@@ -234,6 +237,9 @@
       <Filter>containers e gerenciadores</Filter>
     </ClInclude>
     <ClInclude Include="ComponenteMovimento.h">
+      <Filter>Personagens</Filter>
+    </ClInclude>
+    <ClInclude Include="PersonagemInfo.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
   </ItemGroup>

@@ -20,7 +20,7 @@ public:
 
     // metodos de inicializacao
     void iniciarPersonagens();
-    void iniciarMapa(std::string dir, int ini, int qtd);
+    void iniciarMapa(std::string dir, int ini, int qtd, int tipo = 1);
     void iniciarGerenciadorColisoes();
 };
 

@@ -28,10 +28,10 @@ public:
 	Entidade* getEntidade(const int i) const;
 
 	// metodos de inicialização
-	void iniciarMapa(std::string diretorio , int ini, int qtd);
+	void iniciarMapa(std::string diretorio , int ini, int qtd, int tipo = 1);
 	void carregarMapa(std::string diretorio);
 	void iniciaPosicoesLivres();
-	void iniciarEntidades();
+	void iniciarEntidades(int tipo);
 
 	// metodo de renderização
 	void desenharMapa(sf::RenderTarget& janela);

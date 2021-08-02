@@ -3,7 +3,6 @@
 class CowGirl :
     public Jogador
 {
-
 private:
 
 public:
@@ -12,11 +11,7 @@ public:
     ~CowGirl();
 
     void desenhar(sf::RenderTarget& janela);
-    void mover(char direcao, float velocidade);
+    void mover();
     void atualizar();
-    bool verificarColisao(sf::Vector2f posicao, sf::Vector2f tamanho, float push);
-    sf::Vector2f getPosition();
-    sf::Vector2f getSize();
-
 };
 
