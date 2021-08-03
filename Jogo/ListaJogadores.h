@@ -12,6 +12,8 @@ public:
 	~ListaJogadores();
 
 	void incluirJogador(Jogador* j);
+	void removerJogador(int id);
+	bool listaVazia();
 	Lista<Jogador >::Elemento<Jogador>* getPrimeiro();
 };
 

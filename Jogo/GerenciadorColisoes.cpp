@@ -12,6 +12,7 @@ GerenciadorColisoes::~GerenciadorColisoes()
 {
 	this->mapa = NULL;
 	this->listaJog = NULL;
+	this->listaIni = NULL;
 }
 
 // _______________________________________________________________________________
@@ -81,7 +82,7 @@ void GerenciadorColisoes::colisaoPersonagemPlataforma(Personagem* personagem, bo
 	{
 		personagem->getMovComp()->setVelX(0.f);
 		personagem->setPosicao(
-			(hitbox.getPosGridCimaEsq().x + 1) * TAM_BLOCO - hitbox.getOffsetEsquerda(),
+			(float)((hitbox.getPosGridCimaEsq().x + 1) * TAM_BLOCO - hitbox.getOffsetEsquerda()),
 			personagem->getPosition().y
 		);
 	}
@@ -93,7 +94,7 @@ void GerenciadorColisoes::colisaoPersonagemPlataforma(Personagem* personagem, bo
 		personagem->getMovComp()->setVelY(0.f);
 		personagem->setPosicao(
 			personagem->getPosition().x,
-			(hitbox.getPosGridCimaEsq().y + 1) * TAM_BLOCO - hitbox.getOffsetCima()
+			(float)((hitbox.getPosGridCimaEsq().y + 1) * TAM_BLOCO - hitbox.getOffsetCima())
 		);
 	}
 
@@ -128,7 +129,7 @@ void GerenciadorColisoes::colisaoPersonagemTela(Personagem* personagem)
 	if (personagem->getHitbox().getDireita().x > TAM_JANELA_X) {
 		personagem->getMovComp()->setVelX(0.f);
 		personagem->setPosicao(
-			TAM_JANELA_X - hitbox.getOffsetDireita(),
+			(float)(TAM_JANELA_X - hitbox.getOffsetDireita()),
 			personagem->getPosition().y);
 	}
 
@@ -136,7 +137,7 @@ void GerenciadorColisoes::colisaoPersonagemTela(Personagem* personagem)
 	if (personagem->getHitbox().getEsquerda().x < 0) {
 		personagem->getMovComp()->setVelX(0.f);
 		personagem->setPosicao(
-			-hitbox.getOffsetEsquerda(),
+			float(-hitbox.getOffsetEsquerda()),
 			personagem->getPosition().y);
 	}
 }

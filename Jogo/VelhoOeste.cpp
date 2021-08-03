@@ -28,8 +28,8 @@ void VelhoOeste::atualizar()
 		pJogador->atualizar();
 		
 		// checa se o jogador morreu
-		//if(pJogador->getPersInfo()->getHp() <= 0)
-
+		//if (pJogador->getPersInfo()->getHp() <= 0)
+			//this->listaJog.removerJogador(pJogador->getPersInfo()->getId());
 
 		elJogador = elJogador->getProximo();
 	}
@@ -41,8 +41,11 @@ void VelhoOeste::atualizar()
 		pInimigo->atualizar();
 		elInimigo = elInimigo->getProximo();
 	}
-	
-	this->gerColisoes.verificarColisoes();
+
+	if (this->listaJog.listaVazia()) 
+		this->jogoInfo->popEnte();
+	else
+		this->gerColisoes.verificarColisoes();
 }
 
 // _______________________________________________________________________________

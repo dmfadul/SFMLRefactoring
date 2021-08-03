@@ -8,7 +8,7 @@ Jogo::Jogo()
 {
     // Inicia Configurações iniciais do jogo
 	this->iniciarJanela();
-    srand(time(NULL));
+    srand(time( NULL));
 
     // Inicia o jogo com o Menu Principal
     this->jogoInfo.pushEnte(static_cast<Ente*>(new MenuPrincipal(&this->jogoInfo)));

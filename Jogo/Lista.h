@@ -7,15 +7,23 @@ public:
 	template<class T>
 	class Elemento {
 	private:
+		int id;
 		T* pInfo;
 		Elemento<T >* pProx;
+		Elemento<T >* pAnte;
 
 	public:
 		Elemento();
 		~Elemento();
 		
+		void setId(int id);
+		const int getId() const;
+
 		void setProximo(Elemento<T >* pp);
 		Elemento<T>* getProximo();
+
+		void setAnterior(Elemento<T >* pa);
+		Elemento<T>* getAnterior();
 
 		void setInfo(T* pi);
 		T* getInfo();
@@ -27,9 +35,12 @@ private:
 public:
 	Lista();
 	~Lista();
+
 	void inicializa();
-	bool incluaElemento(Elemento<TIPO>* pElemento);
+	bool incluaElemento(Elemento<TIPO>* pElemento, int id = -1);
+	bool removerElemento(int id);
 	bool incluaInfo(TIPO* pInfo);
+	bool listaVazia();
 
 	Elemento<TIPO>* getPrimeiro();
 	Elemento<TIPO>* getAtual();
@@ -47,6 +58,7 @@ template<class T>
 inline Lista<TIPO>::Elemento<T>::Elemento()
 {
 	this->pProx = NULL;
+	this->pAnte = NULL;
 	this->pInfo = NULL;
 }
 
@@ -55,7 +67,21 @@ template<class T>
 inline Lista<TIPO>::Elemento<T>::~Elemento()
 {
 	this->pProx = NULL;
+	this->pAnte = NULL;
 	this->pInfo = NULL;
+}
+
+template<class TIPO>
+template<class T>
+inline void Lista<TIPO>::Elemento<T>::setId(int id) {
+	this->id = id;
+}
+
+template<class TIPO>
+template<class T>
+inline const int Lista<TIPO>::Elemento<T>::getId() const
+{
+	return this->id;;
 }
 
 template<class TIPO>
@@ -70,6 +96,20 @@ template<class T>
 inline Lista<TIPO>::Elemento<T>* Lista<TIPO>::Elemento<T>::getProximo()
 {
 	return this->pProx;
+}
+
+template<class TIPO>
+template<class T>
+inline void Lista<TIPO>::Elemento<T>::setAnterior(Elemento<T>* pa)
+{
+	this->pAnte = pa;
+}
+
+template<class TIPO>
+template<class T>
+inline Lista<TIPO>::Elemento<T>* Lista<TIPO>::Elemento<T>::getAnterior()
+{
+	return this->pAnte;
 }
 
 template<class TIPO>
@@ -98,8 +138,7 @@ inline Lista<TIPO>::Lista()
 template<class TIPO>
 inline Lista<TIPO>::~Lista()
 {
-	delete this->pPrimeiro;
-	delete this->pAtual;
+	this->limpaLista();
 }
 
 template<class TIPO>
@@ -110,7 +149,7 @@ inline void Lista<TIPO>::inicializa()
 }
 
 template<class TIPO>
-inline bool Lista<TIPO>::incluaElemento(Elemento<TIPO>* pElemento)
+inline bool Lista<TIPO>::incluaElemento(Elemento<TIPO>* pElemento, int id)
 {
 	if (pElemento != NULL)
 	{
@@ -121,6 +160,7 @@ inline bool Lista<TIPO>::incluaElemento(Elemento<TIPO>* pElemento)
 		}
 		else
 		{
+			pElemento->setAnterior(pAtual);
 			pAtual->setProximo(pElemento);
 			pAtual = pAtual->getProximo();
 		}
@@ -134,6 +174,31 @@ inline bool Lista<TIPO>::incluaElemento(Elemento<TIPO>* pElemento)
 }
 
 template<class TIPO>
+inline bool Lista<TIPO>::removerElemento(int id)
+{
+	Elemento<TIPO>* pElemento = this->pPrimeiro;
+	Elemento<TIPO>* pAuxAnt = NULL;		
+
+	while (pElemento != NULL && (pElemento->getId() != id)) {
+		pAuxAnt = pElemento;
+		pElemento = pElemento->getProximo();
+	}
+
+	if (pElemento == NULL)
+		return false;
+	else if (pElemento->getProximo() == NULL){
+		if (pElemento == pPrimeiro)
+			pPrimeiro = NULL;
+		else
+			pAuxAnt->setProximo(NULL);
+	}	
+	else {
+		pAuxAnt->setProximo(pElemento->getProximo());
+		
+	}
+}
+
+template<class TIPO>
 inline bool Lista<TIPO>::incluaInfo(TIPO* pInfo)
 {
 	if (pInfo != NULL)
@@ -141,6 +206,7 @@ inline bool Lista<TIPO>::incluaInfo(TIPO* pInfo)
 		Elemento<TIPO>* pElemento = NULL;
 		pElemento = new Elemento<TIPO>();
 		pElemento->setInfo(pInfo);
+		pElemento->setId(pInfo->getPersInfo()->getId());
 		this->incluaElemento(pElemento);
 		return true;
 	}
@@ -149,6 +215,12 @@ inline bool Lista<TIPO>::incluaInfo(TIPO* pInfo)
 		cout << "Erro, elemento nulo." << endl;
 		return false;
 	}
+}
+
+template<class TIPO>
+inline bool Lista<TIPO>::listaVazia()
+{
+	return (pPrimeiro == NULL) ? true : false;
 }
 
 template<class TIPO>
