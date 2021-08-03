@@ -5,7 +5,8 @@
 #include "GerenciadorColisoes.h"
 #include "ListaJogadores.h"
 #include "ListaInimigos.h"
-
+#include "ListaProjeteis.h"
+#include "GeradorProjeteis.h"
 /* Classe abstrata de Fase */
 class Fase :
     public Ente
@@ -18,6 +19,8 @@ protected:
     sf::Font fonte;
     ListaJogadores listaJog;
     ListaInimigos listaIni;
+    ListaProjeteis listaProj;
+    GeradorProjeteis gerProj;
 
 public:
     // Construtoras e Destrutoras
@@ -29,6 +32,7 @@ public:
     void iniciarMapa(std::string dir, int ini, int qtd, int tipo = 1);
     void iniciarTextoScore();
     void iniciarGerenciadorColisoes();
+    void iniciarGeradorProjeteis();
     virtual void iniciarInimigos() = 0;
 };
 

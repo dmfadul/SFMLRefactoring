@@ -9,6 +9,7 @@ VelhoOeste::VelhoOeste(JogoInfo* pji, int n_jogadores)
 	this->iniciarBackground("./Recursos/Imagens/backgrounds/velho_oeste.png");
 	this->iniciarMapa("./Recursos/mapas/velho_oeste.txt", 1, 17);
 	this->iniciarGerenciadorColisoes();
+	this->iniciarGeradorProjeteis();
 	this->jogoInfo->getTocaDisco()->tocarFallenDown();
 }
 
@@ -42,6 +43,7 @@ void VelhoOeste::atualizar()
 		elInimigo = elInimigo->getProximo();
 	}
 	
+	this->gerProj.CriarProjetil();
 	this->gerColisoes.verificarColisoes();
 }
 
@@ -83,6 +85,14 @@ void VelhoOeste::desenhar(sf::RenderTarget& janela)
 		Inimigo* pInimigo = elInimigo->getInfo();
 		pInimigo->desenhar(janela);
 		elInimigo = elInimigo->getProximo();
+	}
+
+	//
+	Lista<Projetil>::Elemento<Projetil>* elProjetil = this->listaProj.getPrimeiro();
+	while (elProjetil != NULL) {
+		Projetil* pProjetil = elProjetil->getInfo();
+		pProjetil->desenharEntidade(janela);
+		elProjetil = elProjetil->getProximo();
 	}
 
 	janela.draw(this->textoScore);
