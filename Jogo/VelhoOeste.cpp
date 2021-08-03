@@ -2,8 +2,8 @@
 #include "VelhoOeste.h"
 
 // _______________________________________________________________________________
-VelhoOeste::VelhoOeste(JogoInfo* pji)
-	: Fase(pji)
+VelhoOeste::VelhoOeste(JogoInfo* pji, int n_jogadores)
+	: Fase(pji, n_jogadores)
 {
 	this->iniciarPersonagens();
 	this->iniciarBackground("./Recursos/Imagens/backgrounds/velho_oeste.png");
@@ -21,9 +21,27 @@ VelhoOeste::~VelhoOeste()
 // _______________________________________________________________________________
 void VelhoOeste::atualizar()
 {
-	for (auto& personagem : this->personagens)
-		personagem->atualizar();
+	// atualiza jogadores
+	Lista<Jogador>::Elemento<Jogador>* elJogador = this->listaJog.getPrimeiro();
+	while (elJogador != NULL) {
+		Jogador* pJogador = elJogador->getInfo();
+		pJogador->atualizar();
+		
+		// checa se o jogador morreu
+		//if(pJogador->getPersInfo()->getHp() <= 0)
 
+
+		elJogador = elJogador->getProximo();
+	}
+
+	// atualiza inimigos
+	Lista<Inimigo>::Elemento<Inimigo>* elInimigo = this->listaIni.getPrimeiro();
+	while (elInimigo != NULL) {
+		Inimigo* pInimigo = elInimigo->getInfo();
+		pInimigo->atualizar();
+		elInimigo = elInimigo->getProximo();
+	}
+	
 	this->gerColisoes.verificarColisoes();
 }
 
@@ -51,8 +69,21 @@ void VelhoOeste::desenhar(sf::RenderTarget& janela)
 	/* Desenha o novo frame */
 	janela.draw(this->background);
 
-	for (auto& personagem : this->personagens)
-		personagem->desenhar(janela);
+	// desenha jogadores 
+	Lista<Jogador>::Elemento<Jogador>* elJogador = this->listaJog.getPrimeiro();
+	while (elJogador != NULL) {
+		Jogador* pJogador = elJogador->getInfo();
+		pJogador->desenhar(janela);
+		elJogador = elJogador->getProximo();
+	}
+
+	// desenha inimigos
+	Lista<Inimigo>::Elemento<Inimigo>* elInimigo = this->listaIni.getPrimeiro();
+	while (elInimigo != NULL) {
+		Inimigo* pInimigo = elInimigo->getInfo();
+		pInimigo->desenhar(janela);
+		elInimigo = elInimigo->getProximo();
+	}
 
 	janela.draw(this->textoScore);
 
@@ -61,9 +92,9 @@ void VelhoOeste::desenhar(sf::RenderTarget& janela)
 
 void VelhoOeste::iniciarInimigos()
 {
-	this->personagens.push_back(new Bruxa("./Recursos/Imagens/Personagens/bruxa.png", sf::Vector2f(630.f,410.f),160));
-	//this->personagens.push_back(new Bruxa("./Recursos/Imagens/Personagens/bruxa.png", sf::Vector2f(370.f, 310.f), 140));
-	this->personagens.push_back(new Bruxa("./Recursos/Imagens/Personagens/bruxa.png", sf::Vector2f(510.f, 110.f), 100));
-	this->personagens.push_back(new Bruxa("./Recursos/Imagens/Personagens/bruxa.png", sf::Vector2f(700.f, 50.f), 110));
-	this->personagens.push_back(new Bruxa("./Recursos/Imagens/Personagens/bruxa.png", sf::Vector2f(1100.f, 280.f), 140));
+	this->listaIni.incluirInimigo(new Bruxa("./Recursos/Imagens/Personagens/bruxa.png", sf::Vector2f(630.f,410.f),160));
+	//this->listaIni.incluirInimigo(new Bruxa("./Recursos/Imagens/Personagens/bruxa.png", sf::Vector2f(370.f, 310.f), 140));
+	this->listaIni.incluirInimigo(new Bruxa("./Recursos/Imagens/Personagens/bruxa.png", sf::Vector2f(510.f, 110.f), 100));
+	this->listaIni.incluirInimigo(new Bruxa("./Recursos/Imagens/Personagens/bruxa.png", sf::Vector2f(700.f, 50.f), 110));
+	this->listaIni.incluirInimigo(new Bruxa("./Recursos/Imagens/Personagens/bruxa.png", sf::Vector2f(1100.f, 280.f), 140));
 }

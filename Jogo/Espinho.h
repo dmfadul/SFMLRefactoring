@@ -13,6 +13,6 @@ public:
     Espinho(const int indice = 0);
     ~Espinho();
 
-    void realizarAcao(Personagem* p);
+    void realizarAcao(Jogador* p);
 };
 

@@ -10,7 +10,7 @@ private:
 
 public:
     // Construtoras e Destrutoras
-    VelhoOeste(JogoInfo* pji = NULL);
+    VelhoOeste(JogoInfo* pji = NULL, int n_jogadores = 1);
     ~VelhoOeste();
 
     // Métodos de Atualização

@@ -10,7 +10,7 @@ private:
 
 public:
     // Construtoras e Destrutoras
-    NinhoDoDragao(JogoInfo* pji = NULL);
+    NinhoDoDragao(JogoInfo* pji = NULL, int n_jogadores = 1);
     ~NinhoDoDragao();
 
     // Métodos de Atualização

@@ -2,8 +2,8 @@
 #include "Fase.h"
 
 // _______________________________________________________________________________
-Fase::Fase(JogoInfo* pji):
-	Ente(pji)
+Fase::Fase(JogoInfo* pji, int n_jogadores):
+	Ente(pji), nJogadores(n_jogadores)
 {
 	this->iniciarTextoScore();
 }
@@ -11,17 +11,15 @@ Fase::Fase(JogoInfo* pji):
 // _______________________________________________________________________________
 Fase::~Fase()
 {
-	for (auto& personagem : this->personagens)
-		delete personagem;
 }
 
 // _______________________________________________________________________________
 void Fase::iniciarPersonagens()
 {
-	this->personagens.push_back(new Cowboy("./Recursos/Imagens/Personagens/cowboy.png"));
-	this->personagens.push_back(new CowGirl("./Recursos/Imagens/Personagens/cowgirl.png"));
-	listaPers.incluirJogador(new Cowboy("./Recursos/Imagens/Personagens/cowboy.png"));
-	listaPers.incluirJogador(new CowGirl("./Recursos/Imagens/Personagens/cowgirl.png"));
+	listaJog.incluirJogador(new Cowboy("./Recursos/Imagens/Personagens/cowboy.png"));
+
+	if(this->nJogadores == 2)
+		listaJog.incluirJogador(new CowGirl("./Recursos/Imagens/Personagens/cowgirl.png"));
 
 	iniciarInimigos();
 }
@@ -36,7 +34,7 @@ void Fase::iniciarMapa(std::string dir, int ini, int qtd, int tipo)
 void Fase::iniciarTextoScore()
 {
 	if (!this->fonte.loadFromFile("./Recursos/Fontes/Bebas.ttf")) {
-		std::cout << "BOTAO::FALHA AO CARREGAR FONTE" << std::endl;
+		std::cerr << "BOTAO::FALHA AO CARREGAR FONTE" << std::endl;
 	}
 
 	// Inicia texto
@@ -52,5 +50,5 @@ void Fase::iniciarTextoScore()
 // _______________________________________________________________________________
 void Fase::iniciarGerenciadorColisoes()
 {
-	this->gerColisoes.iniciaGerenciadorColisoes(&this->mapa, &this->personagens);
+	this->gerColisoes.iniciaGerenciadorColisoes(&this->mapa, &this->listaJog, &this->listaIni);
 }

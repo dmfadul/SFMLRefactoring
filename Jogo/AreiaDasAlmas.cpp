@@ -10,7 +10,7 @@ AreiaDasAlmas::~AreiaDasAlmas()
 {
 }
 
-void AreiaDasAlmas::realizarAcao(Personagem* p)
+void AreiaDasAlmas::realizarAcao(Jogador* p)
 {
 	// Diminui a velocidade do personagem
 	p->getMovComp()->setVelY(0);

@@ -13,6 +13,6 @@ public:
     Cactus(const int indice = 0);
     ~Cactus();
 
-    void realizarAcao(Personagem* p);
+    void realizarAcao(Jogador* p);
 
 };

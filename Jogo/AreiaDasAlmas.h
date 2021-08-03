@@ -13,6 +13,6 @@ public:
     AreiaDasAlmas(const int indice = 0);
     ~AreiaDasAlmas();
 
-    void realizarAcao(Personagem* p);
+    void realizarAcao(Jogador* p);
 };
 

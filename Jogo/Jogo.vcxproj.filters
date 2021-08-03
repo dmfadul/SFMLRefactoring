@@ -141,7 +141,10 @@
     <ClCompile Include="Barra.cpp">
       <Filter>Graficos</Filter>
     </ClCompile>
-    <ClCompile Include="ListaPersonagens.cpp">
+    <ClCompile Include="ListaJogadores.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="ListaInimigos.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
   </ItemGroup>
@@ -260,7 +263,10 @@
     <ClInclude Include="Lista.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
-    <ClInclude Include="ListaPersonagens.h">
+    <ClInclude Include="ListaJogadores.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="ListaInimigos.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
   </ItemGroup>

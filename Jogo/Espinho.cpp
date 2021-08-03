@@ -10,7 +10,7 @@ Espinho::~Espinho()
 {
 }
 
-void Espinho::realizarAcao(Personagem* p)
+void Espinho::realizarAcao(Jogador* p)
 {
 	/* Cactus causa um dano de 15 */
 	p->receberDano(DANO_ESPINHO);

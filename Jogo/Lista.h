@@ -46,18 +46,23 @@ template<class TIPO>
 template<class T>
 inline Lista<TIPO>::Elemento<T>::Elemento()
 {
+	this->pProx = NULL;
+	this->pInfo = NULL;
 }
 
 template<class TIPO>
 template<class T>
 inline Lista<TIPO>::Elemento<T>::~Elemento()
 {
+	this->pProx = NULL;
+	this->pInfo = NULL;
 }
 
 template<class TIPO>
 template<class T>
 inline void Lista<TIPO>::Elemento<T>::setProximo(Elemento<T>* pp)
 {
+	this->pProx = pp;
 }
 
 template<class TIPO>
@@ -71,13 +76,14 @@ template<class TIPO>
 template<class T>
 inline void Lista<TIPO>::Elemento<T>::setInfo(T* pi)
 {
+	this->pInfo = pi;
 }
 
 template<class TIPO>
 template<class T>
 inline T* Lista<TIPO>::Elemento<T>::getInfo()
 {
-	return nullptr;
+	return this->pInfo;
 }
 
 // _______________________________________________________________________________

@@ -1,6 +1,6 @@
 #pragma once
 #include "Entidade.h"
-#include "Personagem.h"
+#include "Jogador.h"
 
 class Obstaculo :
     public Entidade
@@ -13,6 +13,6 @@ public:
     ~Obstaculo();
 
     void iniciarSprite(int indice);
-    virtual void realizarAcao(Personagem* p) = 0;
+    virtual void realizarAcao(Jogador* p) = 0;
 
 };

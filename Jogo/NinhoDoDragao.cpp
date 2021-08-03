@@ -3,8 +3,8 @@
 #include "VelhoOeste.h"
 
 // _______________________________________________________________________________
-NinhoDoDragao::NinhoDoDragao(JogoInfo* pji)
-	: Fase(pji)
+NinhoDoDragao::NinhoDoDragao(JogoInfo* pji, int n_jogadores)
+	: Fase(pji, n_jogadores)
 {
 	this->iniciarPersonagens();
 	this->iniciarBackground("./Recursos/Imagens/backgrounds/ninho_do_dragao.png");
@@ -22,8 +22,22 @@ NinhoDoDragao::~NinhoDoDragao()
 // _______________________________________________________________________________
 void NinhoDoDragao::atualizar()
 {
-	for (auto& personagem : this->personagens)
-		personagem->atualizar();
+
+	// atualiza jogadores
+	Lista<Jogador>::Elemento<Jogador>* elJogador = this->listaJog.getPrimeiro();
+	while (elJogador != NULL) {
+		Jogador* pJogador = elJogador->getInfo();
+		pJogador->atualizar();
+		elJogador = elJogador->getProximo();
+	}
+
+	// atualiza inimigos
+	Lista<Inimigo>::Elemento<Inimigo>* elInimigo = this->listaIni.getPrimeiro();
+	while (elInimigo != NULL) {
+		Inimigo* pInimigo = elInimigo->getInfo();
+		pInimigo->atualizar();
+		elInimigo = elInimigo->getProximo();
+	}
 
 	this->gerColisoes.verificarColisoes();
 }
@@ -48,9 +62,22 @@ void NinhoDoDragao::desenhar(sf::RenderTarget& janela)
 	/* Desenha o novo frame */
 	janela.clear();
 	janela.draw(this->background);
-	
-	for (auto& personagem : this->personagens)
-		personagem->desenhar(janela);
+
+	// desenha jogadores 
+	Lista<Jogador>::Elemento<Jogador>* elJogador = this->listaJog.getPrimeiro();
+	while (elJogador != NULL) {
+		Jogador* pJogador = elJogador->getInfo();
+		pJogador->desenhar(janela);
+		elJogador = elJogador->getProximo();
+	}
+
+	// desenha inimigos
+	Lista<Inimigo>::Elemento<Inimigo>* elInimigo = this->listaIni.getPrimeiro();
+	while (elInimigo != NULL) {
+		Inimigo* pInimigo = elInimigo->getInfo();
+		pInimigo->desenhar(janela);
+		elInimigo = elInimigo->getProximo();
+	}
 
 	janela.draw(this->textoScore);
 	this->mapa.desenharMapa(janela);
