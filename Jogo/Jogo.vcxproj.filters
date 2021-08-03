@@ -99,7 +99,7 @@
     <ClCompile Include="Inimigo.cpp">
       <Filter>Personagens</Filter>
     </ClCompile>
-    <ClCompile Include="Inimigo1.cpp">
+    <ClCompile Include="Bruxa.cpp">
       <Filter>Personagens</Filter>
     </ClCompile>
     <ClCompile Include="Inimigo2.cpp">
@@ -209,7 +209,7 @@
     <ClInclude Include="Inimigo.h">
       <Filter>Personagens</Filter>
     </ClInclude>
-    <ClInclude Include="Inimigo1.h">
+    <ClInclude Include="Bruxa.h">
       <Filter>Personagens</Filter>
     </ClInclude>
     <ClInclude Include="Inimigo2.h">

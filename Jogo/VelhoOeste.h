@@ -2,7 +2,7 @@
 #include "NinhoDoDragao.h"
 #include "Jogador.h"
 #include "TelaMorte.h"
-
+#include "Bruxa.h"
 class VelhoOeste :
     public Fase
 {
@@ -19,5 +19,6 @@ public:
 
     // Métodos de Renderização
     void desenhar(sf::RenderTarget& janela);
+    void iniciarInimigos();
 
 };

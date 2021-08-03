@@ -56,3 +56,5 @@ void NinhoDoDragao::desenhar(sf::RenderTarget& janela)
 	this->mapa.desenharMapa(janela);
 	
 }
+
+void NinhoDoDragao::iniciarInimigos(){}

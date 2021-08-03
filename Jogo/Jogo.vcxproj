@@ -171,7 +171,7 @@
     <ClCompile Include="Gui.cpp" />
     <ClCompile Include="HitBox.cpp" />
     <ClCompile Include="Inimigo.cpp" />
-    <ClCompile Include="Inimigo1.cpp" />
+    <ClCompile Include="Bruxa.cpp" />
     <ClCompile Include="Inimigo2.cpp" />
     <ClCompile Include="Jogador.cpp" />
     <ClCompile Include="Jogo.cpp" />
@@ -216,7 +216,7 @@
     <ClInclude Include="Gui.h" />
     <ClInclude Include="HitBox.h" />
     <ClInclude Include="Inimigo.h" />
-    <ClInclude Include="Inimigo1.h" />
+    <ClInclude Include="Bruxa.h" />
     <ClInclude Include="Inimigo2.h" />
     <ClInclude Include="Jogador.h" />
     <ClInclude Include="Jogo.h" />

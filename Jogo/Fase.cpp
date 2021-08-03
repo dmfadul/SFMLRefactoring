@@ -20,6 +20,8 @@ void Fase::iniciarPersonagens()
 {
 	this->personagens.push_back(new Cowboy("./Recursos/Imagens/Personagens/cowboy.png"));
 	this->personagens.push_back(new CowGirl("./Recursos/Imagens/Personagens/cowgirl.png"));
+
+	iniciarInimigos();
 }
 
 // _______________________________________________________________________________

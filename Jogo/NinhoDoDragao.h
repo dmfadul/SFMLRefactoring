@@ -19,6 +19,7 @@ public:
 
     // Métodos de Renderização
     void desenhar(sf::RenderTarget& janela);
-
+    
+    void iniciarInimigos();
 };
 

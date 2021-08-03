@@ -40,6 +40,10 @@ sf::Vector2f ComponenteMovimento::getVelocidade() { return this->vel; }
 void ComponenteMovimento::acelerarX(float x) {
     if(this->vel.x < this->velMax && this->vel.x > - this->velMax) 
         this->vel.x += x; 
+    if (this->vel.x > this->velMax)
+        this->vel.x = this->velMax;
+    if (this->vel.x < -this->velMax)
+        this->vel.x = -this->velMax;
 }
 
 // _______________________________________________________________________________
