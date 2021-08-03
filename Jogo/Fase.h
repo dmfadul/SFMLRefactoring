@@ -3,6 +3,7 @@
 #include "Mapa.h"
 #include "CowGirl.h"
 #include "GerenciadorColisoes.h"
+#include "ListaPersonagens.h"
 
 /* Classe abstrata de Fase */
 class Fase :
@@ -13,6 +14,7 @@ protected:
     GerenciadorColisoes gerColisoes;
     sf::Text textoScore;
     sf::Font fonte;
+    ListaPersonagens listaPers;
     std::vector<Personagem* > personagens;
 
 public:
