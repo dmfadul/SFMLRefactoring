@@ -27,5 +27,6 @@ public:
     void iniciarMapa(std::string dir, int ini, int qtd, int tipo = 1);
     void iniciarTextoScore();
     void iniciarGerenciadorColisoes();
+    virtual void iniciarInimigos() = 0;
 };
 

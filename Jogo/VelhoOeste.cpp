@@ -58,3 +58,12 @@ void VelhoOeste::desenhar(sf::RenderTarget& janela)
 
 	this->mapa.desenharMapa(janela);
 }
+
+void VelhoOeste::iniciarInimigos()
+{
+	this->personagens.push_back(new Bruxa("./Recursos/Imagens/Personagens/bruxa.png", sf::Vector2f(630.f,410.f),160));
+	//this->personagens.push_back(new Bruxa("./Recursos/Imagens/Personagens/bruxa.png", sf::Vector2f(370.f, 310.f), 140));
+	this->personagens.push_back(new Bruxa("./Recursos/Imagens/Personagens/bruxa.png", sf::Vector2f(510.f, 110.f), 100));
+	this->personagens.push_back(new Bruxa("./Recursos/Imagens/Personagens/bruxa.png", sf::Vector2f(700.f, 50.f), 110));
+	this->personagens.push_back(new Bruxa("./Recursos/Imagens/Personagens/bruxa.png", sf::Vector2f(1100.f, 280.f), 140));
+}
