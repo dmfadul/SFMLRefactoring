@@ -22,33 +22,18 @@ VelhoOeste::~VelhoOeste()
 // _______________________________________________________________________________
 void VelhoOeste::atualizar()
 {
-	// atualiza jogadores
-	Lista<Jogador>::Elemento<Jogador>* elJogador = this->listaJog.getPrimeiro();
-	while (elJogador != NULL) {
-		Jogador* pJogador = elJogador->getInfo();
-		pJogador->atualizar();
-		
-		// checa se o jogador morreu
-		if (pJogador->getPersInfo()->getHp() <= 0)
-			this->listaJog.removerJogador(pJogador->getId());
+	if (pausado == false) {
+		this->atualizarEntidades();
 
-		elJogador = elJogador->getProximo();
-	}
-
-	// atualiza inimigos
-	Lista<Inimigo>::Elemento<Inimigo>* elInimigo = this->listaIni.getPrimeiro();
-	while (elInimigo != NULL) {
-		Inimigo* pInimigo = elInimigo->getInfo();
-		pInimigo->atualizar();
-		elInimigo = elInimigo->getProximo();
-	}
-
-	// checa se ainda tem algum jogador vivo
-	if (this->listaJog.listaVazia()) 
-		this->jogoInfo->trocarTela(new TelaMorte(this->jogoInfo, rand() % 800));
-	else {
-		this->gerColisoes.verificarColisoes();
-		this->gerProj.CriarProjetil();
+		// checa se ainda tem algum jogador vivo
+		if (this->listaJog.listaVazia()) {
+			this->jogoInfo->getTocaDisco()->pararMusica();
+			this->jogoInfo->trocarTela(new TelaMorte(this->jogoInfo, rand() % 800));
+		}
+		else {
+			this->gerColisoes.verificarColisoes();
+			this->gerProj.CriarProjetil();
+		}
 	}
 }
 
@@ -58,15 +43,17 @@ void VelhoOeste::atualizarEventos(sf::Event& evento_sfml)
 	/* Checa por eventos SFML*/
 	if (evento_sfml.type == sf::Event::KeyReleased)
 	{
-		if (evento_sfml.key.code == sf::Keyboard::Escape){
-			this->jogoInfo->getTocaDisco()->pararMusica();
-			this->jogoInfo->getTocaDisco()->tocarMusicaInicio();
-			this->jogoInfo->popTela(); // volta ao menu principal
+		if (pausado) {
+			if (evento_sfml.key.code == sf::Keyboard::Up)
+				this->caixaPause.trocarBotao(-1); // ativa o botao de cima
+			if (evento_sfml.key.code == sf::Keyboard::Down)
+				this->caixaPause.trocarBotao(1); // ativa o botao de baixo
+			if (evento_sfml.key.code == sf::Keyboard::Enter)
+				this->realizarAcaoMenuPause();
+
 		}
-		if (evento_sfml.key.code == sf::Keyboard::K) {
-			this->jogoInfo->getTocaDisco()->pararMusica();
-			this->jogoInfo->trocarTela(new TelaMorte(this->jogoInfo, 100)); // tela de morte
-		}
+		if (evento_sfml.key.code == sf::Keyboard::Escape)
+			this->pausado = (pausado == true) ? false : true;
 	}
 }
 
@@ -76,33 +63,15 @@ void VelhoOeste::desenhar(sf::RenderTarget& janela)
 	/* Desenha o novo frame */
 	janela.draw(this->sprite); // background
 
-	// desenha jogadores 
-	Lista<Jogador>::Elemento<Jogador>* elJogador = this->listaJog.getPrimeiro();
-	while (elJogador != NULL) {
-		Jogador* pJogador = elJogador->getInfo();
-		pJogador->desenhar(janela);
-		elJogador = elJogador->getProximo();
-	}
-
-	// desenha inimigos
-	Lista<Inimigo>::Elemento<Inimigo>* elInimigo = this->listaIni.getPrimeiro();
-	while (elInimigo != NULL) {
-		Inimigo* pInimigo = elInimigo->getInfo();
-		pInimigo->desenhar(janela);
-		elInimigo = elInimigo->getProximo();
-	}
-
-	//
-	Lista<Projetil>::Elemento<Projetil>* elProjetil = this->listaProj.getPrimeiro();
-	while (elProjetil != NULL) {
-		Projetil* pProjetil = elProjetil->getInfo();
-		pProjetil->desenharProjetil(janela);
-		elProjetil = elProjetil->getProximo();
-	}
-
-	janela.draw(this->textoScore);
-
+	// desenha mapa, personagens e guis
+	this->desenharEntidades(janela);
+	this->textoScore.desenharGui(janela);
 	this->mapa.desenharMapa(janela);
+
+	// desenha menu pause
+	if(pausado) {
+		this->caixaPause.desenharCaixaPause(janela);
+	}
 }
 
 void VelhoOeste::iniciarInimigos()

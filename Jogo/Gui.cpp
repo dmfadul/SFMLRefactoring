@@ -21,3 +21,12 @@ void Gui::iniciarTexto(float pos_x, float pos_y, std::string texto)
 	this->texto.setFont(this->fonte);
 	this->texto.setCharacterSize(38);
 }
+
+sf::Text* Gui::getTexto() {
+	return &this->texto;
+}
+
+void Gui::desenharGui(sf::RenderTarget& janela)
+{
+	janela.draw(this->texto);
+}

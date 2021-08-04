@@ -160,10 +160,12 @@
     <ClCompile Include="Bloco.cpp" />
     <ClCompile Include="Botao.cpp" />
     <ClCompile Include="Cactus.cpp" />
+    <ClCompile Include="CaixaPause.cpp" />
     <ClCompile Include="ComponenteMovimento.cpp" />
     <ClCompile Include="Cowboy.cpp" />
     <ClCompile Include="CowGirl.cpp" />
     <ClCompile Include="Dragao.cpp" />
+    <ClCompile Include="GerenciadorBotoes.cpp" />
     <ClCompile Include="Tela.cpp" />
     <ClCompile Include="Entidade.cpp" />
     <ClCompile Include="Espinho.cpp" />
@@ -211,11 +213,13 @@
     <ClInclude Include="Bloco.h" />
     <ClInclude Include="Botao.h" />
     <ClInclude Include="Cactus.h" />
+    <ClInclude Include="CaixaPause.h" />
     <ClInclude Include="ComponenteMovimento.h" />
     <ClInclude Include="configuracoes.h" />
     <ClInclude Include="Cowboy.h" />
     <ClInclude Include="CowGirl.h" />
     <ClInclude Include="Dragao.h" />
+    <ClInclude Include="GerenciadorBotoes.h" />
     <ClInclude Include="Tela.h" />
     <ClInclude Include="Entidade.h" />
     <ClInclude Include="Espinho.h" />

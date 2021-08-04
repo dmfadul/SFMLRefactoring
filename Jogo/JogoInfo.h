@@ -22,7 +22,7 @@ public:
 
     // getters
     const bool getEncerrar() const;
-    TocaDisco* getTocaDisco() const;
+    TocaDisco* getTocaDisco();
     Tela* telaTop();
     
     // metodos

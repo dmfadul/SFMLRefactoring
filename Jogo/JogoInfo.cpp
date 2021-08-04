@@ -31,7 +31,7 @@ Tela* JogoInfo::telaTop() { return this->telas.top(); }
 
 const bool JogoInfo::getEncerrar() const { return this->encerrar; }
 
-TocaDisco* JogoInfo::getTocaDisco() const { return this->tocaDisco; }
+TocaDisco* JogoInfo::getTocaDisco() { return this->tocaDisco; }
 
 // _______________________________________________________________________________
 void JogoInfo::pushTela(Tela* e)

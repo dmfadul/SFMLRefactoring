@@ -8,7 +8,6 @@ class AreiaDasAlmas :
 {
 private:
 
-
 public:
     AreiaDasAlmas(const int indice = 0);
     ~AreiaDasAlmas();

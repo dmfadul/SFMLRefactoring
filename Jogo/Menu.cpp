@@ -3,7 +3,7 @@
 
 // _______________________________________________________________________________
 Menu::Menu(JogoInfo* pji):
-	Tela(pji), botoes()
+	Tela(pji)
 {
 	this->botaoAtivo = false;
 }
@@ -28,27 +28,6 @@ void Menu::atualizarEventos(sf::Event& evento_sfml)
 	}
 }
 
-// _______________________________________________________________________________
-void Menu::trocarBotao(int direcao)
-{
-	/* Muda o botao ativo */
-
-	// toca som de troca de botao
-	this->jogoInfo->getTocaDisco()->tocarTrocaBotao();
-
-	// desativa o botao atual
-	this->botoes[this->botaoAtivo]->desativar();
-
-	// troca o botao ativo
-	if (this->botaoAtivo + direcao >= 0)
-		this->botaoAtivo = (this->botaoAtivo + direcao) % static_cast<int>(this->botoes.size());
-	else
-		this->botaoAtivo = static_cast<int>(this->botoes.size()) - 1;
-
-	// ativa o novo botao atual
-	this->botoes[this->botaoAtivo]->ativar();
-}
-
 void Menu::desenhar(sf::RenderTarget& janela)
 {
 	/* Desenha o novo frame na janela */
@@ -59,3 +38,4 @@ void Menu::desenhar(sf::RenderTarget& janela)
 	for (auto& botao : this->botoes)
 		botao.second->desenharBotao(janela);
 }
+

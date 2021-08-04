@@ -7,16 +7,19 @@
 #include "ListaInimigos.h"
 #include "ListaProjeteis.h"
 #include "GeradorProjeteis.h"
+#include "CaixaPause.h"
+
 /* Classe abstrata de Fase */
 class Fase :
     public Tela
 {
 protected:
     int nJogadores;
+    bool pausado;
     Mapa mapa;
     GerenciadorColisoes gerColisoes;
-    sf::Text textoScore;
-    sf::Font fonte;
+    CaixaPause caixaPause;
+    Gui textoScore;
     ListaJogadores listaJog;
     ListaInimigos listaIni;
     ListaProjeteis listaProj;
@@ -34,5 +37,10 @@ public:
     void iniciarGerenciadorColisoes();
     void iniciarGeradorProjeteis();
     virtual void iniciarInimigos() = 0;
+
+    // metodos
+    void atualizarEntidades();
+    void desenharEntidades(sf::RenderTarget& janela);
+    void realizarAcaoMenuPause();
 };
 

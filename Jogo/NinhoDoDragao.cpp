@@ -10,6 +10,7 @@ NinhoDoDragao::NinhoDoDragao(JogoInfo* pji, int n_jogadores)
 	this->iniciarBackground("./Recursos/Imagens/backgrounds/ninho_do_dragao.png");
 	this->iniciarMapa("./Recursos/mapas/ninho_dragao.txt", 101, 17, 2);
 	this->iniciarGerenciadorColisoes();
+	this->iniciarGeradorProjeteis();
 	this->jogoInfo->getTocaDisco()->tocarSpearOfJustice();
 }
 
@@ -22,24 +23,19 @@ NinhoDoDragao::~NinhoDoDragao()
 // _______________________________________________________________________________
 void NinhoDoDragao::atualizar()
 {
+	if (pausado == false) {
+		this->atualizarEntidades();
 
-	// atualiza jogadores
-	Lista<Jogador>::Elemento<Jogador>* elJogador = this->listaJog.getPrimeiro();
-	while (elJogador != NULL) {
-		Jogador* pJogador = elJogador->getInfo();
-		pJogador->atualizar();
-		elJogador = elJogador->getProximo();
+		// checa se ainda tem algum jogador vivo
+		if (this->listaJog.listaVazia()) {
+			this->jogoInfo->getTocaDisco()->pararMusica();
+			this->jogoInfo->trocarTela(new TelaMorte(this->jogoInfo, rand() % 800));
+		}
+		else {
+			this->gerColisoes.verificarColisoes();
+			this->gerProj.CriarProjetil();
+		}
 	}
-
-	// atualiza inimigos
-	Lista<Inimigo>::Elemento<Inimigo>* elInimigo = this->listaIni.getPrimeiro();
-	while (elInimigo != NULL) {
-		Inimigo* pInimigo = elInimigo->getInfo();
-		pInimigo->atualizar();
-		elInimigo = elInimigo->getProximo();
-	}
-
-	this->gerColisoes.verificarColisoes();
 }
 
 // _______________________________________________________________________________
@@ -48,11 +44,17 @@ void NinhoDoDragao::atualizarEventos(sf::Event& evento_sfml)
 	/* Checa por eventos SFML*/
 	if (evento_sfml.type == sf::Event::KeyReleased)
 	{
-		if (evento_sfml.key.code == sf::Keyboard::Escape) {
-			this->jogoInfo->getTocaDisco()->pararMusica();
-			this->jogoInfo->getTocaDisco()->tocarMusicaInicio();
-			this->jogoInfo->popTela(); // volta ao menu principal
+		if (pausado) {
+			if (evento_sfml.key.code == sf::Keyboard::Up)
+				this->caixaPause.trocarBotao(-1); // ativa o botao de cima
+			if (evento_sfml.key.code == sf::Keyboard::Down)
+				this->caixaPause.trocarBotao(1); // ativa o botao de baixo
+			if (evento_sfml.key.code == sf::Keyboard::Enter)
+				this->realizarAcaoMenuPause();
+
 		}
+		if (evento_sfml.key.code == sf::Keyboard::Escape)
+			this->pausado = (pausado == true) ? false : true;
 	}
 }
 
@@ -60,27 +62,17 @@ void NinhoDoDragao::atualizarEventos(sf::Event& evento_sfml)
 void NinhoDoDragao::desenhar(sf::RenderTarget& janela)
 {
 	/* Desenha o novo frame */
-	janela.clear();
 	janela.draw(this->sprite); // background
 
-	// desenha jogadores 
-	Lista<Jogador>::Elemento<Jogador>* elJogador = this->listaJog.getPrimeiro();
-	while (elJogador != NULL) {
-		Jogador* pJogador = elJogador->getInfo();
-		pJogador->desenhar(janela);
-		elJogador = elJogador->getProximo();
-	}
-
-	// desenha inimigos
-	Lista<Inimigo>::Elemento<Inimigo>* elInimigo = this->listaIni.getPrimeiro();
-	while (elInimigo != NULL) {
-		Inimigo* pInimigo = elInimigo->getInfo();
-		pInimigo->desenhar(janela);
-		elInimigo = elInimigo->getProximo();
-	}
-
-	janela.draw(this->textoScore);
+	// desenha mapa, personagens e GUIs
+	this->desenharEntidades(janela);
+	this->textoScore.desenharGui(janela);
 	this->mapa.desenharMapa(janela);
+
+	// desenha menu pause
+	if (pausado) {
+		this->caixaPause.desenharCaixaPause(janela);
+	}
 	
 }
 
