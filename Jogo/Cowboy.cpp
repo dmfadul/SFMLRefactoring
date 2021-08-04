@@ -6,9 +6,9 @@ Cowboy::Cowboy(std::string imgCaminho)
 {
 	this->iniciarSprite(imgCaminho, 2.f, 2.f);
 	this->iniciarPersInfo(VIDA_INICIAL, DANO_ATAQUE);
-	this->iniciarHitbox(25.f, 36.f, 15.f, 25.f);
+	this->iniciarHitbox(25.f, 36.f, 15, 25);
 	this->iniciarCompMov(VEL_MAX_PLAYER);
-	this->barraVida.setTamTexto(22.f);
+	this->barraVida.setTamTexto(22);
 	this->barraVida.identificarBarra("Cowboy", 10.f, 10.f);
 }
 

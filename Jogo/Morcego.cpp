@@ -20,6 +20,6 @@ void Morcego::iniciarSprite(int indice)
 		std::cout << "OBSTACULO::INICIARSPRITE FALHA AO CARREGAR TEXTURA" << std::endl;
 		std::cout << s << std::endl;
 	}
-	this->entidade.setTexture(this->textura);
-	this->entidade.setScale(1.f, 1.f);
+	this->sprite.setTexture(this->textura);
+	this->sprite.setScale(1.f, 1.f);
 }

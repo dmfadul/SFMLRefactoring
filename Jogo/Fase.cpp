@@ -3,7 +3,7 @@
 
 // _______________________________________________________________________________
 Fase::Fase(JogoInfo* pji, int n_jogadores):
-	Ente(pji), nJogadores(n_jogadores)
+	Tela(pji), nJogadores(n_jogadores)
 {
 	this->iniciarTextoScore();
 }
@@ -18,7 +18,7 @@ void Fase::iniciarPersonagens()
 {
 	listaJog.incluirJogador(new Cowboy("./Recursos/Imagens/Personagens/cowboy.png"));
 
-	if(this->nJogadores == 2)
+	if (this->nJogadores == 2)
 		listaJog.incluirJogador(new CowGirl("./Recursos/Imagens/Personagens/cowgirl.png"));
 
 	iniciarInimigos();

@@ -7,9 +7,9 @@ CowGirl::CowGirl(std::string imgCaminho)
 	this->iniciarSprite(imgCaminho, 2.f, 2.f);
 	this->sprite.setTextureRect(sf::IntRect(0, 0, 32, 32));
 	this->iniciarPersInfo(VIDA_INICIAL, DANO_ATAQUE);
-	this->iniciarHitbox(25.f, 36.f, 15.f, 25.f);
+	this->iniciarHitbox(25.f, 36.f, 15, 25);
 	this->iniciarCompMov(VEL_MAX_PLAYER);
-	this->barraVida.setTamTexto(22.f);
+	this->barraVida.setTamTexto(22);
 	this->barraVida.setPosicao(TAM_JANELA_X - 190.f, 40.f);
 	this->barraVida.identificarBarra("Cowgirl", TAM_JANELA_X - 70.f, 10.f);
 }

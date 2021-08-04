@@ -11,5 +11,8 @@ protected:
 public:
     Projetil();
     ~Projetil();
+
+    void setPosicao(float x, float y);
+    void desenharProjetil(sf::RenderTarget& janela);
 };
 

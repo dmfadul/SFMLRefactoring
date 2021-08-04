@@ -3,7 +3,7 @@
 
 // _______________________________________________________________________________
 TelaMorte::TelaMorte(JogoInfo* pji, int s)
-	:Ente(pji), score(s)
+	:Tela(pji), score(s)
 {
 	this->iniciarTextos();
 }
@@ -76,7 +76,7 @@ void TelaMorte::atualizarEventos(sf::Event& evento_sfml)
 		if (evento_sfml.key.code == sf::Keyboard::Enter && this->nomeInput.size() >= 3) {
 			this->adicionarPontuacao();
 			this->jogoInfo->getTocaDisco()->tocarMusicaInicio();
-			this->jogoInfo->trocarEnte(new Pontuacao(this->jogoInfo)); 
+			this->jogoInfo->trocarTela(new Pontuacao(this->jogoInfo)); 
 		}
 	}
 	// recebe input do usuario

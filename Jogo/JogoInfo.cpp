@@ -1,10 +1,10 @@
 #include "stdafx.h"
 #include "JogoInfo.h"
-#include "Ente.h"
+#include "Tela.h"
 
 // _______________________________________________________________________________
 JogoInfo::JogoInfo() :
-    entes()
+    telas()
 {
     this->tocaDisco = new TocaDisco();
     this->encerrar = false;
@@ -14,10 +14,10 @@ JogoInfo::JogoInfo() :
 // _______________________________________________________________________________
 JogoInfo::~JogoInfo()
 {
-    while (!this->entes.empty())
+    while (!this->telas.empty())
     {
-        delete this->entes.top();
-        this->entes.pop();
+        delete this->telas.top();
+        this->telas.pop();
     }
 }
 
@@ -27,29 +27,29 @@ void JogoInfo::setEncerrar(const bool e) { this->encerrar = e; }
 
 // _______________________________________________________________________________
 /* Getters */
-Ente* JogoInfo::enteTop() { return this->entes.top(); }
+Tela* JogoInfo::telaTop() { return this->telas.top(); }
 
 const bool JogoInfo::getEncerrar() const { return this->encerrar; }
 
 TocaDisco* JogoInfo::getTocaDisco() const { return this->tocaDisco; }
 
 // _______________________________________________________________________________
-void JogoInfo::pushEnte(Ente* e)
+void JogoInfo::pushTela(Tela* e)
 {
-    this->entes.push(e);
+    this->telas.push(e);
 }
 
 // _______________________________________________________________________________
-void JogoInfo::popEnte()
+void JogoInfo::popTela()
 {
-    delete this->entes.top();
-    this->entes.pop();
+    delete this->telas.top();
+    this->telas.pop();
 }
 
 // _______________________________________________________________________________
-void JogoInfo::trocarEnte(Ente* e)
+void JogoInfo::trocarTela(Tela* e)
 {
     /* Substitui o ente atual pelo novo */
-    this->popEnte();
-    this->pushEnte(e);
+    this->popTela();
+    this->pushTela(e);
 }

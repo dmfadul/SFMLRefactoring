@@ -1,8 +1,8 @@
 #pragma once
-#include "Ente.h"
+#include "Tela.h"
 #include "Pontuacao.h"
 class TelaMorte :
-    public Ente
+    public Tela
 {
 private:
     // variaveis

@@ -1,12 +1,12 @@
 #pragma once
-#include "Ente.h"
+#include "Tela.h"
 #define TAM_CHAR 30
 #define TAM_CAIXA_X 800
 #define TAM_CAIXA_Y 400
 
 /* Classe do menu de Pontuação */
 class Pontuacao :
-    public Ente
+    public Tela
 {
 private:
     class Linha {

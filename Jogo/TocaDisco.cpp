@@ -12,7 +12,7 @@ TocaDisco::~TocaDisco()
 }
 
 // _______________________________________________________________________________
-void TocaDisco::iniciarMusica(std::string diretorio, int volume)
+void TocaDisco::iniciarMusica(std::string diretorio, float volume)
 {
 	/* carrega a musica e toca ela em loop */
 	if (!musica.openFromFile(diretorio))

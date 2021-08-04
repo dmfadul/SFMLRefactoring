@@ -4,13 +4,12 @@
 #include "ComponenteMovimento.h"
 #include "PersonagemInfo.h"
 #include "Barra.h"
+#include "Entidade.h"
 
 /* Classe Abstrata de Personagem */
-class Personagem {
+class Personagem : public Entidade{
 
 protected:
-	sf::Texture texture;
-	sf::Sprite sprite;
 	sf::Clock invulneravel;
 
 	// Components
@@ -28,7 +27,7 @@ public:
 	// metodos de inicializacao
 	void iniciarSprite(std::string imgCaminho, float scale_x, float scale_y);
 	void iniciarPersInfo(int h, int d);
-	void iniciarHitbox(float comprimento, float altura, float off_x, float off_y);
+	void iniciarHitbox(float comprimento, float altura, int off_x, int off_y);
 	void iniciarCompMov(float vel_max);
 
 	// Setters

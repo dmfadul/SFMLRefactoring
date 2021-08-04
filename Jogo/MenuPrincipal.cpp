@@ -52,13 +52,13 @@ void MenuPrincipal::GerenciarCliqueBotao()
 	/* Realiza a ação vinculada com o botao ativo */
 
 	if (this->botaoAtivo == novo_jogo)
-		this->jogoInfo->pushEnte(static_cast<Ente* >(new MenuQtdJogadores(this->jogoInfo)));
+		this->jogoInfo->pushTela(static_cast<Tela* >(new MenuQtdJogadores(this->jogoInfo)));
 	
 	else if(this->botaoAtivo == escolha_de_fases)
-		this->jogoInfo->pushEnte(static_cast<Ente*>(new MenuEscolhaFases(this->jogoInfo)));
+		this->jogoInfo->pushTela(static_cast<Tela*>(new MenuEscolhaFases(this->jogoInfo)));
 
 	else if (this->botaoAtivo == lista_de_pontuacoes)
-		this->jogoInfo->pushEnte(static_cast<Ente* >(new Pontuacao(this->jogoInfo)));
+		this->jogoInfo->pushTela(static_cast<Tela* >(new Pontuacao(this->jogoInfo)));
 
 	else if (this->botaoAtivo == sair)
 		this->jogoInfo->setEncerrar(true);

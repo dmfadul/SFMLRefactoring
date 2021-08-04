@@ -1,9 +1,9 @@
 #pragma once
-#include "Entidade.h"
+#include "Bloco.h"
 
 /* Classe das plataformas do jogo */
 class Plataforma :
-    public Entidade
+    public Bloco
 {
 private:
 
@@ -12,7 +12,9 @@ public:
     Plataforma(int indice = 0,const bool colidir = true);
     ~Plataforma();
 
-    void iniciarSprite(int indice);
+    // metodos
+    void iniciarSprite(int indice, float scale_x, float scale_y);
+    void desenharBloco(sf::RenderTarget& janela);
 
 };
 

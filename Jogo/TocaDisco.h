@@ -15,7 +15,7 @@ public:
 	~TocaDisco();
 
 	// metodos para iniciar e parar sons
-	void iniciarMusica(std::string diretorio, int volume = 20);
+	void iniciarMusica(std::string diretorio, float volume = 20.f);
 	void tocarMusicaInicio();
 	void tocarFallenDown();
 	void tocarSpearOfJustice();

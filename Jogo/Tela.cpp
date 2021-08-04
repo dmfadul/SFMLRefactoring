@@ -1,24 +1,24 @@
 #include "stdafx.h"
-#include "Ente.h"
+#include "Tela.h"
 
 // _______________________________________________________________________________
-Ente::Ente(JogoInfo* pji)
+Tela::Tela(JogoInfo* pji)
 {
 	this->jogoInfo = pji;
 }
 
 // _______________________________________________________________________________
-Ente::~Ente()
+Tela::~Tela()
 {
 	this->jogoInfo = NULL;
 }
 
 // _______________________________________________________________________________
-void Ente::iniciarBackground(std::string diretorio)
+void Tela::iniciarBackground(std::string diretorio)
 {
 	/* carrega imagem do background */
-	if (!this->texturaBg.loadFromFile(diretorio)) {
+	if (!this->textura.loadFromFile(diretorio)) {
 		std::cout << "ENTE::FALHA AO CARREGAR BACKGROUND" << std::endl;
 	}
-	this->background.setTexture(this->texturaBg);
+	this->sprite.setTexture(this->textura);
 }

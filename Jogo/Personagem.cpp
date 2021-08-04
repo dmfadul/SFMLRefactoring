@@ -16,11 +16,11 @@ Personagem::~Personagem(){}
 void Personagem::iniciarSprite(std::string imgCaminho, float scale_x, float scale_y)
 {
 	/* Inicia o sprite do personagem */
-	if (!texture.loadFromFile(imgCaminho)){
+	if (!textura.loadFromFile(imgCaminho)){
 		std::cerr << "Erro\n";
 	}
-	sprite.setTexture(texture);
-	sprite.setPosition(sf::Vector2f(rand() % TAM_JANELA_X, 0.f)); // Spawn em posicao aleatoria
+	sprite.setTexture(textura);
+	sprite.setPosition(sf::Vector2f((float)(rand() % TAM_JANELA_X), 0.f)); // Spawn em posicao aleatoria
 	sprite.setScale(sf::Vector2f(scale_x, scale_y));
 }
 
@@ -31,7 +31,7 @@ void Personagem::iniciarPersInfo(int h, int d)
 }
 
 // _______________________________________________________________________________
-void Personagem::iniciarHitbox(float comprimento, float altura, float off_x, float off_y)
+void Personagem::iniciarHitbox(float comprimento, float altura, int off_x, int off_y)
 {
 	/* Inicia o hitbox sendo off_x e off_y o offset x e y da textura para a hitbox */
 	this->hitbox.setSprite(&this->sprite);

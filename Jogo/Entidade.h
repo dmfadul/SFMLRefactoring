@@ -3,21 +3,15 @@
 class Entidade
 {
 protected:
+	static int qtdEntidades;
 	sf::Texture textura;
-	sf::Sprite entidade;
-	bool colidir;
+	sf::Sprite sprite;
+	int id;
 
 public:
 	// construtoras e destrutoras
-	Entidade(int indice = 0, const bool colidir = true);
+	Entidade();
 	virtual ~Entidade();
 
-	// getters e setters
-	const bool getColidir();
-	void setPosicao(const float x, const float y);
-
-	// metodos
-	virtual void iniciarSprite(int indice) = 0;
-	void desenharEntidade(sf::RenderTarget& janela);
-
+	const int getId() const;
 };

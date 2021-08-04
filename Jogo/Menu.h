@@ -1,9 +1,9 @@
 #pragma once
-#include "Ente.h"
+#include "Tela.h"
 
 /* Classe Abstrata de um Menu Generico */
 class Menu :
-    public Ente
+    public Tela
 {
 protected:
     // armazena os botoes do menu 

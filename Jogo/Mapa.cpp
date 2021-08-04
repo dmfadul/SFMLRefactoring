@@ -19,7 +19,7 @@ Mapa::~Mapa()
 	}
 
 	// desaloca plataformas
-	for (auto& ent : this->entidades) {
+	for (auto& ent : this->blocos) {
 		delete ent;
 	}
 }
@@ -28,8 +28,8 @@ Mapa::~Mapa()
 const int Mapa::blocoAtual(sf::Vector2f pos) const
 {
 	/* Retona o bloco na posição passada por parametro */
-	int pos_x = pos.x / 32;
-	int pos_y = pos.y / 32;
+	int pos_x = (int)(pos.x) / 32;
+	int pos_y = (int)(pos.y) / 32;
 
 	if (pos_x >= 0 && pos_y >= 0 && pos_x < TAM_MAPA_X && pos_y < TAM_MAPA_Y)
 		return this->mapa[pos_x][pos_y]; // retorna a plataforma na posicao
@@ -38,9 +38,9 @@ const int Mapa::blocoAtual(sf::Vector2f pos) const
 }
 
 // _______________________________________________________________________________
-Entidade* Mapa::getEntidade(const int i) const
+Bloco* Mapa::getBloco(const int i) const
 {
-	return this->entidades[i];
+	return this->blocos[i];
 }
 
 // _______________________________________________________________________________
@@ -104,7 +104,7 @@ void Mapa::iniciarEntidades(int tipo)
 	bool colidir;
 	for (int i = 0; i < this->qtdPlataformas; i++) {
 		colidir = (i < 12) ? true : false;
-		this->entidades.push_back(static_cast<Entidade* >(new Plataforma(this->inicioPlataformas + i,colidir)));
+		this->blocos.push_back(static_cast<Bloco* >(new Plataforma(this->inicioPlataformas + i,colidir)));
 	}
 	
 	// define as posiçoes dos obstaculos
@@ -116,21 +116,21 @@ void Mapa::iniciarEntidades(int tipo)
 	}
 
 	// incia obstaculos;
-	this->entidades.push_back(static_cast<Entidade*>(new Cactus(1)));
-	this->entidades.push_back(static_cast<Entidade*>(new Espinho(2)));
-	this->entidades.push_back(static_cast<Entidade*>(new AreiaDasAlmas(3)));
+	this->blocos.push_back(static_cast<Bloco*>(new Cactus(1)));
+	this->blocos.push_back(static_cast<Bloco*>(new Espinho(2)));
+	this->blocos.push_back(static_cast<Bloco*>(new AreiaDasAlmas(3)));
 }
 
 // _______________________________________________________________________________
 void Mapa::desenharMapa(sf::RenderTarget& janela)
 {
-	/* desenha todas as entidades */
+	/* desenha todas os blocos */
 	for (unsigned int x = 0; x < TAM_MAPA_X; x++) {
 		for (unsigned int y = 0; y < TAM_MAPA_Y; y++) {
-			int ent = mapa[x][y] - 1;
-			if (ent >= 0) {
-				entidades[ent]->setPosicao((float)(x * TAM_BLOCO), (float)(y * TAM_BLOCO));
-				entidades[ent]->desenharEntidade(janela);
+			int bloco = mapa[x][y] - 1;
+			if (bloco >= 0) {
+				blocos[bloco]->setPosicao((float)(x * TAM_BLOCO), (float)(y * TAM_BLOCO));
+				blocos[bloco]->desenharBloco(janela);
 			}
 		}
 	}

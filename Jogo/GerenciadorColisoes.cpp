@@ -60,10 +60,10 @@ void GerenciadorColisoes::colisaoPersonagemPlataforma(Personagem* personagem, bo
 	// colisao da direita da hitbox com uma plataforma
 	int bloco = this->mapa->blocoAtual(hitbox.getDireita()) - 1;
 	if (bloco >= 17 && colidir_obstaculo) {
-		Obstaculo* obstaculo = static_cast<Obstaculo*>(this->mapa->getEntidade(bloco));
+		Obstaculo* obstaculo = static_cast<Obstaculo*>(this->mapa->getBloco(bloco));
 		obstaculo->realizarAcao(static_cast<Jogador*>(personagem));
 	}
-	else if (bloco >= 0 && this->mapa->getEntidade(bloco)->getColidir()) 
+	else if (bloco >= 0 && this->mapa->getBloco(bloco)->getColidir()) 
 	{
 		personagem->getMovComp()->setVelX(0.f);
 		personagem->setPosicao(
@@ -75,10 +75,10 @@ void GerenciadorColisoes::colisaoPersonagemPlataforma(Personagem* personagem, bo
 	// colisao da esquerda da hitbox com uma plataforma
 	bloco = this->mapa->blocoAtual(personagem->getHitbox().getEsquerda()) - 1;
 	if (bloco >= 17 && colidir_obstaculo) {
-		Obstaculo* obstaculo = static_cast<Obstaculo*>(this->mapa->getEntidade(bloco));
+		Obstaculo* obstaculo = static_cast<Obstaculo*>(this->mapa->getBloco(bloco));
 		obstaculo->realizarAcao(static_cast<Jogador*>(personagem));
 	}
-	else if (bloco >= 0 && this->mapa->getEntidade(bloco)->getColidir()) 
+	else if (bloco >= 0 && this->mapa->getBloco(bloco)->getColidir()) 
 	{
 		personagem->getMovComp()->setVelX(0.f);
 		personagem->setPosicao(
@@ -89,7 +89,7 @@ void GerenciadorColisoes::colisaoPersonagemPlataforma(Personagem* personagem, bo
 
 	// colisao da parte de cima da hitbox com uma plataforma
 	bloco = this->mapa->blocoAtual(personagem->getHitbox().getCima()) - 1;
-	if (bloco >= 0 && this->mapa->getEntidade(bloco)->getColidir())
+	if (bloco >= 0 && this->mapa->getBloco(bloco)->getColidir())
 	{
 		personagem->getMovComp()->setVelY(0.f);
 		personagem->setPosicao(
@@ -103,11 +103,11 @@ void GerenciadorColisoes::colisaoPersonagemPlataforma(Personagem* personagem, bo
 	int bloco2 = this->mapa->blocoAtual(hitbox.getBaixoDireita()) - 1;
 
 	if (bloco >= 17 && colidir_obstaculo) {
-		Obstaculo* obstaculo = static_cast<Obstaculo* >(this->mapa->getEntidade(bloco));
+		Obstaculo* obstaculo = static_cast<Obstaculo* >(this->mapa->getBloco(bloco));
 		obstaculo->realizarAcao(static_cast<Jogador*>(personagem));
 	}
-	else if ( bloco >= 0 && this->mapa->getEntidade(bloco)->getColidir() ||
-		(bloco2 >= 0 && this->mapa->getEntidade(bloco2)->getColidir()) ) 
+	else if ( bloco >= 0 && this->mapa->getBloco(bloco)->getColidir() ||
+		(bloco2 >= 0 && this->mapa->getBloco(bloco2)->getColidir()) ) 
 	{
 		personagem->getMovComp()->setVelY(0.f);
 		personagem->getMovComp()->setCaindo(false);

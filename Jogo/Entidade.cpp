@@ -1,10 +1,12 @@
 #include "stdafx.h"
 #include "Entidade.h"
 
+int Entidade::qtdEntidades = 0;
+
 // _______________________________________________________________________________
-Entidade::Entidade(int indice,const bool colidir)
+Entidade::Entidade()
 {
-	this->colidir = colidir;
+	this->id = qtdEntidades++;
 }
 
 // _______________________________________________________________________________
@@ -12,21 +14,8 @@ Entidade::~Entidade()
 {
 }
 
-
-// _______________________________________________________________________________
-const bool Entidade::getColidir()
+const int Entidade::getId() const
 {
-	return this->colidir;
+	return this->id;
 }
 
-// _______________________________________________________________________________
-void Entidade::setPosicao(const float x, const float y)
-{
-	this->entidade.setPosition(x, y);
-}
-
-// _______________________________________________________________________________
-void Entidade::desenharEntidade(sf::RenderTarget& janela)
-{
-	janela.draw(this->entidade);
-}

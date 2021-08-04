@@ -3,22 +3,19 @@
 #include "Botao.h"
 #include "JogoInfo.h"
 #include "configuracoes.h"
+#include "Entidade.h"
 
-/* Classe abstrata de Entes */
-class Ente
+/* Classe abstrata de Telas */
+class Tela : public Entidade
 {
 protected:
 	// Variaveis
     JogoInfo* jogoInfo;
 
-    // background
-    sf::Texture texturaBg;
-    sf::Sprite background;
-
 public:
     // Construtoras e Destrutoras
-    Ente(JogoInfo* pji = NULL);
-    virtual ~Ente();
+    Tela(JogoInfo* pji = NULL);
+    virtual ~Tela();
 
     // Metodos de Inicialização
     void iniciarBackground(std::string diretorio);

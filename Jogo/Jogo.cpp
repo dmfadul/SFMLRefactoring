@@ -8,10 +8,10 @@ Jogo::Jogo()
 {
     // Inicia Configurações iniciais do jogo
 	this->iniciarJanela();
-    srand(time( NULL));
+    srand((unsigned int)(time(NULL)));
 
     // Inicia o jogo com o Menu Principal
-    this->jogoInfo.pushEnte(static_cast<Ente*>(new MenuPrincipal(&this->jogoInfo)));
+    this->jogoInfo.pushTela(static_cast<Tela*>(new MenuPrincipal(&this->jogoInfo)));
 }
 
 // _______________________________________________________________________________
@@ -39,7 +39,7 @@ void Jogo::atualizar()
         this->janela.close();
 
     this->atualizarEventos();
-    this->jogoInfo.enteTop()->atualizar();
+    this->jogoInfo.telaTop()->atualizar();
 
 }
 
@@ -50,7 +50,7 @@ void Jogo::atualizarEventos()
     while (this->janela.pollEvent(this->eventosSFML))
     {
         // Atualiza eventos no ente
-        this->jogoInfo.enteTop()->atualizarEventos(this->eventosSFML);
+        this->jogoInfo.telaTop()->atualizarEventos(this->eventosSFML);
 
         // checa por fechamento de tela
         if (this->eventosSFML.type == sf::Event::Closed)
@@ -62,7 +62,7 @@ void Jogo::atualizarEventos()
 void Jogo::desenhar()
 {
     /* Desenha o novo frame na janela */
-    this->jogoInfo.enteTop()->desenhar(this->janela);
+    this->jogoInfo.telaTop()->desenhar(this->janela);
 
     this->janela.display();
 }

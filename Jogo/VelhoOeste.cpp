@@ -29,8 +29,8 @@ void VelhoOeste::atualizar()
 		pJogador->atualizar();
 		
 		// checa se o jogador morreu
-		//if (pJogador->getPersInfo()->getHp() <= 0)
-			//this->listaJog.removerJogador(pJogador->getPersInfo()->getId());
+		if (pJogador->getPersInfo()->getHp() <= 0)
+			this->listaJog.removerJogador(pJogador->getId());
 
 		elJogador = elJogador->getProximo();
 	}
@@ -43,13 +43,13 @@ void VelhoOeste::atualizar()
 		elInimigo = elInimigo->getProximo();
 	}
 
+	// checa se ainda tem algum jogador vivo
 	if (this->listaJog.listaVazia()) 
-		this->jogoInfo->popEnte();
-	else
+		this->jogoInfo->trocarTela(new TelaMorte(this->jogoInfo, rand() % 800));
+	else {
 		this->gerColisoes.verificarColisoes();
-	
-	this->gerProj.CriarProjetil();
-	this->gerColisoes.verificarColisoes();
+		this->gerProj.CriarProjetil();
+	}
 }
 
 // _______________________________________________________________________________
@@ -61,11 +61,11 @@ void VelhoOeste::atualizarEventos(sf::Event& evento_sfml)
 		if (evento_sfml.key.code == sf::Keyboard::Escape){
 			this->jogoInfo->getTocaDisco()->pararMusica();
 			this->jogoInfo->getTocaDisco()->tocarMusicaInicio();
-			this->jogoInfo->popEnte(); // volta ao menu principal
+			this->jogoInfo->popTela(); // volta ao menu principal
 		}
 		if (evento_sfml.key.code == sf::Keyboard::K) {
 			this->jogoInfo->getTocaDisco()->pararMusica();
-			this->jogoInfo->trocarEnte(new TelaMorte(this->jogoInfo, 100)); // tela de morte
+			this->jogoInfo->trocarTela(new TelaMorte(this->jogoInfo, 100)); // tela de morte
 		}
 	}
 }
@@ -74,7 +74,7 @@ void VelhoOeste::atualizarEventos(sf::Event& evento_sfml)
 void VelhoOeste::desenhar(sf::RenderTarget& janela)
 {
 	/* Desenha o novo frame */
-	janela.draw(this->background);
+	janela.draw(this->sprite); // background
 
 	// desenha jogadores 
 	Lista<Jogador>::Elemento<Jogador>* elJogador = this->listaJog.getPrimeiro();
@@ -96,7 +96,7 @@ void VelhoOeste::desenhar(sf::RenderTarget& janela)
 	Lista<Projetil>::Elemento<Projetil>* elProjetil = this->listaProj.getPrimeiro();
 	while (elProjetil != NULL) {
 		Projetil* pProjetil = elProjetil->getInfo();
-		pProjetil->desenharEntidade(janela);
+		pProjetil->desenharProjetil(janela);
 		elProjetil = elProjetil->getProximo();
 	}
 

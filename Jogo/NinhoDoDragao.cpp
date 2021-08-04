@@ -51,7 +51,7 @@ void NinhoDoDragao::atualizarEventos(sf::Event& evento_sfml)
 		if (evento_sfml.key.code == sf::Keyboard::Escape) {
 			this->jogoInfo->getTocaDisco()->pararMusica();
 			this->jogoInfo->getTocaDisco()->tocarMusicaInicio();
-			this->jogoInfo->popEnte(); // volta ao menu principal
+			this->jogoInfo->popTela(); // volta ao menu principal
 		}
 	}
 }
@@ -61,7 +61,7 @@ void NinhoDoDragao::desenhar(sf::RenderTarget& janela)
 {
 	/* Desenha o novo frame */
 	janela.clear();
-	janela.draw(this->background);
+	janela.draw(this->sprite); // background
 
 	// desenha jogadores 
 	Lista<Jogador>::Elemento<Jogador>* elJogador = this->listaJog.getPrimeiro();

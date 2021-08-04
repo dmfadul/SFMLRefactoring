@@ -8,7 +8,7 @@ Pontuacao::Pontuacao()
 
 // _______________________________________________________________________________
 Pontuacao::Pontuacao(JogoInfo* pji) :
-	Ente(pji)
+	Tela(pji)
 {
 	// chama os metodos de inicialização
 	this->iniciarBackground("./Recursos/Imagens/backgrounds/pontuacao.png");
@@ -120,14 +120,14 @@ void Pontuacao::atualizarEventos(sf::Event& evento_sfml)
 	if (evento_sfml.type == sf::Event::KeyReleased)
 	{
 		if (evento_sfml.key.code == sf::Keyboard::Enter)
-			this->jogoInfo->popEnte(); // volta ao menu principal
+			this->jogoInfo->popTela(); // volta ao menu principal
 	}
 }
 // _______________________________________________________________________________
 void Pontuacao::desenhar(sf::RenderTarget& janela)
 {
 	/* Desenha novo frame*/
-	janela.draw(this->background);
+	janela.draw(this->sprite);
 	janela.draw(this->caixaPontuacao);
 	janela.draw(this->nome);
 	janela.draw(this->pontuacao);

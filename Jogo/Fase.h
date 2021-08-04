@@ -1,5 +1,5 @@
 #pragma once
-#include "Ente.h"
+#include "Tela.h"
 #include "Mapa.h"
 #include "CowGirl.h"
 #include "GerenciadorColisoes.h"
@@ -9,7 +9,7 @@
 #include "GeradorProjeteis.h"
 /* Classe abstrata de Fase */
 class Fase :
-    public Ente
+    public Tela
 {
 protected:
     int nJogadores;

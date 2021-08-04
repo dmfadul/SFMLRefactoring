@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Entes">
-      <UniqueIdentifier>{31fabe23-2a1b-4de5-9a6c-908164a9c166}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Graficos">
       <UniqueIdentifier>{134f7fbe-c0b7-422f-96c5-2dd686eedd44}</UniqueIdentifier>
     </Filter>
@@ -28,6 +25,15 @@
     <Filter Include="containers e gerenciadores">
       <UniqueIdentifier>{a2c9c536-c6a2-4bd8-8288-b78b002db032}</UniqueIdentifier>
     </Filter>
+    <Filter Include="listas">
+      <UniqueIdentifier>{bdf38526-84fa-4cf9-aa99-34f670dade6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Telas">
+      <UniqueIdentifier>{31fabe23-2a1b-4de5-9a6c-908164a9c166}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="blocos">
+      <UniqueIdentifier>{3f011f68-f014-489a-8ab7-14733653dcbd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Origem.cpp">
@@ -36,50 +42,38 @@
     <ClCompile Include="Jogo.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="Ente.cpp">
-      <Filter>Entes</Filter>
+    <ClCompile Include="Tela.cpp">
+      <Filter>Telas</Filter>
     </ClCompile>
     <ClCompile Include="Fase.cpp">
-      <Filter>Entes</Filter>
+      <Filter>Telas</Filter>
     </ClCompile>
     <ClCompile Include="Pontuacao.cpp">
-      <Filter>Entes</Filter>
+      <Filter>Telas</Filter>
     </ClCompile>
     <ClCompile Include="MenuPrincipal.cpp">
-      <Filter>Entes</Filter>
+      <Filter>Telas</Filter>
     </ClCompile>
     <ClCompile Include="VelhoOeste.cpp">
-      <Filter>Entes</Filter>
+      <Filter>Telas</Filter>
     </ClCompile>
     <ClCompile Include="Botao.cpp">
       <Filter>Graficos</Filter>
     </ClCompile>
     <ClCompile Include="NinhoDoDragao.cpp">
-      <Filter>Entes</Filter>
+      <Filter>Telas</Filter>
     </ClCompile>
     <ClCompile Include="Mapa.cpp">
       <Filter>Graficos</Filter>
     </ClCompile>
-    <ClCompile Include="Plataforma.cpp">
-      <Filter>Graficos</Filter>
-    </ClCompile>
-    <ClCompile Include="Entidade.cpp">
-      <Filter>Graficos</Filter>
-    </ClCompile>
-    <ClCompile Include="Obstaculo.cpp">
-      <Filter>Graficos</Filter>
-    </ClCompile>
-    <ClCompile Include="Cactus.cpp">
-      <Filter>Graficos</Filter>
-    </ClCompile>
     <ClCompile Include="MenuEscolhaFases.cpp">
-      <Filter>Entes</Filter>
+      <Filter>Telas</Filter>
     </ClCompile>
     <ClCompile Include="Menu.cpp">
-      <Filter>Entes</Filter>
+      <Filter>Telas</Filter>
     </ClCompile>
     <ClCompile Include="MenuQtdJogadores.cpp">
-      <Filter>Entes</Filter>
+      <Filter>Telas</Filter>
     </ClCompile>
     <ClCompile Include="JogoInfo.cpp">
       <Filter>containers e gerenciadores</Filter>
@@ -115,13 +109,7 @@
       <Filter>Personagens</Filter>
     </ClCompile>
     <ClCompile Include="TelaMorte.cpp">
-      <Filter>Entes</Filter>
-    </ClCompile>
-    <ClCompile Include="Espinho.cpp">
-      <Filter>Graficos</Filter>
-    </ClCompile>
-    <ClCompile Include="AreiaDasAlmas.cpp">
-      <Filter>Graficos</Filter>
+      <Filter>Telas</Filter>
     </ClCompile>
     <ClCompile Include="HitBox.cpp">
       <Filter>Personagens</Filter>
@@ -141,12 +129,6 @@
     <ClCompile Include="Barra.cpp">
       <Filter>Graficos</Filter>
     </ClCompile>
-    <ClCompile Include="ListaJogadores.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="ListaInimigos.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
     <ClCompile Include="GeradorProjeteis.cpp">
       <Filter>containers e gerenciadores</Filter>
     </ClCompile>
@@ -156,7 +138,34 @@
     <ClCompile Include="Projetil.cpp">
       <Filter>Graficos</Filter>
     </ClCompile>
+    <ClCompile Include="Bloco.cpp">
+      <Filter>blocos</Filter>
+    </ClCompile>
+    <ClCompile Include="ListaInimigos.cpp">
+      <Filter>listas</Filter>
+    </ClCompile>
+    <ClCompile Include="ListaJogadores.cpp">
+      <Filter>listas</Filter>
+    </ClCompile>
     <ClCompile Include="ListaProjeteis.cpp">
+      <Filter>listas</Filter>
+    </ClCompile>
+    <ClCompile Include="Plataforma.cpp">
+      <Filter>blocos</Filter>
+    </ClCompile>
+    <ClCompile Include="Obstaculo.cpp">
+      <Filter>blocos</Filter>
+    </ClCompile>
+    <ClCompile Include="Espinho.cpp">
+      <Filter>blocos</Filter>
+    </ClCompile>
+    <ClCompile Include="Cactus.cpp">
+      <Filter>blocos</Filter>
+    </ClCompile>
+    <ClCompile Include="AreiaDasAlmas.cpp">
+      <Filter>blocos</Filter>
+    </ClCompile>
+    <ClCompile Include="Entidade.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
   </ItemGroup>
@@ -164,50 +173,38 @@
     <ClInclude Include="Jogo.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
-    <ClInclude Include="Ente.h">
-      <Filter>Entes</Filter>
+    <ClInclude Include="Tela.h">
+      <Filter>Telas</Filter>
     </ClInclude>
     <ClInclude Include="Fase.h">
-      <Filter>Entes</Filter>
+      <Filter>Telas</Filter>
     </ClInclude>
     <ClInclude Include="Pontuacao.h">
-      <Filter>Entes</Filter>
+      <Filter>Telas</Filter>
     </ClInclude>
     <ClInclude Include="MenuPrincipal.h">
-      <Filter>Entes</Filter>
+      <Filter>Telas</Filter>
     </ClInclude>
     <ClInclude Include="VelhoOeste.h">
-      <Filter>Entes</Filter>
+      <Filter>Telas</Filter>
     </ClInclude>
     <ClInclude Include="Botao.h">
       <Filter>Graficos</Filter>
     </ClInclude>
     <ClInclude Include="NinhoDoDragao.h">
-      <Filter>Entes</Filter>
-    </ClInclude>
-    <ClInclude Include="Plataforma.h">
-      <Filter>Graficos</Filter>
-    </ClInclude>
-    <ClInclude Include="Entidade.h">
-      <Filter>Graficos</Filter>
+      <Filter>Telas</Filter>
     </ClInclude>
     <ClInclude Include="Mapa.h">
       <Filter>Graficos</Filter>
     </ClInclude>
-    <ClInclude Include="Obstaculo.h">
-      <Filter>Graficos</Filter>
-    </ClInclude>
-    <ClInclude Include="Cactus.h">
-      <Filter>Graficos</Filter>
-    </ClInclude>
     <ClInclude Include="MenuEscolhaFases.h">
-      <Filter>Entes</Filter>
+      <Filter>Telas</Filter>
     </ClInclude>
     <ClInclude Include="Menu.h">
-      <Filter>Entes</Filter>
+      <Filter>Telas</Filter>
     </ClInclude>
     <ClInclude Include="MenuQtdJogadores.h">
-      <Filter>Entes</Filter>
+      <Filter>Telas</Filter>
     </ClInclude>
     <ClInclude Include="JogoInfo.h">
       <Filter>containers e gerenciadores</Filter>
@@ -243,13 +240,7 @@
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
     <ClInclude Include="TelaMorte.h">
-      <Filter>Entes</Filter>
-    </ClInclude>
-    <ClInclude Include="AreiaDasAlmas.h">
-      <Filter>Graficos</Filter>
-    </ClInclude>
-    <ClInclude Include="Espinho.h">
-      <Filter>Graficos</Filter>
+      <Filter>Telas</Filter>
     </ClInclude>
     <ClInclude Include="HitBox.h">
       <Filter>Personagens</Filter>
@@ -269,15 +260,6 @@
     <ClInclude Include="Barra.h">
       <Filter>Graficos</Filter>
     </ClInclude>
-    <ClInclude Include="Lista.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="ListaJogadores.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="ListaInimigos.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
     <ClInclude Include="GeradorProjeteis.h">
       <Filter>containers e gerenciadores</Filter>
     </ClInclude>
@@ -290,7 +272,37 @@
     <ClInclude Include="Personagem.h">
       <Filter>Personagens</Filter>
     </ClInclude>
+    <ClInclude Include="Bloco.h">
+      <Filter>blocos</Filter>
+    </ClInclude>
     <ClInclude Include="ListaProjeteis.h">
+      <Filter>listas</Filter>
+    </ClInclude>
+    <ClInclude Include="ListaJogadores.h">
+      <Filter>listas</Filter>
+    </ClInclude>
+    <ClInclude Include="ListaInimigos.h">
+      <Filter>listas</Filter>
+    </ClInclude>
+    <ClInclude Include="Lista.h">
+      <Filter>listas</Filter>
+    </ClInclude>
+    <ClInclude Include="Plataforma.h">
+      <Filter>blocos</Filter>
+    </ClInclude>
+    <ClInclude Include="Obstaculo.h">
+      <Filter>blocos</Filter>
+    </ClInclude>
+    <ClInclude Include="Espinho.h">
+      <Filter>blocos</Filter>
+    </ClInclude>
+    <ClInclude Include="Cactus.h">
+      <Filter>blocos</Filter>
+    </ClInclude>
+    <ClInclude Include="AreiaDasAlmas.h">
+      <Filter>blocos</Filter>
+    </ClInclude>
+    <ClInclude Include="Entidade.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
   </ItemGroup>

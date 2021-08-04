@@ -56,18 +56,18 @@ void ComponenteMovimento::acelerarY(float y) {
 void ComponenteMovimento::mover()
 {
     // movimento na direção x
-    if      (this->vel.x > 0.1f)   this->vel.x -= ARRASTO;
-    else if (this->vel.x < -0.1f)  this->vel.x += ARRASTO;
+    if      (this->vel.x > 0.1f)   this->vel.x -= (float)(ARRASTO);
+    else if (this->vel.x < -0.1f)  this->vel.x += (float)(ARRASTO);
     else                            this->vel.x = 0;
 
     // movimento na direção y
-    if      (this->vel.y > 0.1f)   this->vel.y -= ARRASTO;
-    else if (this->vel.y < -0.1f)  this->vel.y += ARRASTO;
+    if      (this->vel.y > 0.1f)   this->vel.y -= (float)(ARRASTO);
+    else if (this->vel.y < -0.1f)  this->vel.y += (float)(ARRASTO);
     else                            this->vel.y = 0;
 
     // movimento em queda livre
-    if (this->caindo && this->vel.y < VEL_MAX_QUEDA)   
-       this->vel.y += GRAVIDADE;
+    if (this->caindo && this->vel.y < (float)(VEL_MAX_QUEDA))   
+       this->vel.y += (float)(GRAVIDADE);
 
     // executa o movimento
     this->sprite->move(this->vel);

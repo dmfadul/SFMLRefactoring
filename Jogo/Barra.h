@@ -24,8 +24,8 @@ public:
 	void setTam(float x, float y);
 	void setPosicao(float x, float y);
 	void setCor(sf::Color c);
-	void setTamTexto(float tam);
-	void incrementaValor(float v);
+	void setTamTexto(int tam);
+	void incrementaValor(int v);
 
 	void desenharBarra(sf::RenderTarget& janela);
 };

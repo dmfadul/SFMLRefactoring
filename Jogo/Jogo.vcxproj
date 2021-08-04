@@ -157,13 +157,14 @@
   <ItemGroup>
     <ClCompile Include="AreiaDasAlmas.cpp" />
     <ClCompile Include="Barra.cpp" />
+    <ClCompile Include="Bloco.cpp" />
     <ClCompile Include="Botao.cpp" />
     <ClCompile Include="Cactus.cpp" />
     <ClCompile Include="ComponenteMovimento.cpp" />
     <ClCompile Include="Cowboy.cpp" />
     <ClCompile Include="CowGirl.cpp" />
     <ClCompile Include="Dragao.cpp" />
-    <ClCompile Include="Ente.cpp" />
+    <ClCompile Include="Tela.cpp" />
     <ClCompile Include="Entidade.cpp" />
     <ClCompile Include="Espinho.cpp" />
     <ClCompile Include="Fase.cpp" />
@@ -207,6 +208,7 @@
   <ItemGroup>
     <ClInclude Include="AreiaDasAlmas.h" />
     <ClInclude Include="Barra.h" />
+    <ClInclude Include="Bloco.h" />
     <ClInclude Include="Botao.h" />
     <ClInclude Include="Cactus.h" />
     <ClInclude Include="ComponenteMovimento.h" />
@@ -214,7 +216,7 @@
     <ClInclude Include="Cowboy.h" />
     <ClInclude Include="CowGirl.h" />
     <ClInclude Include="Dragao.h" />
-    <ClInclude Include="Ente.h" />
+    <ClInclude Include="Tela.h" />
     <ClInclude Include="Entidade.h" />
     <ClInclude Include="Espinho.h" />
     <ClInclude Include="Fase.h" />

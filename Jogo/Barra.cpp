@@ -40,7 +40,7 @@ void Barra::iniciarBarra()
 void Barra::identificarBarra(std::string ident, float pos_x, float pos_y)
 {
 	this->identBarra.setString(ident);
-	this->identBarra.setCharacterSize(22.f);
+	this->identBarra.setCharacterSize(22);
 	this->identBarra.setPosition(pos_x, pos_y);
 }
 
@@ -66,19 +66,19 @@ void Barra::setCor(sf::Color c)
 	this->barra.setFillColor(c);
 }
 
-void Barra::setTamTexto(float tam)
+void Barra::setTamTexto(int tam)
 {
 	this->texto.setCharacterSize(tam);
 }
 
-void Barra::incrementaValor(float v)
+void Barra::incrementaValor(int v)
 {
 	// incrementa o valor e o tamanho da barra
 	this->valor += v;
 	std::string texto_barra;
 	if (valor >= 0) {
-		int tam_barra = (this->valor / (this->valorMaximo * 1.f)) * this->contornoBarra.getGlobalBounds().width;
-		this->barra.setSize(sf::Vector2f(tam_barra, this->contornoBarra.getGlobalBounds().height));
+		int tam_barra = (int)(this->valor / (this->valorMaximo * 1.f) * (int)(this->contornoBarra.getGlobalBounds().width));
+		this->barra.setSize(sf::Vector2f((float)(tam_barra), this->contornoBarra.getGlobalBounds().height));
 		texto_barra = std::to_string(valor) + " / " + std::to_string(valorMaximo);
 	}
 	else

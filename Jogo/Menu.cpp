@@ -3,7 +3,7 @@
 
 // _______________________________________________________________________________
 Menu::Menu(JogoInfo* pji):
-	Ente(pji), botoes()
+	Tela(pji), botoes()
 {
 	this->botaoAtivo = false;
 }
@@ -52,7 +52,7 @@ void Menu::trocarBotao(int direcao)
 void Menu::desenhar(sf::RenderTarget& janela)
 {
 	/* Desenha o novo frame na janela */
-	janela.draw(this->background);
+	janela.draw(this->sprite);
 	janela.draw(this->caixaBotoes);
 
 	// desenha botoes

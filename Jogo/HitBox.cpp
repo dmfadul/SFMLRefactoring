@@ -98,7 +98,7 @@ const int HitBox::getOffsetCima() const
 // _______________________________________________________________________________
 const int HitBox::getOffsetBaixo() const
 {
-    return this->hitbox.getGlobalBounds().height + this->offsetY;
+    return (int)(this->hitbox.getGlobalBounds().height) + this->offsetY;
 }
 
 // _______________________________________________________________________________
@@ -110,7 +110,7 @@ const int HitBox::getOffsetEsquerda() const
 // _______________________________________________________________________________
 const int HitBox::getOffsetDireita() const
 {
-    return this->offsetX + this->hitbox.getGlobalBounds().width;
+    return this->offsetX + (int)(this->hitbox.getGlobalBounds().width);
 }
 
 // _______________________________________________________________________________
