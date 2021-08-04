@@ -9,6 +9,7 @@ VelhoOeste::VelhoOeste(JogoInfo* pji, int n_jogadores)
 	this->iniciarBackground("./Recursos/Imagens/backgrounds/velho_oeste.png");
 	this->iniciarMapa("./Recursos/mapas/velho_oeste.txt", 1, 17);
 	this->iniciarGerenciadorColisoes();
+	this->iniciarGeradorProjeteis();
 	this->jogoInfo->getTocaDisco()->tocarFallenDown();
 }
 
@@ -46,6 +47,9 @@ void VelhoOeste::atualizar()
 		this->jogoInfo->popEnte();
 	else
 		this->gerColisoes.verificarColisoes();
+	
+	this->gerProj.CriarProjetil();
+	this->gerColisoes.verificarColisoes();
 }
 
 // _______________________________________________________________________________
@@ -88,6 +92,14 @@ void VelhoOeste::desenhar(sf::RenderTarget& janela)
 		elInimigo = elInimigo->getProximo();
 	}
 
+	//
+	Lista<Projetil>::Elemento<Projetil>* elProjetil = this->listaProj.getPrimeiro();
+	while (elProjetil != NULL) {
+		Projetil* pProjetil = elProjetil->getInfo();
+		pProjetil->desenharEntidade(janela);
+		elProjetil = elProjetil->getProximo();
+	}
+
 	janela.draw(this->textoScore);
 
 	this->mapa.desenharMapa(janela);
@@ -95,9 +107,11 @@ void VelhoOeste::desenhar(sf::RenderTarget& janela)
 
 void VelhoOeste::iniciarInimigos()
 {
-	this->listaIni.incluirInimigo(new Bruxa("./Recursos/Imagens/Personagens/bruxa.png", sf::Vector2f(630.f,410.f),160));
+
+	this->listaIni.incluirInimigo(new Bruxa("./Recursos/Imagens/Personagens/bruxa.png", sf::Vector2f(630.f, 410.f), 2700));
 	//this->listaIni.incluirInimigo(new Bruxa("./Recursos/Imagens/Personagens/bruxa.png", sf::Vector2f(370.f, 310.f), 140));
-	this->listaIni.incluirInimigo(new Bruxa("./Recursos/Imagens/Personagens/bruxa.png", sf::Vector2f(510.f, 110.f), 100));
-	this->listaIni.incluirInimigo(new Bruxa("./Recursos/Imagens/Personagens/bruxa.png", sf::Vector2f(700.f, 50.f), 110));
-	this->listaIni.incluirInimigo(new Bruxa("./Recursos/Imagens/Personagens/bruxa.png", sf::Vector2f(1100.f, 280.f), 140));
+	this->listaIni.incluirInimigo(new Bruxa("./Recursos/Imagens/Personagens/bruxa.png", sf::Vector2f(510.f, 110.f), 1700));
+	this->listaIni.incluirInimigo(new Bruxa("./Recursos/Imagens/Personagens/bruxa.png", sf::Vector2f(700.f, 50.f), 1950));
+	this->listaIni.incluirInimigo(new Bruxa("./Recursos/Imagens/Personagens/bruxa.png", sf::Vector2f(1100.f, 280.f), 2800));
+
 }

@@ -147,6 +147,18 @@
     <ClCompile Include="ListaInimigos.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
+    <ClCompile Include="GeradorProjeteis.cpp">
+      <Filter>containers e gerenciadores</Filter>
+    </ClCompile>
+    <ClCompile Include="Morcego.cpp">
+      <Filter>Graficos</Filter>
+    </ClCompile>
+    <ClCompile Include="Projetil.cpp">
+      <Filter>Graficos</Filter>
+    </ClCompile>
+    <ClCompile Include="ListaProjeteis.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Jogo.h">
@@ -224,9 +236,6 @@
     <ClInclude Include="Jogador.h">
       <Filter>Personagens</Filter>
     </ClInclude>
-    <ClInclude Include="Personagem.h">
-      <Filter>Personagens</Filter>
-    </ClInclude>
     <ClInclude Include="CowGirl.h">
       <Filter>Personagens</Filter>
     </ClInclude>
@@ -267,6 +276,21 @@
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
     <ClInclude Include="ListaInimigos.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="GeradorProjeteis.h">
+      <Filter>containers e gerenciadores</Filter>
+    </ClInclude>
+    <ClInclude Include="Morcego.h">
+      <Filter>Graficos</Filter>
+    </ClInclude>
+    <ClInclude Include="Projetil.h">
+      <Filter>Graficos</Filter>
+    </ClInclude>
+    <ClInclude Include="Personagem.h">
+      <Filter>Personagens</Filter>
+    </ClInclude>
+    <ClInclude Include="ListaProjeteis.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
   </ItemGroup>

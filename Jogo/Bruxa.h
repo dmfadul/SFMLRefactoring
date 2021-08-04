@@ -7,7 +7,8 @@ class Bruxa :
     public Inimigo
 {
 private:
-    int tempo_vida, tempo_direcao;
+    sf::Clock tempo_vida;
+    int tempo_direcao;
     bool direction;
     
 

@@ -226,6 +226,8 @@ inline bool Lista<TIPO>::listaVazia()
 template<class TIPO>
 inline Lista<TIPO>::Elemento<TIPO>* Lista<TIPO>::getPrimeiro()
 {
+	if (this == NULL)
+		return NULL;
 	return this->pPrimeiro;
 }
 

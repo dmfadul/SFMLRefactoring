@@ -52,3 +52,8 @@ void Fase::iniciarGerenciadorColisoes()
 {
 	this->gerColisoes.iniciaGerenciadorColisoes(&this->mapa, &this->listaJog, &this->listaIni);
 }
+
+void Fase::iniciarGeradorProjeteis()
+{
+	this->gerProj.iniciaGeradorProjeteis(&this->listaIni, &this->listaProj);
+}
