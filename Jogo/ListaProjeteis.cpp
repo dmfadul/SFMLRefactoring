@@ -21,3 +21,8 @@ Lista<Projetil>::Elemento<Projetil>* ListaProjeteis::getPrimeiro()
 {
 	return this->listaProjeteis.getPrimeiro();
 }
+
+bool ListaProjeteis::excluirProjetil(int id)
+{
+	return this->listaProjeteis.removerElemento(id);
+}

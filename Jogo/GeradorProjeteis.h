@@ -9,13 +9,16 @@ private:
 	sf::Clock tempo_atual;
 	ListaInimigos* listIni;
 	ListaProjeteis* listProj;
-
+	Lista<Inimigo>::Elemento<Inimigo>* ini;
 public:
 	GeradorProjeteis();
 	~GeradorProjeteis();
 
 	void CriarProjetil();
+	void ExcluirProjetil();
 
 	void iniciaGeradorProjeteis(ListaInimigos* li, ListaProjeteis* lp);
+
+
 };
 

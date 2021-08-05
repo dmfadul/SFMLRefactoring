@@ -1,27 +1,42 @@
 #include "stdafx.h"
 #include "GeradorProjeteis.h"
 
-GeradorProjeteis::GeradorProjeteis():listIni(NULL),listProj(NULL){}
+GeradorProjeteis::GeradorProjeteis():listIni(NULL),listProj(NULL),ini(NULL){}
 
 GeradorProjeteis::~GeradorProjeteis(){}
 
 void GeradorProjeteis::CriarProjetil()
 {
-	
-	Lista<Inimigo>::Elemento<Inimigo>* ini = listIni->getPrimeiro();
-	Inimigo* pini;
-	Morcego* pmor;
-	while (ini != NULL)
-	{
-		if (tempo_atual.getElapsedTime().asSeconds() >= 2)
+	if (ini == NULL)
+		ini = listIni->getPrimeiro();
+	else {
+		Inimigo* pini;
+		Morcego* pmor;
+		pini = ini->getInfo();
+		if (tempo_atual.getElapsedTime().asMilliseconds() > 200)
 		{
-			cout << "teste" << endl;
-			pini = ini->getInfo();
-			pmor = new Morcego(1, pini->getPosition());
+			pmor = new Morcego(1, pini->getPosition(), pini->getDirection());
 			listProj->incluirProjetil(static_cast<Projetil*>(pmor));
 			tempo_atual.restart();
+			ini = ini->getProximo();
 		}
-		ini = ini->getProximo();
+		
+	}
+}
+
+void GeradorProjeteis::ExcluirProjetil()
+{
+	Lista<Projetil>::Elemento<Projetil>* proj = listProj->getPrimeiro();
+	Projetil* pproj;
+
+	while (proj != NULL)
+	{
+		pproj = proj->getInfo();
+		if (pproj->getTempoVida() > 2000)
+		{
+			listProj->excluirProjetil(pproj->getId());
+		}
+		proj = proj->getProximo();
 	}
 }
 

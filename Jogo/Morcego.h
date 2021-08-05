@@ -7,10 +7,8 @@ class Morcego :
 public:
 
     Morcego();
-    Morcego(int indice, sf::Vector2f posicao);
+    Morcego(int indice, sf::Vector2f posicao, bool direcao);
     ~Morcego();
-
-    void iniciarSprite(int indice);
 
 };
 

@@ -11,6 +11,7 @@ public:
 	~ListaProjeteis();
 
 	void incluirProjetil(Projetil* p);
+	bool excluirProjetil(int id);
 	Lista<Projetil >::Elemento<Projetil>* getPrimeiro();
 
 };

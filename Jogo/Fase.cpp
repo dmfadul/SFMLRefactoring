@@ -76,6 +76,13 @@ void Fase::atualizarEntidades()
 		elInimigo = elInimigo->getProximo();
 	}
 
+	Lista<Projetil>::Elemento<Projetil>* elProjetil = this->listaProj.getPrimeiro();
+	while (elProjetil != NULL) {
+		Projetil* pProjetil = elProjetil->getInfo();
+		pProjetil->atualizar();
+		elProjetil = elProjetil->getProximo();
+	}
+
 }
 
 void Fase::desenharEntidades(sf::RenderTarget& janela)

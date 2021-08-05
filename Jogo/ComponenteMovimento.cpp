@@ -6,6 +6,7 @@ ComponenteMovimento::ComponenteMovimento():
     sprite(NULL),
     gravidade(GRAVIDADE),
     caindo(true),
+    controle_arrasto(true),
     vel(sf::Vector2f(0.f, 0.f)),
     velMax(0)
 {
@@ -30,6 +31,8 @@ void ComponenteMovimento::setVelX(float x) { this->vel.x = x; }
 void ComponenteMovimento::setVelY(float y) { this->vel.y = y; }
 
 void ComponenteMovimento::setCaindo(const bool c) { this->caindo = c; }
+
+void ComponenteMovimento::setControleArrasto(const bool a) { this->controle_arrasto = a; }
 
 // _______________________________________________________________________________
 const bool ComponenteMovimento::getCaindo() const { return this->caindo; }
@@ -56,14 +59,14 @@ void ComponenteMovimento::acelerarY(float y) {
 void ComponenteMovimento::mover()
 {
     // movimento na direção x
-    if      (this->vel.x > 0.1f)   this->vel.x -= (float)(ARRASTO);
-    else if (this->vel.x < -0.1f)  this->vel.x += (float)(ARRASTO);
-    else                            this->vel.x = 0;
+    if      (this->vel.x > 0.1f && this->controle_arrasto)   this->vel.x -= (float)(ARRASTO);
+    else if (this->vel.x < -0.1f && this->controle_arrasto)  this->vel.x += (float)(ARRASTO);
+    else if (this->controle_arrasto)                         this->vel.x = 0;
 
     // movimento na direção y
     if      (this->vel.y > 0.1f)   this->vel.y -= (float)(ARRASTO);
     else if (this->vel.y < -0.1f)  this->vel.y += (float)(ARRASTO);
-    else                            this->vel.y = 0;
+    else if (this->controle_arrasto)     this->vel.y = 0;
 
     // movimento em queda livre
     if (this->caindo && this->vel.y < (float)(VEL_MAX_QUEDA))   

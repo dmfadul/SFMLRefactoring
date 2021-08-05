@@ -8,14 +8,14 @@ class Bruxa :
 {
 private:
     sf::Clock tempo_vida;
-    int tempo_direcao;
-    bool direction;
-    
+    int tempo_direcao;  
 
 public:
     Bruxa();
     Bruxa(std::string imgCaminho, sf::Vector2f, int tempo_direcao = 50);
     ~Bruxa();
+
+    bool getDirection();
 
     void mover();
     void desenhar(sf::RenderTarget& janela);
