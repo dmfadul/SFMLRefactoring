@@ -8,9 +8,6 @@ class Projetil :
     public Entidade
 {
 protected:
-
-    sf::Texture texture;
-    sf::Sprite sprite;
     sf::Clock tempo_vida;
     HitBox hitbox;
     bool direcao;

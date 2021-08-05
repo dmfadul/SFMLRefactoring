@@ -169,10 +169,10 @@
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
     <ClCompile Include="CaixaPause.cpp">
-      <Filter>Arquivos de Origem</Filter>
+      <Filter>Graficos</Filter>
     </ClCompile>
     <ClCompile Include="GerenciadorBotoes.cpp">
-      <Filter>Arquivos de Origem</Filter>
+      <Filter>containers e gerenciadores</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -312,10 +312,10 @@
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
     <ClInclude Include="CaixaPause.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
+      <Filter>Graficos</Filter>
     </ClInclude>
     <ClInclude Include="GerenciadorBotoes.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
+      <Filter>containers e gerenciadores</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

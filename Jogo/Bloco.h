@@ -14,7 +14,6 @@ public:
 	// getters e setters
 	const bool getColidir();
 	void setPosicao(const float x, const float y);
-	const int getId(int id);
 
 	void desenharBloco(sf::RenderTarget& janela);
 };

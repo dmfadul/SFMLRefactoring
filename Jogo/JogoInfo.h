@@ -8,7 +8,6 @@ class JogoInfo
 {
 private:
     // Variaveis
-    sf::View* view;
     std::stack<Tela* > telas;
     TocaDisco* tocaDisco;
     bool encerrar;

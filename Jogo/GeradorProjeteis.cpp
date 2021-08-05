@@ -3,7 +3,11 @@
 
 GeradorProjeteis::GeradorProjeteis():listIni(NULL),listProj(NULL),ini(NULL){}
 
-GeradorProjeteis::~GeradorProjeteis(){}
+GeradorProjeteis::~GeradorProjeteis(){
+	this->ini = NULL;
+	this->listIni = NULL;
+	this->listProj = NULL;
+}
 
 void GeradorProjeteis::CriarProjetil()
 {

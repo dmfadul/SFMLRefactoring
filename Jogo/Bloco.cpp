@@ -20,11 +20,6 @@ void Bloco::setPosicao(const float x, const float y)
     this->sprite.setPosition(x, y);
 }
 
-const int Bloco::getId(int id)
-{
-    return this->id;
-}
-
 void Bloco::desenharBloco(sf::RenderTarget& janela)
 {
     janela.draw(this->sprite);

@@ -8,7 +8,6 @@ JogoInfo::JogoInfo() :
 {
     this->tocaDisco = new TocaDisco();
     this->encerrar = false;
-    this->view = NULL;
 }
 
 // _______________________________________________________________________________
@@ -19,6 +18,8 @@ JogoInfo::~JogoInfo()
         delete this->telas.top();
         this->telas.pop();
     }
+
+    delete this->tocaDisco;
 }
 
 // _______________________________________________________________________________

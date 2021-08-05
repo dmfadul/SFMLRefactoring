@@ -37,7 +37,7 @@ public:
 	~Lista();
 
 	void inicializa();
-	bool incluaElemento(Elemento<TIPO>* pElemento, int id = -1);
+	bool incluaElemento(Elemento<TIPO>* pElemento);
 	bool removerElemento(int id);
 	bool incluaInfo(TIPO* pInfo);
 	bool listaVazia();
@@ -149,7 +149,7 @@ inline void Lista<TIPO>::inicializa()
 }
 
 template<class TIPO>
-inline bool Lista<TIPO>::incluaElemento(Elemento<TIPO>* pElemento, int id)
+inline bool Lista<TIPO>::incluaElemento(Elemento<TIPO>* pElemento)
 {
 	if (pElemento != NULL)
 	{
@@ -220,7 +220,7 @@ inline bool Lista<TIPO>::incluaInfo(TIPO* pInfo)
 	}
 	else
 	{
-		cout << "Erro, elemento nulo." << endl;
+		cerr << "Erro, elemento nulo." << endl;
 		return false;
 	}
 }

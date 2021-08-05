@@ -17,11 +17,14 @@ Mapa::~Mapa()
 			this->posLivres[x][y] = NULL;
 		}
 	}
-
 	// desaloca plataformas
 	for (auto& ent : this->blocos) {
 		delete ent;
 	}
+
+	this->mapa.clear();
+	this->posLivres.clear();
+	this->blocos.clear();
 }
 
 // _______________________________________________________________________________

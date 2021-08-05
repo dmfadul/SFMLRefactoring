@@ -11,10 +11,6 @@ tempo_direcao(tempo_direcao){
 	this->iniciarCompMov(VEL_MAX_BRUXA);
 	this->sprite.setPosition(position);
 	this->compMov.setControleArrasto(false);
-
-	// APAGAR
-	std::cout << "Vida Inicial: " << pInfo.getHp() << std::endl;
-	std::cout << "Dano: " << pInfo.getDano() << std::endl;
 }
 
 Bruxa::~Bruxa(){}
