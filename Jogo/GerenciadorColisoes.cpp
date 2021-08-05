@@ -3,7 +3,7 @@
 
 // _______________________________________________________________________________
 GerenciadorColisoes::GerenciadorColisoes()
-	:mapa(NULL), listaJog(NULL), listaIni(NULL)
+	:mapa(NULL), listaJog(NULL), listaIni(NULL), listaProj(NULL)
 {
 }
 
@@ -13,6 +13,7 @@ GerenciadorColisoes::~GerenciadorColisoes()
 	this->mapa = NULL;
 	this->listaJog = NULL;
 	this->listaIni = NULL;
+	this->listaProj = NULL;
 }
 
 // _______________________________________________________________________________
@@ -21,11 +22,12 @@ void GerenciadorColisoes::colisaoPersonagemPersonagem()
 }
 
 // _______________________________________________________________________________
-void GerenciadorColisoes::iniciaGerenciadorColisoes(Mapa* m, ListaJogadores* lista_jog, ListaInimigos* lista_ini)
+void GerenciadorColisoes::iniciaGerenciadorColisoes(Mapa* m, ListaJogadores* lista_jog, ListaInimigos* lista_ini, ListaProjeteis* lista_proj)
 {
 	this->mapa = m;
 	this->listaJog = lista_jog;
 	this->listaIni = lista_ini;
+	this->listaProj = lista_proj;
 }
 
 // _______________________________________________________________________________
@@ -38,6 +40,7 @@ void GerenciadorColisoes::verificarColisoes()
 		
 		this->colisaoPersonagemPlataforma(static_cast<Personagem* >(pJogador));
 		this->colisaoPersonagemTela(static_cast<Personagem*>(pJogador));
+		this->colisaoPersonagemProjetil(static_cast<Personagem*>(pJogador));
 		elJogador = elJogador->getProximo();
 	}
 
@@ -139,5 +142,44 @@ void GerenciadorColisoes::colisaoPersonagemTela(Personagem* personagem)
 		personagem->setPosicao(
 			float(-hitbox.getOffsetEsquerda()),
 			personagem->getPosition().y);
+	}
+}
+
+void GerenciadorColisoes::colisaoPersonagemProjetil(Personagem* personagem)
+{
+	float raioPersonagem = personagem->getHitbox().getRaio();
+	sf::Vector2f posicaoPersonagem = personagem->getHitbox().getPosition();
+	sf::Vector2f posicaoProjetil;
+	float raioProjetil;
+	float distanciaTotal, distanciaX, distanciaY;
+
+	Lista<Projetil>::Elemento<Projetil>* proj = listaProj->getPrimeiro();
+	Projetil* pproj;
+
+	while (proj != NULL)
+	{
+		pproj = proj->getInfo();
+		raioProjetil = pproj->getHitbox().getRaio();
+		posicaoProjetil = pproj->getHitbox().getPosition();
+		distanciaX = posicaoPersonagem.x - posicaoProjetil.x;
+		distanciaY = posicaoPersonagem.y - posicaoProjetil.y;
+		distanciaTotal = sqrt(distanciaX * distanciaX + distanciaY * distanciaY);
+		if (distanciaTotal < raioProjetil + raioPersonagem)
+		{
+			personagem->receberDano(pproj->getDano());
+			listaProj->excluirProjetil(pproj->getId());
+
+		} else
+
+		if (posicaoProjetil.y < 0 || posicaoProjetil.y > TAM_JANELA_Y)
+		{
+			listaProj->excluirProjetil(pproj->getId());
+		} else
+
+		if (posicaoProjetil.x < 0 || posicaoProjetil.x > TAM_JANELA_X)
+		{
+			listaProj->excluirProjetil(pproj->getId());
+		}
+		proj = proj->getProximo();
 	}
 }

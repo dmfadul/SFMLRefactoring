@@ -14,6 +14,7 @@ protected:
     sf::Clock tempo_vida;
     HitBox hitbox;
     bool direcao;
+    int dano;
     ComponenteMovimento compMov;
 
 public:
@@ -31,6 +32,8 @@ public:
     void iniciarHitbox(float comprimento, float altura, int off_x, int off_y);
     void iniciarCompMov(float vel_max);
     int getTempoVida();
+    int getDano();
+    HitBox getHitbox() const;
 
     
 };

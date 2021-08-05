@@ -126,4 +126,19 @@ void HitBox::atualizarPosicao()
 void HitBox::desenhar(sf::RenderTarget& janela)
 {
     janela.draw(this->hitbox);
+    
+}
+
+float HitBox::getRaio()
+{
+    float altura, largura, raio;
+    largura = this->hitbox.getSize().x;
+    altura  = this->hitbox.getSize().y;
+    raio = sqrt((altura/2) * (altura/2) + (largura/2) * (largura/2));
+    return raio;
+}
+
+sf::Vector2f HitBox::getPosition()
+{
+    return hitbox.getPosition();
 }

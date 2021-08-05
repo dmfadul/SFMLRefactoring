@@ -2,12 +2,12 @@
 #include "Projetil.h"
 
 
-Projetil::Projetil():direcao(true){}
+Projetil::Projetil():direcao(true),dano(20){}
 
 Projetil::Projetil(int indice, sf::Vector2f posicao, bool direcao):direcao(direcao){
 	this->iniciarSprite(indice);
 	this->setPosicao(posicao.x, posicao.y);
-	this->iniciarHitbox(25.f, 36.f, 15, 25);
+	this->iniciarHitbox(this->textura.getSize().x, this->textura.getSize().y, 0, 0);
 	this->iniciarMovimento();
 	this->iniciarCompMov(VEL_MAX_PROJETIL);
 	this->compMov.setControleArrasto(false);
@@ -70,4 +70,14 @@ void Projetil::atualizar()
 int Projetil::getTempoVida()
 {
 	return tempo_vida.getElapsedTime().asMilliseconds();
+}
+
+HitBox Projetil::getHitbox() const
+{
+	return this->hitbox;
+}
+
+int Projetil::getDano()
+{
+	return this->dano;
 }

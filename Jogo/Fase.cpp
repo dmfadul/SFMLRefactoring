@@ -45,7 +45,7 @@ void Fase::iniciarTextoScore()
 // _______________________________________________________________________________
 void Fase::iniciarGerenciadorColisoes()
 {
-	this->gerColisoes.iniciaGerenciadorColisoes(&this->mapa, &this->listaJog, &this->listaIni);
+	this->gerColisoes.iniciaGerenciadorColisoes(&this->mapa, &this->listaJog, &this->listaIni, &this->listaProj);
 }
 
 void Fase::iniciarGeradorProjeteis()

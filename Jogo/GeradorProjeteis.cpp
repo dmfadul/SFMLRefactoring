@@ -13,12 +13,13 @@ void GeradorProjeteis::CriarProjetil()
 		Inimigo* pini;
 		Morcego* pmor;
 		pini = ini->getInfo();
-		if (tempo_atual.getElapsedTime().asMilliseconds() > 200)
+		if (tempo_atual.getElapsedTime().asMilliseconds() > 500)
 		{
 			pmor = new Morcego(1, pini->getPosition(), pini->getDirection());
 			listProj->incluirProjetil(static_cast<Projetil*>(pmor));
 			tempo_atual.restart();
 			ini = ini->getProximo();
+			
 		}
 		
 	}
