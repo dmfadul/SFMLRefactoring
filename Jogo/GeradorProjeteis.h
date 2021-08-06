@@ -10,6 +10,7 @@ private:
 	ListaInimigos* listIni;
 	ListaProjeteis* listProj;
 	Lista<Inimigo>::Elemento<Inimigo>* ini;
+
 public:
 	GeradorProjeteis();
 	~GeradorProjeteis();
