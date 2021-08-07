@@ -14,10 +14,10 @@ private:
 	ListaInimigos* listaIni;
 	ListaProjeteis* listaProj;
 
-	void colisaoPersonagemPlataforma(Personagem* personagem, bool colidir_obstaculo = true);
-	void colisaoPersonagemTela(Personagem* personagem);
-	void colisaoPersonagemPersonagem();
-	void colisaoPersonagemProjetil(Personagem* personagem);
+	void verificarColisao(Personagem* personagem, bool colidir_obstaculo = true);
+	void verificarColisao(Jogador* jogador, Inimigo* inimigo);
+	void verificarColisao(Jogador* jogador, Projetil* projetil);
+	void verificarColisaoTela(Personagem* personagem);
 
 public:
 	GerenciadorColisoes();

@@ -174,6 +174,9 @@
     <ClCompile Include="GerenciadorBotoes.cpp">
       <Filter>containers e gerenciadores</Filter>
     </ClCompile>
+    <ClCompile Include="Cobra.cpp">
+      <Filter>Personagens</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Jogo.h">
@@ -316,6 +319,9 @@
     </ClInclude>
     <ClInclude Include="GerenciadorBotoes.h">
       <Filter>containers e gerenciadores</Filter>
+    </ClInclude>
+    <ClInclude Include="Cobra.h">
+      <Filter>Personagens</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

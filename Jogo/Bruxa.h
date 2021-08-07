@@ -12,7 +12,7 @@ private:
 
 public:
     Bruxa();
-    Bruxa(std::string imgCaminho, sf::Vector2f position, int tempo_direcao = 50);
+    Bruxa(sf::Vector2f position, int tempo_direcao = 50);
     ~Bruxa();
 
     bool getDirection();

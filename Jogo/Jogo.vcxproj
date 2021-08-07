@@ -161,6 +161,7 @@
     <ClCompile Include="Botao.cpp" />
     <ClCompile Include="Cactus.cpp" />
     <ClCompile Include="CaixaPause.cpp" />
+    <ClCompile Include="Cobra.cpp" />
     <ClCompile Include="ComponenteMovimento.cpp" />
     <ClCompile Include="Cowboy.cpp" />
     <ClCompile Include="CowGirl.cpp" />
@@ -214,6 +215,7 @@
     <ClInclude Include="Botao.h" />
     <ClInclude Include="Cactus.h" />
     <ClInclude Include="CaixaPause.h" />
+    <ClInclude Include="Cobra.h" />
     <ClInclude Include="ComponenteMovimento.h" />
     <ClInclude Include="configuracoes.h" />
     <ClInclude Include="Cowboy.h" />

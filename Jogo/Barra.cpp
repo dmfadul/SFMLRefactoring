@@ -89,6 +89,12 @@ void Barra::incrementaValor(int v)
 	this->texto.setString(texto_barra);
 }
 
+void Barra::setValorMaximo(int vm)
+{
+	this->valorMaximo = vm;
+	this->valor = vm;
+}
+
 void Barra::desenharBarra(sf::RenderTarget& janela)
 {
 	janela.draw(barra);

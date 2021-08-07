@@ -26,6 +26,7 @@ public:
 	void setCor(sf::Color c);
 	void setTamTexto(int tam);
 	void incrementaValor(int v);
+	void setValorMaximo(int vm);
 
 	void desenharBarra(sf::RenderTarget& janela);
 };

@@ -3,9 +3,10 @@
 
 Bruxa::Bruxa(): tempo_direcao(1000) {}
 
-Bruxa::Bruxa(std::string imgCaminho, sf::Vector2f position, int tempo_direcao):
-tempo_direcao(tempo_direcao){
-	this->iniciarSprite(imgCaminho, 2.f, 2.f);
+Bruxa::Bruxa(sf::Vector2f position, int tempo_direcao):
+	tempo_direcao(tempo_direcao)
+{
+	this->iniciarSprite("./Recursos/Imagens/Personagens/bruxa.png", 2.f, 2.f);
 	this->iniciarPersInfo(VIDA_INICIAL, DANO_ATAQUE);
 	this->iniciarHitbox(25.f, 36.f, 15, 25);
 	this->iniciarCompMov(VEL_MAX_BRUXA);

@@ -11,6 +11,8 @@ VelhoOeste::VelhoOeste(JogoInfo* pji, int n_jogadores)
 	this->iniciarGerenciadorColisoes();
 	this->iniciarGeradorProjeteis();
 	this->jogoInfo->getTocaDisco()->tocarFallenDown();
+	this->qtdMaxCobras = rand() % 4 + 3;
+	this->qtdCobras = 0;
 }
 
 // _______________________________________________________________________________
@@ -19,10 +21,23 @@ VelhoOeste::~VelhoOeste()
 	this->jogoInfo = NULL;
 }
 
+void VelhoOeste::invocarCobra()
+{
+	this->listaIni.incluirInimigo(new Cobra(&this->listaJog, sf::Vector2f((float)(rand() % TAM_JANELA_X), 0.f)));
+	this->qtdCobras++;
+	this->timerInvocarCobra.restart();
+}
+
 // _______________________________________________________________________________
 void VelhoOeste::atualizar()
 {
 	if (pausado == false) {
+		// invoca nova cobra
+		if (this->timerInvocarCobra.getElapsedTime().asMilliseconds() > 5000 && this->qtdCobras < this->qtdMaxCobras) {
+			this->invocarCobra();
+		}
+
+		// atualiza as entidades
 		this->atualizarEntidades();
 
 		// checa se ainda tem algum jogador vivo
@@ -77,10 +92,8 @@ void VelhoOeste::desenhar(sf::RenderTarget& janela)
 
 void VelhoOeste::iniciarInimigos()
 {
-
-	this->listaIni.incluirInimigo(new Bruxa("./Recursos/Imagens/Personagens/bruxa.png", sf::Vector2f(630.f, 410.f), 2700));
-	this->listaIni.incluirInimigo(new Bruxa("./Recursos/Imagens/Personagens/bruxa.png", sf::Vector2f(500.f, 110.f), 1600));
-	this->listaIni.incluirInimigo(new Bruxa("./Recursos/Imagens/Personagens/bruxa.png", sf::Vector2f(700.f, 50.f), 1850));
-	this->listaIni.incluirInimigo(new Bruxa("./Recursos/Imagens/Personagens/bruxa.png", sf::Vector2f(1100.f, 280.f), 2770));
-
+	this->listaIni.incluirInimigo(new Bruxa(sf::Vector2f(630.f, 410.f), 2700));
+	this->listaIni.incluirInimigo(new Bruxa(sf::Vector2f(500.f, 110.f), 1600));
+	this->listaIni.incluirInimigo(new Bruxa(sf::Vector2f(700.f, 50.f), 1850));
+	this->listaIni.incluirInimigo(new Bruxa(sf::Vector2f(1100.f, 280.f), 2770));
 }

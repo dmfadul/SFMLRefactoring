@@ -17,10 +17,10 @@ Fase::~Fase()
 // _______________________________________________________________________________
 void Fase::iniciarPersonagens()
 {
-	listaJog.incluirJogador(new Cowboy("./Recursos/Imagens/Personagens/cowboy.png"));
+	listaJog.incluirJogador(new Cowboy());
 
 	if (this->nJogadores == 2)
-		listaJog.incluirJogador(new CowGirl("./Recursos/Imagens/Personagens/cowgirl.png"));
+		listaJog.incluirJogador(new CowGirl());
 
 	iniciarInimigos();
 }

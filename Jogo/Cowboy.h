@@ -7,7 +7,7 @@ class Cowboy :
 private:
 
 public:
-    Cowboy(std::string imgCaminho = "");
+    Cowboy();
     ~Cowboy();
 
     void mover();
