@@ -17,8 +17,13 @@ Tela::~Tela()
 void Tela::iniciarBackground(std::string diretorio)
 {
 	/* carrega imagem do background */
-	if (!this->textura.loadFromFile(diretorio)) {
-		std::cout << "ENTE::FALHA AO CARREGAR BACKGROUND" << std::endl;
+	try {
+		this->textura.loadFromFile(diretorio);
+	}
+	catch (...){
+		std::cerr << "TELA::INICIARBACKGROUND FALHA AO INICIAR BACKGROUND" <<
+			diretorio << std::endl;
+		std::exit(EXIT_FAILURE);
 	}
 	this->sprite.setTexture(this->textura);
 }

@@ -200,7 +200,7 @@ inline bool Lista<TIPO>::removerElemento(int id)
 
 	// se o elemento a ser removido esta no meio da lista
 	else {
-		pElemento->setAnterior(pElemento->getProximo());
+		pElemento->getAnterior()->setProximo(pElemento->getProximo());
 	}
 
 	return true;

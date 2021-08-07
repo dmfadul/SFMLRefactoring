@@ -126,7 +126,7 @@
     <ClCompile Include="Gui.cpp">
       <Filter>Graficos</Filter>
     </ClCompile>
-    <ClCompile Include="Barra.cpp">
+    <ClCompile Include="BarraVida.cpp">
       <Filter>Graficos</Filter>
     </ClCompile>
     <ClCompile Include="GeradorProjeteis.cpp">
@@ -266,7 +266,7 @@
     <ClInclude Include="Gui.h">
       <Filter>Graficos</Filter>
     </ClInclude>
-    <ClInclude Include="Barra.h">
+    <ClInclude Include="BarraVida.h">
       <Filter>Graficos</Filter>
     </ClInclude>
     <ClInclude Include="GeradorProjeteis.h">

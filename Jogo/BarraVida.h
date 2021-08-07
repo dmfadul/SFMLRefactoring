@@ -5,21 +5,21 @@
 #define TAM_X_DEFAULT 150
 #define TAM_Y_DEFAULT 30
 
-class Barra : public Gui
+class BarraVida : public Gui
 {
 private:
 	sf::RectangleShape barra;
-	sf::RectangleShape contornoBarra;
-	sf::Text identBarra;
+	sf::RectangleShape contornoBarraVida;
+	sf::Text identBarraVida;
 	int valor;
 	int valorMaximo;
 
 public:
-	Barra();
-	~Barra();
+	BarraVida();
+	~BarraVida();
 
-	void iniciarBarra();
-	void identificarBarra(std::string ident,float pos_x, float pos_y);
+	void iniciarBarraVida();
+	void identificarBarraVida(std::string ident,float pos_x, float pos_y);
 	
 	void setTam(float x, float y);
 	void setPosicao(float x, float y);
@@ -28,6 +28,10 @@ public:
 	void incrementaValor(int v);
 	void setValorMaximo(int vm);
 
-	void desenharBarra(sf::RenderTarget& janela);
+	void desenharBarraVida(sf::RenderTarget& janela);
+	
+	void operator-=(const int v);
+	void operator+=(const int v);
+
 };
 

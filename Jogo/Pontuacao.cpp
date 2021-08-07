@@ -86,7 +86,13 @@ void Pontuacao::carregarPontuacao()
 
 	// abre o arquivo com o pontuacao
 	std::fstream arquivo_pontuacao;
-	arquivo_pontuacao.open("./Recursos/dados/pontuacao.txt", std::ios::in);
+	try{
+		arquivo_pontuacao.open("./Recursos/dados/pontuacao.txt", std::ios::in);
+	}
+	catch (...){
+		std::cerr << "MAPA::CARREGARPONTUCAO FALHA AO CARREGAR PONTUACAO " << std::endl;
+		std::exit(EXIT_FAILURE);
+	}
 
 	// adiciona as pontuaçoes em um multimap ordenado
 	while (arquivo_pontuacao >> n && arquivo_pontuacao >> p) {

@@ -170,31 +170,21 @@ void GerenciadorColisoes::verificarColisaoTela(Personagem* personagem)
 
 void GerenciadorColisoes::verificarColisao(Jogador* jogador, Projetil* projetil)
 {
-	float raioPersonagem = jogador->getHitbox().getRaio();
-	sf::Vector2f posicaoPersonagem = jogador->getHitbox().getPosition();
-	sf::Vector2f posicaoProjetil;
-	float raioProjetil;
-	float distanciaTotal, distanciaX, distanciaY;
+	sf::Vector2f posicaoProjetil = projetil->getHitbox().getPosition();
+
+	// colisao do projetil com personagem
 	
-	raioProjetil = projetil->getHitbox().getRaio();
-	posicaoProjetil = projetil->getHitbox().getPosition();
-	distanciaX = posicaoPersonagem.x - posicaoProjetil.x;
-	distanciaY = posicaoPersonagem.y - posicaoProjetil.y;
-	distanciaTotal = sqrt(distanciaX * distanciaX + distanciaY * distanciaY);
-	if (distanciaTotal < raioProjetil + raioPersonagem)
+	if (projetil->getHitbox().getBounds().intersects(jogador->getHitbox().getBounds()))
 	{
+		this->listaProj->excluirProjetil(projetil->getId());
 		jogador->receberDano(projetil->getDano());
-		listaProj->excluirProjetil(projetil->getId());
-
-	} else
-
-	if (posicaoProjetil.y < 0 || posicaoProjetil.y > TAM_JANELA_Y)
-	{
-		listaProj->excluirProjetil(projetil->getId());
-	} else
-
-	if (posicaoProjetil.x < 0 || posicaoProjetil.x > TAM_JANELA_X)
-	{
-		listaProj->excluirProjetil(projetil->getId());
 	}
+
+	// colisao do projeitl com a tela
+	else if (posicaoProjetil.y < 0 || posicaoProjetil.y > TAM_JANELA_Y)
+		this->listaProj->excluirProjetil(projetil->getId());
+
+	else if (posicaoProjetil.x < 0 || posicaoProjetil.x > TAM_JANELA_X)
+		this->listaProj->excluirProjetil(projetil->getId());
+	
 }

@@ -5,12 +5,12 @@
 Cowboy::Cowboy()
 {
 	this->iniciarSprite("./Recursos/Imagens/Personagens/cowboy.png", 2.f, 2.f);
-	this->iniciarPersInfo(VIDA_INICIAL, DANO_ATAQUE);
+	this->iniciarPersInfo(VIDA_INICIAL_JOGADOR, DANO_ATAQUE);
 	this->iniciarHitbox(25.f, 36.f, 15, 25);
 	this->iniciarCompMov(VEL_MAX_PLAYER);
 	this->barraVida.setTamTexto(22);
-	this->barraVida.identificarBarra("Cowboy", 10.f, 10.f);
-	this->barraVida.setValorMaximo(VIDA_INICIAL);
+	this->barraVida.identificarBarraVida("Cowboy", 10.f, 10.f);
+	this->barraVida.setValorMaximo(VIDA_INICIAL_JOGADOR);
 }
 
 // _______________________________________________________________________________
@@ -44,6 +44,6 @@ void Cowboy::desenhar(sf::RenderTarget& janela)
 {
 	janela.draw(sprite);
 	hitbox.desenhar(janela);
-	barraVida.desenharBarra(janela);
+	barraVida.desenharBarraVida(janela);
 }
 

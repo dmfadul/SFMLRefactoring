@@ -16,9 +16,14 @@ Personagem::~Personagem(){}
 void Personagem::iniciarSprite(std::string imgCaminho, float scale_x, float scale_y)
 {
 	/* Inicia o sprite do personagem */
-	if (!textura.loadFromFile(imgCaminho)){
-		std::cerr << "Erro\n";
+	try { 
+		textura.loadFromFile(imgCaminho);
 	}
+	catch (...){
+		std::cerr << "PERSONAGEM::INICARSPRITE FALHA AO CARREGAR " <<
+			imgCaminho << std::endl;
+	}
+
 	sprite.setTexture(textura);
 	sprite.setPosition(sf::Vector2f((float)(rand() % TAM_JANELA_X), 0.f)); // Spawn em posicao aleatoria
 	sprite.setScale(sf::Vector2f(scale_x, scale_y));
@@ -68,7 +73,7 @@ void Personagem::receberDano(int dano)
 		int vida = this->getPersInfo()->getHp();
 		vida = vida - dano;
 		this->getPersInfo()->setHP(vida);
-		this->barraVida.incrementaValor(-dano);
+		this->barraVida -= dano;
 		this->invulneravel.restart();
 	}
 }

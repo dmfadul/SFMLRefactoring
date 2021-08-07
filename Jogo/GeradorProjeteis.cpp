@@ -19,7 +19,8 @@ void GeradorProjeteis::CriarProjetil()
 		pini = ini->getInfo();
 		if (tempo_atual.getElapsedTime().asMilliseconds() > 500)
 		{
-			pmor = new Morcego(1, pini->getPosition(), pini->getDirection());
+
+			pmor = new Morcego(1, pini->getHitbox().getCima(), pini->getDirection());
 			listProj->incluirProjetil(static_cast<Projetil*>(pmor));
 			tempo_atual.restart();
 			ini = ini->getProximo();

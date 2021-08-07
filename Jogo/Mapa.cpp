@@ -66,7 +66,14 @@ void Mapa::carregarMapa(std::string diretorio)
 
 	// abre o arquivo com o mapa
 	std::fstream arquivo_mapa;
-	arquivo_mapa.open(diretorio, std::ios::in);
+	try {
+		arquivo_mapa.open(diretorio, std::ios::in);
+	}
+	catch (...) {
+		std::cerr << "MAPA::CARREGARMAPA FALHA AO CARREGAR " <<
+			diretorio << std::endl;
+		std::exit(EXIT_FAILURE);
+	}
 	int n = 0;
 
 	// salva o mapa na matriz mapa

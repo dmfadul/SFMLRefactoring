@@ -19,9 +19,14 @@ void TelaMorte::iniciarTextos()
 	this->nomeInput = "";
 
 	// carrega a fonte
-	if (!this->fonte.loadFromFile("./Recursos/Fontes/Bebas.ttf")) {
-		std::cout << "PONTUACAO::FALHA AO CARREGAR FONTE" << std::endl;
+	try { 
+		this->fonte.loadFromFile("./Recursos/Fontes/Bebas.ttf");
 	}
+	catch (...) {
+		std::cerr << "TELA::INICARSPRITE FALHA AO CARREGAR FONTE " << std::endl;
+		std::exit(EXIT_FAILURE);
+	}
+	
 	// inicia texto morte
 	this->textoMorte.setFont(this->fonte);
 	this->textoMorte.setString("VOCE MORREU!!!");
