@@ -7,16 +7,17 @@ class Bruxa :
     public Inimigo
 {
 private:
+    // variaveis
     sf::Clock tempo_vida;
     int tempo_direcao;  
 
 public:
+    // construtoras e destrutoras
     Bruxa();
     Bruxa(sf::Vector2f position, int tempo_direcao = 50);
     ~Bruxa();
-
-    bool getDirection();
-
+    
+    // metodos
     void mover();
     void desenhar(sf::RenderTarget& janela);
     void atualizar();

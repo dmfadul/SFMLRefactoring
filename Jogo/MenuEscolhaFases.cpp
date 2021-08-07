@@ -50,14 +50,14 @@ void MenuEscolhaFases::GerenciarCliqueBotao()
 
 	if (this->botaoAtivo == velho_oeste) {
 		this->jogoInfo->getTocaDisco()->pararMusica();
-		this->jogoInfo->trocarTela(static_cast<Tela*>(new VelhoOeste(this->jogoInfo)));
+		this->jogoInfo->trocarEnte(static_cast<Ente*>(new VelhoOeste(this->jogoInfo)));
 	}
 
 	else if (this->botaoAtivo == ninho_do_dragao) {
 		this->jogoInfo->getTocaDisco()->pararMusica();
-		this->jogoInfo->trocarTela(static_cast<Tela*>(new NinhoDoDragao(this->jogoInfo)));
+		this->jogoInfo->trocarEnte(static_cast<Ente*>(new NinhoDoDragao(this->jogoInfo)));
 	}
 
 	else if (this->botaoAtivo == voltar)
-		this->jogoInfo->popTela();
+		this->jogoInfo->popEnte();
 }

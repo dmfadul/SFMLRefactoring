@@ -4,12 +4,15 @@ class Inimigo :
     public Personagem
 {
 protected:
+    // direcao que o inimigo esta andandos
     bool direction;
 
 public:
+    // construtoras e destrutoras
     Inimigo();
     ~Inimigo();
 
-    bool getDirection();
+    // setters e getters
+    const bool getDirection() const;
 };
 

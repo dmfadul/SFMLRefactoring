@@ -1,12 +1,14 @@
 #include "stdafx.h"
 #include "GerenciadorBotoes.h"
 
+// _______________________________________________________________________________
 GerenciadorBotoes::GerenciadorBotoes()
 	: tocaDisco(new TocaDisco())
 {
 	this->botaoAtivo = 0;
 }
 
+// _______________________________________________________________________________
 GerenciadorBotoes::~GerenciadorBotoes()
 {
 	delete this->tocaDisco;
@@ -16,7 +18,7 @@ GerenciadorBotoes::~GerenciadorBotoes()
 	this->botoes.clear();
 }
 
-
+// _______________________________________________________________________________
 void GerenciadorBotoes::iniciarBotoes()
 {
 }
@@ -42,6 +44,7 @@ void GerenciadorBotoes::trocarBotao(int direcao)
 	this->botoes[this->botaoAtivo]->ativar();
 }
 
+// _______________________________________________________________________________
 void GerenciadorBotoes::GerenciarCliqueBotao()
 {
 }

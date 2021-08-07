@@ -138,6 +138,7 @@ void GerenciadorColisoes::verificarColisao(Personagem* personagem, bool colidir_
 	}
 }
 
+// _______________________________________________________________________________
 void GerenciadorColisoes::verificarColisao(Jogador* jogador, Inimigo* inimigo)
 {
 	/*Colisao entre inimigos e personagens*/
@@ -168,6 +169,7 @@ void GerenciadorColisoes::verificarColisaoTela(Personagem* personagem)
 	}
 }
 
+// _______________________________________________________________________________
 void GerenciadorColisoes::verificarColisao(Jogador* jogador, Projetil* projetil)
 {
 	sf::Vector2f posicaoProjetil = projetil->getHitbox().getPosition();

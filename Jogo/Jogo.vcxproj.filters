@@ -42,13 +42,13 @@
     <ClCompile Include="Jogo.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="Tela.cpp">
+    <ClCompile Include="Ente.cpp">
       <Filter>Telas</Filter>
     </ClCompile>
     <ClCompile Include="Fase.cpp">
       <Filter>Telas</Filter>
     </ClCompile>
-    <ClCompile Include="Pontuacao.cpp">
+    <ClCompile Include="TelaPontuacao.cpp">
       <Filter>Telas</Filter>
     </ClCompile>
     <ClCompile Include="MenuPrincipal.cpp">
@@ -94,9 +94,6 @@
       <Filter>Personagens</Filter>
     </ClCompile>
     <ClCompile Include="Bruxa.cpp">
-      <Filter>Personagens</Filter>
-    </ClCompile>
-    <ClCompile Include="Inimigo2.cpp">
       <Filter>Personagens</Filter>
     </ClCompile>
     <ClCompile Include="Jogador.cpp">
@@ -177,18 +174,21 @@
     <ClCompile Include="Cobra.cpp">
       <Filter>Personagens</Filter>
     </ClCompile>
+    <ClCompile Include="Tela.cpp">
+      <Filter>Telas</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Jogo.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
-    <ClInclude Include="Tela.h">
+    <ClInclude Include="Ente.h">
       <Filter>Telas</Filter>
     </ClInclude>
     <ClInclude Include="Fase.h">
       <Filter>Telas</Filter>
     </ClInclude>
-    <ClInclude Include="Pontuacao.h">
+    <ClInclude Include="TelaPontuacao.h">
       <Filter>Telas</Filter>
     </ClInclude>
     <ClInclude Include="MenuPrincipal.h">
@@ -230,13 +230,7 @@
     <ClInclude Include="Dragao.h">
       <Filter>Personagens</Filter>
     </ClInclude>
-    <ClInclude Include="Inimigo.h">
-      <Filter>Personagens</Filter>
-    </ClInclude>
     <ClInclude Include="Bruxa.h">
-      <Filter>Personagens</Filter>
-    </ClInclude>
-    <ClInclude Include="Inimigo2.h">
       <Filter>Personagens</Filter>
     </ClInclude>
     <ClInclude Include="Jogador.h">
@@ -321,6 +315,12 @@
       <Filter>containers e gerenciadores</Filter>
     </ClInclude>
     <ClInclude Include="Cobra.h">
+      <Filter>Personagens</Filter>
+    </ClInclude>
+    <ClInclude Include="Tela.h">
+      <Filter>Telas</Filter>
+    </ClInclude>
+    <ClInclude Include="Inimigo.h">
       <Filter>Personagens</Filter>
     </ClInclude>
   </ItemGroup>

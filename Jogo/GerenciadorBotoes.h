@@ -5,11 +5,13 @@
 class GerenciadorBotoes
 {
 protected:
+	// variaveis
 	std::map<int, gui::Botao* > botoes;
 	TocaDisco* tocaDisco;
 	int botaoAtivo;
 
 public:
+	// construtoras e destrutoras 
 	GerenciadorBotoes();
 	~GerenciadorBotoes();
 

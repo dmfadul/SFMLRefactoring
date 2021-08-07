@@ -118,10 +118,17 @@ void Mapa::iniciarEntidades(int tipo)
 	}
 	
 	// define as posiçoes dos obstaculos
-	for (unsigned int x = 0; x < TAM_MAPA_X; x++) {
-		for (unsigned int y = 0; y < TAM_MAPA_Y; y++) {
-			if (posLivres[x][y] == 1 && rand() % 5 == 0)
-				this->mapa[x][y] = this->qtdPlataformas + rand() % 2 + tipo;
+	int obst1 = 0;
+	int obst2 = 0;
+	while (obst1 < 3 || obst2 < 3) {
+		for (unsigned int x = 0; x < TAM_MAPA_X; x++) {
+			for (unsigned int y = 0; y < TAM_MAPA_Y; y++) {
+				if (posLivres[x][y] == 1 && rand() % 5 == 0) {
+					int aleatorio = rand() % 2;
+					(aleatorio == 0) ? obst1++ : obst2++;
+					this->mapa[x][y] = this->qtdPlataformas + aleatorio + tipo;
+				}
+			}
 		}
 	}
 

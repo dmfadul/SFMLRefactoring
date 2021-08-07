@@ -1,15 +1,18 @@
 #include "stdafx.h"
 #include "Espinho.h"
 
+// _______________________________________________________________________________
 Espinho::Espinho(const int indice)
 	:Obstaculo(indice, false)
 {
 }
 
+// _______________________________________________________________________________
 Espinho::~Espinho()
 {
 }
 
+// _______________________________________________________________________________
 void Espinho::realizarAcao(Jogador* p)
 {
 	/* Cactus causa um dano de 15 */

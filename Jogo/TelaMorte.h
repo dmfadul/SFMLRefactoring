@@ -1,6 +1,6 @@
 #pragma once
 #include "Tela.h"
-#include "Pontuacao.h"
+#include "TelaPontuacao.h"
 class TelaMorte :
     public Tela
 {
@@ -12,7 +12,6 @@ private:
     sf::Text digiteNome;
     sf::Text nome;
     std::string nomeInput;
-    sf::Font fonte;
 
 public:
     // construtores e destrutoras

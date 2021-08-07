@@ -14,7 +14,5 @@ public:
 
     // metodos
     void iniciarSprite(int indice, float scale_x, float scale_y);
-    void desenharBloco(sf::RenderTarget& janela);
-
 };
 

@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "MenuQtdJogadores.h"
 
+// _______________________________________________________________________________
 MenuQtdJogadores::MenuQtdJogadores(JogoInfo* pji)
 	:Menu(pji)
 {
@@ -9,6 +10,7 @@ MenuQtdJogadores::MenuQtdJogadores(JogoInfo* pji)
 	this->iniciarBackground("./Recursos/Imagens/backgrounds/menu_jogadores.png");
 }
 
+// _______________________________________________________________________________
 MenuQtdJogadores::~MenuQtdJogadores()
 {
 	this->jogoInfo = NULL;
@@ -17,6 +19,7 @@ MenuQtdJogadores::~MenuQtdJogadores()
 		delete botao.second;
 }
 
+// _______________________________________________________________________________
 void MenuQtdJogadores::iniciarBotoes()
 {
 	/* Inicia todos os botoes do menu principal */
@@ -34,22 +37,24 @@ void MenuQtdJogadores::iniciarBotoes()
 	this->botoes[this->botaoAtivo]->ativar();
 }
 
+// _______________________________________________________________________________
 void MenuQtdJogadores::atualizar()
 {
 }
 
+// _______________________________________________________________________________
 void MenuQtdJogadores::GerenciarCliqueBotao()
 {
 	/* Realiza a ação vinculada com o botao ativo */
 
 	if (this->botaoAtivo == um_jogador) {
 		this->jogoInfo->getTocaDisco()->pararMusica();
-		this->jogoInfo->trocarTela(static_cast<Tela*>(new VelhoOeste(this->jogoInfo, 1)));
+		this->jogoInfo->trocarEnte(static_cast<Ente*>(new VelhoOeste(this->jogoInfo, 1)));
 	}
 	else if (this->botaoAtivo == dois_jogadores) {
 		this->jogoInfo->getTocaDisco()->pararMusica();
-		this->jogoInfo->trocarTela(static_cast<Tela*>(new VelhoOeste(this->jogoInfo, 2)));
+		this->jogoInfo->trocarEnte(static_cast<Ente*>(new VelhoOeste(this->jogoInfo, 2)));
 	}
 	else if (this->botaoAtivo == voltar)
-		this->jogoInfo->popTela();
+		this->jogoInfo->popEnte();
 }

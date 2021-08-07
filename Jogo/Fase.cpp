@@ -3,7 +3,7 @@
 
 // _______________________________________________________________________________
 Fase::Fase(JogoInfo* pji, int n_jogadores):
-	Tela(pji), nJogadores(n_jogadores)
+	Ente(pji), nJogadores(n_jogadores)
 {
 	this->iniciarTextoScore();
 	this->pausado = false;
@@ -127,6 +127,6 @@ void Fase::realizarAcaoMenuPause()
 	else if (botao_ativo == voltar) {
 		this->jogoInfo->getTocaDisco()->pararMusica();
 		this->jogoInfo->getTocaDisco()->tocarMusicaInicio();
-		this->jogoInfo->popTela();
+		this->jogoInfo->popEnte();
 	}
 }

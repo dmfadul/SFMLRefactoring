@@ -3,27 +3,25 @@
 
 // _______________________________________________________________________________
 Tela::Tela(JogoInfo* pji)
+	: Ente(pji)
 {
-	this->jogoInfo = pji;
+	this->carregarFonte("./Recursos/Fontes/Bebas.ttf");
 }
 
 // _______________________________________________________________________________
 Tela::~Tela()
 {
-	this->jogoInfo = NULL;
 }
 
 // _______________________________________________________________________________
-void Tela::iniciarBackground(std::string diretorio)
+void Tela::carregarFonte(std::string diretorio)
 {
-	/* carrega imagem do background */
+	/* carrega a fonte */
 	try {
-		this->textura.loadFromFile(diretorio);
+		this->fonte.loadFromFile("./Recursos/Fontes/Bebas.ttf");
 	}
-	catch (...){
-		std::cerr << "TELA::INICIARBACKGROUND FALHA AO INICIAR BACKGROUND" <<
-			diretorio << std::endl;
+	catch (...) {
+		std::cerr << "TELA::INICARSPRITE FALHA AO CARREGAR FONTE " << std::endl;
 		std::exit(EXIT_FAILURE);
 	}
-	this->sprite.setTexture(this->textura);
 }

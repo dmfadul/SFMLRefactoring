@@ -17,15 +17,6 @@ TelaMorte::~TelaMorte()
 void TelaMorte::iniciarTextos()
 {
 	this->nomeInput = "";
-
-	// carrega a fonte
-	try { 
-		this->fonte.loadFromFile("./Recursos/Fontes/Bebas.ttf");
-	}
-	catch (...) {
-		std::cerr << "TELA::INICARSPRITE FALHA AO CARREGAR FONTE " << std::endl;
-		std::exit(EXIT_FAILURE);
-	}
 	
 	// inicia texto morte
 	this->textoMorte.setFont(this->fonte);
@@ -81,7 +72,7 @@ void TelaMorte::atualizarEventos(sf::Event& evento_sfml)
 		if (evento_sfml.key.code == sf::Keyboard::Enter && this->nomeInput.size() >= 3) {
 			this->adicionarPontuacao();
 			this->jogoInfo->getTocaDisco()->tocarMusicaInicio();
-			this->jogoInfo->trocarTela(new Pontuacao(this->jogoInfo)); 
+			this->jogoInfo->trocarEnte(new TelaPontuacao(this->jogoInfo)); 
 		}
 	}
 	// recebe input do usuario

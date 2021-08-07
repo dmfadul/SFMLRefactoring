@@ -1,10 +1,14 @@
 #include "stdafx.h"
 #include "Cobra.h"
 
+// _______________________________________________________________________________
 Cobra::Cobra()
 {
+	this->cooldown_pulo = 0;
+	this->jogadores = NULL;
 }
 
+// _______________________________________________________________________________
 Cobra::Cobra(ListaJogadores* jogadores, sf::Vector2f position)
 {
 	this->jogadores = jogadores;
@@ -16,11 +20,13 @@ Cobra::Cobra(ListaJogadores* jogadores, sf::Vector2f position)
 	this->cooldown_pulo = rand() % MAX_COOLDOWN_PULO;
 }
 
+// _______________________________________________________________________________
 Cobra::~Cobra()
 {
 	this->jogadores = NULL;
 }
 
+// _______________________________________________________________________________
 void Cobra::mover()
 {	
 	/* Persegue o primeiro jogador na lista */
@@ -42,6 +48,7 @@ void Cobra::mover()
 	}
 }
 
+// _______________________________________________________________________________
 void Cobra::atualizar()
 {
 	this->mover();
@@ -49,6 +56,7 @@ void Cobra::atualizar()
 	this->hitbox.atualizarPosicao();
 }
 
+// _______________________________________________________________________________
 void Cobra::desenhar(sf::RenderTarget& janela)
 {
 	janela.draw(sprite);

@@ -1,8 +1,10 @@
 #include "stdafx.h"
 #include "Bruxa.h"
 
+// _______________________________________________________________________________
 Bruxa::Bruxa(): tempo_direcao(1000) {}
 
+// _______________________________________________________________________________
 Bruxa::Bruxa(sf::Vector2f position, int tempo_direcao):
 	tempo_direcao(tempo_direcao)
 {
@@ -14,8 +16,10 @@ Bruxa::Bruxa(sf::Vector2f position, int tempo_direcao):
 	this->compMov.setControleArrasto(false);
 }
 
+// _______________________________________________________________________________
 Bruxa::~Bruxa(){}
 
+// _______________________________________________________________________________
 void Bruxa::mover()
 {
 	if (this->tempo_vida.getElapsedTime().asMilliseconds() > tempo_direcao) {
@@ -42,9 +46,4 @@ void Bruxa::desenhar(sf::RenderTarget& janela)
 {
 	janela.draw(sprite);
 	hitbox.desenhar(janela);
-}
-
-bool Bruxa::getDirection()
-{
-	return this->direction;
 }

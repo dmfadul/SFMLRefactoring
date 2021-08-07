@@ -5,7 +5,7 @@
 #define TAM_CAIXA_Y 400
 
 /* Classe do menu de Pontuação */
-class Pontuacao :
+class TelaPontuacao :
     public Tela
 {
 private:
@@ -54,15 +54,14 @@ private:
     sf::RectangleShape caixaPontuacao;
     sf::Text nome;
     sf::Text pontuacao;
-    sf::Font fonte;
     gui::Botao botaoVoltar;
     std::vector<Linha* > linhas;
 
 public:
     // Construtoras e Destrutoras
-    Pontuacao();
-    Pontuacao(JogoInfo* pji);
-    ~Pontuacao();
+    TelaPontuacao();
+    TelaPontuacao(JogoInfo* pji);
+    ~TelaPontuacao();
 
     // Métodos de Inicialização
     void iniciarCaixa();

@@ -1,14 +1,17 @@
 #include "stdafx.h"
 #include "GeradorProjeteis.h"
 
+// _______________________________________________________________________________
 GeradorProjeteis::GeradorProjeteis():listIni(NULL),listProj(NULL),ini(NULL){}
 
+// _______________________________________________________________________________
 GeradorProjeteis::~GeradorProjeteis(){
 	this->ini = NULL;
 	this->listIni = NULL;
 	this->listProj = NULL;
 }
 
+// _______________________________________________________________________________
 void GeradorProjeteis::CriarProjetil()
 {
 	if (ini == NULL)
@@ -30,6 +33,7 @@ void GeradorProjeteis::CriarProjetil()
 	}
 }
 
+// _______________________________________________________________________________
 void GeradorProjeteis::ExcluirProjetil()
 {
 	Lista<Projetil>::Elemento<Projetil>* proj = listProj->getPrimeiro();
@@ -46,6 +50,7 @@ void GeradorProjeteis::ExcluirProjetil()
 	}
 }
 
+// _______________________________________________________________________________
 void GeradorProjeteis::iniciaGeradorProjeteis(ListaInimigos* li, ListaProjeteis* lp)
 {
 	this->listIni = li;

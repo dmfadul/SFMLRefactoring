@@ -6,13 +6,12 @@
 class Cactus :
     public Obstaculo
 {
-private:
-
-
 public:
+    // construtoras e destrutoras
     Cactus(const int indice = 0);
     ~Cactus();
 
+    // realiza ação especifica do cactus
     void realizarAcao(Jogador* p);
 
 };

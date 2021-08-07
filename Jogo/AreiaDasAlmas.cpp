@@ -1,15 +1,18 @@
 #include "stdafx.h"
 #include "AreiaDasAlmas.h"
 
+// _______________________________________________________________________________
 AreiaDasAlmas::AreiaDasAlmas(const int indice)
 	: Obstaculo(indice, false)
 {
 }
 
+// _______________________________________________________________________________
 AreiaDasAlmas::~AreiaDasAlmas()
 {
 }
 
+// _______________________________________________________________________________
 void AreiaDasAlmas::realizarAcao(Jogador* p)
 {
 	// Diminui a velocidade do personagem

@@ -9,9 +9,11 @@ class AreiaDasAlmas :
 private:
 
 public:
+    // construtoras e destrutoras
     AreiaDasAlmas(const int indice = 0);
     ~AreiaDasAlmas();
 
+    // metodo da ação especifica da areia das almas
     void realizarAcao(Jogador* p);
 };
 
