@@ -23,9 +23,9 @@ MenuQtdJogadores::~MenuQtdJogadores()
 void MenuQtdJogadores::iniciarBotoes()
 {
 	/* Inicia todos os botoes do menu principal */
-	this->botoes[um_jogador] = new gui::Botao(TAM_JANELA_X / 2 - 100.f, 220.f, "UM JOGADOR");
-	this->botoes[dois_jogadores] = new gui::Botao(TAM_JANELA_X / 2 - 100.f, 280.f, "DOIS JOGADORES");
-	this->botoes[voltar] = new gui::Botao(TAM_JANELA_X / 2 - 100.f, 430.f, "Voltar");
+	this->botoes[um_jogador] = builderBotaoPadrao.criarBotao(TAM_JANELA_X / 2 - 100.f, 220.f, "UM JOGADOR");
+	this->botoes[dois_jogadores] = builderBotaoPadrao.criarBotao(TAM_JANELA_X / 2 - 100.f, 280.f, "DOIS JOGADORES");
+	this->botoes[voltar] = builderBotaoPadrao.criarBotao(TAM_JANELA_X / 2 - 100.f, 430.f, "VOLTAR");
 
 	// Inicia a caixa que contem os botoes
 	this->caixaBotoes.setFillColor(sf::Color(0, 0, 0, 150));

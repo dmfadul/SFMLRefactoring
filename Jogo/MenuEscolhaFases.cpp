@@ -23,9 +23,9 @@ MenuEscolhaFases::~MenuEscolhaFases()
 void MenuEscolhaFases::iniciarBotoes()
 {
 	/* Inicia todos os botoes do menu principal */
-	this->botoes[velho_oeste] = new gui::Botao(TAM_JANELA_X / 2 - 100.f, 220.f, "Velho Oeste");
-	this->botoes[ninho_do_dragao] = new gui::Botao(TAM_JANELA_X / 2 - 100.f, 280.f, "Ninho Do Dragão");
-	this->botoes[voltar] = new gui::Botao(TAM_JANELA_X / 2 - 100.f, 430.f, "Voltar");
+	this->botoes[velho_oeste] = builderBotaoPadrao.criarBotao(TAM_JANELA_X / 2 - 100.f, 220.f, "Velho Oeste");
+	this->botoes[ninho_do_dragao] = builderBotaoPadrao.criarBotao(TAM_JANELA_X / 2 - 100.f, 280.f, "Ninho Do Dragão");
+	this->botoes[voltar] = builderBotaoPadrao.criarBotao(TAM_JANELA_X / 2 - 100.f, 430.f, "Voltar");
 
 	// Inicia a caixa que contem os botoes
 	this->caixaBotoes.setFillColor(sf::Color(0, 0, 0, 150));

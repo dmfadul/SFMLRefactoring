@@ -1,12 +1,13 @@
 #pragma once
 #include "Tela.h"
+#include "GerenciadorBotoes.h"
 #define TAM_CHAR 30
 #define TAM_CAIXA_X 800
 #define TAM_CAIXA_Y 400
 
 /* Classe do menu de Pontuação */
 class TelaPontuacao :
-    public Tela
+    public Tela, public GerenciadorBotoes
 {
 private:
     class Linha {
@@ -54,7 +55,6 @@ private:
     sf::RectangleShape caixaPontuacao;
     sf::Text nome;
     sf::Text pontuacao;
-    gui::Botao botaoVoltar;
     std::vector<Linha* > linhas;
 
 public:

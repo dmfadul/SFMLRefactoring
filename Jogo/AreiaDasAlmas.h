@@ -7,7 +7,7 @@ class AreiaDasAlmas :
     public Obstaculo
 {
 private:
-
+    bool size;
 public:
     // construtoras e destrutoras
     AreiaDasAlmas(const int indice = 0);

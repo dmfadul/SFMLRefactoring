@@ -63,12 +63,8 @@ void TelaPontuacao::iniciarCaixa()
 void TelaPontuacao::iniciarBotao()
 {
 	/* Inicia o botao de voltar */
-	this->botaoVoltar.iniciarBotao(
-		TAM_JANELA_X / 2 - 100.f,
-		TAM_JANELA_Y - 100.f,
-		"Voltar"
-	);
-	this->botaoVoltar.ativar();
+	this->botoes[0] = builderBotaoPadrao.criarBotao(TAM_JANELA_X / 2 - 100.f, TAM_JANELA_Y - 100.f, "Voltar");
+	this->botoes[0]->ativar();
 }
 
 // _______________________________________________________________________________
@@ -132,7 +128,7 @@ void TelaPontuacao::desenhar(sf::RenderTarget& janela)
 	janela.draw(this->caixaPontuacao);
 	janela.draw(this->nome);
 	janela.draw(this->pontuacao);
-	this->botaoVoltar.desenharBotao(janela);
+	this->botoes[0]->desenharBotao(janela);
 
 	for (auto& linha : this->linhas)
 		linha->desenharLinha(janela);

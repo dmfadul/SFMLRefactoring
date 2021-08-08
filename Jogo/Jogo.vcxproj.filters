@@ -34,6 +34,9 @@
     <Filter Include="blocos">
       <UniqueIdentifier>{3f011f68-f014-489a-8ab7-14733653dcbd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Botoes">
+      <UniqueIdentifier>{6b649886-e1dd-41b6-a88f-694216a63d87}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Origem.cpp">
@@ -56,9 +59,6 @@
     </ClCompile>
     <ClCompile Include="VelhoOeste.cpp">
       <Filter>Telas</Filter>
-    </ClCompile>
-    <ClCompile Include="Botao.cpp">
-      <Filter>Graficos</Filter>
     </ClCompile>
     <ClCompile Include="NinhoDoDragao.cpp">
       <Filter>Telas</Filter>
@@ -177,6 +177,18 @@
     <ClCompile Include="Tela.cpp">
       <Filter>Telas</Filter>
     </ClCompile>
+    <ClCompile Include="BotaoPadrao.cpp">
+      <Filter>Botoes</Filter>
+    </ClCompile>
+    <ClCompile Include="BuilderBotao.cpp">
+      <Filter>Botoes</Filter>
+    </ClCompile>
+    <ClCompile Include="Botao.cpp">
+      <Filter>Botoes</Filter>
+    </ClCompile>
+    <ClCompile Include="BotaoSair.cpp">
+      <Filter>Botoes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Jogo.h">
@@ -196,9 +208,6 @@
     </ClInclude>
     <ClInclude Include="VelhoOeste.h">
       <Filter>Telas</Filter>
-    </ClInclude>
-    <ClInclude Include="Botao.h">
-      <Filter>Graficos</Filter>
     </ClInclude>
     <ClInclude Include="NinhoDoDragao.h">
       <Filter>Telas</Filter>
@@ -322,6 +331,18 @@
     </ClInclude>
     <ClInclude Include="Inimigo.h">
       <Filter>Personagens</Filter>
+    </ClInclude>
+    <ClInclude Include="BuilderBotao.h">
+      <Filter>Botoes</Filter>
+    </ClInclude>
+    <ClInclude Include="BotaoPadrao.h">
+      <Filter>Botoes</Filter>
+    </ClInclude>
+    <ClInclude Include="Botao.h">
+      <Filter>Botoes</Filter>
+    </ClInclude>
+    <ClInclude Include="BotaoSair.h">
+      <Filter>Botoes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
