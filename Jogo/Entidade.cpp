@@ -14,6 +14,14 @@ Entidade::~Entidade()
 {
 }
 
+void Entidade::atualizar()
+{
+}
+
+void Entidade::desenhar(sf::RenderTarget& janela)
+{
+}
+
 const int Entidade::getId() const
 {
 	return this->id;

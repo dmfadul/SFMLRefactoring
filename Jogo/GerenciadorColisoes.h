@@ -5,6 +5,7 @@
 #include "ListaJogadores.h"
 #include "ListaInimigos.h"
 #include "ListaProjeteis.h"
+#include "ListaEntidades.h"
 
 class GerenciadorColisoes
 {
@@ -13,17 +14,18 @@ private:
 	ListaJogadores* listaJog;
 	ListaInimigos* listaIni;
 	ListaProjeteis* listaProj;
+	ListaEntidades* listaEnt;
 
-	void colisaoPersonagemPlataforma(Personagem* personagem, bool colidir_obstaculo = true);
-	void colisaoPersonagemTela(Personagem* personagem);
-	void colisaoPersonagemPersonagem();
-	void colisaoPersonagemProjetil(Personagem* personagem);
+	void verificarColisao(Personagem* personagem, bool colidir_obstaculo = true);
+	void verificarColisao(Jogador* jogador, Inimigo* inimigo);
+	void verificarColisao(Jogador* jogador, Projetil* projetil);
+	void verificarColisaoTela(Personagem* personagem);
 
 public:
 	GerenciadorColisoes();
 	~GerenciadorColisoes();
 
-	void iniciaGerenciadorColisoes(Mapa* m, ListaJogadores* lista_jog, ListaInimigos* lista_ini, ListaProjeteis* lista_proj);
+	void iniciaGerenciadorColisoes(Mapa* m, ListaJogadores* lista_jog, ListaInimigos* lista_ini, ListaProjeteis* lista_proj, ListaEntidades* lista_ent);
 	void verificarColisoes();
 
 };

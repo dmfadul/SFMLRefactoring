@@ -3,7 +3,7 @@
 #include "HitBox.h"
 #include "ComponenteMovimento.h"
 #include "PersonagemInfo.h"
-#include "Barra.h"
+#include "BarraVida.h"
 #include "Entidade.h"
 
 /* Classe Abstrata de Personagem */
@@ -13,7 +13,7 @@ protected:
 	sf::Clock invulneravel;
 
 	// Components
-	Barra barraVida;
+	BarraVida barraVida;
 	HitBox hitbox;
 	PersonagemInfo pInfo;
 	ComponenteMovimento compMov;
@@ -44,8 +44,5 @@ public:
 
 	// metodos
 	virtual void receberDano(int dano);
-	virtual void atualizar() = 0;
-	virtual void desenhar(sf::RenderTarget& janela) = 0;
-
 };
 

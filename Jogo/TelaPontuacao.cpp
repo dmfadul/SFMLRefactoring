@@ -1,13 +1,13 @@
 #include "stdafx.h"
-#include "Pontuacao.h"
+#include "TelaPontuacao.h"
 
 // _______________________________________________________________________________
-Pontuacao::Pontuacao()
+TelaPontuacao::TelaPontuacao()
 {
 }
 
 // _______________________________________________________________________________
-Pontuacao::Pontuacao(JogoInfo* pji) :
+TelaPontuacao::TelaPontuacao(JogoInfo* pji) :
 	Tela(pji)
 {
 	// chama os metodos de inicialização
@@ -18,7 +18,7 @@ Pontuacao::Pontuacao(JogoInfo* pji) :
 }
 
 // _______________________________________________________________________________
-Pontuacao::~Pontuacao()
+TelaPontuacao::~TelaPontuacao()
 {
 	this->jogoInfo = NULL;
 	for (auto& linha : this->linhas)
@@ -26,7 +26,7 @@ Pontuacao::~Pontuacao()
 }
 
 // _______________________________________________________________________________
-void Pontuacao::iniciarCaixa()
+void TelaPontuacao::iniciarCaixa()
 {
 	/* Inicia a caixa que engloba a lista de pontuaçoes */
 	this->caixaPontuacao.setFillColor(sf::Color(0, 0, 0, 150));
@@ -41,11 +41,6 @@ void Pontuacao::iniciarCaixa()
 	);
 
 	// INICIA TEXTO DA CAIXA
-	// carrega a fonte
-	if (!this->fonte.loadFromFile("./Recursos/Fontes/Bebas.ttf")) {
-		std::cout << "PONTUACAO::FALHA AO CARREGAR FONTE" << std::endl;
-	}
-
 	// nome
 	this->nome.setFont(this->fonte);
 	this->nome.setString("NOME:");
@@ -65,19 +60,15 @@ void Pontuacao::iniciarCaixa()
 }
 
 // _______________________________________________________________________________
-void Pontuacao::iniciarBotao()
+void TelaPontuacao::iniciarBotao()
 {
 	/* Inicia o botao de voltar */
-	this->botaoVoltar.iniciarBotao(
-		TAM_JANELA_X / 2 - 100.f,
-		TAM_JANELA_Y - 100.f,
-		"Voltar"
-	);
-	this->botaoVoltar.ativar();
+	this->botoes[0] = builderBotaoPadrao.criarBotao(TAM_JANELA_X / 2 - 100.f, TAM_JANELA_Y - 100.f, "Voltar");
+	this->botoes[0]->ativar();
 }
 
 // _______________________________________________________________________________
-void Pontuacao::carregarPontuacao()
+void TelaPontuacao::carregarPontuacao()
 {
 	std::string n;
 	int p;
@@ -86,7 +77,13 @@ void Pontuacao::carregarPontuacao()
 
 	// abre o arquivo com o pontuacao
 	std::fstream arquivo_pontuacao;
-	arquivo_pontuacao.open("./Recursos/dados/pontuacao.txt", std::ios::in);
+	try{
+		arquivo_pontuacao.open("./Recursos/dados/pontuacao.txt", std::ios::in);
+	}
+	catch (...){
+		std::cerr << "MAPA::CARREGARPONTUCAO FALHA AO CARREGAR PONTUACAO " << std::endl;
+		std::exit(EXIT_FAILURE);
+	}
 
 	// adiciona as pontuaçoes em um multimap ordenado
 	while (arquivo_pontuacao >> n && arquivo_pontuacao >> p) {
@@ -102,36 +99,36 @@ void Pontuacao::carregarPontuacao()
 }
 
 // _______________________________________________________________________________
-void Pontuacao::adicionarLinha(std::string nome, std::string pontuacao, int pos)
+void TelaPontuacao::adicionarLinha(std::string nome, std::string pontuacao, int pos)
 {
 	this->linhas.push_back(new Linha(this->caixaPontuacao.getPosition(), nome, pontuacao, pos));
 }
 
 
 // _______________________________________________________________________________
-void Pontuacao::atualizar()
+void TelaPontuacao::atualizar()
 {
 }
 
 // _______________________________________________________________________________
-void Pontuacao::atualizarEventos(sf::Event& evento_sfml)
+void TelaPontuacao::atualizarEventos(sf::Event& evento_sfml)
 {
 	/* Checa por eventos SFML*/
 	if (evento_sfml.type == sf::Event::KeyReleased)
 	{
 		if (evento_sfml.key.code == sf::Keyboard::Enter)
-			this->jogoInfo->popTela(); // volta ao menu principal
+			this->jogoInfo->popEnte(); // volta ao menu principal
 	}
 }
 // _______________________________________________________________________________
-void Pontuacao::desenhar(sf::RenderTarget& janela)
+void TelaPontuacao::desenhar(sf::RenderTarget& janela)
 {
 	/* Desenha novo frame*/
 	janela.draw(this->sprite);
 	janela.draw(this->caixaPontuacao);
 	janela.draw(this->nome);
 	janela.draw(this->pontuacao);
-	this->botaoVoltar.desenharBotao(janela);
+	this->botoes[0]->desenharBotao(janela);
 
 	for (auto& linha : this->linhas)
 		linha->desenharLinha(janela);

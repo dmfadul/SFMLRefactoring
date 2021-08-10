@@ -1,31 +1,36 @@
 #include "stdafx.h"
 #include "Bloco.h"
 
+// _______________________________________________________________________________
 Bloco::Bloco(const bool colidir)
 {
     this->colidir = colidir;
 }
 
+// _______________________________________________________________________________
 Bloco::~Bloco()
 {
 }
 
+// _______________________________________________________________________________
 const bool Bloco::getColidir()
 {
     return this->colidir;
 }
 
+// _______________________________________________________________________________
 void Bloco::setPosicao(const float x, const float y)
 {
     this->sprite.setPosition(x, y);
 }
 
-const int Bloco::getId(int id)
+// _______________________________________________________________________________
+void Bloco::atualizar()
 {
-    return this->id;
 }
 
-void Bloco::desenharBloco(sf::RenderTarget& janela)
+// _______________________________________________________________________________
+void Bloco::desenhar(sf::RenderTarget& janela)
 {
     janela.draw(this->sprite);
 }

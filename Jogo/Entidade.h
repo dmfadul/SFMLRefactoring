@@ -13,5 +13,7 @@ public:
 	Entidade();
 	virtual ~Entidade();
 
+	virtual void atualizar() = 0;
+	virtual void desenhar(sf::RenderTarget& janela) = 0;	
 	const int getId() const;
 };

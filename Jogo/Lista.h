@@ -37,7 +37,7 @@ public:
 	~Lista();
 
 	void inicializa();
-	bool incluaElemento(Elemento<TIPO>* pElemento, int id = -1);
+	bool incluaElemento(Elemento<TIPO>* pElemento);
 	bool removerElemento(int id);
 	bool incluaInfo(TIPO* pInfo);
 	bool listaVazia();
@@ -149,7 +149,7 @@ inline void Lista<TIPO>::inicializa()
 }
 
 template<class TIPO>
-inline bool Lista<TIPO>::incluaElemento(Elemento<TIPO>* pElemento, int id)
+inline bool Lista<TIPO>::incluaElemento(Elemento<TIPO>* pElemento)
 {
 	if (pElemento != NULL)
 	{
@@ -191,16 +191,21 @@ inline bool Lista<TIPO>::removerElemento(int id)
 	// Se só tiver um elemento na lista
 	else if (pElemento == this->pPrimeiro) {
 		this->pPrimeiro = this->pPrimeiro->getProximo();
+		if(this->pPrimeiro != NULL)
+			this->pPrimeiro->setAnterior(NULL);
 	}
 
 	// se o elemento a ser removido é o ultimo da lista
 	else if(pElemento->getProximo() == NULL) {
 		pElemento->getAnterior()->setProximo(NULL);
+		this->pAtual = pElemento->getAnterior();
 	}
 
 	// se o elemento a ser removido esta no meio da lista
 	else {
-		pElemento->setAnterior(pElemento->getProximo());
+		pAuxAnt = pElemento->getAnterior();
+		pElemento->getProximo()->setAnterior(pAuxAnt);
+		pAuxAnt->setProximo(pElemento->getProximo());
 	}
 
 	return true;
@@ -220,7 +225,7 @@ inline bool Lista<TIPO>::incluaInfo(TIPO* pInfo)
 	}
 	else
 	{
-		cout << "Erro, elemento nulo." << endl;
+		cerr << "Erro, elemento nulo." << endl;
 		return false;
 	}
 }

@@ -24,11 +24,10 @@ MenuPrincipal::~MenuPrincipal()
 void MenuPrincipal::iniciarBotoes()
 {
 	/* Inicia todos os botoes do menu principal */
-	this->botoes[novo_jogo] = new gui::Botao(TAM_JANELA_X / 2 - 100.f, 220.f, "Novo Jogo");
-	this->botoes[escolha_de_fases] = new gui::Botao(TAM_JANELA_X / 2 - 100.f, 275.f, "Escolher Fase");
-	this->botoes[lista_de_pontuacoes] = new gui::Botao(TAM_JANELA_X / 2 - 100.f, 340.f, "Pontuação");
-	this->botoes[sair] = new gui::Botao(TAM_JANELA_X / 2 - 100.f, 430.f, "Sair");
-	this->botoes[sair]->setCorAtivado(sf::Color::Red); // botao sair será vermelho quando ativo
+	this->botoes[novo_jogo] = builderBotaoPadrao.criarBotao(TAM_JANELA_X / 2 - 100.f, 220.f, "Novo Jogo");
+	this->botoes[escolha_de_fases] = builderBotaoPadrao.criarBotao(TAM_JANELA_X / 2 - 100.f, 275.f, "Escolher Fase");
+	this->botoes[lista_de_pontuacoes] = builderBotaoPadrao.criarBotao(TAM_JANELA_X / 2 - 100.f, 340.f, "Pontuação");
+	this->botoes[sair] = builderBotaoSair.criarBotao(TAM_JANELA_X / 2 - 100.f, 430.f, "Sair");
 
 	// Inicia a caixa que contem os botoes
 	this->caixaBotoes.setFillColor(sf::Color(0, 0, 0, 150));
@@ -52,13 +51,13 @@ void MenuPrincipal::GerenciarCliqueBotao()
 	/* Realiza a ação vinculada com o botao ativo */
 
 	if (this->botaoAtivo == novo_jogo)
-		this->jogoInfo->pushTela(static_cast<Tela* >(new MenuQtdJogadores(this->jogoInfo)));
+		this->jogoInfo->pushEnte(static_cast<Ente* >(new MenuQtdJogadores(this->jogoInfo)));
 	
 	else if(this->botaoAtivo == escolha_de_fases)
-		this->jogoInfo->pushTela(static_cast<Tela*>(new MenuEscolhaFases(this->jogoInfo)));
+		this->jogoInfo->pushEnte(static_cast<Ente*>(new MenuEscolhaFases(this->jogoInfo)));
 
 	else if (this->botaoAtivo == lista_de_pontuacoes)
-		this->jogoInfo->pushTela(static_cast<Tela* >(new Pontuacao(this->jogoInfo)));
+		this->jogoInfo->pushEnte(static_cast<Ente* >(new TelaPontuacao(this->jogoInfo)));
 
 	else if (this->botaoAtivo == sair)
 		this->jogoInfo->setEncerrar(true);

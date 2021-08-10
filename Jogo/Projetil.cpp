@@ -7,7 +7,7 @@ Projetil::Projetil():direcao(true),dano(20){}
 Projetil::Projetil(int indice, sf::Vector2f posicao, bool direcao):direcao(direcao){
 	this->iniciarSprite(indice);
 	this->setPosicao(posicao.x, posicao.y);
-	this->iniciarHitbox(this->textura.getSize().x, this->textura.getSize().y, 0, 0);
+	this->iniciarHitbox((float)(this->textura.getSize().x),(float)(this->textura.getSize().y), 0, 0);
 	this->iniciarMovimento();
 	this->iniciarCompMov(VEL_MAX_PROJETIL);
 	this->compMov.setControleArrasto(false);
@@ -20,9 +20,10 @@ void Projetil::setPosicao(float x, float y)
 	this->sprite.setPosition(x, y);
 }
 
-void Projetil::desenharProjetil(sf::RenderTarget& janela)
+void Projetil::desenhar(sf::RenderTarget& janela)
 {
 	janela.draw(this->sprite);
+	this->hitbox.desenhar(janela);
 }
 
 void Projetil::iniciarSprite(int indice)

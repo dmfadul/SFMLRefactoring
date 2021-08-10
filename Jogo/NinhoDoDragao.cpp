@@ -29,7 +29,7 @@ void NinhoDoDragao::atualizar()
 		// checa se ainda tem algum jogador vivo
 		if (this->listaJog.listaVazia()) {
 			this->jogoInfo->getTocaDisco()->pararMusica();
-			this->jogoInfo->trocarTela(new TelaMorte(this->jogoInfo, rand() % 800));
+			this->jogoInfo->trocarEnte(new TelaAdicionarPontuacao(this->jogoInfo, rand() % 800));
 		}
 		else {
 			this->gerColisoes.verificarColisoes();

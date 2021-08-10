@@ -3,7 +3,7 @@
 
 // _______________________________________________________________________________
 Menu::Menu(JogoInfo* pji):
-	Tela(pji)
+	Ente(pji)
 {
 	this->botaoAtivo = false;
 }

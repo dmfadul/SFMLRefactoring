@@ -1,15 +1,21 @@
 #pragma once
 #include "Botao.h"
 #include "JogoInfo.h"
+#include "BotaoPadrao.h"
+#include "BotaoSair.h"
 
 class GerenciadorBotoes
 {
 protected:
+	// variaveis
 	std::map<int, gui::Botao* > botoes;
+	BotaoPadrao builderBotaoPadrao;
+	BotaoSair builderBotaoSair;
 	TocaDisco* tocaDisco;
 	int botaoAtivo;
 
 public:
+	// construtoras e destrutoras 
 	GerenciadorBotoes();
 	~GerenciadorBotoes();
 

@@ -18,9 +18,9 @@ CaixaPause::CaixaPause()
 	);
 
 	/* Inicia todos os botoes da caixa de pause */
-	this->botoes[continuar] = new gui::Botao(TAM_JANELA_X / 2 - 100.f, this->caixa.getPosition().y + 80.f, "continuar jogo");
-	this->botoes[salvar_partida] = new gui::Botao(TAM_JANELA_X / 2 - 100.f, this->caixa.getPosition().y + 140.f, "salvar partida atual");
-	this->botoes[voltar] = new gui::Botao(TAM_JANELA_X / 2 - 100.f, this->caixa.getPosition().y + 200.f, "voltar ao menu principal");
+	this->botoes[continuar] = builderBotaoPadrao.criarBotao(TAM_JANELA_X / 2 - 100.f, this->caixa.getPosition().y + 80.f, "continuar jogo");
+	this->botoes[salvar_partida] = builderBotaoPadrao.criarBotao(TAM_JANELA_X / 2 - 100.f, this->caixa.getPosition().y + 140.f, "salvar partida atual");
+	this->botoes[voltar] = builderBotaoPadrao.criarBotao(TAM_JANELA_X / 2 - 100.f, this->caixa.getPosition().y + 200.f, "voltar ao menu principal");
 
 	this->botaoAtivo = continuar;
 	this->botoes[botaoAtivo]->ativar();

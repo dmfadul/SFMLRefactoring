@@ -7,7 +7,7 @@ private:
 
 public:
     // construtoras e destrutoras
-    CowGirl(std::string imgCaminho = "");
+    CowGirl();
     ~CowGirl();
 
     void desenhar(sf::RenderTarget& janela);

@@ -3,7 +3,7 @@
 
 // _______________________________________________________________________________
 Fase::Fase(JogoInfo* pji, int n_jogadores):
-	Tela(pji), nJogadores(n_jogadores)
+	Ente(pji), nJogadores(n_jogadores)
 {
 	this->iniciarTextoScore();
 	this->pausado = false;
@@ -17,10 +17,17 @@ Fase::~Fase()
 // _______________________________________________________________________________
 void Fase::iniciarPersonagens()
 {
-	listaJog.incluirJogador(new Cowboy("./Recursos/Imagens/Personagens/cowboy.png"));
+	/* Adiciona todas os personagens em suas respectivas listas */
+	Cowboy* jogador1 = new Cowboy();
+	this->listaJog.incluirJogador(jogador1);
+	this->listaEntidades.incluirEntidade(static_cast<Entidade* >(jogador1));
 
-	if (this->nJogadores == 2)
-		listaJog.incluirJogador(new CowGirl("./Recursos/Imagens/Personagens/cowgirl.png"));
+
+	if (this->nJogadores == 2) {
+		CowGirl* jogador2 = new CowGirl();
+		this->listaJog.incluirJogador(jogador2);
+		this->listaEntidades.incluirEntidade(static_cast<Entidade*>(jogador2));
+	}
 
 	iniciarInimigos();
 }
@@ -45,12 +52,12 @@ void Fase::iniciarTextoScore()
 // _______________________________________________________________________________
 void Fase::iniciarGerenciadorColisoes()
 {
-	this->gerColisoes.iniciaGerenciadorColisoes(&this->mapa, &this->listaJog, &this->listaIni, &this->listaProj);
+	this->gerColisoes.iniciaGerenciadorColisoes(&this->mapa, &this->listaJog, &this->listaIni, &this->listaProj, &this->listaEntidades);
 }
 
 void Fase::iniciarGeradorProjeteis()
 {
-	this->gerProj.iniciaGeradorProjeteis(&this->listaIni, &this->listaProj);
+	this->gerProj.iniciaGeradorProjeteis(&this->listaIni, &this->listaProj, &this->listaEntidades);
 }
 
 void Fase::atualizarEntidades()
@@ -60,55 +67,40 @@ void Fase::atualizarEntidades()
 	while (elJogador != NULL) {
 		Jogador* pJogador = elJogador->getInfo();
 		pJogador->atualizar();
-
-		// checa se o jogador morreu
-		if (pJogador->getPersInfo()->getHp() <= 0)
-			this->listaJog.removerJogador(pJogador->getId());
-
 		elJogador = elJogador->getProximo();
+		// checa se o jogador morreu
+		if (pJogador->getPersInfo()->getHp() <= 0) {
+			this->listaJog.removerJogador(pJogador->getId());
+			this->listaEntidades.removerEntidade(pJogador->getId());
+		}
+
 	}
 
 	// atualiza inimigos
 	Lista<Inimigo>::Elemento<Inimigo>* elInimigo = this->listaIni.getPrimeiro();
 	while (elInimigo != NULL) {
 		Inimigo* pInimigo = elInimigo->getInfo();
-		pInimigo->atualizar();
 		elInimigo = elInimigo->getProximo();
+		pInimigo->atualizar();
 	}
 
 	Lista<Projetil>::Elemento<Projetil>* elProjetil = this->listaProj.getPrimeiro();
 	while (elProjetil != NULL) {
 		Projetil* pProjetil = elProjetil->getInfo();
-		pProjetil->atualizar();
 		elProjetil = elProjetil->getProximo();
+		pProjetil->atualizar();
 	}
 
 }
 
 void Fase::desenharEntidades(sf::RenderTarget& janela)
 {
-	// desenha jogadores 
-	Lista<Jogador>::Elemento<Jogador>* elJogador = this->listaJog.getPrimeiro();
-	while (elJogador != NULL) {
-		Jogador* pJogador = elJogador->getInfo();
-		pJogador->desenhar(janela);
-		elJogador = elJogador->getProximo();
-	}
-
-	// desenha inimigos
-	Lista<Inimigo>::Elemento<Inimigo>* elInimigo = this->listaIni.getPrimeiro();
-	while (elInimigo != NULL) {
-		Inimigo* pInimigo = elInimigo->getInfo();
-		pInimigo->desenhar(janela);
-		elInimigo = elInimigo->getProximo();
-	}
-
-	// desenha projeteis
-	Lista<Projetil>::Elemento<Projetil>* elProjetil = this->listaProj.getPrimeiro();
-	while (elProjetil != NULL) {
-		Projetil* pProjetil = elProjetil->getInfo();
-		pProjetil->desenharProjetil(janela);
-		elProjetil = elProjetil->getProximo();
+	// desenha entidades 
+	Lista<Entidade>::Elemento<Entidade>* elEntidade = this->listaEntidades.getPrimeiro();
+	while (elEntidade != NULL) {
+		Entidade* pEntidade = elEntidade->getInfo();
+		elEntidade = elEntidade->getProximo();
+		pEntidade->desenhar(janela);
 	}
 }
 
@@ -127,6 +119,6 @@ void Fase::realizarAcaoMenuPause()
 	else if (botao_ativo == voltar) {
 		this->jogoInfo->getTocaDisco()->pararMusica();
 		this->jogoInfo->getTocaDisco()->tocarMusicaInicio();
-		this->jogoInfo->popTela();
+		this->jogoInfo->popEnte();
 	}
 }

@@ -8,9 +8,6 @@ class Projetil :
     public Entidade
 {
 protected:
-
-    sf::Texture texture;
-    sf::Sprite sprite;
     sf::Clock tempo_vida;
     HitBox hitbox;
     bool direcao;
@@ -23,7 +20,7 @@ public:
     ~Projetil();
 
     void setPosicao(float x, float y);
-    void desenharProjetil(sf::RenderTarget& janela);
+    void desenhar(sf::RenderTarget& janela);
     void atualizar();
 
     void iniciarMovimento();

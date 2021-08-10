@@ -1,15 +1,14 @@
 #pragma once
 #include "TocaDisco.h"
 
-class Tela;
+class Ente;
 
 /* Classe container para as informa��es do jogo */
 class JogoInfo
 {
 private:
     // Variaveis
-    sf::View* view;
-    std::stack<Tela* > telas;
+    std::stack<Ente* > entes;
     TocaDisco* tocaDisco;
     bool encerrar;
 
@@ -23,11 +22,11 @@ public:
     // getters
     const bool getEncerrar() const;
     TocaDisco* getTocaDisco();
-    Tela* telaTop();
+    Ente* enteTop();
     
     // metodos
-    void pushTela(Tela* e);
-    void popTela();
-    void trocarTela(Tela* e);
+    void pushEnte(Ente* e);
+    void popEnte();
+    void trocarEnte(Ente* e);
 };
 

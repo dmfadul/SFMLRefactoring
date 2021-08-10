@@ -156,17 +156,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AreiaDasAlmas.cpp" />
-    <ClCompile Include="Barra.cpp" />
+    <ClCompile Include="BarraVida.cpp" />
     <ClCompile Include="Bloco.cpp" />
     <ClCompile Include="Botao.cpp" />
+    <ClCompile Include="BotaoPadrao.cpp" />
+    <ClCompile Include="BotaoSair.cpp" />
     <ClCompile Include="Cactus.cpp" />
     <ClCompile Include="CaixaPause.cpp" />
+    <ClCompile Include="Cobra.cpp" />
     <ClCompile Include="ComponenteMovimento.cpp" />
+    <ClCompile Include="BuilderBotao.cpp" />
     <ClCompile Include="Cowboy.cpp" />
     <ClCompile Include="CowGirl.cpp" />
     <ClCompile Include="Dragao.cpp" />
     <ClCompile Include="GerenciadorBotoes.cpp" />
-    <ClCompile Include="Tela.cpp" />
+    <ClCompile Include="Ente.cpp" />
     <ClCompile Include="Entidade.cpp" />
     <ClCompile Include="Espinho.cpp" />
     <ClCompile Include="Fase.cpp" />
@@ -176,10 +180,10 @@
     <ClCompile Include="HitBox.cpp" />
     <ClCompile Include="Inimigo.cpp" />
     <ClCompile Include="Bruxa.cpp" />
-    <ClCompile Include="Inimigo2.cpp" />
     <ClCompile Include="Jogador.cpp" />
     <ClCompile Include="Jogo.cpp" />
     <ClCompile Include="JogoInfo.cpp" />
+    <ClCompile Include="ListaEntidades.cpp" />
     <ClCompile Include="ListaInimigos.cpp" />
     <ClCompile Include="ListaJogadores.cpp" />
     <ClCompile Include="ListaProjeteis.cpp" />
@@ -195,7 +199,7 @@
     <ClCompile Include="Personagem.cpp" />
     <ClCompile Include="PersonagemInfo.cpp" />
     <ClCompile Include="Plataforma.cpp" />
-    <ClCompile Include="Pontuacao.cpp" />
+    <ClCompile Include="TelaPontuacao.cpp" />
     <ClCompile Include="Projetil.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -203,24 +207,29 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Tela.cpp" />
     <ClCompile Include="TelaMorte.cpp" />
     <ClCompile Include="TocaDisco.cpp" />
     <ClCompile Include="VelhoOeste.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AreiaDasAlmas.h" />
-    <ClInclude Include="Barra.h" />
+    <ClInclude Include="BarraVida.h" />
     <ClInclude Include="Bloco.h" />
     <ClInclude Include="Botao.h" />
+    <ClInclude Include="BotaoPadrao.h" />
+    <ClInclude Include="BotaoSair.h" />
     <ClInclude Include="Cactus.h" />
     <ClInclude Include="CaixaPause.h" />
+    <ClInclude Include="Cobra.h" />
     <ClInclude Include="ComponenteMovimento.h" />
     <ClInclude Include="configuracoes.h" />
+    <ClInclude Include="BuilderBotao.h" />
     <ClInclude Include="Cowboy.h" />
     <ClInclude Include="CowGirl.h" />
     <ClInclude Include="Dragao.h" />
     <ClInclude Include="GerenciadorBotoes.h" />
-    <ClInclude Include="Tela.h" />
+    <ClInclude Include="Ente.h" />
     <ClInclude Include="Entidade.h" />
     <ClInclude Include="Espinho.h" />
     <ClInclude Include="Fase.h" />
@@ -228,13 +237,13 @@
     <ClInclude Include="GerenciadorColisoes.h" />
     <ClInclude Include="Gui.h" />
     <ClInclude Include="HitBox.h" />
-    <ClInclude Include="Inimigo.h" />
     <ClInclude Include="Bruxa.h" />
-    <ClInclude Include="Inimigo2.h" />
+    <ClInclude Include="Inimigo.h" />
     <ClInclude Include="Jogador.h" />
     <ClInclude Include="Jogo.h" />
     <ClInclude Include="JogoInfo.h" />
     <ClInclude Include="Lista.h" />
+    <ClInclude Include="ListaEntidades.h" />
     <ClInclude Include="ListaInimigos.h" />
     <ClInclude Include="ListaJogadores.h" />
     <ClInclude Include="ListaProjeteis.h" />
@@ -249,9 +258,10 @@
     <ClInclude Include="Personagem.h" />
     <ClInclude Include="PersonagemInfo.h" />
     <ClInclude Include="Plataforma.h" />
-    <ClInclude Include="Pontuacao.h" />
+    <ClInclude Include="TelaPontuacao.h" />
     <ClInclude Include="Projetil.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Tela.h" />
     <ClInclude Include="TelaMorte.h" />
     <ClInclude Include="TocaDisco.h" />
     <ClInclude Include="VelhoOeste.h" />

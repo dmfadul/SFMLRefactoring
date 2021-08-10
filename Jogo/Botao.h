@@ -16,12 +16,7 @@ namespace gui {
 	public:
 		// Construtoras e Destrutoras
 		Botao();
-		Botao(float pos_x, float pos_y, std::string texto);
 		~Botao();
-
-		// Metodos de inicialização
-		void iniciarBotao(float pos_x, float pos_y, std::string texto);
-		void iniciarCaixa(float pos_x, float pos_y);
 
 		// Ativar e Desativar botao
 		void ativar();
@@ -29,6 +24,9 @@ namespace gui {
 
 		// Setters e getters
 		void setCorAtivado(sf::Color ca);
+		void setCorDesativo(sf::Color cd);
+		sf::RectangleShape* getCaixa();
+		sf::Text* getTexto();
 
 		// Desenha botao
 		void desenharBotao(sf::RenderTarget& janela);

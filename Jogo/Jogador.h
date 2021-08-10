@@ -1,8 +1,8 @@
 #pragma once
 #include "Personagem.h"
-#include "Barra.h"
+#include "BarraVida.h"
 #define VEL_MAX_PLAYER 4
-#define VIDA_INICIAL 100
+#define VIDA_INICIAL_JOGADOR 200
 #define DANO_ATAQUE 20
 
 class Jogador :

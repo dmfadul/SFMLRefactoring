@@ -1,11 +1,13 @@
 #include "stdafx.h"
 #include "Inimigo.h"
 
+// _______________________________________________________________________________
 Inimigo::Inimigo():direction(true) {}
 
+// _______________________________________________________________________________
 Inimigo::~Inimigo(){}
 
-bool Inimigo::getDirection()
-{
+// _______________________________________________________________________________
+const bool Inimigo::getDirection() const{
 	return this->direction;
 }

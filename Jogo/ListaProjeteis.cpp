@@ -13,8 +13,9 @@ ListaProjeteis::~ListaProjeteis()
 
 void ListaProjeteis::incluirProjetil(Projetil *p)
 {
-	if (p != NULL)
+	if (p != NULL) {
 		this->listaProjeteis.incluaInfo(p);
+	}
 }
 
 Lista<Projetil>::Elemento<Projetil>* ListaProjeteis::getPrimeiro()

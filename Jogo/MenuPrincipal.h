@@ -1,8 +1,9 @@
 #pragma once
 #include "VelhoOeste.h"
-#include "Pontuacao.h"
+#include "TelaPontuacao.h"
 #include "MenuEscolhaFases.h"
 #include "MenuQtdJogadores.h"
+#include "BotaoPadrao.h"
 
 /* Classe do Menu Principal */
 class MenuPrincipal :
