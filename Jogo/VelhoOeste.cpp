@@ -23,7 +23,10 @@ VelhoOeste::~VelhoOeste()
 
 void VelhoOeste::invocarCobra()
 {
-	this->listaIni.incluirInimigo(new Cobra(&this->listaJog, sf::Vector2f((float)(rand() % TAM_JANELA_X), 0.f)));
+	Cobra* cobra = new Cobra(&this->listaJog, sf::Vector2f((float)(rand() % TAM_JANELA_X), 0.f));
+	this->listaIni.incluirInimigo(static_cast<Inimigo* >(cobra));
+	this->listaEntidades.incluirEntidade(static_cast<Entidade*>(cobra));
+
 	this->qtdCobras++;
 	this->timerInvocarCobra.restart();
 }
@@ -32,23 +35,23 @@ void VelhoOeste::invocarCobra()
 void VelhoOeste::atualizar()
 {
 	if (pausado == false) {
-		// invoca nova cobra
-		if (this->timerInvocarCobra.getElapsedTime().asMilliseconds() > 5000 && this->qtdCobras < this->qtdMaxCobras) {
-			this->invocarCobra();
-		}
-
 		// atualiza as entidades
 		this->atualizarEntidades();
 
 		// checa se ainda tem algum jogador vivo
 		if (this->listaJog.listaVazia()) {
 			this->jogoInfo->getTocaDisco()->pararMusica();
-			this->jogoInfo->trocarEnte(new TelaMorte(this->jogoInfo, rand() % 800));
+			this->jogoInfo->trocarEnte(new TelaAdicionarPontuacao(this->jogoInfo, rand() % 800));
 		}
 		else {
-			this->gerColisoes.verificarColisoes();
 			this->gerProj.CriarProjetil();
 			this->gerProj.ExcluirProjetil();
+			this->gerColisoes.verificarColisoes();
+		}
+
+		// invoca nova cobra
+		if (this->timerInvocarCobra.getElapsedTime().asMilliseconds() > 5000 && this->qtdCobras < this->qtdMaxCobras) {
+			this->invocarCobra();
 		}
 	}
 }
@@ -92,8 +95,17 @@ void VelhoOeste::desenhar(sf::RenderTarget& janela)
 
 void VelhoOeste::iniciarInimigos()
 {
+	// adiciona inimigos na lista de inimigos
 	this->listaIni.incluirInimigo(new Bruxa(sf::Vector2f(630.f, 410.f), 2700));
 	this->listaIni.incluirInimigo(new Bruxa(sf::Vector2f(500.f, 110.f), 1600));
 	this->listaIni.incluirInimigo(new Bruxa(sf::Vector2f(700.f, 50.f), 1850));
 	this->listaIni.incluirInimigo(new Bruxa(sf::Vector2f(1100.f, 280.f), 2770));
+
+	// adiciona inimigos na lista de entidades
+	Lista<Inimigo>::Elemento<Inimigo>* elInimigo = this->listaIni.getPrimeiro();
+	while (elInimigo != NULL) {
+		Inimigo* pInimigo = elInimigo->getInfo();
+		this->listaEntidades.incluirEntidade(static_cast<Entidade*>(pInimigo));
+		elInimigo = elInimigo->getProximo();
+	}
 }

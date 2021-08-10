@@ -44,8 +44,5 @@ public:
 
 	// metodos
 	virtual void receberDano(int dano);
-	virtual void atualizar() = 0;
-	virtual void desenhar(sf::RenderTarget& janela) = 0;
-
 };
 

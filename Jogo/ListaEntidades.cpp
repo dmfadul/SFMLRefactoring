@@ -1,36 +1,38 @@
 #include "stdafx.h"
-#include "Bloco.h"
+#include "ListaEntidades.h"
 
 // _______________________________________________________________________________
-Bloco::Bloco(const bool colidir)
-{
-    this->colidir = colidir;
-}
-
-// _______________________________________________________________________________
-Bloco::~Bloco()
+ListaEntidades::ListaEntidades()
 {
 }
 
 // _______________________________________________________________________________
-const bool Bloco::getColidir()
+ListaEntidades::~ListaEntidades()
 {
-    return this->colidir;
+    this->listaEntidades.limpaLista();
 }
 
 // _______________________________________________________________________________
-void Bloco::setPosicao(const float x, const float y)
+void ListaEntidades::incluirEntidade(Entidade* j)
 {
-    this->sprite.setPosition(x, y);
+    if (j != NULL)
+        this->listaEntidades.incluaInfo(j);
 }
 
 // _______________________________________________________________________________
-void Bloco::atualizar()
+void ListaEntidades::removerEntidade(int id)
 {
+    this->listaEntidades.removerElemento(id);
 }
 
 // _______________________________________________________________________________
-void Bloco::desenhar(sf::RenderTarget& janela)
+bool ListaEntidades::listaVazia()
 {
-    janela.draw(this->sprite);
+    return this->listaEntidades.listaVazia();
+}
+
+// _______________________________________________________________________________
+Lista<Entidade>::Elemento<Entidade>* ListaEntidades::getPrimeiro()
+{
+    return this->listaEntidades.getPrimeiro();
 }

@@ -2,7 +2,7 @@
 #include "Personagem.h"
 #include "BarraVida.h"
 #define VEL_MAX_PLAYER 4
-#define VIDA_INICIAL_JOGADOR 25000
+#define VIDA_INICIAL_JOGADOR 200
 #define DANO_ATAQUE 20
 
 class Jogador :

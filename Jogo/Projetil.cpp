@@ -20,10 +20,10 @@ void Projetil::setPosicao(float x, float y)
 	this->sprite.setPosition(x, y);
 }
 
-void Projetil::desenharProjetil(sf::RenderTarget& janela)
+void Projetil::desenhar(sf::RenderTarget& janela)
 {
 	janela.draw(this->sprite);
-	hitbox.desenhar(janela);
+	this->hitbox.desenhar(janela);
 }
 
 void Projetil::iniciarSprite(int indice)

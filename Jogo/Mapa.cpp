@@ -147,7 +147,7 @@ void Mapa::desenharMapa(sf::RenderTarget& janela)
 			int bloco = mapa[x][y] - 1;
 			if (bloco >= 0) {
 				blocos[bloco]->setPosicao((float)(x * TAM_BLOCO), (float)(y * TAM_BLOCO));
-				blocos[bloco]->desenharBloco(janela);
+				blocos[bloco]->desenhar(janela);
 			}
 		}
 	}

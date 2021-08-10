@@ -15,6 +15,7 @@ public:
 	const bool getColidir();
 	void setPosicao(const float x, const float y);
 
-	void desenharBloco(sf::RenderTarget& janela);
+	void atualizar();
+	void desenhar(sf::RenderTarget& janela);
 };
 

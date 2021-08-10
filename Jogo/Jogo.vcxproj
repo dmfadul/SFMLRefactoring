@@ -183,6 +183,7 @@
     <ClCompile Include="Jogador.cpp" />
     <ClCompile Include="Jogo.cpp" />
     <ClCompile Include="JogoInfo.cpp" />
+    <ClCompile Include="ListaEntidades.cpp" />
     <ClCompile Include="ListaInimigos.cpp" />
     <ClCompile Include="ListaJogadores.cpp" />
     <ClCompile Include="ListaProjeteis.cpp" />
@@ -242,6 +243,7 @@
     <ClInclude Include="Jogo.h" />
     <ClInclude Include="JogoInfo.h" />
     <ClInclude Include="Lista.h" />
+    <ClInclude Include="ListaEntidades.h" />
     <ClInclude Include="ListaInimigos.h" />
     <ClInclude Include="ListaJogadores.h" />
     <ClInclude Include="ListaProjeteis.h" />

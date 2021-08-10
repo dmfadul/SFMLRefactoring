@@ -2,28 +2,21 @@
 #include "TelaMorte.h"
 
 // _______________________________________________________________________________
-TelaMorte::TelaMorte(JogoInfo* pji, int s)
+TelaAdicionarPontuacao::TelaAdicionarPontuacao(JogoInfo* pji, int s)
 	:Tela(pji), score(s)
 {
 	this->iniciarTextos();
 }
 
 // _______________________________________________________________________________
-TelaMorte::~TelaMorte()
+TelaAdicionarPontuacao::~TelaAdicionarPontuacao()
 {
 }
 
 // _______________________________________________________________________________
-void TelaMorte::iniciarTextos()
+void TelaAdicionarPontuacao::iniciarTextos()
 {
 	this->nomeInput = "";
-	
-	// inicia texto morte
-	this->textoMorte.setFont(this->fonte);
-	this->textoMorte.setString("VOCE MORREU!!!");
-	this->textoMorte.setCharacterSize(100);
-	this->textoMorte.setFillColor(sf::Color::Red);
-	this->textoMorte.setPosition(TAM_JANELA_X / 2.f - this->textoMorte.getGlobalBounds().width / 2.f, 100.f);
 
 	// inicia texto score
 	this->textoScore.setFont(this->fonte);
@@ -37,7 +30,7 @@ void TelaMorte::iniciarTextos()
 	this->digiteNome.setString("Digite seu nome: ");
 	this->digiteNome.setCharacterSize(50);
 	this->digiteNome.setFillColor(sf::Color::White);
-	this->digiteNome.setPosition(TAM_JANELA_X / 2.f - this->textoMorte.getGlobalBounds().width / 2.f, TAM_JANELA_Y / 2.f);
+	this->digiteNome.setPosition(TAM_JANELA_X / 2.f - this->digiteNome.getGlobalBounds().width / 2.f, TAM_JANELA_Y / 2.f);
 
 	// inicia texto nome
 	this->nome.setFont(this->fonte);
@@ -48,7 +41,7 @@ void TelaMorte::iniciarTextos()
 }
 
 // _______________________________________________________________________________
-void TelaMorte::adicionarPontuacao()
+void TelaAdicionarPontuacao::adicionarPontuacao()
 {
 	/* Adiciona uma nova pontuação no arquivo de pontuacoes */
 	std::ofstream arquivo_pontuacao;
@@ -58,12 +51,12 @@ void TelaMorte::adicionarPontuacao()
 }
 
 // _______________________________________________________________________________
-void TelaMorte::atualizar()
+void TelaAdicionarPontuacao::atualizar()
 {
 }
 
 // _______________________________________________________________________________
-void TelaMorte::atualizarEventos(sf::Event& evento_sfml)
+void TelaAdicionarPontuacao::atualizarEventos(sf::Event& evento_sfml)
 {
 	/* Checa por eventos SFML*/
 	if (evento_sfml.type == sf::Event::KeyReleased)
@@ -90,10 +83,9 @@ void TelaMorte::atualizarEventos(sf::Event& evento_sfml)
 }
 
 // _______________________________________________________________________________
-void TelaMorte::desenhar(sf::RenderTarget& janela)
+void TelaAdicionarPontuacao::desenhar(sf::RenderTarget& janela)
 {
 	/*Desenha todos os textos na tela*/
-	janela.draw(this->textoMorte);
 	janela.draw(this->textoScore);
 	janela.draw(this->digiteNome);
 	janela.draw(this->nome);

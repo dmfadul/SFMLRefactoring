@@ -6,6 +6,7 @@
 #include "ListaJogadores.h"
 #include "ListaInimigos.h"
 #include "ListaProjeteis.h"
+#include "ListaEntidades.h"
 #include "GeradorProjeteis.h"
 #include "CaixaPause.h"
 #include "TelaMorte.h"
@@ -24,6 +25,7 @@ protected:
     ListaJogadores listaJog;
     ListaInimigos listaIni;
     ListaProjeteis listaProj;
+    ListaEntidades listaEntidades;
     GeradorProjeteis gerProj;
 
 public:

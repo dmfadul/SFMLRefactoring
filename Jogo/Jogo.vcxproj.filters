@@ -189,6 +189,9 @@
     <ClCompile Include="BotaoSair.cpp">
       <Filter>Botoes</Filter>
     </ClCompile>
+    <ClCompile Include="ListaEntidades.cpp">
+      <Filter>listas</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Jogo.h">
@@ -343,6 +346,9 @@
     </ClInclude>
     <ClInclude Include="BotaoSair.h">
       <Filter>Botoes</Filter>
+    </ClInclude>
+    <ClInclude Include="ListaEntidades.h">
+      <Filter>listas</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

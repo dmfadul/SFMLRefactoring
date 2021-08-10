@@ -1,13 +1,12 @@
 #pragma once
 #include "Tela.h"
 #include "TelaPontuacao.h"
-class TelaMorte :
+class TelaAdicionarPontuacao :
     public Tela
 {
 private:
     // variaveis
     int score;
-    sf::Text textoMorte;
     sf::Text textoScore;
     sf::Text digiteNome;
     sf::Text nome;
@@ -15,8 +14,8 @@ private:
 
 public:
     // construtores e destrutoras
-    TelaMorte(JogoInfo* pji = NULL, int s = 0);
-    ~TelaMorte();
+    TelaAdicionarPontuacao(JogoInfo* pji = NULL, int s = 0);
+    ~TelaAdicionarPontuacao();
 
     // Metodos de inicialização
     void iniciarTextos();

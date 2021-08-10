@@ -191,16 +191,21 @@ inline bool Lista<TIPO>::removerElemento(int id)
 	// Se só tiver um elemento na lista
 	else if (pElemento == this->pPrimeiro) {
 		this->pPrimeiro = this->pPrimeiro->getProximo();
+		if(this->pPrimeiro != NULL)
+			this->pPrimeiro->setAnterior(NULL);
 	}
 
 	// se o elemento a ser removido é o ultimo da lista
 	else if(pElemento->getProximo() == NULL) {
 		pElemento->getAnterior()->setProximo(NULL);
+		this->pAtual = pElemento->getAnterior();
 	}
 
 	// se o elemento a ser removido esta no meio da lista
 	else {
-		pElemento->getAnterior()->setProximo(pElemento->getProximo());
+		pAuxAnt = pElemento->getAnterior();
+		pElemento->getProximo()->setAnterior(pAuxAnt);
+		pAuxAnt->setProximo(pElemento->getProximo());
 	}
 
 	return true;

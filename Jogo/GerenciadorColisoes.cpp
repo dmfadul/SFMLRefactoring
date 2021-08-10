@@ -3,7 +3,7 @@
 
 // _______________________________________________________________________________
 GerenciadorColisoes::GerenciadorColisoes()
-	:mapa(NULL), listaJog(NULL), listaIni(NULL), listaProj(NULL)
+	:mapa(NULL), listaJog(NULL), listaIni(NULL), listaProj(NULL), listaEnt(NULL)
 {
 }
 
@@ -14,16 +14,18 @@ GerenciadorColisoes::~GerenciadorColisoes()
 	this->listaJog = NULL;
 	this->listaIni = NULL;
 	this->listaProj = NULL;
+	this->listaEnt = NULL;
 }
 
 
 // _______________________________________________________________________________
-void GerenciadorColisoes::iniciaGerenciadorColisoes(Mapa* m, ListaJogadores* lista_jog, ListaInimigos* lista_ini, ListaProjeteis* lista_proj)
+void GerenciadorColisoes::iniciaGerenciadorColisoes(Mapa* m, ListaJogadores* lista_jog, ListaInimigos* lista_ini, ListaProjeteis* lista_proj, ListaEntidades* lista_ent)
 {
 	this->mapa = m;
 	this->listaJog = lista_jog;
 	this->listaIni = lista_ini;
 	this->listaProj = lista_proj;
+	this->listaEnt = lista_ent;
 }
 
 // _______________________________________________________________________________
@@ -33,8 +35,8 @@ void GerenciadorColisoes::verificarColisoes()
 	Lista<Jogador>::Elemento<Jogador>* elJogador = this->listaJog->getPrimeiro();
 	while (elJogador != NULL) {
 		Jogador* pJogador = elJogador->getInfo();
+		elJogador = elJogador->getProximo();
 		
-		//this->verificarColisao(static_cast<Personagem*>(pJogador));
 		this->verificarColisao(static_cast<Personagem*>(pJogador), true);
 		this->verificarColisaoTela(static_cast<Personagem*>(pJogador));
 
@@ -42,29 +44,27 @@ void GerenciadorColisoes::verificarColisoes()
 		Lista<Projetil>::Elemento<Projetil>* elProj = listaProj->getPrimeiro();
 		while (elProj != NULL){
 			Projetil* pProjetil = elProj->getInfo();
-			verificarColisao(pJogador, pProjetil);
 			elProj = elProj->getProximo();
+			verificarColisao(pJogador, pProjetil);
 		}
 
 		// colisoes do jogador com inimigo
 		Lista<Inimigo>::Elemento<Inimigo>* elInimigo = this->listaIni->getPrimeiro();
 		while (elInimigo != NULL) {
 			Inimigo* pInimigo = elInimigo->getInfo();
-			this->verificarColisao(pJogador, pInimigo);
 			elInimigo = elInimigo->getProximo();
+			this->verificarColisao(pJogador, pInimigo);
 		}
 
-		elJogador = elJogador->getProximo();
 	}
 
 	// colisoes do inimigo com plataforma e tela
 	Lista<Inimigo>::Elemento<Inimigo>* elInimigo = this->listaIni->getPrimeiro();
 	while (elInimigo != NULL) {
 		Inimigo* pInimigo = elInimigo->getInfo();
-
+		elInimigo = elInimigo->getProximo();
 		this->verificarColisao(static_cast<Personagem*>(pInimigo), false);
 		this->verificarColisaoTela(static_cast<Personagem*>(pInimigo));
-		elInimigo = elInimigo->getProximo();
 	}
 }
 
@@ -173,20 +173,23 @@ void GerenciadorColisoes::verificarColisaoTela(Personagem* personagem)
 void GerenciadorColisoes::verificarColisao(Jogador* jogador, Projetil* projetil)
 {
 	sf::Vector2f posicaoProjetil = projetil->getHitbox().getPosition();
-
 	// colisao do projetil com personagem
-	
 	if (projetil->getHitbox().getBounds().intersects(jogador->getHitbox().getBounds()))
 	{
+		this->listaEnt->removerEntidade(projetil->getId());
 		this->listaProj->excluirProjetil(projetil->getId());
 		jogador->receberDano(projetil->getDano());
 	}
 
 	// colisao do projeitl com a tela
-	else if (posicaoProjetil.y < 0 || posicaoProjetil.y > TAM_JANELA_Y)
+	else if (posicaoProjetil.y < 0 || posicaoProjetil.y > TAM_JANELA_Y) {
+		this->listaEnt->removerEntidade(projetil->getId());
 		this->listaProj->excluirProjetil(projetil->getId());
+	}
 
-	else if (posicaoProjetil.x < 0 || posicaoProjetil.x > TAM_JANELA_X)
+	else if (posicaoProjetil.x < 0 || posicaoProjetil.x > TAM_JANELA_X) {
+		this->listaEnt->removerEntidade(projetil->getId());
 		this->listaProj->excluirProjetil(projetil->getId());
+	}
 	
 }

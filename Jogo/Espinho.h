@@ -8,7 +8,6 @@ class Espinho :
 {
 private:
 
-
 public:
     Espinho(const int indice = 0);
     ~Espinho();
