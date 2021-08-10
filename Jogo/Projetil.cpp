@@ -5,7 +5,6 @@
 Projetil::Projetil():direcao(true),dano(20){}
 
 Projetil::Projetil(int indice, sf::Vector2f posicao, bool direcao):direcao(direcao){
-	this->iniciarSprite(indice);
 	this->setPosicao(posicao.x, posicao.y);
 	this->iniciarHitbox((float)(this->textura.getSize().x),(float)(this->textura.getSize().y), 0, 0);
 	this->iniciarMovimento();
