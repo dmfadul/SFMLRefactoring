@@ -158,6 +158,7 @@
     <ClCompile Include="AreiaDasAlmas.cpp" />
     <ClCompile Include="BarraVida.cpp" />
     <ClCompile Include="Bloco.cpp" />
+    <ClCompile Include="BolaFogo.cpp" />
     <ClCompile Include="Botao.cpp" />
     <ClCompile Include="BotaoPadrao.cpp" />
     <ClCompile Include="BotaoSair.cpp" />
@@ -217,6 +218,7 @@
     <ClInclude Include="AreiaDasAlmas.h" />
     <ClInclude Include="BarraVida.h" />
     <ClInclude Include="Bloco.h" />
+    <ClInclude Include="BolaFogo.h" />
     <ClInclude Include="Botao.h" />
     <ClInclude Include="BotaoPadrao.h" />
     <ClInclude Include="BotaoSair.h" />

@@ -7,7 +7,7 @@ class Morcego :
 public:
 
     Morcego();
-    Morcego(int indice, sf::Vector2f posicao, bool direcao);
+    Morcego(sf::Vector2f posicao, bool direcao);
     ~Morcego();
 
 };

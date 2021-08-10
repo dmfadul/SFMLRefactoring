@@ -192,6 +192,9 @@
     <ClCompile Include="ListaEntidades.cpp">
       <Filter>listas</Filter>
     </ClCompile>
+    <ClCompile Include="BolaFogo.cpp">
+      <Filter>Graficos</Filter>
+    </ClCompile>
     <ClCompile Include="Shuriken.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
@@ -352,9 +355,6 @@
     </ClInclude>
     <ClInclude Include="ListaEntidades.h">
       <Filter>listas</Filter>
-    </ClInclude>
-    <ClInclude Include="Shuriken.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

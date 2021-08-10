@@ -63,4 +63,9 @@ void Cobra::desenhar(sf::RenderTarget& janela)
 	hitbox.desenhar(janela);
 }
 
+int Cobra::getTipo()
+{
+	return 2;
+}
+
 

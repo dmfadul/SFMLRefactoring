@@ -1,5 +1,6 @@
 #pragma once
 #include "Inimigo.h"
+#include <thread>
 #define VEL_MAX_BRUXA 1.5
 #define VIDA_INICIAL 100
 #define DANO_ATAQUE 20
@@ -22,6 +23,7 @@ public:
     void desenhar(sf::RenderTarget& janela);
     void atualizar();
 
-	
+    int getTipo();
+
 };
 

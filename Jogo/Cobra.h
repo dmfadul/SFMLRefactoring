@@ -26,5 +26,7 @@ public:
     void mover();
     void desenhar(sf::RenderTarget& janela);
     void atualizar();
+
+    int getTipo();
 };
 
