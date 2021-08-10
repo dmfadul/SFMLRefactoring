@@ -4,10 +4,10 @@
 
 Projetil::Projetil():direcao(true),dano(20){}
 
-Projetil::Projetil(int indice, sf::Vector2f posicao, bool direcao):direcao(direcao){
-	this->iniciarSprite(indice);
+Projetil::Projetil(sf::Vector2f posicao, bool direcao, std::string img, float escalax, float escalay):direcao(direcao){
 	this->setPosicao(posicao.x, posicao.y);
-	this->iniciarHitbox((float)(this->textura.getSize().x),(float)(this->textura.getSize().y), 0, 0);
+	iniciarSprite(img, escalax, escalay);
+	this->iniciarHitbox((float)(this->textura.getSize().x) * escalax,(float)(this->textura.getSize().y) *escalay, 0, 0);
 	this->iniciarMovimento();
 	this->iniciarCompMov(VEL_MAX_PROJETIL);
 	this->compMov.setControleArrasto(false);
@@ -26,17 +26,19 @@ void Projetil::desenhar(sf::RenderTarget& janela)
 	this->hitbox.desenhar(janela);
 }
 
-void Projetil::iniciarSprite(int indice)
+void Projetil::iniciarSprite(std::string imgCaminho, float scale_x, float scale_y)
 {
-	/* carrega textura e inicia o sprite */
-	std::string s = "./Recursos/Imagens/Projeteis/" + std::to_string(indice) + ".png";
-
-	if (!this->textura.loadFromFile(s)) {
-		std::cout << "OBSTACULO::INICIARSPRITE FALHA AO CARREGAR TEXTURA" << std::endl;
-		std::cout << s << std::endl;
+	/* Inicia o sprite do personagem */
+	try {
+		textura.loadFromFile(imgCaminho);
 	}
-	this->sprite.setTexture(this->textura);
-	this->sprite.setScale(1.f, 1.f);
+	catch (...) {
+		std::cerr << "PERSONAGEM::INICARSPRITE FALHA AO CARREGAR " <<
+			imgCaminho << std::endl;
+	}
+
+	sprite.setTexture(textura);
+	sprite.setScale(sf::Vector2f(scale_x, scale_y));
 }
 
 void Projetil::iniciarHitbox(float comprimento, float altura, int off_x, int off_y)

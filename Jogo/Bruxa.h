@@ -22,6 +22,7 @@ public:
     void desenhar(sf::RenderTarget& janela);
     void atualizar();
 
-	
+    int getTipo();
+
 };
 

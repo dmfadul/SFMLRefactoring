@@ -2,6 +2,7 @@
 #include "Fase.h"
 #include "Cowboy.h"
 #include "CowGirl.h"
+#include "Dragao.h"
 
 class NinhoDoDragao :
     public Fase

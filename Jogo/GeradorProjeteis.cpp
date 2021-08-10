@@ -21,13 +21,22 @@ void GeradorProjeteis::CriarProjetil()
 	else {
 		Inimigo* pini;
 		Morcego* pmor;
+		BolaFogo* pbf;
 		pini = ini->getInfo();
 		if (this->tempo_atual.getElapsedTime().asMilliseconds() > 500)
 		{
-
-			pmor = new Morcego(1, pini->getHitbox().getCima(), pini->getDirection());
-			this->listProj->incluirProjetil(static_cast<Projetil*>(pmor));
-			this->listEnt->incluirEntidade(static_cast<Entidade*>(pmor));
+			if (pini->getTipo() == 1)
+			{
+				pmor = new Morcego(pini->getHitbox().getCima(), pini->getDirection());
+				this->listProj->incluirProjetil(static_cast<Projetil*>(pmor));
+				this->listEnt->incluirEntidade(static_cast<Entidade*>(pmor));
+			}
+			else if (pini->getTipo() == 3)
+			{
+				pbf = new BolaFogo(pini->getHitbox().getCima(), pini->getDirection());
+				this->listProj->incluirProjetil(static_cast<Projetil*>(pbf));
+				this->listEnt->incluirEntidade(static_cast<Entidade*>(pbf));
+			}
 			this->tempo_atual.restart();
 			this->ini = ini->getProximo();
 		}

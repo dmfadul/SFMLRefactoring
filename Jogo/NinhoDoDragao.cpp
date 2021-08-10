@@ -76,4 +76,14 @@ void NinhoDoDragao::desenhar(sf::RenderTarget& janela)
 	
 }
 
-void NinhoDoDragao::iniciarInimigos(){}
+void NinhoDoDragao::iniciarInimigos()
+{
+	this->listaIni.incluirInimigo(new Dragao(sf::Vector2f(1000.f, 500.f)));
+
+	Lista<Inimigo>::Elemento<Inimigo>* elInimigo = this->listaIni.getPrimeiro();
+	while (elInimigo != NULL) {
+		Inimigo* pInimigo = elInimigo->getInfo();
+		this->listaEntidades.incluirEntidade(static_cast<Entidade*>(pInimigo));
+		elInimigo = elInimigo->getProximo();
+	}
+}

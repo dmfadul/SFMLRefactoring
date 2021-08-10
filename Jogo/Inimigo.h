@@ -14,5 +14,7 @@ public:
 
     // setters e getters
     const bool getDirection() const;
+
+    virtual int getTipo() = 0;
 };
 

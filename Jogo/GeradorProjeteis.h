@@ -4,6 +4,7 @@
 #include "ListaProjeteis.h"
 #include "ListaEntidades.h"
 #include "Morcego.h"
+#include "BolaFogo.h"
 class GeradorProjeteis
 {
 private:

@@ -3,7 +3,6 @@
 
 // _______________________________________________________________________________
 Bruxa::Bruxa(): tempo_direcao(1000) {}
-
 // _______________________________________________________________________________
 Bruxa::Bruxa(sf::Vector2f position, int tempo_direcao):
 	tempo_direcao(tempo_direcao)
@@ -15,22 +14,23 @@ Bruxa::Bruxa(sf::Vector2f position, int tempo_direcao):
 	this->sprite.setPosition(position);
 	this->compMov.setControleArrasto(false);
 }
-
 // _______________________________________________________________________________
 Bruxa::~Bruxa(){}
 
 // _______________________________________________________________________________
 void Bruxa::mover()
 {
-	if (this->tempo_vida.getElapsedTime().asMilliseconds() > tempo_direcao) {
-		direction = !direction;
-		tempo_vida.restart();
-	}
+		
+		if (this->tempo_vida.getElapsedTime().asMilliseconds() > tempo_direcao) {
+			direction = !direction;
+			tempo_vida.restart();
+		}
+
+		if (direction)
+			this->compMov.setVelX(-VEL_MAX_BRUXA);
+		else
+			this->compMov.setVelX(VEL_MAX_BRUXA);
 	
-	if (direction)
-		this->compMov.setVelX(-VEL_MAX_BRUXA);
-	else
-		this->compMov.setVelX(VEL_MAX_BRUXA);
 }
 
 // _______________________________________________________________________________
@@ -46,4 +46,9 @@ void Bruxa::desenhar(sf::RenderTarget& janela)
 {
 	janela.draw(sprite);
 	hitbox.desenhar(janela);
+}
+
+int Bruxa::getTipo()
+{
+	return 1;
 }
