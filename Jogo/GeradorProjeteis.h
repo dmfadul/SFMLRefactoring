@@ -8,17 +8,15 @@
 class GeradorProjeteis
 {
 private:
-	sf::Clock tempo_atual;
 	ListaInimigos* listIni;
 	ListaProjeteis* listProj;
 	ListaEntidades* listEnt;
-	Lista<Inimigo>::Elemento<Inimigo>* ini;
 
 public:
 	GeradorProjeteis();
 	~GeradorProjeteis();
 
-	void CriarProjetil();
+	void CriarProjetil(Projetil* projetil);
 	void ExcluirProjetil();
 
 	void iniciaGeradorProjeteis(ListaInimigos* li, ListaProjeteis* lp, ListaEntidades* le);

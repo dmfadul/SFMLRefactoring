@@ -1,5 +1,6 @@
 #pragma once
 #include "Inimigo.h"
+#include "GeradorProjeteis.h"
 #include <thread>
 #define VEL_MAX_BRUXA 1.5
 #define VIDA_INICIAL 100
@@ -9,16 +10,17 @@ class Bruxa :
 {
 private:
     // variaveis
+    GeradorProjeteis* gerProj;
     sf::Clock tempo_vida;
-    int tempo_direcao;  
+    sf::Clock cooldown_projetil;
+    int tempo_direcao;
+    int tempo_cooldown;
     std::thread t;
-    bool vivo;
-
 
 public:
     // construtoras e destrutoras
     Bruxa();
-    Bruxa(sf::Vector2f position, int tempo_direcao = 50);
+    Bruxa(sf::Vector2f position, GeradorProjeteis* gp, int tempo_direcao = 50);
     ~Bruxa();
     
     // metodos
@@ -26,8 +28,8 @@ public:
     void mover();
     void desenhar(sf::RenderTarget& janela);
     void atualizar();
+    void atirar();
 
     int getTipo();
-
 };
 

@@ -203,7 +203,9 @@ void GerenciadorColisoes::verificarColisao(Jogador* jogador, Projetil* projetil)
 
 	// colisao do projetil com o cenario
 	int bloco = this->mapa->blocoAtual(projetil->getHitbox().getDireita()) - 1;
-	if (bloco >= 0 && this->mapa->getBloco(bloco)->getColidir()){
+	int bloco2 = this->mapa->blocoAtual(projetil->getHitbox().getEsquerda()) - 1;
+	if ((bloco >= 0 && this->mapa->getBloco(bloco)->getColidir())||
+		(bloco2 >= 0 && this->mapa->getBloco(bloco2)->getColidir())) {
 		remover = true;
 	}
 

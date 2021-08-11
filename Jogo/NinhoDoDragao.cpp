@@ -42,7 +42,6 @@ void NinhoDoDragao::atualizar()
 		// se ainda houverem jogadores e inimigos 
 		else
 		{
-			this->gerProj.CriarProjetil();
 			this->gerProj.ExcluirProjetil();
 			this->gerColisoes.verificarColisoes();
 		}
@@ -89,7 +88,7 @@ void NinhoDoDragao::desenhar(sf::RenderTarget& janela)
 
 void NinhoDoDragao::iniciarInimigos()
 {
-	this->listaIni.incluirInimigo(new Dragao(sf::Vector2f(1000.f, 500.f)));
+	this->listaIni.incluirInimigo(new Dragao(sf::Vector2f(1000.f, 500.f), &this->gerProj));
 
 	Lista<Inimigo>::Elemento<Inimigo>* elInimigo = this->listaIni.getPrimeiro();
 	while (elInimigo != NULL) {

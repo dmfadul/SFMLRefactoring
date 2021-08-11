@@ -95,6 +95,7 @@ void Fase::atualizarEntidades()
 			this->listaIni.removerInimigo(pInimigo->getId());
 			this->listaEntidades.removerEntidade(pInimigo->getId());
 			this->atualizarScore(pInimigo->getRecompensa());
+			delete pInimigo;
 		}
 	}
 

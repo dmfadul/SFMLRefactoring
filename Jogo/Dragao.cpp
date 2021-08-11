@@ -2,7 +2,8 @@
 #include "Dragao.h"
 
 // _______________________________________________________________________________
-Dragao::Dragao(sf::Vector2f position)
+Dragao::Dragao(sf::Vector2f position, GeradorProjeteis* gp)
+	: Inimigo(), gerProj(gp)
 {
 	this->recompensa = 100;
 	this->iniciarSprite("./Recursos/Imagens/Personagens/dragao.png", 0.25f, 0.25f);
@@ -11,7 +12,7 @@ Dragao::Dragao(sf::Vector2f position)
 	this->sprite.setPosition(position);
 }
 
-Dragao::Dragao(){}
+Dragao::Dragao(): gerProj(NULL){}
 
 // _______________________________________________________________________________
 Dragao::~Dragao() {}
@@ -25,6 +26,15 @@ void Dragao::desenhar(sf::RenderTarget& janela)
 void Dragao::atualizar()
 {
 	this->hitbox.atualizarPosicao();
+	if (this->cooldown_atirar.getElapsedTime().asMilliseconds() > 500) {
+		this->cuspirFogo();
+		this->cooldown_atirar.restart();
+	}
+}
+
+void Dragao::cuspirFogo()
+{
+	this->gerProj->CriarProjetil(new BolaFogo(this->getHitbox().getCima(), true));
 }
 
 int Dragao::getTipo()

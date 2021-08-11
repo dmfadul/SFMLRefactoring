@@ -2,11 +2,12 @@
 #include "Bruxa.h"
 
 // _______________________________________________________________________________
-Bruxa::Bruxa(): tempo_direcao(1000), vivo(true) {}
+Bruxa::Bruxa(): tempo_direcao(1000), gerProj(NULL), tempo_cooldown(500) {}
 // _______________________________________________________________________________
-Bruxa::Bruxa(sf::Vector2f position, int tempo_direcao):
-	tempo_direcao(tempo_direcao), vivo(true)
+Bruxa::Bruxa(sf::Vector2f position, GeradorProjeteis* gp, int tempo_direcao):
+	tempo_direcao(tempo_direcao),gerProj(gp)
 {
+	this->tempo_cooldown = rand() % 1000 + 500;
 	this->recompensa = 20;
 	this->iniciarSprite("./Recursos/Imagens/Personagens/bruxa.png", 2.f, 2.f);
 	this->iniciarPersInfo(VIDA_INICIAL, DANO_ATAQUE);
@@ -19,7 +20,7 @@ Bruxa::Bruxa(sf::Vector2f position, int tempo_direcao):
 
 void Bruxa::executar(Bruxa* bruxa)
 {
-	while (bruxa->vivo)
+	while (bruxa->getPersInfo()->getHp() > 0)
 	{
 		bruxa->mover();
 	}
@@ -27,8 +28,7 @@ void Bruxa::executar(Bruxa* bruxa)
 // _______________________________________________________________________________
 Bruxa::~Bruxa()
 {
-	vivo = false;
-	std::cout << "Teste" << std::endl;
+	t.join();
 }
 
 // _______________________________________________________________________________
@@ -51,6 +51,16 @@ void Bruxa::atualizar()
 {
 	this->compMov.mover();
 	this->hitbox.atualizarPosicao();
+	if(this->cooldown_projetil.getElapsedTime().asMilliseconds() > 1500) {
+		this->atirar();
+		this->cooldown_projetil.restart();
+		this->tempo_cooldown = rand() % 1000 + 500;
+	}
+}
+
+void Bruxa::atirar()
+{
+	this->gerProj->CriarProjetil(new Morcego(this->getHitbox().getCima(), this->direction));
 }
 
 // _______________________________________________________________________________

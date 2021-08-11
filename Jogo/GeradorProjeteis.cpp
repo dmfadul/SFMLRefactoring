@@ -2,44 +2,23 @@
 #include "GeradorProjeteis.h"
 
 // _______________________________________________________________________________
-GeradorProjeteis::GeradorProjeteis():listIni(NULL),listProj(NULL),ini(NULL), listEnt(NULL){}
+GeradorProjeteis::GeradorProjeteis():listIni(NULL),listProj(NULL), listEnt(NULL){}
 
 // _______________________________________________________________________________
 GeradorProjeteis::~GeradorProjeteis(){
-	this->ini = NULL;
 	this->listIni = NULL;
 	this->listProj = NULL;
 	this->listEnt = NULL;
 }
 
 // _______________________________________________________________________________
-void GeradorProjeteis::CriarProjetil()
+void GeradorProjeteis::CriarProjetil(Projetil* projetil)
 {
 	// Cria um novo projétil em um inimigo
-	if (this->ini == NULL)
-		this->ini = this->listIni->getPrimeiro();
-	else {
-		Inimigo* pini;
-		Morcego* pmor;
-		BolaFogo* pbf;
-		pini = ini->getInfo();
-		if (this->tempo_atual.getElapsedTime().asMilliseconds() > 500)
-		{
-			if (pini->getTipo() == 1)
-			{
-				pmor = new Morcego(pini->getHitbox().getCima(), pini->getDirection());
-				this->listProj->incluirProjetil(static_cast<Projetil*>(pmor));
-				this->listEnt->incluirEntidade(static_cast<Entidade*>(pmor));
-			}
-			else if (pini->getTipo() == 3)
-			{
-				pbf = new BolaFogo(pini->getHitbox().getCima(), pini->getDirection());
-				this->listProj->incluirProjetil(static_cast<Projetil*>(pbf));
-				this->listEnt->incluirEntidade(static_cast<Entidade*>(pbf));
-			}
-			this->tempo_atual.restart();
-			this->ini = ini->getProximo();
-		}
+
+	if (projetil != NULL) {
+		this->listProj->incluirProjetil(projetil);
+		this->listEnt->incluirEntidade(projetil);
 	}
 }
 

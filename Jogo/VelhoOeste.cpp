@@ -36,6 +36,7 @@ void VelhoOeste::atualizar()
 {
 	if (pausado == false) {
 		// atualiza as entidades
+		
 		this->atualizarEntidades();
 
 		// checa se ainda tem algum jogador vivo
@@ -49,10 +50,7 @@ void VelhoOeste::atualizar()
 			this->jogoInfo->getTocaDisco()->pararMusica();
 			this->jogoInfo->trocarEnte(static_cast<Ente*>(new NinhoDoDragao(this->jogoInfo, this->nJogadores)));
 		}
-		// se ainda houverem jogadores e inimigos 
-		else
-		{
-			this->gerProj.CriarProjetil();
+		else {
 			this->gerProj.ExcluirProjetil();
 			this->gerColisoes.verificarColisoes();
 		}
@@ -104,10 +102,10 @@ void VelhoOeste::desenhar(sf::RenderTarget& janela)
 void VelhoOeste::iniciarInimigos()
 {
 	// adiciona inimigos na lista de inimigos
-	this->listaIni.incluirInimigo(new Bruxa(sf::Vector2f(630.f, 410.f), 2700));
-	this->listaIni.incluirInimigo(new Bruxa(sf::Vector2f(500.f, 110.f), 1600));
-	this->listaIni.incluirInimigo(new Bruxa(sf::Vector2f(700.f, 50.f), 1850));
-	this->listaIni.incluirInimigo(new Bruxa(sf::Vector2f(1100.f, 280.f), 2770));
+	this->listaIni.incluirInimigo(new Bruxa(sf::Vector2f(630.f, 410.f), &this->gerProj, 2700));
+	this->listaIni.incluirInimigo(new Bruxa(sf::Vector2f(500.f, 110.f), &this->gerProj, 1600));
+	this->listaIni.incluirInimigo(new Bruxa(sf::Vector2f(700.f, 50.f), &this->gerProj, 1850));
+	this->listaIni.incluirInimigo(new Bruxa(sf::Vector2f(1100.f, 280.f), &this->gerProj, 2770));
 
 	// adiciona inimigos na lista de entidades
 	Lista<Inimigo>::Elemento<Inimigo>* elInimigo = this->listaIni.getPrimeiro();
