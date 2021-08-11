@@ -12,6 +12,7 @@ protected:
     HitBox hitbox;
     bool direcao;
     int dano;
+    std::string atirador;
     ComponenteMovimento compMov;
 
 public:
@@ -30,6 +31,7 @@ public:
     void iniciarCompMov(float vel_max);
     int getTempoVida();
     int getDano();
+    const std::string getAtirador() const;
     HitBox getHitbox() const;
 
     

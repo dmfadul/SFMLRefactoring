@@ -3,7 +3,10 @@
 class Shuriken :
     public Projetil
 {
-private:
 public:
+    Shuriken();
+    Shuriken(sf::Vector2f posicao, bool direcao);
+    ~Shuriken();
+
 };
 

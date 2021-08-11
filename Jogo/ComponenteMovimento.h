@@ -14,6 +14,7 @@ private:
 	// flags
 	bool caindo;
 	bool controle_arrasto;
+	bool direcao;
 
 public:
 	// Construtoras e destrutoras
@@ -30,6 +31,7 @@ public:
 	void setControleArrasto(const bool a);
 	const bool getCaindo() const;
 	sf::Vector2f getVelocidade();
+	const bool getDirecao() const;
 	void acelerarX(float x);
 	void acelerarY(float y);
 	void mover();

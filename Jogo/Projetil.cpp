@@ -5,7 +5,6 @@
 Projetil::Projetil():direcao(true),dano(20){}
 
 Projetil::Projetil(sf::Vector2f posicao, bool direcao, std::string img, float escalax, float escalay):direcao(direcao){
-Projetil::Projetil(int indice, sf::Vector2f posicao, bool direcao):direcao(direcao){
 	this->setPosicao(posicao.x, posicao.y);
 	iniciarSprite(img, escalax, escalay);
 	this->iniciarHitbox((float)(this->textura.getSize().x) * escalax,(float)(this->textura.getSize().y) *escalay, 0, 0);
@@ -84,4 +83,9 @@ HitBox Projetil::getHitbox() const
 int Projetil::getDano()
 {
 	return this->dano;
+}
+
+const std::string Projetil::getAtirador() const
+{
+	return this->atirador;
 }
