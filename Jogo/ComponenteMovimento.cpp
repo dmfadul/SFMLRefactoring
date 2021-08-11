@@ -8,7 +8,8 @@ ComponenteMovimento::ComponenteMovimento():
     caindo(true),
     controle_arrasto(true),
     vel(sf::Vector2f(0.f, 0.f)),
-    velMax(0)
+    velMax(0),
+    direcao(false)
 {
 }
 
@@ -39,14 +40,20 @@ const bool ComponenteMovimento::getCaindo() const { return this->caindo; }
 
 sf::Vector2f ComponenteMovimento::getVelocidade() { return this->vel; }
 
+const bool ComponenteMovimento::getDirecao() const
+{
+    return this->direcao;
+}
+
 // _______________________________________________________________________________
 void ComponenteMovimento::acelerarX(float x) {
     if(this->vel.x < this->velMax && this->vel.x > - this->velMax) 
         this->vel.x += x; 
-    if (this->vel.x > this->velMax)
-        this->vel.x = this->velMax;
-    if (this->vel.x < -this->velMax)
-        this->vel.x = -this->velMax;
+
+    if (x > 0)
+        this->direcao = false;
+    else
+        this->direcao = true;
 }
 
 // _______________________________________________________________________________
@@ -59,9 +66,9 @@ void ComponenteMovimento::acelerarY(float y) {
 void ComponenteMovimento::mover()
 {
     // movimento na direção x
-    if      (this->vel.x > 0.1f && this->controle_arrasto)   this->vel.x -= (float)(ARRASTO);
-    else if (this->vel.x < -0.1f && this->controle_arrasto)  this->vel.x += (float)(ARRASTO);
-    else if (this->controle_arrasto)                         this->vel.x = 0;
+    if (this->vel.x > 0.1f && this->controle_arrasto)           this->vel.x -= (float)(ARRASTO);
+    else if (this->vel.x < -0.1f && this->controle_arrasto)     this->vel.x += (float)(ARRASTO);
+    else if (this->controle_arrasto)                            this->vel.x = 0;
 
     // movimento na direção y
     if      (this->vel.y > 0.1f)   this->vel.y -= (float)(ARRASTO);

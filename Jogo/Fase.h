@@ -43,6 +43,7 @@ public:
 
     // metodos
     void atualizarEntidades();
+    void atualizarScore(int incremento);
     void desenharEntidades(sf::RenderTarget& janela);
     void realizarAcaoMenuPause();
 };

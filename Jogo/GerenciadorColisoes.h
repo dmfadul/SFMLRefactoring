@@ -19,6 +19,7 @@ private:
 	void verificarColisao(Personagem* personagem, bool colidir_obstaculo = true);
 	void verificarColisao(Jogador* jogador, Inimigo* inimigo);
 	void verificarColisao(Jogador* jogador, Projetil* projetil);
+	void verificarColisao(Inimigo* inimigo, Projetil* projetil);
 	void verificarColisaoTela(Personagem* personagem);
 
 public:

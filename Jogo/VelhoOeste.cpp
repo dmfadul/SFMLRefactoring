@@ -41,9 +41,17 @@ void VelhoOeste::atualizar()
 		// checa se ainda tem algum jogador vivo
 		if (this->listaJog.listaVazia()) {
 			this->jogoInfo->getTocaDisco()->pararMusica();
-			this->jogoInfo->trocarEnte(new TelaAdicionarPontuacao(this->jogoInfo, rand() % 800));
+			this->jogoInfo->trocarEnte(new TelaAdicionarPontuacao(this->jogoInfo, PersonagemInfo::getScore()));
+			PersonagemInfo::setScore(0);
 		}
-		else {
+		// checa se todos os inimigos foram eliminados
+		else if (this->listaIni.listaVazia()){
+			this->jogoInfo->getTocaDisco()->pararMusica();
+			this->jogoInfo->trocarEnte(static_cast<Ente*>(new NinhoDoDragao(this->jogoInfo, this->nJogadores)));
+		}
+		// se ainda houverem jogadores e inimigos 
+		else
+		{
 			this->gerProj.CriarProjetil();
 			this->gerProj.ExcluirProjetil();
 			this->gerColisoes.verificarColisoes();

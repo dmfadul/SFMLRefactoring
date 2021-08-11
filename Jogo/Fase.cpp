@@ -24,13 +24,13 @@ Fase::~Fase()
 void Fase::iniciarPersonagens()
 {
 	/* Adiciona todas os personagens em suas respectivas listas */
-	Cowboy* jogador1 = new Cowboy();
+	Cowboy* jogador1 = new Cowboy(&this->listaProj, &this->listaEntidades);
 	this->listaJog.incluirJogador(jogador1);
 	this->listaEntidades.incluirEntidade(static_cast<Entidade* >(jogador1));
 
 
 	if (this->nJogadores == 2) {
-		CowGirl* jogador2 = new CowGirl();
+		CowGirl* jogador2 = new CowGirl(&this->listaProj, &this->listaEntidades);
 		this->listaJog.incluirJogador(jogador2);
 		this->listaEntidades.incluirEntidade(static_cast<Entidade*>(jogador2));
 	}
@@ -61,11 +61,13 @@ void Fase::iniciarGerenciadorColisoes()
 	this->gerColisoes.iniciaGerenciadorColisoes(&this->mapa, &this->listaJog, &this->listaIni, &this->listaProj, &this->listaEntidades);
 }
 
+// _______________________________________________________________________________
 void Fase::iniciarGeradorProjeteis()
 {
 	this->gerProj.iniciaGeradorProjeteis(&this->listaIni, &this->listaProj, &this->listaEntidades);
 }
 
+// _______________________________________________________________________________
 void Fase::atualizarEntidades()
 {
 	// atualiza jogadores
@@ -88,6 +90,12 @@ void Fase::atualizarEntidades()
 		Inimigo* pInimigo = elInimigo->getInfo();
 		elInimigo = elInimigo->getProximo();
 		pInimigo->atualizar();
+		// checa se o inimigo morreu
+		if (pInimigo->getPersInfo()->getHp() <= 0) {
+			this->listaIni.removerInimigo(pInimigo->getId());
+			this->listaEntidades.removerEntidade(pInimigo->getId());
+			this->atualizarScore(pInimigo->getRecompensa());
+		}
 	}
 
 	Lista<Projetil>::Elemento<Projetil>* elProjetil = this->listaProj.getPrimeiro();
@@ -97,6 +105,17 @@ void Fase::atualizarEntidades()
 		pProjetil->atualizar();
 	}
 
+}
+
+void Fase::atualizarScore(int incremento)
+{
+	// incrementa score do jogador
+	int pontuacao = PersonagemInfo::getScore();
+	PersonagemInfo::setScore(pontuacao + incremento);
+
+	// atualiza o texto de score
+	std::string textoPontuacao = "SCORE: " + std::to_string(pontuacao + incremento);
+	this->textoScore.setTexto(textoPontuacao);
 }
 
 void Fase::desenharEntidades(sf::RenderTarget& janela)
@@ -126,5 +145,6 @@ void Fase::realizarAcaoMenuPause()
 		this->jogoInfo->getTocaDisco()->pararMusica();
 		this->jogoInfo->getTocaDisco()->tocarMusicaInicio();
 		this->jogoInfo->popEnte();
+		PersonagemInfo::setScore(0);
 	}
 }

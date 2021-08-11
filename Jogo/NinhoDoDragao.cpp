@@ -12,6 +12,7 @@ NinhoDoDragao::NinhoDoDragao(JogoInfo* pji, int n_jogadores)
 	this->iniciarGerenciadorColisoes();
 	this->iniciarGeradorProjeteis();
 	this->jogoInfo->getTocaDisco()->tocarSpearOfJustice();
+	this->atualizarScore(PersonagemInfo::getScore());
 }
 
 // _______________________________________________________________________________
@@ -24,16 +25,26 @@ NinhoDoDragao::~NinhoDoDragao()
 void NinhoDoDragao::atualizar()
 {
 	if (pausado == false) {
+		// atualiza as entidades
 		this->atualizarEntidades();
 
 		// checa se ainda tem algum jogador vivo
 		if (this->listaJog.listaVazia()) {
 			this->jogoInfo->getTocaDisco()->pararMusica();
-			this->jogoInfo->trocarEnte(new TelaAdicionarPontuacao(this->jogoInfo, rand() % 800));
+			this->jogoInfo->trocarEnte(new TelaAdicionarPontuacao(this->jogoInfo, PersonagemInfo::getScore()));
+			PersonagemInfo::setScore(0);
 		}
-		else {
-			this->gerColisoes.verificarColisoes();
+		// checa se todos os inimigos foram eliminados
+		else if (this->listaIni.listaVazia()) {
+			this->jogoInfo->getTocaDisco()->pararMusica();
+			this->jogoInfo->trocarEnte(new TelaAdicionarPontuacao(this->jogoInfo, PersonagemInfo::getScore()));
+		}
+		// se ainda houverem jogadores e inimigos 
+		else
+		{
 			this->gerProj.CriarProjetil();
+			this->gerProj.ExcluirProjetil();
+			this->gerColisoes.verificarColisoes();
 		}
 	}
 }

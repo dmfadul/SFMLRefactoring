@@ -65,6 +65,14 @@ void GerenciadorColisoes::verificarColisoes()
 		elInimigo = elInimigo->getProximo();
 		this->verificarColisao(static_cast<Personagem*>(pInimigo), false);
 		this->verificarColisaoTela(static_cast<Personagem*>(pInimigo));
+
+		// colisoes do inimigo com projetil
+		Lista<Projetil>::Elemento<Projetil>* elProj = listaProj->getPrimeiro();
+		while (elProj != NULL) {
+			Projetil* pProjetil = elProj->getInfo();
+			elProj = elProj->getProximo();
+			verificarColisao(pInimigo, pProjetil);
+		}
 	}
 }
 
@@ -172,24 +180,49 @@ void GerenciadorColisoes::verificarColisaoTela(Personagem* personagem)
 // _______________________________________________________________________________
 void GerenciadorColisoes::verificarColisao(Jogador* jogador, Projetil* projetil)
 {
+	/* Verifica colisão do projetil com o jogador */
 	sf::Vector2f posicaoProjetil = projetil->getHitbox().getPosition();
-	// colisao do projetil com personagem
-	if (projetil->getHitbox().getBounds().intersects(jogador->getHitbox().getBounds()))
+	bool remover = false;
+
+	// colisao do projetil com jogador
+	if (projetil->getHitbox().getBounds().intersects(jogador->getHitbox().getBounds()) &&
+		projetil->getAtirador() == "INIMIGO")
 	{
-		this->listaEnt->removerEntidade(projetil->getId());
-		this->listaProj->excluirProjetil(projetil->getId());
+		remover = true;
 		jogador->receberDano(projetil->getDano());
 	}
 
 	// colisao do projeitl com a tela
 	else if (posicaoProjetil.y < 0 || posicaoProjetil.y > TAM_JANELA_Y) {
-		this->listaEnt->removerEntidade(projetil->getId());
-		this->listaProj->excluirProjetil(projetil->getId());
+		remover = true;
 	}
 
 	else if (posicaoProjetil.x < 0 || posicaoProjetil.x > TAM_JANELA_X) {
+		remover = true;
+	}
+
+	// colisao do projetil com o cenario
+	int bloco = this->mapa->blocoAtual(projetil->getHitbox().getDireita()) - 1;
+	if (bloco >= 0 && this->mapa->getBloco(bloco)->getColidir()){
+		remover = true;
+	}
+
+	if (remover){
 		this->listaEnt->removerEntidade(projetil->getId());
 		this->listaProj->excluirProjetil(projetil->getId());
 	}
 	
+}
+
+void GerenciadorColisoes::verificarColisao(Inimigo* inimigo, Projetil* projetil)
+{
+	/*Verifica Colisao do Projetil com inimigo*/
+	sf::Vector2f posicaoProjetil = projetil->getHitbox().getPosition();
+	if (projetil->getHitbox().getBounds().intersects(inimigo->getHitbox().getBounds()) &&
+		projetil->getAtirador() == "JOGADOR")
+	{
+		this->listaEnt->removerEntidade(projetil->getId());
+		this->listaProj->excluirProjetil(projetil->getId());
+		inimigo->receberDano(projetil->getDano());
+	}
 }

@@ -195,6 +195,9 @@
     <ClCompile Include="BolaFogo.cpp">
       <Filter>Graficos</Filter>
     </ClCompile>
+    <ClCompile Include="Shuriken.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Jogo.h">
@@ -352,9 +355,6 @@
     </ClInclude>
     <ClInclude Include="ListaEntidades.h">
       <Filter>listas</Filter>
-    </ClInclude>
-    <ClInclude Include="BolaFogo.h">
-      <Filter>Graficos</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -22,6 +22,11 @@ void Gui::iniciarTexto(float pos_x, float pos_y, std::string texto)
 	this->texto.setCharacterSize(38);
 }
 
+void Gui::setTexto(std::string texto)
+{
+	this->texto.setString(texto);
+}
+
 sf::Text* Gui::getTexto() {
 	return &this->texto;
 }

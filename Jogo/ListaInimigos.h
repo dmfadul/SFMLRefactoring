@@ -11,6 +11,8 @@ public:
 	~ListaInimigos();
 
 	void incluirInimigo(Inimigo* i);
+	void removerInimigo(int id);
+	const bool listaVazia();
 	Lista<Inimigo>::Elemento<Inimigo>* getPrimeiro();
 };
 

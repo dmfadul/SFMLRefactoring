@@ -8,8 +8,10 @@ private:
 
 public:
     Cowboy();
+    Cowboy(ListaProjeteis* lp, ListaEntidades* le);
     ~Cowboy();
 
+    void iniciarCowboy();
     void mover();
     void desenhar(sf::RenderTarget& janela);
     void atualizar();

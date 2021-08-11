@@ -3,6 +3,24 @@
 
 // _______________________________________________________________________________
 Cowboy::Cowboy()
+	:Jogador()
+{
+	this->iniciarCowboy();
+}
+
+// _______________________________________________________________________________
+Cowboy::Cowboy(ListaProjeteis* lp, ListaEntidades* le)
+	:Jogador(lp, le)
+{
+	this->iniciarCowboy();
+}
+
+// _______________________________________________________________________________
+Cowboy::~Cowboy()
+{
+}
+
+void Cowboy::iniciarCowboy()
 {
 	this->iniciarSprite("./Recursos/Imagens/Personagens/cowboy.png", 2.f, 2.f);
 	this->iniciarPersInfo(VIDA_INICIAL_JOGADOR, DANO_ATAQUE);
@@ -11,11 +29,6 @@ Cowboy::Cowboy()
 	this->barraVida.setTamTexto(22);
 	this->barraVida.identificarBarraVida("Cowboy", 10.f, 10.f);
 	this->barraVida.setValorMaximo(VIDA_INICIAL_JOGADOR);
-}
-
-// _______________________________________________________________________________
-Cowboy::~Cowboy()
-{
 }
 
 void Cowboy::mover()
@@ -29,6 +42,11 @@ void Cowboy::mover()
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && this->compMov.getCaindo() == false)
 		this->compMov.setVelY(-13.f);
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::F) && this->cooldown_disparo.getElapsedTime().asMilliseconds() > 350) {
+		this->atirar();
+		this->cooldown_disparo.restart();
+	}
 }
 
 // _______________________________________________________________________________

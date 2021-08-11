@@ -84,3 +84,8 @@ int Projetil::getDano()
 {
 	return this->dano;
 }
+
+const std::string Projetil::getAtirador() const
+{
+	return this->atirador;
+}
