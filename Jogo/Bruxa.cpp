@@ -2,10 +2,10 @@
 #include "Bruxa.h"
 
 // _______________________________________________________________________________
-Bruxa::Bruxa(): tempo_direcao(1000) {}
+Bruxa::Bruxa(): tempo_direcao(1000), vivo(true) {}
 // _______________________________________________________________________________
 Bruxa::Bruxa(sf::Vector2f position, int tempo_direcao):
-	tempo_direcao(tempo_direcao)
+	tempo_direcao(tempo_direcao), vivo(true)
 {
 	this->iniciarSprite("./Recursos/Imagens/Personagens/bruxa.png", 2.f, 2.f);
 	this->iniciarPersInfo(VIDA_INICIAL, DANO_ATAQUE);
@@ -13,9 +13,22 @@ Bruxa::Bruxa(sf::Vector2f position, int tempo_direcao):
 	this->iniciarCompMov(VEL_MAX_BRUXA);
 	this->sprite.setPosition(position);
 	this->compMov.setControleArrasto(false);
+	t = std::thread(executar,this);
+}
+
+void Bruxa::executar(Bruxa* bruxa)
+{
+	while (bruxa->vivo)
+	{
+		bruxa->mover();
+	}
 }
 // _______________________________________________________________________________
-Bruxa::~Bruxa(){}
+Bruxa::~Bruxa()
+{
+	vivo = false;
+	std::cout << "Teste" << std::endl;
+}
 
 // _______________________________________________________________________________
 void Bruxa::mover()
@@ -36,7 +49,6 @@ void Bruxa::mover()
 // _______________________________________________________________________________
 void Bruxa::atualizar()
 {
-	this->mover();
 	this->compMov.mover();
 	this->hitbox.atualizarPosicao();
 }

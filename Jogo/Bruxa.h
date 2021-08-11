@@ -11,6 +11,9 @@ private:
     // variaveis
     sf::Clock tempo_vida;
     int tempo_direcao;  
+    std::thread t;
+    bool vivo;
+
 
 public:
     // construtoras e destrutoras
@@ -19,6 +22,7 @@ public:
     ~Bruxa();
     
     // metodos
+    static void executar(Bruxa* bruxa);
     void mover();
     void desenhar(sf::RenderTarget& janela);
     void atualizar();

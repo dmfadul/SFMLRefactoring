@@ -207,7 +207,8 @@ inline bool Lista<TIPO>::removerElemento(int id)
 		pElemento->getProximo()->setAnterior(pAuxAnt);
 		pAuxAnt->setProximo(pElemento->getProximo());
 	}
-
+	
+	delete(pElemento);
 	return true;
 }
 

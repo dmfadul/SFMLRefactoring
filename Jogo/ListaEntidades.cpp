@@ -36,3 +36,4 @@ Lista<Entidade>::Elemento<Entidade>* ListaEntidades::getPrimeiro()
 {
     return this->listaEntidades.getPrimeiro();
 }
+

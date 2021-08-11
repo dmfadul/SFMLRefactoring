@@ -12,6 +12,12 @@ Fase::Fase(JogoInfo* pji, int n_jogadores):
 // _______________________________________________________________________________
 Fase::~Fase()
 {
+	Lista<Inimigo>::Elemento<Inimigo>* elIni = listaIni.getPrimeiro();
+	while (elIni != NULL) {
+		listaEntidades.removerEntidade(elIni->getId());
+		elIni = elIni->getProximo();
+		
+	}
 }
 
 // _______________________________________________________________________________
