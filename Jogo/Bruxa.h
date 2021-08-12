@@ -1,12 +1,12 @@
 #pragma once
 #include "Inimigo.h"
 #include "GeradorProjeteis.h"
-#include <thread>
+#include "Thread.h"
 #define VEL_MAX_BRUXA 1.5
 #define VIDA_INICIAL 100
 #define DANO_ATAQUE 20
 class Bruxa :
-    public Inimigo
+    public Inimigo, Thread
 {
 private:
     // variaveis
@@ -15,7 +15,6 @@ private:
     sf::Clock cooldown_projetil;
     int tempo_direcao;
     int tempo_cooldown;
-    std::thread t;
     bool vivo;
 
 public:
@@ -30,6 +29,7 @@ public:
     void desenhar(sf::RenderTarget& janela);
     void atualizar();
     void atirar();
+    void run();
 
     int getTipo();
 };

@@ -2,10 +2,10 @@
 #include "Bruxa.h"
 
 // _______________________________________________________________________________
-Bruxa::Bruxa(): tempo_direcao(1000), gerProj(NULL), tempo_cooldown(500) {}
+Bruxa::Bruxa(): tempo_direcao(1000), gerProj(NULL), tempo_cooldown(500),vivo(true) {}
 // _______________________________________________________________________________
 Bruxa::Bruxa(sf::Vector2f position, GeradorProjeteis* gp, int tempo_direcao):
-	tempo_direcao(tempo_direcao),gerProj(gp)
+	tempo_direcao(tempo_direcao),gerProj(gp),vivo(true)
 {
 	this->tempo_cooldown = rand() % 1000 + 500;
 	this->recompensa = 20;
@@ -15,25 +15,26 @@ Bruxa::Bruxa(sf::Vector2f position, GeradorProjeteis* gp, int tempo_direcao):
 	this->iniciarCompMov(VEL_MAX_BRUXA);
 	this->sprite.setPosition(position);
 	this->compMov.setControleArrasto(false);
-	t = std::thread(executar,this);
+	//t = std::thread(executar,this);
+	start();
 	this->barraVida.setValorMaximo(VIDA_INICIAL);
 	this->nome = "BRUXA";
-	vivo = true;
 }
 
-void Bruxa::executar(Bruxa* bruxa)
+void Bruxa::run()
 {
-	while (bruxa->vivo)
+	while (vivo)
 	{
 		Sleep(40);
-		bruxa->mover();
+		mover();
 	}
 }
 // _______________________________________________________________________________
 Bruxa::~Bruxa()
 {
 	vivo = false;
-	t.join();
+	join();
+	//t.join();
 }
 
 // _______________________________________________________________________________

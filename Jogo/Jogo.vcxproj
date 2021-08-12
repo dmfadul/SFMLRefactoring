@@ -78,6 +78,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\Users\gusta\source\repos\DiogoDSG\Jogo\pThread\Pre-built.2\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\gusta\source\repos\DiogoDSG\Jogo\pThread\Pre-built.2\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -131,7 +133,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)\SFML\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-network-d.lib;sfml-audio-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>C:\Users\gusta\source\repos\DiogoDSG\Jogo\pThread\Pre-built.2\lib\x64\pthreadVC2.lib;sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-network-d.lib;sfml-audio-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -212,6 +214,7 @@
     </ClCompile>
     <ClCompile Include="Tela.cpp" />
     <ClCompile Include="TelaAdicionarPontuacao.cpp" />
+    <ClCompile Include="Thread.cpp" />
     <ClCompile Include="TocaDisco.cpp" />
     <ClCompile Include="VelhoOeste.cpp" />
   </ItemGroup>
@@ -269,10 +272,10 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Tela.h" />
     <ClInclude Include="TelaAdicionarPontuacao.h" />
+    <ClInclude Include="Thread.h" />
     <ClInclude Include="TocaDisco.h" />
     <ClInclude Include="VelhoOeste.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-  <ImportGroup Label="ExtensionTargets">
-  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets" />
 </Project>
