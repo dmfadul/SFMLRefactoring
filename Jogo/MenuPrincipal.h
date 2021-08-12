@@ -13,6 +13,7 @@ private:
     // enumera botoes
     enum BotoesMenu {
         novo_jogo = 0,
+        carregar_jogo,
         escolha_de_fases,
         lista_de_pontuacoes,
         sair
@@ -28,6 +29,7 @@ public:
 
     // Métodos de Atualização
     void atualizar();
+    void carregarJogo();
     void GerenciarCliqueBotao();
 };
 

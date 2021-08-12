@@ -44,5 +44,6 @@ public:
 
 	// metodos
 	virtual void receberDano(int dano);
+	void setHp(int hp);
 };
 

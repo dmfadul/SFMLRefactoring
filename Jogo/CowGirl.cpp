@@ -6,6 +6,7 @@ CowGirl::CowGirl()
 	:Jogador()
 {
 	this->iniciarCowgirl();
+	this->nome = "COWGIRL";
 }
 
 // _______________________________________________________________________________
@@ -13,6 +14,7 @@ CowGirl::CowGirl(ListaProjeteis* lp, ListaEntidades* le)
 	:Jogador(lp, le)
 {
 	this->iniciarCowgirl();
+	this->nome = "COWGIRL";
 }
 
 // _______________________________________________________________________________
@@ -65,5 +67,4 @@ void CowGirl::desenhar(sf::RenderTarget& janela)
 {
 	janela.draw(sprite);
 	this->barraVida.desenharBarraVida(janela);
-	this->hitbox.desenhar(janela);
 }

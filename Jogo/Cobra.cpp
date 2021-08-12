@@ -19,6 +19,8 @@ Cobra::Cobra(ListaJogadores* jogadores, sf::Vector2f position)
 	this->iniciarHitbox(28.f, 26.f, 10, 37);
 	this->iniciarCompMov(VEL_MAX_COBRA);
 	this->cooldown_pulo = rand() % MAX_COOLDOWN_PULO;
+	this->barraVida.setValorMaximo(VIDA_INICIAL_COBRA);
+	this->nome = "COBRA";
 }
 
 // _______________________________________________________________________________
@@ -55,13 +57,14 @@ void Cobra::atualizar()
 	this->mover();
 	this->compMov.mover();
 	this->hitbox.atualizarPosicao();
+	this->barraVida.setPosicao(this->sprite.getPosition().x + 10.f, this->sprite.getPosition().y + 10.f);
 }
 
 // _______________________________________________________________________________
 void Cobra::desenhar(sf::RenderTarget& janela)
 {
 	janela.draw(sprite);
-	hitbox.desenhar(janela);
+	barraVida.desenharBarraVida(janela);
 }
 
 int Cobra::getTipo()

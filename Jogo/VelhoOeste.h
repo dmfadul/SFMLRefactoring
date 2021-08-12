@@ -1,7 +1,7 @@
 #pragma once
 #include "NinhoDoDragao.h"
 #include "Jogador.h"
-#include "TelaMorte.h"
+#include "TelaAdicionarPontuacao.h"
 #include "Bruxa.h"
 #include "Cobra.h"
 
@@ -15,7 +15,7 @@ private:
 
 public:
     // Construtoras e Destrutoras
-    VelhoOeste(JogoInfo* pji = NULL, int n_jogadores = 1);
+    VelhoOeste(JogoInfo* pji = NULL, int n_jogadores = 1, bool carregar_jogo = false);
     ~VelhoOeste();
 
     // Criar inimigos

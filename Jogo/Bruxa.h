@@ -16,6 +16,7 @@ private:
     int tempo_direcao;
     int tempo_cooldown;
     std::thread t;
+    bool vivo;
 
 public:
     // construtoras e destrutoras

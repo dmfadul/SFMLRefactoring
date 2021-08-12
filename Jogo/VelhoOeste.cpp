@@ -2,10 +2,14 @@
 #include "VelhoOeste.h"
 
 // _______________________________________________________________________________
-VelhoOeste::VelhoOeste(JogoInfo* pji, int n_jogadores)
+VelhoOeste::VelhoOeste(JogoInfo* pji, int n_jogadores, bool carregar_jogo)
 	: Fase(pji, n_jogadores)
 {
-	this->iniciarPersonagens();
+	if (carregar_jogo)
+		this->carregarJogo();
+	else
+		this->iniciarPersonagens();
+
 	this->iniciarBackground("./Recursos/Imagens/backgrounds/velho_oeste.png");
 	this->iniciarMapa("./Recursos/mapas/velho_oeste.txt", 1, 17);
 	this->iniciarGerenciadorColisoes();
@@ -13,6 +17,7 @@ VelhoOeste::VelhoOeste(JogoInfo* pji, int n_jogadores)
 	this->jogoInfo->getTocaDisco()->tocarFallenDown();
 	this->qtdMaxCobras = rand() % 4 + 3;
 	this->qtdCobras = 0;
+	this->nome = "VELHO_OESTE";
 }
 
 // _______________________________________________________________________________

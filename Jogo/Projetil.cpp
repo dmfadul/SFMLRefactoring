@@ -23,7 +23,6 @@ void Projetil::setPosicao(float x, float y)
 void Projetil::desenhar(sf::RenderTarget& janela)
 {
 	janela.draw(this->sprite);
-	this->hitbox.desenhar(janela);
 }
 
 void Projetil::iniciarSprite(std::string imgCaminho, float scale_x, float scale_y)
@@ -83,6 +82,16 @@ HitBox Projetil::getHitbox() const
 int Projetil::getDano()
 {
 	return this->dano;
+}
+
+sf::Vector2f Projetil::getPosicao()
+{
+	return this->sprite.getPosition();
+}
+
+const bool Projetil::getDirecao() const
+{
+	return this->direcao;
 }
 
 const std::string Projetil::getAtirador() const

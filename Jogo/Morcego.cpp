@@ -8,6 +8,7 @@ Morcego::Morcego(sf::Vector2f posicao, bool direcao)
 {
 	this->dano = 30;
 	this->atirador = "INIMIGO";
+	this->nome = "MORCEGO";
 }
 
 Morcego::~Morcego(){}

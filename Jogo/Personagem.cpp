@@ -78,3 +78,9 @@ void Personagem::receberDano(int dano)
 	}
 }
 
+void Personagem::setHp(int hp)
+{
+	this->getPersInfo()->setHP(hp);
+	this->barraVida = hp;
+}
+

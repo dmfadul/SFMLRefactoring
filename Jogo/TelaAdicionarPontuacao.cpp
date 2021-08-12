@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "TelaMorte.h"
+#include "TelaAdicionarPontuacao.h"
 
 // _______________________________________________________________________________
 TelaAdicionarPontuacao::TelaAdicionarPontuacao(JogoInfo* pji, int s)

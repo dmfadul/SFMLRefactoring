@@ -9,7 +9,8 @@
 #include "ListaEntidades.h"
 #include "GeradorProjeteis.h"
 #include "CaixaPause.h"
-#include "TelaMorte.h"
+#include "TelaAdicionarPontuacao.h"
+#include "GerenciadorJogoSalvo.h"
 
 /* Classe abstrata de Fase */
 class Fase :
@@ -26,6 +27,7 @@ protected:
     ListaInimigos listaIni;
     ListaProjeteis listaProj;
     ListaEntidades listaEntidades;
+    GerenciadorJogoSalvo gerJogoSalvo;
     GeradorProjeteis gerProj;
 
 public:
@@ -44,6 +46,8 @@ public:
     // metodos
     void atualizarEntidades();
     void atualizarScore(int incremento);
+    void salvarJogo();
+    void carregarJogo();
     void desenharEntidades(sf::RenderTarget& janela);
     void realizarAcaoMenuPause();
 };

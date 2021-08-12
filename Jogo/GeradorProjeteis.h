@@ -20,7 +20,5 @@ public:
 	void ExcluirProjetil();
 
 	void iniciaGeradorProjeteis(ListaInimigos* li, ListaProjeteis* lp, ListaEntidades* le);
-
-
 };
 

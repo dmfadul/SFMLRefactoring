@@ -89,6 +89,24 @@ void BarraVida::incrementaValor(int v)
 	this->texto.setString(texto_barra);
 }
 
+void BarraVida::setValor(int v)
+{
+	// define o valor e o tamanho da barra
+	this->valor = v;
+	std::string texto_barra;
+	if (valor >= 0) {
+		int tam_barra = (int)(this->valor / (this->valorMaximo * 1.f) * (int)(this->contornoBarraVida.getGlobalBounds().width));
+		this->barra.setSize(sf::Vector2f((float)(tam_barra), this->contornoBarraVida.getGlobalBounds().height));
+		texto_barra = std::to_string(valor) + " / " + std::to_string(valorMaximo);
+	}
+	else
+	{
+		this->barra.setSize(sf::Vector2f(0, 0));
+		texto_barra = "0 / " + std::to_string(valorMaximo);
+	}
+	this->texto.setString(texto_barra);
+}
+
 void BarraVida::setValorMaximo(int vm)
 {
 	this->valorMaximo = vm;
@@ -112,4 +130,9 @@ void BarraVida::operator-=(const int v)
 void BarraVida::operator+=(const int v)
 {
 	this->incrementaValor(v);
+}
+
+void BarraVida::operator=(const int v)
+{
+	this->setValor(v);
 }

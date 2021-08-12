@@ -26,12 +26,14 @@ public:
 	void setCor(sf::Color c);
 	void setTamTexto(int tam);
 	void incrementaValor(int v);
+	void setValor(int v);
 	void setValorMaximo(int vm);
 
 	void desenharBarraVida(sf::RenderTarget& janela);
 	
 	void operator-=(const int v);
 	void operator+=(const int v);
+	void operator=(const int v);
 
 };
 

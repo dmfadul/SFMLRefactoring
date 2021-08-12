@@ -3,16 +3,23 @@
 #include "VelhoOeste.h"
 
 // _______________________________________________________________________________
-NinhoDoDragao::NinhoDoDragao(JogoInfo* pji, int n_jogadores)
+NinhoDoDragao::NinhoDoDragao(JogoInfo* pji, int n_jogadores, bool carregar_jogo)
 	: Fase(pji, n_jogadores)
 {
-	this->iniciarPersonagens();
+	if (carregar_jogo)
+		this->carregarJogo();
+	else
+		this->iniciarPersonagens();
+
 	this->iniciarBackground("./Recursos/Imagens/backgrounds/ninho_do_dragao.png");
 	this->iniciarMapa("./Recursos/mapas/ninho_dragao.txt", 101, 17, 2);
 	this->iniciarGerenciadorColisoes();
 	this->iniciarGeradorProjeteis();
 	this->jogoInfo->getTocaDisco()->tocarSpearOfJustice();
 	this->atualizarScore(PersonagemInfo::getScore());
+	this->qtdMaxBruxas = rand() % 4 + 2;
+	this->qtdBruxas = 0;
+	this->nome = "NINHO_DO_DRAGAO";
 }
 
 // _______________________________________________________________________________
@@ -45,6 +52,11 @@ void NinhoDoDragao::atualizar()
 			this->gerProj.ExcluirProjetil();
 			this->gerColisoes.verificarColisoes();
 		}
+
+		// invoca nova bruxa
+		if (this->timerInvocarBruxa.getElapsedTime().asMilliseconds() > 2000 && this->qtdBruxas < this->qtdMaxBruxas) {
+			this->invocarBruxa();
+		}
 	}
 }
 
@@ -68,6 +80,16 @@ void NinhoDoDragao::atualizarEventos(sf::Event& evento_sfml)
 	}
 }
 
+void NinhoDoDragao::invocarBruxa()
+{
+	Bruxa* bruxa = new Bruxa(sf::Vector2f(rand() % TAM_JANELA_X, 0.f), &this->gerProj, rand() % 1500 + 1000);
+	this->listaIni.incluirInimigo(static_cast<Inimigo*>(bruxa));
+	this->listaEntidades.incluirEntidade(static_cast<Entidade*>(bruxa));
+
+	this->qtdBruxas++;
+	this->timerInvocarBruxa.restart();
+}
+
 // _______________________________________________________________________________
 void NinhoDoDragao::desenhar(sf::RenderTarget& janela)
 {
@@ -88,7 +110,7 @@ void NinhoDoDragao::desenhar(sf::RenderTarget& janela)
 
 void NinhoDoDragao::iniciarInimigos()
 {
-	this->listaIni.incluirInimigo(new Dragao(sf::Vector2f(1000.f, 500.f), &this->gerProj));
+	this->listaIni.incluirInimigo(new Dragao(sf::Vector2f(1000.f, 450.f), &this->gerProj));
 
 	Lista<Inimigo>::Elemento<Inimigo>* elInimigo = this->listaIni.getPrimeiro();
 	while (elInimigo != NULL) {
@@ -96,4 +118,5 @@ void NinhoDoDragao::iniciarInimigos()
 		this->listaEntidades.incluirEntidade(static_cast<Entidade*>(pInimigo));
 		elInimigo = elInimigo->getProximo();
 	}
+
 }

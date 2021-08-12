@@ -2,7 +2,11 @@
 #include "Inimigo.h"
 
 // _______________________________________________________________________________
-Inimigo::Inimigo():direction(true), recompensa(0) {}
+Inimigo::Inimigo():direction(true), recompensa(0) {
+	this->barraVida.setCor(sf::Color::Red);
+	this->barraVida.setTam(40.f, 8.f);
+	this->barraVida.setTamTexto(0);
+}
 
 // _______________________________________________________________________________
 Inimigo::~Inimigo(){}

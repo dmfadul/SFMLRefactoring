@@ -6,6 +6,7 @@ protected:
 	static int qtdEntidades;
 	sf::Texture textura;
 	sf::Sprite sprite;
+	std::string nome;
 	int id;
 
 public:
@@ -16,4 +17,5 @@ public:
 	virtual void atualizar() = 0;
 	virtual void desenhar(sf::RenderTarget& janela) = 0;	
 	const int getId() const;
+	const std::string getNome() const;
 };

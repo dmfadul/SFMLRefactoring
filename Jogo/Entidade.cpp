@@ -7,6 +7,7 @@ int Entidade::qtdEntidades = 0;
 Entidade::Entidade()
 {
 	this->id = qtdEntidades++;
+	this->nome = "";
 }
 
 // _______________________________________________________________________________
@@ -25,5 +26,10 @@ void Entidade::desenhar(sf::RenderTarget& janela)
 const int Entidade::getId() const
 {
 	return this->id;
+}
+
+const std::string Entidade::getNome() const
+{
+	return this->nome;
 }
 

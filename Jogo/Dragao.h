@@ -2,7 +2,7 @@
 #include "Inimigo.h"
 #include "BolaFogo.h"
 #include "GeradorProjeteis.h"
-#define VIDA_INICIAL 100
+#define VIDA_INICIAL_DRAGAO 400
 #define DANO_ATAQUE 20
 class Dragao :
     public Inimigo

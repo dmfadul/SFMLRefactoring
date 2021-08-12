@@ -16,18 +16,23 @@ Bruxa::Bruxa(sf::Vector2f position, GeradorProjeteis* gp, int tempo_direcao):
 	this->sprite.setPosition(position);
 	this->compMov.setControleArrasto(false);
 	t = std::thread(executar,this);
+	this->barraVida.setValorMaximo(VIDA_INICIAL);
+	this->nome = "BRUXA";
+	vivo = true;
 }
 
 void Bruxa::executar(Bruxa* bruxa)
 {
-	while (bruxa->getPersInfo()->getHp() > 0)
+	while (bruxa->vivo)
 	{
+		Sleep(40);
 		bruxa->mover();
 	}
 }
 // _______________________________________________________________________________
 Bruxa::~Bruxa()
 {
+	vivo = false;
 	t.join();
 }
 
@@ -51,6 +56,7 @@ void Bruxa::atualizar()
 {
 	this->compMov.mover();
 	this->hitbox.atualizarPosicao();
+	this->barraVida.setPosicao(this->sprite.getPosition().x + 10.f, this->sprite.getPosition().y);
 	if(this->cooldown_projetil.getElapsedTime().asMilliseconds() > 1500) {
 		this->atirar();
 		this->cooldown_projetil.restart();
@@ -67,7 +73,7 @@ void Bruxa::atirar()
 void Bruxa::desenhar(sf::RenderTarget& janela)
 {
 	janela.draw(sprite);
-	hitbox.desenhar(janela);
+	barraVida.desenharBarraVida(janela);
 }
 
 int Bruxa::getTipo()

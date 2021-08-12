@@ -105,7 +105,7 @@
     <ClCompile Include="CowGirl.cpp">
       <Filter>Personagens</Filter>
     </ClCompile>
-    <ClCompile Include="TelaMorte.cpp">
+    <ClCompile Include="TelaAdicionarPontuacao.cpp">
       <Filter>Telas</Filter>
     </ClCompile>
     <ClCompile Include="HitBox.cpp">
@@ -195,8 +195,11 @@
     <ClCompile Include="BolaFogo.cpp">
       <Filter>Graficos</Filter>
     </ClCompile>
+    <ClCompile Include="GerenciadorJogoSalvo.cpp">
+      <Filter>containers e gerenciadores</Filter>
+    </ClCompile>
     <ClCompile Include="Shuriken.cpp">
-      <Filter>Arquivos de Origem</Filter>
+      <Filter>Graficos</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -260,7 +263,7 @@
     <ClInclude Include="configuracoes.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
-    <ClInclude Include="TelaMorte.h">
+    <ClInclude Include="TelaAdicionarPontuacao.h">
       <Filter>Telas</Filter>
     </ClInclude>
     <ClInclude Include="HitBox.h">
@@ -355,6 +358,15 @@
     </ClInclude>
     <ClInclude Include="ListaEntidades.h">
       <Filter>listas</Filter>
+    </ClInclude>
+    <ClInclude Include="GerenciadorJogoSalvo.h">
+      <Filter>containers e gerenciadores</Filter>
+    </ClInclude>
+    <ClInclude Include="BolaFogo.h">
+      <Filter>Graficos</Filter>
+    </ClInclude>
+    <ClInclude Include="Shuriken.h">
+      <Filter>Graficos</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

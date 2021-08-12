@@ -6,6 +6,7 @@ Cowboy::Cowboy()
 	:Jogador()
 {
 	this->iniciarCowboy();
+	this->nome = "COWBOY";
 }
 
 // _______________________________________________________________________________
@@ -13,6 +14,7 @@ Cowboy::Cowboy(ListaProjeteis* lp, ListaEntidades* le)
 	:Jogador(lp, le)
 {
 	this->iniciarCowboy();
+	this->nome = "COWBOY";
 }
 
 // _______________________________________________________________________________
@@ -61,7 +63,6 @@ void Cowboy::atualizar()
 void Cowboy::desenhar(sf::RenderTarget& janela)
 {
 	janela.draw(sprite);
-	hitbox.desenhar(janela);
 	barraVida.desenharBarraVida(janela);
 }
 

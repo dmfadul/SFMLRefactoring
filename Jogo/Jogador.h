@@ -22,4 +22,6 @@ public:
     ~Jogador();
 
     void atirar();
+    void iniciarJogador(ListaProjeteis* lp, ListaEntidades* le);
+
 };

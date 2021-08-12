@@ -119,6 +119,21 @@ void Fase::atualizarScore(int incremento)
 	this->textoScore.setTexto(textoPontuacao);
 }
 
+void Fase::salvarJogo()
+{
+	this->gerJogoSalvo.salvarEstadoDaFase(this->nome, this->nJogadores);
+	this->gerJogoSalvo.salvarJogadores(&this->listaJog, PersonagemInfo::getScore());
+	this->gerJogoSalvo.salvarInimigos(&this->listaIni);
+	this->gerJogoSalvo.salvarProjeteis(&this->listaProj);
+}
+
+void Fase::carregarJogo()
+{
+	this->gerJogoSalvo.carregarJogadores(&this->listaJog, &this->listaEntidades, &this->listaProj);
+	this->gerJogoSalvo.carregarInimigos(&this->listaIni, &this->listaEntidades, &this->gerProj, &this->listaJog);
+	this->gerJogoSalvo.carregarProjeteis(&this->listaProj, &this->listaEntidades);
+}
+
 void Fase::desenharEntidades(sf::RenderTarget& janela)
 {
 	// desenha entidades 
@@ -139,7 +154,7 @@ void Fase::realizarAcaoMenuPause()
 	}
 
 	else if (botao_ativo == salvar_partida) {
-		/* IMPLEMENTAR */
+		this->salvarJogo();
 	}
 
 	else if (botao_ativo == voltar) {
