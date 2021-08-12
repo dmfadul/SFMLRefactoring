@@ -50,7 +50,7 @@ void MenuPrincipal::atualizar()
 void MenuPrincipal::carregarJogo()
 {
 	std::string fase;
-	int n_jogadores;
+	int n_jogadores, score;
 
 	// le arquivo
 	std::fstream arquivo_jogo_salvo;
