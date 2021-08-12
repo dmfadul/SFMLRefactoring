@@ -15,8 +15,8 @@ NinhoDoDragao::NinhoDoDragao(JogoInfo* pji, int n_jogadores, bool carregar_jogo)
 	this->iniciarMapa("./Recursos/mapas/ninho_dragao.txt", 101, 17, 2);
 	this->iniciarGerenciadorColisoes();
 	this->iniciarGeradorProjeteis();
+	this->atualizarScore(0);
 	this->jogoInfo->getTocaDisco()->tocarSpearOfJustice();
-	this->atualizarScore(PersonagemInfo::getScore());
 	this->qtdMaxBruxas = rand() % 4 + 2;
 	this->qtdBruxas = 0;
 	this->nome = "NINHO_DO_DRAGAO";

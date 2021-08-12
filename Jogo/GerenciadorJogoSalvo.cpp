@@ -12,7 +12,7 @@ GerenciadorJogoSalvo::~GerenciadorJogoSalvo()
 void GerenciadorJogoSalvo::salvarEstadoDaFase(std::string nome_fase, int qtd_jogadores){
 	std::ofstream arquivo_jogo_salvo;
 	arquivo_jogo_salvo.open("./Recursos/dados/fase_salva.txt", std::ios::out | std::ios::trunc);
-	arquivo_jogo_salvo << nome_fase << " " << qtd_jogadores;
+	arquivo_jogo_salvo << nome_fase << " " << qtd_jogadores << "\n";
 	arquivo_jogo_salvo.close();
 }
 
@@ -21,7 +21,7 @@ void GerenciadorJogoSalvo::salvarJogadores(ListaJogadores* lp, int score)
 	std::ofstream arquivo_jogo_salvo;
 	arquivo_jogo_salvo.open("./Recursos/dados/jogadores_salvos.txt", std::ios::out | std::ios::trunc);
 
-	// NOME - POSICAOX - POSICAOY - VIDA - SCORE
+	// NOME - POSICAOX - POSICAOY - VIDA
 
 	Lista<Jogador>::Elemento<Jogador>* elJogador = lp->getPrimeiro();
 	while (elJogador != NULL) {
@@ -79,6 +79,7 @@ void GerenciadorJogoSalvo::carregarJogadores(ListaJogadores* lj, ListaEntidades*
 	sf::Vector2f posicao;
 	int score, vida;
 	Jogador* jogador = NULL;
+	PersonagemInfo::setScore(0);
 
 	// le arquivo
 	std::fstream arquivo_jogo_salvo;
@@ -104,9 +105,11 @@ void GerenciadorJogoSalvo::carregarJogadores(ListaJogadores* lj, ListaEntidades*
 		else if (nome == "COWGIRL")
 			jogador = static_cast<Jogador*>(new CowGirl(lp, le));
 
+		if(PersonagemInfo::getScore() == 0)
+			PersonagemInfo::setScore(score);
+		
 		jogador->setPosicao(posicao.x, posicao.y);
 		jogador->setHp(vida);
-		PersonagemInfo::setScore(score);
 		le->incluirEntidade(static_cast<Entidade* >(jogador));
 		lj->incluirJogador(jogador);
 	}

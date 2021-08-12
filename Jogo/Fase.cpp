@@ -112,7 +112,8 @@ void Fase::atualizarScore(int incremento)
 {
 	// incrementa score do jogador
 	int pontuacao = PersonagemInfo::getScore();
-	PersonagemInfo::setScore(pontuacao + incremento);
+	if(incremento != 0)
+		PersonagemInfo::setScore(pontuacao + incremento);
 
 	// atualiza o texto de score
 	std::string textoPontuacao = "SCORE: " + std::to_string(pontuacao + incremento);
@@ -132,6 +133,7 @@ void Fase::carregarJogo()
 	this->gerJogoSalvo.carregarJogadores(&this->listaJog, &this->listaEntidades, &this->listaProj);
 	this->gerJogoSalvo.carregarInimigos(&this->listaIni, &this->listaEntidades, &this->gerProj, &this->listaJog);
 	this->gerJogoSalvo.carregarProjeteis(&this->listaProj, &this->listaEntidades);
+	this->atualizarScore(0);
 }
 
 void Fase::desenharEntidades(sf::RenderTarget& janela)
