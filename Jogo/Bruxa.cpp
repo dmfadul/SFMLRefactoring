@@ -15,25 +15,26 @@ Bruxa::Bruxa(sf::Vector2f position, GeradorProjeteis* gp, int tempo_direcao):
 	this->iniciarCompMov(VEL_MAX_BRUXA);
 	this->sprite.setPosition(position);
 	this->compMov.setControleArrasto(false);
-	//t = std::thread(executar,this);
 	start();
+	detach();
 	this->barraVida.setValorMaximo(VIDA_INICIAL);
 	this->nome = "BRUXA";
 }
 
 void Bruxa::run()
 {
-	while (vivo)
+	int id = getId();
+	while (vivo && getId()==id)
 	{
-		Sleep(40);
-		mover();
+		atirar();
+		Sleep(4);
 	}
+	
 }
 // _______________________________________________________________________________
 Bruxa::~Bruxa()
 {
 	vivo = false;
-	join();
 	//t.join();
 }
 
@@ -55,19 +56,22 @@ void Bruxa::mover()
 // _______________________________________________________________________________
 void Bruxa::atualizar()
 {
+	this->mover();
 	this->compMov.mover();
 	this->hitbox.atualizarPosicao();
 	this->barraVida.setPosicao(this->sprite.getPosition().x + 10.f, this->sprite.getPosition().y);
-	if(this->cooldown_projetil.getElapsedTime().asMilliseconds() > 1500) {
-		this->atirar();
-		this->cooldown_projetil.restart();
-		this->tempo_cooldown = rand() % 1000 + 500;
-	}
+	
 }
 
 void Bruxa::atirar()
 {
-	this->gerProj->CriarProjetil(new Morcego(this->getHitbox().getCima(), this->direction));
+	if (this->getPersInfo()->getHp() > 0) {
+		if (this->cooldown_projetil.getElapsedTime().asMilliseconds() > 1500) {
+			this->cooldown_projetil.restart();
+			//this->tempo_cooldown = rand() % 1000 + 500;
+			this->gerProj->CriarProjetil(new Morcego(this->getHitbox().getCima(), this->direction));
+		}
+	}
 }
 
 // _______________________________________________________________________________
