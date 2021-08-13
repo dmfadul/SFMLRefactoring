@@ -34,7 +34,6 @@ public:
 	const int getOffsetBaixo() const;
 	const int getOffsetEsquerda() const;
 	const int getOffsetDireita() const;
-	float getRaio();
 	sf::Vector2f getPosition();
 
 	// metodos

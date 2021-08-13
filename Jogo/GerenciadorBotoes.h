@@ -11,7 +11,7 @@ protected:
 	std::map<int, gui::Botao* > botoes;
 	BotaoPadrao builderBotaoPadrao;
 	BotaoSair builderBotaoSair;
-	TocaDisco* tocaDisco;
+	som::TocaDisco* tocaDisco;
 	int botaoAtivo;
 
 public:

@@ -30,7 +30,5 @@ public:
     void atualizar();
     void atirar();
     void run();
-
-    int getTipo();
 };
 

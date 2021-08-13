@@ -1,14 +1,17 @@
 #include "stdafx.h"
 #include "GerenciadorJogoSalvo.h"
 
+// _______________________________________________________________________________
 GerenciadorJogoSalvo::GerenciadorJogoSalvo()
 {
 }
 
+// _______________________________________________________________________________
 GerenciadorJogoSalvo::~GerenciadorJogoSalvo()
 {
 }
 
+// _______________________________________________________________________________
 void GerenciadorJogoSalvo::salvarEstadoDaFase(std::string nome_fase, int qtd_jogadores){
 	std::ofstream arquivo_jogo_salvo;
 	arquivo_jogo_salvo.open("./Recursos/dados/fase_salva.txt", std::ios::out | std::ios::trunc);
@@ -16,6 +19,7 @@ void GerenciadorJogoSalvo::salvarEstadoDaFase(std::string nome_fase, int qtd_jog
 	arquivo_jogo_salvo.close();
 }
 
+// _______________________________________________________________________________
 void GerenciadorJogoSalvo::salvarJogadores(ListaJogadores* lp, int score)
 {
 	std::ofstream arquivo_jogo_salvo;
@@ -35,6 +39,7 @@ void GerenciadorJogoSalvo::salvarJogadores(ListaJogadores* lp, int score)
 	arquivo_jogo_salvo.close();
 }
 
+// _______________________________________________________________________________
 void GerenciadorJogoSalvo::salvarInimigos(ListaInimigos* li)
 {
 	std::ofstream arquivo_jogo_salvo;
@@ -54,6 +59,7 @@ void GerenciadorJogoSalvo::salvarInimigos(ListaInimigos* li)
 	arquivo_jogo_salvo.close();
 }
 
+// _______________________________________________________________________________
 void GerenciadorJogoSalvo::salvarProjeteis(ListaProjeteis* lp)
 {
 	std::ofstream arquivo_jogo_salvo;
@@ -73,6 +79,7 @@ void GerenciadorJogoSalvo::salvarProjeteis(ListaProjeteis* lp)
 	arquivo_jogo_salvo.close();
 }
 
+// _______________________________________________________________________________
 void GerenciadorJogoSalvo::carregarJogadores(ListaJogadores* lj, ListaEntidades* le, ListaProjeteis* lp)
 {
 	std::string nome;
@@ -81,7 +88,7 @@ void GerenciadorJogoSalvo::carregarJogadores(ListaJogadores* lj, ListaEntidades*
 	Jogador* jogador = NULL;
 	PersonagemInfo::setScore(0);
 
-	// le arquivo
+	// abre arquivo
 	std::fstream arquivo_jogo_salvo;
 	try {
 		arquivo_jogo_salvo.open("./Recursos/dados/jogadores_salvos.txt", std::ios::in);
@@ -92,7 +99,6 @@ void GerenciadorJogoSalvo::carregarJogadores(ListaJogadores* lj, ListaEntidades*
 	}
 
 	// le arquivo
-
 	while (arquivo_jogo_salvo >> nome &&
 		arquivo_jogo_salvo >> posicao.x &&
 		arquivo_jogo_salvo >> posicao.y &&
@@ -116,6 +122,7 @@ void GerenciadorJogoSalvo::carregarJogadores(ListaJogadores* lj, ListaEntidades*
 	arquivo_jogo_salvo.close();
 }
 
+// _______________________________________________________________________________
 void GerenciadorJogoSalvo::carregarInimigos(ListaInimigos* li, ListaEntidades* le, GeradorProjeteis* gp, ListaJogadores* lj)
 {
 	std::string nome;
@@ -123,13 +130,13 @@ void GerenciadorJogoSalvo::carregarInimigos(ListaInimigos* li, ListaEntidades* l
 	int vida;
 	Inimigo* inimigo= NULL;
 
-	// le arquivo
+	// abre arquivo
 	std::fstream arquivo_jogo_salvo;
 	try {
 		arquivo_jogo_salvo.open("./Recursos/dados/inimigos_salvos.txt", std::ios::in);
 	}
 	catch (...) {
-		std::cerr << "MENUPRINCIPAL::CARREGARJOGO FALHA AO CARREGAR JOGO." << std::endl;
+		std::cerr << "GERENCIADORJOGOSALVO::CARREGARINIMIGOS FALHA AO CARREGAR INIMIGOS." << std::endl;
 		std::exit(EXIT_FAILURE);
 	}
 
@@ -157,6 +164,7 @@ void GerenciadorJogoSalvo::carregarInimigos(ListaInimigos* li, ListaEntidades* l
 	arquivo_jogo_salvo.close();
 }
 
+// _______________________________________________________________________________
 void GerenciadorJogoSalvo::carregarProjeteis(ListaProjeteis* lp, ListaEntidades* le)
 {
 	std::string nome;
@@ -164,13 +172,13 @@ void GerenciadorJogoSalvo::carregarProjeteis(ListaProjeteis* lp, ListaEntidades*
 	int direcao;
 	Projetil* projetil = NULL;
 
-	// le arquivo
+	// abre arquivo
 	std::fstream arquivo_jogo_salvo;
 	try {
 		arquivo_jogo_salvo.open("./Recursos/dados/projeteis_salvos.txt", std::ios::in);
 	}
 	catch (...) {
-		std::cerr << "MENUPRINCIPAL::CARREGARJOGO FALHA AO CARREGAR JOGO." << std::endl;
+		std::cerr << "GERENCIADORJOGOSALVO::CARREGAR PROEJTEIS FALHA AO CARREGAR PROJETEIS." << std::endl;
 		std::exit(EXIT_FAILURE);
 	}
 

@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "PersonagemInfo.h"
 
+// variaveis e metodos estaticos
 int PersonagemInfo::score = 0;
 
 void PersonagemInfo::setScore(const int s) {

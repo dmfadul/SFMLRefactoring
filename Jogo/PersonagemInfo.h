@@ -3,6 +3,7 @@
 class PersonagemInfo
 {
 private:
+	// variaveis
 	int hp;
 	int dano;
 	static int score;

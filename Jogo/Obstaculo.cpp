@@ -2,11 +2,9 @@
 #include "Obstaculo.h"
 
 // _______________________________________________________________________________
-Obstaculo::Obstaculo(const int indice, const bool colidir)
-	: Bloco(colidir)
+Obstaculo::Obstaculo(const bool colidir)
 {
-	this->dano = 10.f;
-	this->iniciarSprite(indice, 0.25f, 0.25f);
+    this->colidir = colidir;
 }
 
 // _______________________________________________________________________________
@@ -15,15 +13,24 @@ Obstaculo::~Obstaculo()
 }
 
 // _______________________________________________________________________________
-void Obstaculo::iniciarSprite(int indice, float scale_x, float scale_y)
+const bool Obstaculo::getColidir()
 {
-	/* carrega textura e inicia o sprite */
-	std::string s = "./Recursos/Imagens/obstaculos/" + std::to_string(indice) + ".png";
+    return this->colidir;
+}
 
-	if (!this->textura.loadFromFile(s)) {
-		std::cout << "OBSTACULO::INICIARSPRITE FALHA AO CARREGAR TEXTURA" << std::endl;
-		std::cout << s << std::endl;
-	}
-	this->sprite.setTexture(this->textura);
-	this->sprite.setScale(scale_x, scale_y);
+// _______________________________________________________________________________
+void Obstaculo::setPosicao(const float x, const float y)
+{
+    this->sprite.setPosition(x, y);
+}
+
+// _______________________________________________________________________________
+void Obstaculo::atualizar()
+{
+}
+
+// _______________________________________________________________________________
+void Obstaculo::desenhar(sf::RenderTarget& janela)
+{
+    janela.draw(this->sprite);
 }

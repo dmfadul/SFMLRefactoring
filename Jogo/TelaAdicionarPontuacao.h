@@ -14,7 +14,7 @@ private:
 
 public:
     // construtores e destrutoras
-    TelaAdicionarPontuacao(JogoInfo* pji = NULL, int s = 0);
+    TelaAdicionarPontuacao(int s = 0);
     ~TelaAdicionarPontuacao();
 
     // Metodos de inicialização

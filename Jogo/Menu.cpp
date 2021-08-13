@@ -2,8 +2,8 @@
 #include "Menu.h"
 
 // _______________________________________________________________________________
-Menu::Menu(JogoInfo* pji):
-	Ente(pji)
+Menu::Menu():
+	Ente()
 {
 	this->botaoAtivo = false;
 }
@@ -28,6 +28,7 @@ void Menu::atualizarEventos(sf::Event& evento_sfml)
 	}
 }
 
+// _______________________________________________________________________________
 void Menu::desenhar(sf::RenderTarget& janela)
 {
 	/* Desenha o novo frame na janela */

@@ -1,9 +1,9 @@
 #pragma once
-#include "Bloco.h"
+#include "Obstaculo.h"
 
 /* Classe das plataformas do jogo */
 class Plataforma :
-    public Bloco
+    public Obstaculo
 {
 private:
 

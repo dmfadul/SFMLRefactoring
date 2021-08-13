@@ -3,8 +3,8 @@
 #include "VelhoOeste.h"
 
 // _______________________________________________________________________________
-NinhoDoDragao::NinhoDoDragao(JogoInfo* pji, int n_jogadores, bool carregar_jogo)
-	: Fase(pji, n_jogadores)
+NinhoDoDragao::NinhoDoDragao(int n_jogadores, bool carregar_jogo)
+	: Fase(n_jogadores)
 {
 	if (carregar_jogo)
 		this->carregarJogo();
@@ -16,16 +16,13 @@ NinhoDoDragao::NinhoDoDragao(JogoInfo* pji, int n_jogadores, bool carregar_jogo)
 	this->iniciarGerenciadorColisoes();
 	this->iniciarGeradorProjeteis();
 	this->atualizarScore(0);
-	this->jogoInfo->getTocaDisco()->tocarSpearOfJustice();
-	this->qtdMaxBruxas = rand() % 4 + 2;
-	this->qtdBruxas = 0;
+	JogoInfo::getInstancia()->getTocaDisco()->tocarSpearOfJustice();
 	this->nome = "NINHO_DO_DRAGAO";
 }
 
 // _______________________________________________________________________________
 NinhoDoDragao::~NinhoDoDragao()
 {
-	this->jogoInfo = NULL;
 }
 
 // _______________________________________________________________________________
@@ -37,14 +34,14 @@ void NinhoDoDragao::atualizar()
 
 		// checa se ainda tem algum jogador vivo
 		if (this->listaJog.listaVazia()) {
-			this->jogoInfo->getTocaDisco()->pararMusica();
-			this->jogoInfo->trocarEnte(new TelaAdicionarPontuacao(this->jogoInfo, PersonagemInfo::getScore()));
+			JogoInfo::getInstancia()->getTocaDisco()->pararMusica();
+			JogoInfo::getInstancia()->trocarEnte(new TelaAdicionarPontuacao(PersonagemInfo::getScore()));
 			PersonagemInfo::setScore(0);
 		}
 		// checa se todos os inimigos foram eliminados
 		else if (this->listaIni.listaVazia()) {
-			this->jogoInfo->getTocaDisco()->pararMusica();
-			this->jogoInfo->trocarEnte(new TelaAdicionarPontuacao(this->jogoInfo, PersonagemInfo::getScore()));
+			JogoInfo::getInstancia()->getTocaDisco()->pararMusica();
+			JogoInfo::getInstancia()->trocarEnte(new TelaAdicionarPontuacao(PersonagemInfo::getScore()));
 		}
 		// se ainda houverem jogadores e inimigos 
 		else
@@ -53,9 +50,9 @@ void NinhoDoDragao::atualizar()
 			this->gerColisoes.verificarColisoes();
 		}
 
-		// invoca nova bruxa
-		if (this->timerInvocarBruxa.getElapsedTime().asMilliseconds() > 2000 && this->qtdBruxas < this->qtdMaxBruxas) {
-			this->invocarBruxa();
+		// invoca novo inimigo
+		if (this->timerInvocarInimigo.getElapsedTime().asMilliseconds() > 7000) {
+			this->invocarInimigo();
 		}
 	}
 }
@@ -80,14 +77,20 @@ void NinhoDoDragao::atualizarEventos(sf::Event& evento_sfml)
 	}
 }
 
-void NinhoDoDragao::invocarBruxa()
+// _______________________________________________________________________________
+void NinhoDoDragao::invocarInimigo()
 {
-	Bruxa* bruxa = new Bruxa(sf::Vector2f(rand() % TAM_JANELA_X, 0.f), &this->gerProj, rand() % 1500 + 1000);
-	this->listaIni.incluirInimigo(static_cast<Inimigo*>(bruxa));
-	this->listaEntidades.incluirEntidade(static_cast<Entidade*>(bruxa));
+	/* Spawna cobra ou bruxa aleatoriamente. */
+	Inimigo* inimigo = NULL;
+	
+	if(rand() % 2 == 0)
+		inimigo = static_cast<Inimigo*>(new Bruxa(sf::Vector2f((float)(rand() % TAM_JANELA_X), 0.f), &this->gerProj, rand() % 1500 + 1000));
+	else
+		inimigo = static_cast<Cobra*>(new Cobra(&this->listaJog, sf::Vector2f((float)(rand() % TAM_JANELA_X), 0.f)));
 
-	this->qtdBruxas++;
-	this->timerInvocarBruxa.restart();
+	this->listaIni.incluirInimigo(static_cast<Inimigo*>(inimigo));
+	this->listaEntidades.incluirEntidade(static_cast<Entidade*>(inimigo));
+	this->timerInvocarInimigo.restart();
 }
 
 // _______________________________________________________________________________
@@ -108,6 +111,7 @@ void NinhoDoDragao::desenhar(sf::RenderTarget& janela)
 	
 }
 
+// _______________________________________________________________________________
 void NinhoDoDragao::iniciarInimigos()
 {
 	this->listaIni.incluirInimigo(new Dragao(sf::Vector2f(1000.f, 450.f), &this->gerProj));
@@ -118,5 +122,4 @@ void NinhoDoDragao::iniciarInimigos()
 		this->listaEntidades.incluirEntidade(static_cast<Entidade*>(pInimigo));
 		elInimigo = elInimigo->getProximo();
 	}
-
 }

@@ -18,7 +18,5 @@ public:
 	void desenhar(sf::RenderTarget& janela);
 	void atualizar();
 	void cuspirFogo();
-	
-	int getTipo();
 };
 

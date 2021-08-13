@@ -2,13 +2,8 @@
 #include "TelaPontuacao.h"
 
 // _______________________________________________________________________________
-TelaPontuacao::TelaPontuacao()
-{
-}
-
-// _______________________________________________________________________________
-TelaPontuacao::TelaPontuacao(JogoInfo* pji) :
-	Tela(pji)
+TelaPontuacao::TelaPontuacao() :
+	Tela()
 {
 	// chama os metodos de inicialização
 	this->iniciarBackground("./Recursos/Imagens/backgrounds/pontuacao.png");
@@ -20,7 +15,6 @@ TelaPontuacao::TelaPontuacao(JogoInfo* pji) :
 // _______________________________________________________________________________
 TelaPontuacao::~TelaPontuacao()
 {
-	this->jogoInfo = NULL;
 	for (auto& linha : this->linhas)
 		delete linha;
 }
@@ -117,7 +111,7 @@ void TelaPontuacao::atualizarEventos(sf::Event& evento_sfml)
 	if (evento_sfml.type == sf::Event::KeyReleased)
 	{
 		if (evento_sfml.key.code == sf::Keyboard::Enter)
-			this->jogoInfo->popEnte(); // volta ao menu principal
+			JogoInfo::getInstancia()->popEnte(); // volta ao menu principal
 	}
 }
 // _______________________________________________________________________________

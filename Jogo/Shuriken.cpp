@@ -1,10 +1,12 @@
 #include "stdafx.h"
 #include "Shuriken.h"
 
+// _______________________________________________________________________________
 Shuriken::Shuriken()
 {
 }
 
+// _______________________________________________________________________________
 Shuriken::Shuriken(sf::Vector2f posicao, bool direcao)
 	:Projetil(posicao, direcao, "./Recursos/Imagens/Projeteis/shuriken.png", 0.05f, 0.05f)
 {
@@ -13,6 +15,7 @@ Shuriken::Shuriken(sf::Vector2f posicao, bool direcao)
 	this->nome = "SHURIKEN";
 }
 
+// _______________________________________________________________________________
 Shuriken::~Shuriken()
 {
 }

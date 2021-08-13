@@ -2,11 +2,21 @@
 #include "JogoInfo.h"
 #include "Ente.h"
 
+JogoInfo* JogoInfo::_instancia = NULL;
+
+JogoInfo* JogoInfo::getInstancia() {
+    if (_instancia == NULL) {
+        _instancia = new JogoInfo();
+    }
+    
+    return _instancia;
+}
+
 // _______________________________________________________________________________
 JogoInfo::JogoInfo() :
     entes()
 {
-    this->tocaDisco = new TocaDisco();
+    this->tocaDisco = new som::TocaDisco();
     this->encerrar = false;
 }
 
@@ -20,6 +30,7 @@ JogoInfo::~JogoInfo()
     }
 
     delete this->tocaDisco;
+    delete this->_instancia;
 }
 
 // _______________________________________________________________________________
@@ -32,7 +43,7 @@ Ente* JogoInfo::enteTop() { return this->entes.top(); }
 
 const bool JogoInfo::getEncerrar() const { return this->encerrar; }
 
-TocaDisco* JogoInfo::getTocaDisco() { return this->tocaDisco; }
+som::TocaDisco* JogoInfo::getTocaDisco() { return this->tocaDisco; }
 
 // _______________________________________________________________________________
 void JogoInfo::pushEnte(Ente* e)

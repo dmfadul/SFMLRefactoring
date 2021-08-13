@@ -16,6 +16,7 @@ const bool Inimigo::getDirection() const{
 	return this->direction;
 }
 
+// _______________________________________________________________________________
 const int Inimigo::getRecompensa() const{
 	return this->recompensa;
 }

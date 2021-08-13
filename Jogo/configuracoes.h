@@ -10,5 +10,5 @@
 
 /* FISICA */
 #define GRAVIDADE 0.5
-#define ARRASTO 0.05
+#define COEFICIENTE_ARRASTO 0.05
 #define VEL_MAX_QUEDA 12

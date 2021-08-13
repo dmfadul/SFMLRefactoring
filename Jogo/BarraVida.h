@@ -5,35 +5,43 @@
 #define TAM_X_DEFAULT 150
 #define TAM_Y_DEFAULT 30
 
-class BarraVida : public Gui
+/* Classe da barra vida dos personagens */
+namespace gui 
 {
-private:
-	sf::RectangleShape barra;
-	sf::RectangleShape contornoBarraVida;
-	sf::Text identBarraVida;
-	int valor;
-	int valorMaximo;
+	class BarraVida : public Gui
+	{
+	private:
+		// variaveis
+		sf::RectangleShape barra;
+		sf::RectangleShape contornoBarraVida;
+		sf::Text identBarraVida;
+		int valor;
+		int valorMaximo;
 
-public:
-	BarraVida();
-	~BarraVida();
+	public:
+		// construtoras e destrutoras
+		BarraVida();
+		~BarraVida();
 
-	void iniciarBarraVida();
-	void identificarBarraVida(std::string ident,float pos_x, float pos_y);
-	
-	void setTam(float x, float y);
-	void setPosicao(float x, float y);
-	void setCor(sf::Color c);
-	void setTamTexto(int tam);
-	void incrementaValor(int v);
-	void setValor(int v);
-	void setValorMaximo(int vm);
+		// metodos 
+		void iniciarBarraVida();
+		void identificarBarraVida(std::string ident, float pos_x, float pos_y);
+		void desenharBarraVida(sf::RenderTarget& janela);
 
-	void desenharBarraVida(sf::RenderTarget& janela);
-	
-	void operator-=(const int v);
-	void operator+=(const int v);
-	void operator=(const int v);
+		// setters e getters
+		void setTam(float x, float y);
+		void setPosicao(float x, float y);
+		void setCor(sf::Color c);
+		void setTamTexto(int tam);
+		void incrementaValor(int v);
+		void setValor(int v);
+		void setValorMaximo(int vm);
 
-};
+		// sobrecarga de operadores
+		void operator-=(const int v);
+		void operator+=(const int v);
+		void operator=(const int v);
+
+	};
+}
 

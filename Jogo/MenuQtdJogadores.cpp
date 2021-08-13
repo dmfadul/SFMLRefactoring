@@ -2,8 +2,8 @@
 #include "MenuQtdJogadores.h"
 
 // _______________________________________________________________________________
-MenuQtdJogadores::MenuQtdJogadores(JogoInfo* pji)
-	:Menu(pji)
+MenuQtdJogadores::MenuQtdJogadores()
+	:Menu()
 {
 	this->botaoAtivo = um_jogador;
 	this->iniciarBotoes();
@@ -13,7 +13,6 @@ MenuQtdJogadores::MenuQtdJogadores(JogoInfo* pji)
 // _______________________________________________________________________________
 MenuQtdJogadores::~MenuQtdJogadores()
 {
-	this->jogoInfo = NULL;
 	// desaloca botoes
 	for (auto& botao : this->botoes)
 		delete botao.second;
@@ -48,13 +47,13 @@ void MenuQtdJogadores::GerenciarCliqueBotao()
 	/* Realiza a ação vinculada com o botao ativo */
 
 	if (this->botaoAtivo == um_jogador) {
-		this->jogoInfo->getTocaDisco()->pararMusica();
-		this->jogoInfo->trocarEnte(static_cast<Ente*>(new VelhoOeste(this->jogoInfo, 1)));
+		JogoInfo::getInstancia()->getTocaDisco()->pararMusica();
+		JogoInfo::getInstancia()->trocarEnte(static_cast<Ente*>(new VelhoOeste(1)));
 	}
 	else if (this->botaoAtivo == dois_jogadores) {
-		this->jogoInfo->getTocaDisco()->pararMusica();
-		this->jogoInfo->trocarEnte(static_cast<Ente*>(new VelhoOeste(this->jogoInfo, 2)));
+		JogoInfo::getInstancia()->getTocaDisco()->pararMusica();
+		JogoInfo::getInstancia()->trocarEnte(static_cast<Ente*>(new VelhoOeste(2)));
 	}
 	else if (this->botaoAtivo == voltar)
-		this->jogoInfo->popEnte();
+		JogoInfo::getInstancia()->popEnte();
 }

@@ -135,7 +135,7 @@
     <ClCompile Include="Projetil.cpp">
       <Filter>Graficos</Filter>
     </ClCompile>
-    <ClCompile Include="Bloco.cpp">
+    <ClCompile Include="Obstaculo.cpp">
       <Filter>blocos</Filter>
     </ClCompile>
     <ClCompile Include="ListaInimigos.cpp">
@@ -150,7 +150,7 @@
     <ClCompile Include="Plataforma.cpp">
       <Filter>blocos</Filter>
     </ClCompile>
-    <ClCompile Include="Obstaculo.cpp">
+    <ClCompile Include="ObstaculoDanoso.cpp">
       <Filter>blocos</Filter>
     </ClCompile>
     <ClCompile Include="Espinho.cpp">
@@ -299,7 +299,7 @@
     <ClInclude Include="Personagem.h">
       <Filter>Personagens</Filter>
     </ClInclude>
-    <ClInclude Include="Bloco.h">
+    <ClInclude Include="Obstaculo.h">
       <Filter>blocos</Filter>
     </ClInclude>
     <ClInclude Include="ListaProjeteis.h">
@@ -317,7 +317,7 @@
     <ClInclude Include="Plataforma.h">
       <Filter>blocos</Filter>
     </ClInclude>
-    <ClInclude Include="Obstaculo.h">
+    <ClInclude Include="ObstaculoDanoso.h">
       <Filter>blocos</Filter>
     </ClInclude>
     <ClInclude Include="Espinho.h">

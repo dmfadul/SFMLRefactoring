@@ -2,8 +2,8 @@
 #include "Fase.h"
 
 // _______________________________________________________________________________
-Fase::Fase(JogoInfo* pji, int n_jogadores):
-	Ente(pji), nJogadores(n_jogadores)
+Fase::Fase(int n_jogadores):
+	Ente(), nJogadores(n_jogadores)
 {
 	this->iniciarTextoScore();
 	this->pausado = false;
@@ -108,6 +108,7 @@ void Fase::atualizarEntidades()
 
 }
 
+// _______________________________________________________________________________
 void Fase::atualizarScore(int incremento)
 {
 	// incrementa score do jogador
@@ -120,6 +121,7 @@ void Fase::atualizarScore(int incremento)
 	this->textoScore.setTexto(textoPontuacao);
 }
 
+// _______________________________________________________________________________
 void Fase::salvarJogo()
 {
 	this->gerJogoSalvo.salvarEstadoDaFase(this->nome, this->nJogadores);
@@ -128,6 +130,7 @@ void Fase::salvarJogo()
 	this->gerJogoSalvo.salvarProjeteis(&this->listaProj);
 }
 
+// _______________________________________________________________________________
 void Fase::carregarJogo()
 {
 	this->gerJogoSalvo.carregarJogadores(&this->listaJog, &this->listaEntidades, &this->listaProj);
@@ -136,6 +139,7 @@ void Fase::carregarJogo()
 	this->atualizarScore(0);
 }
 
+// _______________________________________________________________________________
 void Fase::desenharEntidades(sf::RenderTarget& janela)
 {
 	// desenha entidades 
@@ -147,6 +151,7 @@ void Fase::desenharEntidades(sf::RenderTarget& janela)
 	}
 }
 
+// _______________________________________________________________________________
 void Fase::realizarAcaoMenuPause()
 {
 	/* Realiza a ação vinculada com o botao ativo */
@@ -160,9 +165,9 @@ void Fase::realizarAcaoMenuPause()
 	}
 
 	else if (botao_ativo == voltar) {
-		this->jogoInfo->getTocaDisco()->pararMusica();
-		this->jogoInfo->getTocaDisco()->tocarMusicaInicio();
-		this->jogoInfo->popEnte();
+		JogoInfo::getInstancia()->getTocaDisco()->pararMusica();
+		JogoInfo::getInstancia()->getTocaDisco()->tocarMusicaInicio();
+		JogoInfo::getInstancia()->popEnte();
 		PersonagemInfo::setScore(0);
 	}
 }

@@ -3,25 +3,28 @@
 
 class Ente;
 
-/* Classe container para as informa��es do jogo */
+/* Classe container para as informacoes do jogo */
 class JogoInfo
 {
 private:
     // Variaveis
     std::stack<Ente* > entes;
-    TocaDisco* tocaDisco;
+    som::TocaDisco* tocaDisco;
+    static JogoInfo* _instancia;
     bool encerrar;
+    JogoInfo();
 
 public:
-    JogoInfo();
     ~JogoInfo();
+
+    static JogoInfo* getInstancia();
 
     // setters
     void setEncerrar(const bool e);
 
     // getters
     const bool getEncerrar() const;
-    TocaDisco* getTocaDisco();
+    som::TocaDisco* getTocaDisco();
     Ente* enteTop();
     
     // metodos

@@ -2,6 +2,7 @@
 #include "configuracoes.h"
 #include "CaixaPause.h"
 
+// _______________________________________________________________________________
 CaixaPause::CaixaPause()
 {
 	this->iniciarTexto(0, 0, "PAUSE");
@@ -26,10 +27,12 @@ CaixaPause::CaixaPause()
 	this->botoes[botaoAtivo]->ativar();
 }
 
+// _______________________________________________________________________________
 CaixaPause::~CaixaPause()
 {
 }
 
+// _______________________________________________________________________________
 void CaixaPause::desenharCaixaPause(sf::RenderTarget& janela)
 {
 	janela.draw(this->caixa);
@@ -40,6 +43,7 @@ void CaixaPause::desenharCaixaPause(sf::RenderTarget& janela)
 		botao.second->desenharBotao(janela);
 }
 
+// _______________________________________________________________________________
 const int CaixaPause::getBotaoAtivo() const
 {
 	return this->botaoAtivo;

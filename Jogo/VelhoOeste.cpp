@@ -2,8 +2,8 @@
 #include "VelhoOeste.h"
 
 // _______________________________________________________________________________
-VelhoOeste::VelhoOeste(JogoInfo* pji, int n_jogadores, bool carregar_jogo)
-	: Fase(pji, n_jogadores)
+VelhoOeste::VelhoOeste(int n_jogadores, bool carregar_jogo)
+	: Fase(n_jogadores)
 {
 	if (carregar_jogo)
 		this->carregarJogo();
@@ -14,7 +14,7 @@ VelhoOeste::VelhoOeste(JogoInfo* pji, int n_jogadores, bool carregar_jogo)
 	this->iniciarMapa("./Recursos/mapas/velho_oeste.txt", 1, 17);
 	this->iniciarGerenciadorColisoes();
 	this->iniciarGeradorProjeteis();
-	this->jogoInfo->getTocaDisco()->tocarFallenDown();
+	JogoInfo::getInstancia()->getTocaDisco()->tocarFallenDown();
 	this->qtdMaxCobras = rand() % 4 + 3;
 	this->qtdCobras = 0;
 	this->nome = "VELHO_OESTE";
@@ -23,9 +23,9 @@ VelhoOeste::VelhoOeste(JogoInfo* pji, int n_jogadores, bool carregar_jogo)
 // _______________________________________________________________________________
 VelhoOeste::~VelhoOeste()
 {
-	this->jogoInfo = NULL;
 }
 
+// _______________________________________________________________________________
 void VelhoOeste::invocarCobra()
 {
 	Cobra* cobra = new Cobra(&this->listaJog, sf::Vector2f((float)(rand() % TAM_JANELA_X), 0.f));
@@ -46,14 +46,14 @@ void VelhoOeste::atualizar()
 
 		// checa se ainda tem algum jogador vivo
 		if (this->listaJog.listaVazia()) {
-			this->jogoInfo->getTocaDisco()->pararMusica();
-			this->jogoInfo->trocarEnte(new TelaAdicionarPontuacao(this->jogoInfo, PersonagemInfo::getScore()));
+			JogoInfo::getInstancia()->getTocaDisco()->pararMusica();
+			JogoInfo::getInstancia()->trocarEnte(new TelaAdicionarPontuacao(PersonagemInfo::getScore()));
 			PersonagemInfo::setScore(0);
 		}
 		// checa se todos os inimigos foram eliminados
 		else if (this->listaIni.listaVazia()){
-			this->jogoInfo->getTocaDisco()->pararMusica();
-			this->jogoInfo->trocarEnte(static_cast<Ente*>(new NinhoDoDragao(this->jogoInfo, this->nJogadores)));
+			JogoInfo::getInstancia()->getTocaDisco()->pararMusica();
+			JogoInfo::getInstancia()->trocarEnte(static_cast<Ente*>(new NinhoDoDragao(this->nJogadores)));
 		}
 		else {
 			this->gerProj.ExcluirProjetil();
@@ -104,13 +104,18 @@ void VelhoOeste::desenhar(sf::RenderTarget& janela)
 	}
 }
 
+// _______________________________________________________________________________
 void VelhoOeste::iniciarInimigos()
 {
 	// adiciona inimigos na lista de inimigos
 	this->listaIni.incluirInimigo(new Bruxa(sf::Vector2f(630.f, 410.f), &this->gerProj, 2700));
-	this->listaIni.incluirInimigo(new Bruxa(sf::Vector2f(500.f, 110.f), &this->gerProj, 1600));
 	this->listaIni.incluirInimigo(new Bruxa(sf::Vector2f(700.f, 50.f), &this->gerProj, 1850));
 	this->listaIni.incluirInimigo(new Bruxa(sf::Vector2f(1100.f, 280.f), &this->gerProj, 2770));
+
+	int nBruxasAdicionais = rand() % 3;
+	for (int i = 0; i < nBruxasAdicionais; i++) {
+		this->listaIni.incluirInimigo(new Bruxa(sf::Vector2f((float)(rand() % TAM_JANELA_X / 2), 50.f), &this->gerProj, 1700 + 300*i));
+	}
 
 	// adiciona inimigos na lista de entidades
 	Lista<Inimigo>::Elemento<Inimigo>* elInimigo = this->listaIni.getPrimeiro();

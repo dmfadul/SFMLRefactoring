@@ -3,7 +3,7 @@
 
 // _______________________________________________________________________________
 Cactus::Cactus(const int indice)
-	: Obstaculo(indice, false)
+	: ObstaculoDanoso(indice, false)
 {
 }
 

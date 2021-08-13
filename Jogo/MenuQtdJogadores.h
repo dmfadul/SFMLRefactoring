@@ -15,7 +15,7 @@ private:
 
 public:
     // Construtoras e Destrutoras
-    MenuQtdJogadores(JogoInfo* pji = NULL);
+    MenuQtdJogadores();
     ~MenuQtdJogadores();
 
     // Metodos de Inicialização

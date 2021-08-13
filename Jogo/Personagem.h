@@ -13,13 +13,12 @@ protected:
 	sf::Clock invulneravel;
 
 	// Components
-	BarraVida barraVida;
+	gui::BarraVida barraVida;
 	HitBox hitbox;
 	PersonagemInfo pInfo;
 	ComponenteMovimento compMov;
 
 public:
-
 	// Construtora e Destrutora
 	Personagem();
 	~Personagem();

@@ -1,10 +1,10 @@
 #pragma once
-#include "Obstaculo.h"
+#include "ObstaculoDanoso.h"
 
 #define VELOCIDADE_MAX 0.5
 
 class AreiaDasAlmas :
-    public Obstaculo
+    public ObstaculoDanoso
 {
 private:
     bool size;

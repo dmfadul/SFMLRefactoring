@@ -66,14 +66,24 @@ void ComponenteMovimento::acelerarY(float y) {
 void ComponenteMovimento::mover()
 {
     // movimento na direção x
-    if (this->vel.x > 0.1f && this->controle_arrasto)           this->vel.x -= (float)(ARRASTO);
-    else if (this->vel.x < -0.1f && this->controle_arrasto)     this->vel.x += (float)(ARRASTO);
-    else if (this->controle_arrasto)                            this->vel.x = 0;
+    if (this->vel.x > 0.1f && this->controle_arrasto)           
+        this->vel.x -= (float)(this->vel.x * COEFICIENTE_ARRASTO);
+
+    else if (this->vel.x < -0.1f && this->controle_arrasto)     
+        this->vel.x += (float)(-this->vel.x * COEFICIENTE_ARRASTO);
+
+    else if (this->controle_arrasto)                            
+        this->vel.x = 0;
 
     // movimento na direção y
-    if      (this->vel.y > 0.1f)   this->vel.y -= (float)(ARRASTO);
-    else if (this->vel.y < -0.1f)  this->vel.y += (float)(ARRASTO);
-    else if (this->controle_arrasto)     this->vel.y = 0;
+    if      (this->vel.y > 0.1f)   
+        this->vel.y -= (float)(this->vel.y * 0.1f * COEFICIENTE_ARRASTO);
+
+    else if (this->vel.y < -0.1f)  
+        this->vel.y += (float)(-this->vel.y * 0.1f * COEFICIENTE_ARRASTO);
+
+    else if (this->controle_arrasto)     
+        this->vel.y = 0;
 
     // movimento em queda livre
     if (this->caindo && this->vel.y < (float)(VEL_MAX_QUEDA))   

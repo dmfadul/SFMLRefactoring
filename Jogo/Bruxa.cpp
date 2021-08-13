@@ -3,6 +3,7 @@
 
 // _______________________________________________________________________________
 Bruxa::Bruxa(): tempo_direcao(1000), gerProj(NULL), tempo_cooldown(500),vivo(true) {}
+
 // _______________________________________________________________________________
 Bruxa::Bruxa(sf::Vector2f position, GeradorProjeteis* gp, int tempo_direcao):
 	tempo_direcao(tempo_direcao),gerProj(gp),vivo(true)
@@ -21,6 +22,7 @@ Bruxa::Bruxa(sf::Vector2f position, GeradorProjeteis* gp, int tempo_direcao):
 	this->nome = "BRUXA";
 }
 
+// _______________________________________________________________________________
 void Bruxa::run()
 {
 	int id = getId();
@@ -34,8 +36,8 @@ void Bruxa::run()
 // _______________________________________________________________________________
 Bruxa::~Bruxa()
 {
+	this->gerProj = NULL;
 	vivo = false;
-	//t.join();
 }
 
 // _______________________________________________________________________________
@@ -63,6 +65,7 @@ void Bruxa::atualizar()
 	
 }
 
+// _______________________________________________________________________________
 void Bruxa::atirar()
 {
 	if (this->getPersInfo()->getHp() > 0) {
@@ -79,9 +82,4 @@ void Bruxa::desenhar(sf::RenderTarget& janela)
 {
 	janela.draw(sprite);
 	barraVida.desenharBarraVida(janela);
-}
-
-int Bruxa::getTipo()
-{
-	return 1;
 }

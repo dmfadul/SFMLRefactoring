@@ -3,7 +3,7 @@
 
 // _______________________________________________________________________________
 GerenciadorBotoes::GerenciadorBotoes()
-	: tocaDisco(new TocaDisco())
+	: tocaDisco(new som::TocaDisco())
 {
 	this->botaoAtivo = 0;
 }

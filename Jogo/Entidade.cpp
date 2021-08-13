@@ -15,21 +15,8 @@ Entidade::~Entidade()
 {
 }
 
-void Entidade::atualizar()
-{
-}
+// _______________________________________________________________________________
+const int Entidade::getId() const { return this->id; }
 
-void Entidade::desenhar(sf::RenderTarget& janela)
-{
-}
-
-const int Entidade::getId() const
-{
-	return this->id;
-}
-
-const std::string Entidade::getNome() const
-{
-	return this->nome;
-}
+const std::string Entidade::getNome() const { return this->nome; }
 

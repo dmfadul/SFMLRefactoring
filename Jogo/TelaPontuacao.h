@@ -60,7 +60,6 @@ private:
 public:
     // Construtoras e Destrutoras
     TelaPontuacao();
-    TelaPontuacao(JogoInfo* pji);
     ~TelaPontuacao();
 
     // Métodos de Inicialização
