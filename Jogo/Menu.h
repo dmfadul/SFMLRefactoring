@@ -12,7 +12,7 @@ protected:
 
 public:
     // Construtoras e Destrutoras
-    Menu(JogoInfo* pji = NULL);
+    Menu();
     virtual ~Menu();
 
     // Métodos de Atualização

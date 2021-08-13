@@ -3,9 +3,7 @@
 class Cowboy :
     public Jogador
 {
-
 private:
-
 public:
     // construtoras e destrutoras
     Cowboy();

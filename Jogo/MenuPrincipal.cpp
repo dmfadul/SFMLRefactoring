@@ -2,19 +2,18 @@
 #include "MenuPrincipal.h"
 
 // _______________________________________________________________________________
-MenuPrincipal::MenuPrincipal(JogoInfo* pji):
-	Menu(pji)
+MenuPrincipal::MenuPrincipal():
+	Menu()
 {
 	this->botaoAtivo = novo_jogo;
 	this->iniciarBotoes();
 	this->iniciarBackground("./Recursos/Imagens/backgrounds/menu.png");
-	this->jogoInfo->getTocaDisco()->tocarMusicaInicio();
+	JogoInfo::getInstancia()->getTocaDisco()->tocarMusicaInicio();
 }
 
 // _______________________________________________________________________________
 MenuPrincipal::~MenuPrincipal()
 {
-	this->jogoInfo = NULL;
 	// desaloca botoes
 	for (auto& botao : this->botoes)
 		delete botao.second;
@@ -68,9 +67,9 @@ void MenuPrincipal::carregarJogo()
 
 	// inicia fase do jogo salve
 	if (fase == "VELHO_OESTE")
-		this->jogoInfo->pushEnte(static_cast<Ente*>(new VelhoOeste(this->jogoInfo, n_jogadores, true)));
+		JogoInfo::getInstancia()->pushEnte(static_cast<Ente*>(new VelhoOeste(n_jogadores, true)));
 	else if(fase == "NINHO_DO_DRAGAO")
-		this->jogoInfo->pushEnte(static_cast<Ente*>(new NinhoDoDragao(this->jogoInfo, n_jogadores, true)));
+		JogoInfo::getInstancia()->pushEnte(static_cast<Ente*>(new NinhoDoDragao(n_jogadores, true)));
 
 	arquivo_jogo_salvo.close();
 }
@@ -81,17 +80,17 @@ void MenuPrincipal::GerenciarCliqueBotao()
 	/* Realiza a ação vinculada com o botao ativo */
 
 	if (this->botaoAtivo == novo_jogo)
-		this->jogoInfo->pushEnte(static_cast<Ente* >(new MenuQtdJogadores(this->jogoInfo)));
+		JogoInfo::getInstancia()->pushEnte(static_cast<Ente* >(new MenuQtdJogadores()));
 
 	if (this->botaoAtivo == carregar_jogo)
 		this->carregarJogo();
 	
 	else if(this->botaoAtivo == escolha_de_fases)
-		this->jogoInfo->pushEnte(static_cast<Ente*>(new MenuEscolhaFases(this->jogoInfo)));
+		JogoInfo::getInstancia()->pushEnte(static_cast<Ente*>(new MenuEscolhaFases()));
 
 	else if (this->botaoAtivo == lista_de_pontuacoes)
-		this->jogoInfo->pushEnte(static_cast<Ente* >(new TelaPontuacao(this->jogoInfo)));
+		JogoInfo::getInstancia()->pushEnte(static_cast<Ente* >(new TelaPontuacao()));
 
 	else if (this->botaoAtivo == sair)
-		this->jogoInfo->setEncerrar(true);
+		JogoInfo::getInstancia()->setEncerrar(true);
 }

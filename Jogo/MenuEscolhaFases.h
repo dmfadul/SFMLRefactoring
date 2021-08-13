@@ -16,7 +16,7 @@ private:
     };
 public:
     // Construtoras e Destrutoras
-    MenuEscolhaFases(JogoInfo* pji = NULL);
+    MenuEscolhaFases();
     ~MenuEscolhaFases();
 
     // Metodos de Inicialização

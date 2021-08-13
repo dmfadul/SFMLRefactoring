@@ -2,8 +2,8 @@
 #include "MenuEscolhaFases.h"
 
 // _______________________________________________________________________________
-MenuEscolhaFases::MenuEscolhaFases(JogoInfo* pji)
-	:Menu(pji)
+MenuEscolhaFases::MenuEscolhaFases()
+	:Menu()
 {
 	this->botaoAtivo = velho_oeste;
 	this->iniciarBotoes();
@@ -13,7 +13,6 @@ MenuEscolhaFases::MenuEscolhaFases(JogoInfo* pji)
 // _______________________________________________________________________________
 MenuEscolhaFases::~MenuEscolhaFases()
 {
-	this->jogoInfo = NULL;
 	// desaloca botoes
 	for (auto& botao : this->botoes)
 		delete botao.second;
@@ -49,15 +48,15 @@ void MenuEscolhaFases::GerenciarCliqueBotao()
 	/* Realiza a ação vinculada com o botao ativo */
 
 	if (this->botaoAtivo == velho_oeste) {
-		this->jogoInfo->getTocaDisco()->pararMusica();
-		this->jogoInfo->trocarEnte(static_cast<Ente*>(new VelhoOeste(this->jogoInfo)));
+		JogoInfo::getInstancia()->getTocaDisco()->pararMusica();
+		JogoInfo::getInstancia()->trocarEnte(static_cast<Ente*>(new VelhoOeste()));
 	}
 
 	else if (this->botaoAtivo == ninho_do_dragao) {
-		this->jogoInfo->getTocaDisco()->pararMusica();
-		this->jogoInfo->trocarEnte(static_cast<Ente*>(new NinhoDoDragao(this->jogoInfo)));
+		JogoInfo::getInstancia()->getTocaDisco()->pararMusica();
+		JogoInfo::getInstancia()->trocarEnte(static_cast<Ente*>(new NinhoDoDragao()));
 	}
 
 	else if (this->botaoAtivo == voltar)
-		this->jogoInfo->popEnte();
+		JogoInfo::getInstancia()->popEnte();
 }

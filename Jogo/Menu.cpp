@@ -2,8 +2,8 @@
 #include "Menu.h"
 
 // _______________________________________________________________________________
-Menu::Menu(JogoInfo* pji):
-	Ente(pji)
+Menu::Menu():
+	Ente()
 {
 	this->botaoAtivo = false;
 }

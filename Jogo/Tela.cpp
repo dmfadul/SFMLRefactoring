@@ -2,8 +2,8 @@
 #include "Tela.h"
 
 // _______________________________________________________________________________
-Tela::Tela(JogoInfo* pji)
-	: Ente(pji)
+Tela::Tela()
+	: Ente()
 {
 	this->carregarFonte("./Recursos/Fontes/Bebas.ttf");
 }

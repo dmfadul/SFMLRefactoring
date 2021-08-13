@@ -8,7 +8,7 @@ protected:
 
 public:
     // construtoras e destrutoras
-    Tela(JogoInfo* pji = NULL);
+    Tela();
     ~Tela();
 
     // metodos de inicialização

@@ -2,6 +2,16 @@
 #include "JogoInfo.h"
 #include "Ente.h"
 
+JogoInfo* JogoInfo::_instancia = NULL;
+
+JogoInfo* JogoInfo::getInstancia() {
+    if (_instancia == NULL) {
+        _instancia = new JogoInfo();
+    }
+    
+    return _instancia;
+}
+
 // _______________________________________________________________________________
 JogoInfo::JogoInfo() :
     entes()
@@ -20,6 +30,7 @@ JogoInfo::~JogoInfo()
     }
 
     delete this->tocaDisco;
+    delete this->_instancia;
 }
 
 // _______________________________________________________________________________

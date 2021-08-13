@@ -3,8 +3,8 @@
 #include "VelhoOeste.h"
 
 // _______________________________________________________________________________
-NinhoDoDragao::NinhoDoDragao(JogoInfo* pji, int n_jogadores, bool carregar_jogo)
-	: Fase(pji, n_jogadores)
+NinhoDoDragao::NinhoDoDragao(int n_jogadores, bool carregar_jogo)
+	: Fase(n_jogadores)
 {
 	if (carregar_jogo)
 		this->carregarJogo();
@@ -16,14 +16,13 @@ NinhoDoDragao::NinhoDoDragao(JogoInfo* pji, int n_jogadores, bool carregar_jogo)
 	this->iniciarGerenciadorColisoes();
 	this->iniciarGeradorProjeteis();
 	this->atualizarScore(0);
-	this->jogoInfo->getTocaDisco()->tocarSpearOfJustice();
+	JogoInfo::getInstancia()->getTocaDisco()->tocarSpearOfJustice();
 	this->nome = "NINHO_DO_DRAGAO";
 }
 
 // _______________________________________________________________________________
 NinhoDoDragao::~NinhoDoDragao()
 {
-	this->jogoInfo = NULL;
 }
 
 // _______________________________________________________________________________
@@ -35,14 +34,14 @@ void NinhoDoDragao::atualizar()
 
 		// checa se ainda tem algum jogador vivo
 		if (this->listaJog.listaVazia()) {
-			this->jogoInfo->getTocaDisco()->pararMusica();
-			this->jogoInfo->trocarEnte(new TelaAdicionarPontuacao(this->jogoInfo, PersonagemInfo::getScore()));
+			JogoInfo::getInstancia()->getTocaDisco()->pararMusica();
+			JogoInfo::getInstancia()->trocarEnte(new TelaAdicionarPontuacao(PersonagemInfo::getScore()));
 			PersonagemInfo::setScore(0);
 		}
 		// checa se todos os inimigos foram eliminados
 		else if (this->listaIni.listaVazia()) {
-			this->jogoInfo->getTocaDisco()->pararMusica();
-			this->jogoInfo->trocarEnte(new TelaAdicionarPontuacao(this->jogoInfo, PersonagemInfo::getScore()));
+			JogoInfo::getInstancia()->getTocaDisco()->pararMusica();
+			JogoInfo::getInstancia()->trocarEnte(new TelaAdicionarPontuacao(PersonagemInfo::getScore()));
 		}
 		// se ainda houverem jogadores e inimigos 
 		else

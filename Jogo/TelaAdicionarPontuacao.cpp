@@ -2,8 +2,8 @@
 #include "TelaAdicionarPontuacao.h"
 
 // _______________________________________________________________________________
-TelaAdicionarPontuacao::TelaAdicionarPontuacao(JogoInfo* pji, int s)
-	:Tela(pji), score(s)
+TelaAdicionarPontuacao::TelaAdicionarPontuacao(int s)
+	:Tela(), score(s)
 {
 	this->iniciarTextos();
 }
@@ -64,8 +64,8 @@ void TelaAdicionarPontuacao::atualizarEventos(sf::Event& evento_sfml)
 		// adiciona a nova pontuação e vai a tela de pontuacao
 		if (evento_sfml.key.code == sf::Keyboard::Enter && this->nomeInput.size() >= 3) {
 			this->adicionarPontuacao();
-			this->jogoInfo->getTocaDisco()->tocarMusicaInicio();
-			this->jogoInfo->trocarEnte(new TelaPontuacao(this->jogoInfo)); 
+			JogoInfo::getInstancia()->getTocaDisco()->tocarMusicaInicio();
+			JogoInfo::getInstancia()->trocarEnte(new TelaPontuacao());
 		}
 	}
 	// recebe input do usuario

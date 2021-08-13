@@ -21,7 +21,7 @@ private:
 
 public:
     // Construtoras e Destrutoras
-    MenuPrincipal(JogoInfo* pji = NULL);
+    MenuPrincipal();
     ~MenuPrincipal();
     
     // Metodos de Inicialização

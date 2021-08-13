@@ -2,8 +2,8 @@
 #include "Fase.h"
 
 // _______________________________________________________________________________
-Fase::Fase(JogoInfo* pji, int n_jogadores):
-	Ente(pji), nJogadores(n_jogadores)
+Fase::Fase(int n_jogadores):
+	Ente(), nJogadores(n_jogadores)
 {
 	this->iniciarTextoScore();
 	this->pausado = false;
@@ -165,9 +165,9 @@ void Fase::realizarAcaoMenuPause()
 	}
 
 	else if (botao_ativo == voltar) {
-		this->jogoInfo->getTocaDisco()->pararMusica();
-		this->jogoInfo->getTocaDisco()->tocarMusicaInicio();
-		this->jogoInfo->popEnte();
+		JogoInfo::getInstancia()->getTocaDisco()->pararMusica();
+		JogoInfo::getInstancia()->getTocaDisco()->tocarMusicaInicio();
+		JogoInfo::getInstancia()->popEnte();
 		PersonagemInfo::setScore(0);
 	}
 }

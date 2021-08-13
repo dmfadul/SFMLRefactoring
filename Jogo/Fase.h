@@ -32,7 +32,7 @@ protected:
 
 public:
     // Construtoras e Destrutoras
-    Fase(JogoInfo* pji = NULL, int n_jogadores = 1);
+    Fase(int n_jogadores = 1);
     virtual ~Fase();
 
     // metodos de inicializacao

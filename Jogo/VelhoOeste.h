@@ -15,7 +15,7 @@ private:
 
 public:
     // Construtoras e Destrutoras
-    VelhoOeste(JogoInfo* pji = NULL, int n_jogadores = 1, bool carregar_jogo = false);
+    VelhoOeste(int n_jogadores = 1, bool carregar_jogo = false);
     ~VelhoOeste();
 
     // Criar inimigos

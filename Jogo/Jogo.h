@@ -12,9 +12,6 @@ private:
 	sf::RenderWindow janela;
 	sf::Event eventosSFML;
 
-	// Armazena as informaçoes do jogo
-	JogoInfo jogoInfo;
-
 public:
 	// Construtoras e Destrutoras
 	Jogo();

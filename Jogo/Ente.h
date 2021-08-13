@@ -8,13 +8,9 @@
 /* Classe abstrata de Entes */
 class Ente : public Entidade
 {
-protected:
-	// Variaveis
-    JogoInfo* jogoInfo;
-
 public:
     // Construtoras e Destrutoras
-    Ente(JogoInfo* pji = NULL);
+    Ente();
     virtual ~Ente();
 
     // Metodos de Inicialização
