@@ -3,7 +3,7 @@
 
 // _______________________________________________________________________________
 AreiaDasAlmas::AreiaDasAlmas(const int indice)
-	: Obstaculo(indice, false)
+	: ObstaculoDanoso(indice, false)
 {
 }
 

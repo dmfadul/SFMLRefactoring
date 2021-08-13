@@ -17,8 +17,6 @@ NinhoDoDragao::NinhoDoDragao(JogoInfo* pji, int n_jogadores, bool carregar_jogo)
 	this->iniciarGeradorProjeteis();
 	this->atualizarScore(0);
 	this->jogoInfo->getTocaDisco()->tocarSpearOfJustice();
-	this->qtdMaxBruxas = rand() % 4 + 2;
-	this->qtdBruxas = 0;
 	this->nome = "NINHO_DO_DRAGAO";
 }
 
@@ -53,9 +51,9 @@ void NinhoDoDragao::atualizar()
 			this->gerColisoes.verificarColisoes();
 		}
 
-		// invoca nova bruxa
-		if (this->timerInvocarBruxa.getElapsedTime().asMilliseconds() > 2000 && this->qtdBruxas < this->qtdMaxBruxas) {
-			this->invocarBruxa();
+		// invoca novo inimigo
+		if (this->timerInvocarInimigo.getElapsedTime().asMilliseconds() > 7000) {
+			this->invocarInimigo();
 		}
 	}
 }
@@ -80,14 +78,20 @@ void NinhoDoDragao::atualizarEventos(sf::Event& evento_sfml)
 	}
 }
 
-void NinhoDoDragao::invocarBruxa()
+// _______________________________________________________________________________
+void NinhoDoDragao::invocarInimigo()
 {
-	Bruxa* bruxa = new Bruxa(sf::Vector2f(rand() % TAM_JANELA_X, 0.f), &this->gerProj, rand() % 1500 + 1000);
-	this->listaIni.incluirInimigo(static_cast<Inimigo*>(bruxa));
-	this->listaEntidades.incluirEntidade(static_cast<Entidade*>(bruxa));
+	/* Spawna cobra ou bruxa aleatoriamente. */
+	Inimigo* inimigo = NULL;
+	
+	if(rand() % 2 == 0)
+		inimigo = static_cast<Inimigo*>(new Bruxa(sf::Vector2f((float)(rand() % TAM_JANELA_X), 0.f), &this->gerProj, rand() % 1500 + 1000));
+	else
+		inimigo = static_cast<Cobra*>(new Cobra(&this->listaJog, sf::Vector2f((float)(rand() % TAM_JANELA_X), 0.f)));
 
-	this->qtdBruxas++;
-	this->timerInvocarBruxa.restart();
+	this->listaIni.incluirInimigo(static_cast<Inimigo*>(inimigo));
+	this->listaEntidades.incluirEntidade(static_cast<Entidade*>(inimigo));
+	this->timerInvocarInimigo.restart();
 }
 
 // _______________________________________________________________________________
@@ -108,6 +112,7 @@ void NinhoDoDragao::desenhar(sf::RenderTarget& janela)
 	
 }
 
+// _______________________________________________________________________________
 void NinhoDoDragao::iniciarInimigos()
 {
 	this->listaIni.incluirInimigo(new Dragao(sf::Vector2f(1000.f, 450.f), &this->gerProj));
@@ -118,5 +123,4 @@ void NinhoDoDragao::iniciarInimigos()
 		this->listaEntidades.incluirEntidade(static_cast<Entidade*>(pInimigo));
 		elInimigo = elInimigo->getProximo();
 	}
-
 }

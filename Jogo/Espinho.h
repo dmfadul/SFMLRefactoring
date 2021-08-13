@@ -1,10 +1,10 @@
 #pragma once
-#include "Obstaculo.h"
+#include "ObstaculoDanoso.h"
 
 #define DANO_ESPINHO 10
 
 class Espinho :
-    public Obstaculo
+    public ObstaculoDanoso
 {
 private:
 

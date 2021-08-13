@@ -8,6 +8,7 @@ class Projetil :
     public Entidade
 {
 protected:
+    // variaveis
     sf::Clock tempo_vida;
     HitBox hitbox;
     bool direcao;
@@ -16,6 +17,7 @@ protected:
     ComponenteMovimento compMov;
 
 public:
+    // construtoras e destrutoras
     Projetil();
     Projetil(sf::Vector2f posicao, bool direcao, std::string img, float escalax, float escalay);
     ~Projetil();
@@ -38,7 +40,5 @@ public:
     // metodos
     void desenhar(sf::RenderTarget& janela);
     void atualizar();
-
-    
 };
 

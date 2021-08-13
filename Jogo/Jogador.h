@@ -12,15 +12,18 @@ class Jogador :
     public Personagem
 {
 protected:
+    // variaveis
     ListaProjeteis* listaProjeteis;
     ListaEntidades* listaEntidades;
     sf::Clock cooldown_disparo;
 
 public:
+    // construtoras e destrutoras
     Jogador();
     Jogador(ListaProjeteis* lp, ListaEntidades* le);
     ~Jogador();
 
+    // metodos
     void atirar();
     void iniciarJogador(ListaProjeteis* lp, ListaEntidades* le);
 

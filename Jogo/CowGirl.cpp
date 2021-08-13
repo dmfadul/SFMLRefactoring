@@ -22,6 +22,7 @@ CowGirl::~CowGirl()
 {
 }
 
+// _______________________________________________________________________________
 void CowGirl::mover()
 {
 	/* Movimenta o personagem de acordo com o input do usuario */

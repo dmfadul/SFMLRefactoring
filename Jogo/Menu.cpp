@@ -28,6 +28,7 @@ void Menu::atualizarEventos(sf::Event& evento_sfml)
 	}
 }
 
+// _______________________________________________________________________________
 void Menu::desenhar(sf::RenderTarget& janela)
 {
 	/* Desenha o novo frame na janela */

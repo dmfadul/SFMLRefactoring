@@ -41,7 +41,7 @@ const int Mapa::blocoAtual(sf::Vector2f pos) const
 }
 
 // _______________________________________________________________________________
-Bloco* Mapa::getBloco(const int i) const
+Obstaculo* Mapa::getBloco(const int i) const
 {
 	return this->blocos[i];
 }
@@ -114,7 +114,7 @@ void Mapa::iniciarEntidades(int tipo)
 	bool colidir;
 	for (int i = 0; i < this->qtdPlataformas; i++) {
 		colidir = (i < 12) ? true : false;
-		this->blocos.push_back(static_cast<Bloco* >(new Plataforma(this->inicioPlataformas + i,colidir)));
+		this->blocos.push_back(static_cast<Obstaculo* >(new Plataforma(this->inicioPlataformas + i,colidir)));
 	}
 	
 	// define as posiçoes dos obstaculos
@@ -133,9 +133,9 @@ void Mapa::iniciarEntidades(int tipo)
 	}
 
 	// incia obstaculos;
-	this->blocos.push_back(static_cast<Bloco*>(new Cactus(1)));
-	this->blocos.push_back(static_cast<Bloco*>(new Espinho(2)));
-	this->blocos.push_back(static_cast<Bloco*>(new AreiaDasAlmas(3)));
+	this->blocos.push_back(static_cast<Obstaculo*>(new Cactus(1)));
+	this->blocos.push_back(static_cast<Obstaculo*>(new Espinho(2)));
+	this->blocos.push_back(static_cast<Obstaculo*>(new AreiaDasAlmas(3)));
 }
 
 // _______________________________________________________________________________

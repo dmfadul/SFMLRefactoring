@@ -66,10 +66,3 @@ void Cobra::desenhar(sf::RenderTarget& janela)
 	janela.draw(sprite);
 	barraVida.desenharBarraVida(janela);
 }
-
-int Cobra::getTipo()
-{
-	return 2;
-}
-
-

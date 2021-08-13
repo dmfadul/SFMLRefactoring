@@ -9,7 +9,7 @@ class JogoInfo
 private:
     // Variaveis
     std::stack<Ente* > entes;
-    TocaDisco* tocaDisco;
+    som::TocaDisco* tocaDisco;
     bool encerrar;
 
 public:
@@ -21,7 +21,7 @@ public:
 
     // getters
     const bool getEncerrar() const;
-    TocaDisco* getTocaDisco();
+    som::TocaDisco* getTocaDisco();
     Ente* enteTop();
     
     // metodos

@@ -2,15 +2,19 @@
 #include "Lista.h"
 #include "Personagem.h"
 
+/* Lista que armazena todas as entidades */
 class ListaEntidades
 {
 private:
+	// lista
 	Lista<Entidade > listaEntidades;
 
 public:
+	// construtoras e destrutoras
 	ListaEntidades();
 	~ListaEntidades();
 
+	// metodos
 	void incluirEntidade(Entidade* j);
 	void removerEntidade(int id);
 	bool listaVazia();

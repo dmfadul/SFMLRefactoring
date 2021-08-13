@@ -1,10 +1,10 @@
 #pragma once
-#include "Obstaculo.h"
+#include "ObstaculoDanoso.h"
 
 #define DANO_CACTO 15
 
 class Cactus :
-    public Obstaculo
+    public ObstaculoDanoso
 {
 public:
     // construtoras e destrutoras

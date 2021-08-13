@@ -3,7 +3,7 @@
 
 // _______________________________________________________________________________
 Espinho::Espinho(const int indice)
-	:Obstaculo(indice, false)
+	:ObstaculoDanoso(indice, false)
 {
 }
 

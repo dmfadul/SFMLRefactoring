@@ -3,14 +3,13 @@
 #include "Cowboy.h"
 #include "CowGirl.h"
 #include "Dragao.h"
+#include "Cobra.h"
 
 class NinhoDoDragao :
     public Fase
 {
 private:
-    sf::Clock timerInvocarBruxa;
-    int qtdMaxBruxas;
-    int qtdBruxas;
+    sf::Clock timerInvocarInimigo;
 
 public:
     // Construtoras e Destrutoras
@@ -20,7 +19,7 @@ public:
     // Métodos de Atualização
     void atualizar();
     void atualizarEventos(sf::Event& evento_sfml);
-    void invocarBruxa();
+    void invocarInimigo();
 
     // Métodos de Renderização
     void desenhar(sf::RenderTarget& janela);

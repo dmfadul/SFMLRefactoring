@@ -22,6 +22,7 @@ Cowboy::~Cowboy()
 {
 }
 
+// _______________________________________________________________________________
 void Cowboy::iniciarCowboy()
 {
 	this->iniciarSprite("./Recursos/Imagens/Personagens/cowboy.png", 2.f, 2.f);

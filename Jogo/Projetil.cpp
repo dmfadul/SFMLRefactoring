@@ -1,9 +1,10 @@
 #include "stdafx.h"
 #include "Projetil.h"
 
-
+// _______________________________________________________________________________
 Projetil::Projetil():direcao(true),dano(20){}
 
+// _______________________________________________________________________________
 Projetil::Projetil(sf::Vector2f posicao, bool direcao, std::string img, float escalax, float escalay):direcao(direcao){
 	this->setPosicao(posicao.x, posicao.y);
 	iniciarSprite(img, escalax, escalay);
@@ -13,18 +14,22 @@ Projetil::Projetil(sf::Vector2f posicao, bool direcao, std::string img, float es
 	this->compMov.setControleArrasto(false);
 }
 
+// _______________________________________________________________________________
 Projetil::~Projetil(){}
 
+// _______________________________________________________________________________
 void Projetil::setPosicao(float x, float y)
 {
 	this->sprite.setPosition(x, y);
 }
 
+// _______________________________________________________________________________
 void Projetil::desenhar(sf::RenderTarget& janela)
 {
 	janela.draw(this->sprite);
 }
 
+// _______________________________________________________________________________
 void Projetil::iniciarSprite(std::string imgCaminho, float scale_x, float scale_y)
 {
 	/* Inicia o sprite do personagem */
@@ -40,6 +45,7 @@ void Projetil::iniciarSprite(std::string imgCaminho, float scale_x, float scale_
 	sprite.setScale(sf::Vector2f(scale_x, scale_y));
 }
 
+// _______________________________________________________________________________
 void Projetil::iniciarHitbox(float comprimento, float altura, int off_x, int off_y)
 {
 	/* Inicia o hitbox sendo off_x e off_y o offset x e y da textura para a hitbox */
@@ -49,12 +55,14 @@ void Projetil::iniciarHitbox(float comprimento, float altura, int off_x, int off
 	this->hitbox.setOffSetY(off_y);
 }
 
+// _______________________________________________________________________________
 void Projetil::iniciarCompMov(float vel_max)
 {
 	this->compMov.iniciarCompMov(&this->sprite, vel_max);
 	this->compMov.setCaindo(false);
 }
 
+// _______________________________________________________________________________
 void Projetil::iniciarMovimento()
 {
 	if (direcao)
@@ -63,38 +71,26 @@ void Projetil::iniciarMovimento()
 		this->compMov.setVelX(VEL_MAX_PROJETIL);
 }
 
+// _______________________________________________________________________________
 void Projetil::atualizar()
 {
 	this->compMov.mover();
 	this->hitbox.atualizarPosicao();
 }
 
+// _______________________________________________________________________________
 int Projetil::getTempoVida()
 {
 	return tempo_vida.getElapsedTime().asMilliseconds();
 }
 
-HitBox Projetil::getHitbox() const
-{
-	return this->hitbox;
-}
+// _______________________________________________________________________________
+HitBox Projetil::getHitbox() const { return this->hitbox; }
 
-int Projetil::getDano()
-{
-	return this->dano;
-}
+int Projetil::getDano() { return this->dano; }
 
-sf::Vector2f Projetil::getPosicao()
-{
-	return this->sprite.getPosition();
-}
+sf::Vector2f Projetil::getPosicao() { return this->sprite.getPosition(); }
 
-const bool Projetil::getDirecao() const
-{
-	return this->direcao;
-}
+const bool Projetil::getDirecao() const { return this->direcao; }
 
-const std::string Projetil::getAtirador() const
-{
-	return this->atirador;
-}
+const std::string Projetil::getAtirador() const { return this->atirador; }

@@ -26,6 +26,7 @@ VelhoOeste::~VelhoOeste()
 	this->jogoInfo = NULL;
 }
 
+// _______________________________________________________________________________
 void VelhoOeste::invocarCobra()
 {
 	Cobra* cobra = new Cobra(&this->listaJog, sf::Vector2f((float)(rand() % TAM_JANELA_X), 0.f));
@@ -104,13 +105,18 @@ void VelhoOeste::desenhar(sf::RenderTarget& janela)
 	}
 }
 
+// _______________________________________________________________________________
 void VelhoOeste::iniciarInimigos()
 {
 	// adiciona inimigos na lista de inimigos
 	this->listaIni.incluirInimigo(new Bruxa(sf::Vector2f(630.f, 410.f), &this->gerProj, 2700));
-	this->listaIni.incluirInimigo(new Bruxa(sf::Vector2f(500.f, 110.f), &this->gerProj, 1600));
 	this->listaIni.incluirInimigo(new Bruxa(sf::Vector2f(700.f, 50.f), &this->gerProj, 1850));
 	this->listaIni.incluirInimigo(new Bruxa(sf::Vector2f(1100.f, 280.f), &this->gerProj, 2770));
+
+	int nBruxasAdicionais = rand() % 3;
+	for (int i = 0; i < nBruxasAdicionais; i++) {
+		this->listaIni.incluirInimigo(new Bruxa(sf::Vector2f((float)(rand() % TAM_JANELA_X / 2), 50.f), &this->gerProj, 1700 + 300*i));
+	}
 
 	// adiciona inimigos na lista de entidades
 	Lista<Inimigo>::Elemento<Inimigo>* elInimigo = this->listaIni.getPrimeiro();

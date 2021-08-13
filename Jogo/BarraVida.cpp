@@ -1,7 +1,8 @@
 #include "stdafx.h"
 #include "BarraVida.h"
 
-BarraVida::BarraVida()
+// _______________________________________________________________________________
+gui::BarraVida::BarraVida()
 {
 	this->valor = VALOR_MAX_DEFAULT;
 	this->valorMaximo = VALOR_MAX_DEFAULT;
@@ -9,11 +10,13 @@ BarraVida::BarraVida()
 	this->identBarraVida.setFont(this->fonte);
 }
 
-BarraVida::~BarraVida()
+// _______________________________________________________________________________
+gui::BarraVida::~BarraVida()
 {
 }
 
-void BarraVida::iniciarBarraVida()
+// _______________________________________________________________________________
+void gui::BarraVida::iniciarBarraVida()
 {
 	// inicia a barra
 	this->barra.setPosition(40.f, 40.f);
@@ -36,21 +39,23 @@ void BarraVida::iniciarBarraVida()
 	);
 }
 
-//
-void BarraVida::identificarBarraVida(std::string ident, float pos_x, float pos_y)
+// _______________________________________________________________________________
+void gui::BarraVida::identificarBarraVida(std::string ident, float pos_x, float pos_y)
 {
 	this->identBarraVida.setString(ident);
 	this->identBarraVida.setCharacterSize(22);
 	this->identBarraVida.setPosition(pos_x, pos_y);
 }
 
-void BarraVida::setTam(float x, float y)
+// _______________________________________________________________________________
+void gui::BarraVida::setTam(float x, float y)
 {
 	this->barra.setSize(sf::Vector2f(x, y));
 	this->contornoBarraVida.setSize(sf::Vector2f(x, y));
 }
 
-void BarraVida::setPosicao(float x, float y)
+// _______________________________________________________________________________
+void gui::BarraVida::setPosicao(float x, float y)
 {
 	this->barra.setPosition(x, y);
 	this->contornoBarraVida.setPosition(x, y);
@@ -61,17 +66,20 @@ void BarraVida::setPosicao(float x, float y)
 
 }
 
-void BarraVida::setCor(sf::Color c)
+// _______________________________________________________________________________
+void gui::BarraVida::setCor(sf::Color c)
 {
 	this->barra.setFillColor(c);
 }
 
-void BarraVida::setTamTexto(int tam)
+// _______________________________________________________________________________
+void gui::BarraVida::setTamTexto(int tam)
 {
 	this->texto.setCharacterSize(tam);
 }
 
-void BarraVida::incrementaValor(int v)
+// _______________________________________________________________________________
+void gui::BarraVida::incrementaValor(int v)
 {
 	// incrementa o valor e o tamanho da barra
 	this->valor += v;
@@ -89,7 +97,8 @@ void BarraVida::incrementaValor(int v)
 	this->texto.setString(texto_barra);
 }
 
-void BarraVida::setValor(int v)
+// _______________________________________________________________________________
+void gui::BarraVida::setValor(int v)
 {
 	// define o valor e o tamanho da barra
 	this->valor = v;
@@ -107,14 +116,16 @@ void BarraVida::setValor(int v)
 	this->texto.setString(texto_barra);
 }
 
-void BarraVida::setValorMaximo(int vm)
+// _______________________________________________________________________________
+void gui::BarraVida::setValorMaximo(int vm)
 {
 	this->valorMaximo = vm;
 	this->valor = vm;
 	this->incrementaValor(0);
 }
 
-void BarraVida::desenharBarraVida(sf::RenderTarget& janela)
+// _______________________________________________________________________________
+void gui::BarraVida::desenharBarraVida(sf::RenderTarget& janela)
 {
 	janela.draw(barra);
 	janela.draw(identBarraVida);
@@ -122,17 +133,20 @@ void BarraVida::desenharBarraVida(sf::RenderTarget& janela)
 	janela.draw(contornoBarraVida);
 }
 
-void BarraVida::operator-=(const int v)
+// _______________________________________________________________________________
+void gui::BarraVida::operator-=(const int v)
 {
 	this->incrementaValor(-v);
 }
 
-void BarraVida::operator+=(const int v)
+// _______________________________________________________________________________
+void gui::BarraVida::operator+=(const int v)
 {
 	this->incrementaValor(v);
 }
 
-void BarraVida::operator=(const int v)
+// _______________________________________________________________________________
+void gui::BarraVida::operator=(const int v)
 {
 	this->setValor(v);
 }

@@ -1,21 +1,22 @@
 #pragma once
-#include "Bloco.h"
-#include "Jogador.h"
+#include "Entidade.h"
 
 class Obstaculo :
-    public Bloco
+    public Entidade
 {
-protected:
-    // variaveis
-    float dano;
+private:
+    bool colidir;
 
 public:
-    // construtoras e destrutoras
-    Obstaculo(const int indice = 0, const bool colidir = false);
-    ~Obstaculo();
+	// Construtoras e Destrutoras
+	Obstaculo(const bool colidir = true);
+	~Obstaculo();
 
-    // metodos 
-    void iniciarSprite(int indice, float scale_x, float scale_y);
-    virtual void realizarAcao(Jogador* p) = 0;
+	// getters e setters
+	const bool getColidir();
+	void setPosicao(const float x, const float y);
 
+	void atualizar();
+	void desenhar(sf::RenderTarget& janela);
 };
+

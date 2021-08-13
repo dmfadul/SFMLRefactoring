@@ -159,7 +159,7 @@
   <ItemGroup>
     <ClCompile Include="AreiaDasAlmas.cpp" />
     <ClCompile Include="BarraVida.cpp" />
-    <ClCompile Include="Bloco.cpp" />
+    <ClCompile Include="Obstaculo.cpp" />
     <ClCompile Include="BolaFogo.cpp" />
     <ClCompile Include="Botao.cpp" />
     <ClCompile Include="BotaoPadrao.cpp" />
@@ -198,7 +198,7 @@
     <ClCompile Include="MenuPrincipal.cpp" />
     <ClCompile Include="Morcego.cpp" />
     <ClCompile Include="NinhoDoDragao.cpp" />
-    <ClCompile Include="Obstaculo.cpp" />
+    <ClCompile Include="ObstaculoDanoso.cpp" />
     <ClCompile Include="Origem.cpp" />
     <ClCompile Include="Personagem.cpp" />
     <ClCompile Include="PersonagemInfo.cpp" />
@@ -221,7 +221,7 @@
   <ItemGroup>
     <ClInclude Include="AreiaDasAlmas.h" />
     <ClInclude Include="BarraVida.h" />
-    <ClInclude Include="Bloco.h" />
+    <ClInclude Include="Obstaculo.h" />
     <ClInclude Include="BolaFogo.h" />
     <ClInclude Include="Botao.h" />
     <ClInclude Include="BotaoPadrao.h" />
@@ -262,7 +262,7 @@
     <ClInclude Include="MenuPrincipal.h" />
     <ClInclude Include="Morcego.h" />
     <ClInclude Include="NinhoDoDragao.h" />
-    <ClInclude Include="Obstaculo.h" />
+    <ClInclude Include="ObstaculoDanoso.h" />
     <ClInclude Include="Personagem.h" />
     <ClInclude Include="PersonagemInfo.h" />
     <ClInclude Include="Plataforma.h" />

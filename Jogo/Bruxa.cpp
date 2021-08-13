@@ -3,6 +3,7 @@
 
 // _______________________________________________________________________________
 Bruxa::Bruxa(): tempo_direcao(1000), gerProj(NULL), tempo_cooldown(500),vivo(true) {}
+
 // _______________________________________________________________________________
 Bruxa::Bruxa(sf::Vector2f position, GeradorProjeteis* gp, int tempo_direcao):
 	tempo_direcao(tempo_direcao),gerProj(gp),vivo(true)
@@ -15,12 +16,12 @@ Bruxa::Bruxa(sf::Vector2f position, GeradorProjeteis* gp, int tempo_direcao):
 	this->iniciarCompMov(VEL_MAX_BRUXA);
 	this->sprite.setPosition(position);
 	this->compMov.setControleArrasto(false);
-	//t = std::thread(executar,this);
 	start();
 	this->barraVida.setValorMaximo(VIDA_INICIAL);
 	this->nome = "BRUXA";
 }
 
+// _______________________________________________________________________________
 void Bruxa::run()
 {
 	while (vivo)
@@ -32,9 +33,9 @@ void Bruxa::run()
 // _______________________________________________________________________________
 Bruxa::~Bruxa()
 {
+	this->gerProj = NULL;
 	vivo = false;
 	join();
-	//t.join();
 }
 
 // _______________________________________________________________________________
@@ -65,6 +66,7 @@ void Bruxa::atualizar()
 	}
 }
 
+// _______________________________________________________________________________
 void Bruxa::atirar()
 {
 	this->gerProj->CriarProjetil(new Morcego(this->getHitbox().getCima(), this->direction));
@@ -75,9 +77,4 @@ void Bruxa::desenhar(sf::RenderTarget& janela)
 {
 	janela.draw(sprite);
 	barraVida.desenharBarraVida(janela);
-}
-
-int Bruxa::getTipo()
-{
-	return 1;
 }

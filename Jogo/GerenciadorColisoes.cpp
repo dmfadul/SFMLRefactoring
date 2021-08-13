@@ -85,7 +85,7 @@ void GerenciadorColisoes::verificarColisao(Personagem* personagem, bool colidir_
 	// colisao da direita da hitbox com uma plataforma
 	int bloco = this->mapa->blocoAtual(hitbox.getDireita()) - 1;
 	if (bloco >= 17 && colidir_obstaculo) {
-		Obstaculo* obstaculo = static_cast<Obstaculo*>(this->mapa->getBloco(bloco));
+		ObstaculoDanoso* obstaculo = static_cast<ObstaculoDanoso*>(this->mapa->getBloco(bloco));
 		obstaculo->realizarAcao(static_cast<Jogador*>(personagem));
 	}
 	else if (bloco >= 0 && this->mapa->getBloco(bloco)->getColidir()) 
@@ -100,7 +100,7 @@ void GerenciadorColisoes::verificarColisao(Personagem* personagem, bool colidir_
 	// colisao da esquerda da hitbox com uma plataforma
 	bloco = this->mapa->blocoAtual(personagem->getHitbox().getEsquerda()) - 1;
 	if (bloco >= 17 && colidir_obstaculo) {
-		Obstaculo* obstaculo = static_cast<Obstaculo*>(this->mapa->getBloco(bloco));
+		ObstaculoDanoso* obstaculo = static_cast<ObstaculoDanoso*>(this->mapa->getBloco(bloco));
 		obstaculo->realizarAcao(static_cast<Jogador*>(personagem));
 	}
 	else if (bloco >= 0 && this->mapa->getBloco(bloco)->getColidir()) 
@@ -128,7 +128,7 @@ void GerenciadorColisoes::verificarColisao(Personagem* personagem, bool colidir_
 	int bloco2 = this->mapa->blocoAtual(hitbox.getBaixoDireita()) - 1;
 
 	if (bloco >= 17 && colidir_obstaculo) {
-		Obstaculo* obstaculo = static_cast<Obstaculo* >(this->mapa->getBloco(bloco));
+		ObstaculoDanoso* obstaculo = static_cast<ObstaculoDanoso* >(this->mapa->getBloco(bloco));
 		obstaculo->realizarAcao(static_cast<Jogador*>(personagem));
 	}
 	else if ( bloco >= 0 && this->mapa->getBloco(bloco)->getColidir() ||
@@ -216,6 +216,7 @@ void GerenciadorColisoes::verificarColisao(Jogador* jogador, Projetil* projetil)
 	
 }
 
+// _______________________________________________________________________________
 void GerenciadorColisoes::verificarColisao(Inimigo* inimigo, Projetil* projetil)
 {
 	/*Verifica Colisao do Projetil com inimigo*/

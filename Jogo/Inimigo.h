@@ -16,7 +16,5 @@ public:
     // setters e getters
     const bool getDirection() const;
     const int getRecompensa() const;
-
-    virtual int getTipo() = 0;
 };
 
