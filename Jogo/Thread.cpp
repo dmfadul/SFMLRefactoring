@@ -41,10 +41,9 @@ void* Thread::runThread(void* pThread)
 	}
 	else
 	{
-		if(id == sThread->t_id)
+		if (id == sThread->t_id)
 			sThread->run();
 	}
-	
 	mutex.unlock();
 	return (void*)NULL;
 }

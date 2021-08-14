@@ -15,7 +15,6 @@ private:
     sf::Clock cooldown_projetil;
     int tempo_direcao;
     int tempo_cooldown;
-    bool vivo;
 
 public:
     // construtoras e destrutoras

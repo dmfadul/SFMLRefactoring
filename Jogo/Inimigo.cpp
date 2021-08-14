@@ -20,3 +20,8 @@ const bool Inimigo::getDirection() const{
 const int Inimigo::getRecompensa() const{
 	return this->recompensa;
 }
+
+void Inimigo::setVivo(bool v)
+{
+	this->vivo = v;
+}

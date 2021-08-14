@@ -2,12 +2,13 @@
 #include "Bruxa.h"
 
 // _______________________________________________________________________________
-Bruxa::Bruxa(): tempo_direcao(1000), gerProj(NULL), tempo_cooldown(500),vivo(true) {}
+Bruxa::Bruxa(): tempo_direcao(1000), gerProj(NULL), tempo_cooldown(500) {}
 
 // _______________________________________________________________________________
 Bruxa::Bruxa(sf::Vector2f position, GeradorProjeteis* gp, int tempo_direcao):
-	tempo_direcao(tempo_direcao),gerProj(gp),vivo(true)
+	tempo_direcao(tempo_direcao),gerProj(gp)
 {
+	vivo = true;
 	this->tempo_cooldown = rand() % 1000 + 500;
 	this->recompensa = 20;
 	this->iniciarSprite("./Recursos/Imagens/Personagens/bruxa.png", 2.f, 2.f);
@@ -20,23 +21,24 @@ Bruxa::Bruxa(sf::Vector2f position, GeradorProjeteis* gp, int tempo_direcao):
 	detach();
 	this->barraVida.setValorMaximo(VIDA_INICIAL);
 	this->nome = "BRUXA";
+	
 }
 
 // _______________________________________________________________________________
 void Bruxa::run()
 {
 	int id = getId();
+	
 	while (vivo && getId()==id)
 	{
 		atirar();
 		Sleep(4);
 	}
-	
 }
 // _______________________________________________________________________________
 Bruxa::~Bruxa()
 {
-	this->gerProj = NULL;
+	//this->gerProj = NULL;
 	vivo = false;
 }
 

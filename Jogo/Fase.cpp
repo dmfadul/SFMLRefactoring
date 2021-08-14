@@ -15,6 +15,7 @@ Fase::~Fase()
 	Lista<Inimigo>::Elemento<Inimigo>* elIni = listaIni.getPrimeiro();
 	while (elIni != NULL) {
 		listaEntidades.removerEntidade(elIni->getId());
+		elIni->getInfo()->setVivo(false);
 		elIni = elIni->getProximo();
 		
 	}
