@@ -48,11 +48,13 @@ void NinhoDoDragao::atualizar()
 		{
 			this->gerProj.ExcluirProjetil();
 			this->gerColisoes.verificarColisoes();
+
+			// invoca novo inimigo
+			if (this->timerInvocarInimigo.getElapsedTime().asMilliseconds() > 7000) {
+				this->invocarInimigo();
 		}
 
-		// invoca novo inimigo
-		if (this->timerInvocarInimigo.getElapsedTime().asMilliseconds() > 7000) {
-			this->invocarInimigo();
+		
 		}
 	}
 }

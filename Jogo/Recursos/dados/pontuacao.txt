@@ -9,3 +9,6 @@ asdas 0
 aasd 0
 dasda 35
 asda 20
+asdasd 20
+sadas 0
+dasd 390

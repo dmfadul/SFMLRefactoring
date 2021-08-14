@@ -58,12 +58,15 @@ void VelhoOeste::atualizar()
 		else {
 			this->gerProj.ExcluirProjetil();
 			this->gerColisoes.verificarColisoes();
+			
+			// invoca nova cobra
+			if (this->timerInvocarCobra.getElapsedTime().asMilliseconds() > 5000 && this->qtdCobras < this->qtdMaxCobras) {
+				this->invocarCobra();
+			}
 		}
 
-		// invoca nova cobra
-		if (this->timerInvocarCobra.getElapsedTime().asMilliseconds() > 5000 && this->qtdCobras < this->qtdMaxCobras) {
-			this->invocarCobra();
-		}
+		
+		
 	}
 }
 
