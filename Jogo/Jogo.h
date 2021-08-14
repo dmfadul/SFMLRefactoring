@@ -1,8 +1,6 @@
 #pragma once
-
 #include "MenuPrincipal.h"
 #include "JogoInfo.h"
-#include "TocaDisco.h"
 
 /* Classe Principal */
 class Jogo

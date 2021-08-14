@@ -1,6 +1,5 @@
 #pragma once
 
-#include "Botao.h"
 #include "JogoInfo.h"
 #include "configuracoes.h"
 #include "Entidade.h"
