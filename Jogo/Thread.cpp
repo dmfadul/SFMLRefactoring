@@ -34,7 +34,9 @@ void* Thread::runThread(void* pThread)
 {
 	Thread* sThread = static_cast<Thread*>(pThread);
 	int id = sThread->t_id;
+	std::cout << "Iniciando thread " << id << std::endl;
 	mutex.lock();
+	std::cout << "Thread " << id << " Entrou no mutex" << std::endl;
 	if (NULL == sThread)
 	{
 		std::cout << "thread falhou." << std::endl;
@@ -45,5 +47,6 @@ void* Thread::runThread(void* pThread)
 			sThread->run();
 	}
 	mutex.unlock();
+	std::cout << "Thread " << id << " Desligou o mutex" << std::endl;
 	return (void*)NULL;
 }

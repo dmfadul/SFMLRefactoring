@@ -18,7 +18,7 @@ Bruxa::Bruxa(sf::Vector2f position, GeradorProjeteis* gp, int tempo_direcao):
 	this->sprite.setPosition(position);
 	this->compMov.setControleArrasto(false);
 	start();
-	detach();
+	//detach();
 	this->barraVida.setValorMaximo(VIDA_INICIAL);
 	this->nome = "BRUXA";
 	
@@ -29,8 +29,10 @@ void Bruxa::run()
 {
 	int id = getId();
 	
+	std::cout << "Thread running " << std::endl;
 	while (vivo && getId()==id)
 	{
+		
 		atirar();
 		Sleep(4);
 	}
