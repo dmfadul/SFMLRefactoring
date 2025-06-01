@@ -48,7 +48,7 @@ public:
     /// \param value Optional value to initialize the variable
     ///
     ////////////////////////////////////////////////////////////
-    ThreadLocalPtr(T* value = NULL);
+    ThreadLocalPtr(T* value = 0);
 
     ////////////////////////////////////////////////////////////
     /// \brief Overload of unary operator *
