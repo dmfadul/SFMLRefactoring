@@ -5,7 +5,7 @@
 Cobra::Cobra()
 {
 	this->cooldown_pulo = 0;
-	this->jogadores = NULL;
+	this->jogadores = 0;
 }
 
 // _______________________________________________________________________________
@@ -26,7 +26,7 @@ Cobra::Cobra(ListaJogadores* jogadores, sf::Vector2f position)
 // _______________________________________________________________________________
 Cobra::~Cobra()
 {
-	this->jogadores = NULL;
+	this->jogadores = 0;
 }
 
 // _______________________________________________________________________________

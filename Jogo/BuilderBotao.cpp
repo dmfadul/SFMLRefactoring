@@ -4,19 +4,19 @@
 // _______________________________________________________________________________
 BuilderBotao::BuilderBotao()
 {
-	this->botao = NULL;
+	this->botao = 0;
 }
 
 // _______________________________________________________________________________
 BuilderBotao::~BuilderBotao()
 {
-	this->botao = NULL;
+	this->botao = 0;
 }
 
 // _______________________________________________________________________________
 void BuilderBotao::buildTexto(int tam_char, std::string fontDir, std::string texto)
 {
-	/* Inicia fonte e centraliza o texto no botão */
+	/* Inicia fonte e centraliza o texto no botï¿½o */
 	try { 
 		this->fonte.loadFromFile(fontDir);
 	} catch(...){

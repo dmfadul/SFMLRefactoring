@@ -34,13 +34,13 @@ void Bruxa::run()
 	{
 		
 		atirar();
-		Sleep(4);
+		// Sleep(4);
 	}
 }
 // _______________________________________________________________________________
 Bruxa::~Bruxa()
 {
-	//this->gerProj = NULL;
+	//this->gerProj = 0;
 	vivo = false;
 }
 

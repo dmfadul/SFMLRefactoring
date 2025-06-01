@@ -15,7 +15,7 @@ ListaEntidades::~ListaEntidades()
 // _______________________________________________________________________________
 void ListaEntidades::incluirEntidade(Entidade* j)
 {
-    if (j != NULL)
+    if (j != 0)
         this->listaEntidades.incluaInfo(j);
 }
 

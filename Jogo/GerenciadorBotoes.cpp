@@ -13,7 +13,7 @@ GerenciadorBotoes::~GerenciadorBotoes()
 {
 	delete this->tocaDisco;
 	for (auto& botao : this->botoes) {
-		botao.second = NULL;
+		botao.second = 0;
 	}
 	this->botoes.clear();
 }

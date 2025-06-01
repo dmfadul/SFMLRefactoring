@@ -122,7 +122,7 @@ void VelhoOeste::iniciarInimigos()
 
 	// adiciona inimigos na lista de entidades
 	Lista<Inimigo>::Elemento<Inimigo>* elInimigo = this->listaIni.getPrimeiro();
-	while (elInimigo != NULL) {
+	while (elInimigo != 0) {
 		Inimigo* pInimigo = elInimigo->getInfo();
 		this->listaEntidades.incluirEntidade(static_cast<Entidade*>(pInimigo));
 		elInimigo = elInimigo->getProximo();

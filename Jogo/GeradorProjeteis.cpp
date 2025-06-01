@@ -6,17 +6,17 @@ GeradorProjeteis::GeradorProjeteis():listIni(NULL),listProj(NULL), listEnt(NULL)
 
 // _______________________________________________________________________________
 GeradorProjeteis::~GeradorProjeteis(){
-	this->listIni = NULL;
-	this->listProj = NULL;
-	this->listEnt = NULL;
+	this->listIni = 0;
+	this->listProj = 0;
+	this->listEnt = 0;
 }
 
 // _______________________________________________________________________________
 void GeradorProjeteis::CriarProjetil(Projetil* projetil)
 {
-	// Cria um novo projétil em um inimigo
+	// Cria um novo projï¿½til em um inimigo
 
-	if (projetil != NULL) {
+	if (projetil != 0) {
 		this->listProj->incluirProjetil(projetil);
 		this->listEnt->incluirEntidade(projetil);
 	}
@@ -28,7 +28,7 @@ void GeradorProjeteis::ExcluirProjetil()
 	Lista<Projetil>::Elemento<Projetil>* proj = listProj->getPrimeiro();
 	Projetil* pproj;
 
-	while (proj != NULL)
+	while (proj != 0)
 	{
 		pproj = proj->getInfo();
 		proj = proj->getProximo();

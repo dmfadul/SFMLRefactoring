@@ -16,7 +16,7 @@ ComponenteMovimento::ComponenteMovimento():
 // _______________________________________________________________________________
 ComponenteMovimento::~ComponenteMovimento()
 {
-    this->sprite = NULL;
+    this->sprite = 0;
 }
 
 // _______________________________________________________________________________
@@ -65,7 +65,7 @@ void ComponenteMovimento::acelerarY(float y) {
 // _______________________________________________________________________________
 void ComponenteMovimento::mover()
 {
-    // movimento na direção x
+    // movimento na direï¿½ï¿½o x
     if (this->vel.x > 0.1f && this->controle_arrasto)           
         this->vel.x -= (float)(this->vel.x * COEFICIENTE_ARRASTO);
 
@@ -75,7 +75,7 @@ void ComponenteMovimento::mover()
     else if (this->controle_arrasto)                            
         this->vel.x = 0;
 
-    // movimento na direção y
+    // movimento na direï¿½ï¿½o y
     if      (this->vel.y > 0.1f)   
         this->vel.y -= (float)(this->vel.y * 0.1f * COEFICIENTE_ARRASTO);
 

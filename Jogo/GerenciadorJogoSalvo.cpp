@@ -28,7 +28,7 @@ void GerenciadorJogoSalvo::salvarJogadores(ListaJogadores* lp, int score)
 	// NOME - POSICAOX - POSICAOY - VIDA
 
 	Lista<Jogador>::Elemento<Jogador>* elJogador = lp->getPrimeiro();
-	while (elJogador != NULL) {
+	while (elJogador != 0) {
 		Jogador* pJogador = elJogador->getInfo();
 
 		arquivo_jogo_salvo << pJogador->getNome() << " " << pJogador->getPosition().x  << " " << 
@@ -48,7 +48,7 @@ void GerenciadorJogoSalvo::salvarInimigos(ListaInimigos* li)
 	// NOME - POSICAOX - POSICAOY - VIDA
 
 	Lista<Inimigo>::Elemento<Inimigo>* elInimigo = li->getPrimeiro();
-	while (elInimigo != NULL) {
+	while (elInimigo != 0) {
 		Inimigo* pInimigo = elInimigo->getInfo();
 
 		arquivo_jogo_salvo << pInimigo->getNome() << " " << pInimigo->getPosition().x << " " <<
@@ -68,7 +68,7 @@ void GerenciadorJogoSalvo::salvarProjeteis(ListaProjeteis* lp)
 	// NOME - POSICAOX - POSICAOY - DIRECAO
 
 	Lista<Projetil>::Elemento<Projetil>* elProjetil = lp->getPrimeiro();
-	while (elProjetil != NULL) {
+	while (elProjetil != 0) {
 		Projetil* pProjetil = elProjetil->getInfo();
 
 		arquivo_jogo_salvo << pProjetil->getNome() << " " << pProjetil->getPosicao().x << " " <<
@@ -85,7 +85,7 @@ void GerenciadorJogoSalvo::carregarJogadores(ListaJogadores* lj, ListaEntidades*
 	std::string nome;
 	sf::Vector2f posicao;
 	int score, vida;
-	Jogador* jogador = NULL;
+	Jogador* jogador = 0;
 	PersonagemInfo::setScore(0);
 
 	// abre arquivo
@@ -128,7 +128,7 @@ void GerenciadorJogoSalvo::carregarInimigos(ListaInimigos* li, ListaEntidades* l
 	std::string nome;
 	sf::Vector2f posicao;
 	int vida;
-	Inimigo* inimigo= NULL;
+	Inimigo* inimigo= 0;
 
 	// abre arquivo
 	std::fstream arquivo_jogo_salvo;
@@ -170,7 +170,7 @@ void GerenciadorJogoSalvo::carregarProjeteis(ListaProjeteis* lp, ListaEntidades*
 	std::string nome;
 	sf::Vector2f posicao;
 	int direcao;
-	Projetil* projetil = NULL;
+	Projetil* projetil = 0;
 
 	// abre arquivo
 	std::fstream arquivo_jogo_salvo;

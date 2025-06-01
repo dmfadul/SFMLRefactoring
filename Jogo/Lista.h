@@ -57,18 +57,18 @@ template<class TIPO>
 template<class T>
 inline Lista<TIPO>::Elemento<T>::Elemento()
 {
-	this->pProx = NULL;
-	this->pAnte = NULL;
-	this->pInfo = NULL;
+	this->pProx = 0;
+	this->pAnte = 0;
+	this->pInfo = 0;
 }
 
 template<class TIPO>
 template<class T>
 inline Lista<TIPO>::Elemento<T>::~Elemento()
 {
-	this->pProx = NULL;
-	this->pAnte = NULL;
-	this->pInfo = NULL;
+	this->pProx = 0;
+	this->pAnte = 0;
+	this->pInfo = 0;
 }
 
 template<class TIPO>
@@ -144,16 +144,16 @@ inline Lista<TIPO>::~Lista()
 template<class TIPO>
 inline void Lista<TIPO>::inicializa()
 {
-	pPrimeiro = NULL;
-	pAtual = NULL;
+	pPrimeiro = 0;
+	pAtual = 0;
 }
 
 template<class TIPO>
 inline bool Lista<TIPO>::incluaElemento(Elemento<TIPO>* pElemento)
 {
-	if (pElemento != NULL)
+	if (pElemento != 0)
 	{
-		if (pPrimeiro == NULL)
+		if (pPrimeiro == 0)
 		{
 			pPrimeiro = pElemento;
 			pAtual = pElemento;
@@ -177,26 +177,26 @@ template<class TIPO>
 inline bool Lista<TIPO>::removerElemento(int id)
 {
 	Elemento<TIPO>* pElemento = this->pPrimeiro;
-	Elemento<TIPO>* pAuxAnt = NULL;		
+	Elemento<TIPO>* pAuxAnt = 0;		
 
-	while (pElemento != NULL && (pElemento->getId() != id)) {
+	while (pElemento != 0 && (pElemento->getId() != id)) {
 		pAuxAnt = pElemento;
 		pElemento = pElemento->getProximo();
 	}
 
-	// Se a lista estiver vazia ou não tiver o elemento
-	if (pElemento == NULL)
+	// Se a lista estiver vazia ou nï¿½o tiver o elemento
+	if (pElemento == 0)
 		return false;
 
-	// Se só tiver um elemento na lista
+	// Se sï¿½ tiver um elemento na lista
 	else if (pElemento == this->pPrimeiro) {
 		this->pPrimeiro = this->pPrimeiro->getProximo();
-		if(this->pPrimeiro != NULL)
+		if(this->pPrimeiro != 0)
 			this->pPrimeiro->setAnterior(NULL);
 	}
 
-	// se o elemento a ser removido é o ultimo da lista
-	else if(pElemento->getProximo() == NULL) {
+	// se o elemento a ser removido ï¿½ o ultimo da lista
+	else if(pElemento->getProximo() == 0) {
 		pElemento->getAnterior()->setProximo(NULL);
 		this->pAtual = pElemento->getAnterior();
 	}
@@ -208,16 +208,16 @@ inline bool Lista<TIPO>::removerElemento(int id)
 		pAuxAnt->setProximo(pElemento->getProximo());
 	}
 	
-	pElemento = NULL;
+	pElemento = 0;
 	return true;
 }
 
 template<class TIPO>
 inline bool Lista<TIPO>::incluaInfo(TIPO* pInfo)
 {
-	if (pInfo != NULL)
+	if (pInfo != 0)
 	{
-		Elemento<TIPO>* pElemento = NULL;
+		Elemento<TIPO>* pElemento = 0;
 		pElemento = new Elemento<TIPO>();
 		pElemento->setInfo(pInfo);
 		pElemento->setId(pInfo->getId());
@@ -234,13 +234,13 @@ inline bool Lista<TIPO>::incluaInfo(TIPO* pInfo)
 template<class TIPO>
 inline bool Lista<TIPO>::listaVazia()
 {
-	return (pPrimeiro == NULL) ? true : false;
+	return (pPrimeiro == 0) ? true : false;
 }
 
 template<class TIPO>
 inline Lista<TIPO>::Elemento<TIPO>* Lista<TIPO>::getPrimeiro()
 {
-	if (this->pPrimeiro == NULL)
+	if (this->pPrimeiro == 0)
 		return NULL;
 	return this->pPrimeiro;
 }
@@ -271,7 +271,7 @@ inline void Lista<TIPO>::limpaLista()
 	paux1 = this->getPrimeiro();
 	paux2 = paux1;
 
-	while (paux1 != NULL)
+	while (paux1 != 0)
 	{
 		paux2 = paux1->getProximo();
 		delete (paux1);

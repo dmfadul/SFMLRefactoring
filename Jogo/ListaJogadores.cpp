@@ -16,7 +16,7 @@ ListaJogadores::~ListaJogadores()
 // _______________________________________________________________________________
 void ListaJogadores::incluirJogador(Jogador* j)
 {
-	if (j != NULL) 
+	if (j != 0) 
 		this->listaJogadores.incluaInfo(j);
 
 }

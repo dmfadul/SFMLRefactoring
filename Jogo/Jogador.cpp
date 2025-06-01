@@ -3,8 +3,8 @@
 
 // _______________________________________________________________________________
 Jogador::Jogador(){
-	this->listaProjeteis = NULL;
-	this->listaEntidades = NULL;
+	this->listaProjeteis = 0;
+	this->listaEntidades = 0;
 }
 
 // _______________________________________________________________________________

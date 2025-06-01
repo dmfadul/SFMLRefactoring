@@ -16,7 +16,7 @@ ListaInimigos::~ListaInimigos()
 // _______________________________________________________________________________
 void ListaInimigos::incluirInimigo(Inimigo* i)
 {
-    if (i != NULL)
+    if (i != 0)
         this->listaInimigos.incluaInfo(i);
 }
 

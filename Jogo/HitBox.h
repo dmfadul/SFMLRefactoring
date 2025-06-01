@@ -10,7 +10,7 @@ private:
 
 public:
 	// Construtoras e destrutoras
-	HitBox(sf::Sprite* s = NULL);
+	HitBox(sf::Sprite* s = 0);
 	~HitBox();
 
 	// setters e getters

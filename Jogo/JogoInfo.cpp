@@ -2,10 +2,10 @@
 #include "JogoInfo.h"
 #include "Ente.h"
 
-JogoInfo* JogoInfo::_instancia = NULL;
+JogoInfo* JogoInfo::_instancia = 0;
 
 JogoInfo* JogoInfo::getInstancia() {
-    if (_instancia == NULL) {
+    if (_instancia == 0) {
         _instancia = new JogoInfo();
     }
     

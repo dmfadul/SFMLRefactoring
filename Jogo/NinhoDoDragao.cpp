@@ -83,7 +83,7 @@ void NinhoDoDragao::atualizarEventos(sf::Event& evento_sfml)
 void NinhoDoDragao::invocarInimigo()
 {
 	/* Spawna cobra ou bruxa aleatoriamente. */
-	Inimigo* inimigo = NULL;
+	Inimigo* inimigo = 0;
 	
 	if(rand() % 2 == 0)
 		inimigo = static_cast<Inimigo*>(new Bruxa(sf::Vector2f((float)(rand() % TAM_JANELA_X), 0.f), &this->gerProj, rand() % 1500 + 1000));
@@ -119,7 +119,7 @@ void NinhoDoDragao::iniciarInimigos()
 	this->listaIni.incluirInimigo(new Dragao(sf::Vector2f(1000.f, 450.f), &this->gerProj));
 
 	Lista<Inimigo>::Elemento<Inimigo>* elInimigo = this->listaIni.getPrimeiro();
-	while (elInimigo != NULL) {
+	while (elInimigo != 0) {
 		Inimigo* pInimigo = elInimigo->getInfo();
 		this->listaEntidades.incluirEntidade(static_cast<Entidade*>(pInimigo));
 		elInimigo = elInimigo->getProximo();

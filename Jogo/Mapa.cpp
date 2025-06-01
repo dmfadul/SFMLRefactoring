@@ -13,8 +13,8 @@ Mapa::~Mapa()
 	// desaloca mapa e posicoes livres
 	for (unsigned int y = 0; y < TAM_MAPA_Y; y++) {
 		for (unsigned int x = 0; x < TAM_MAPA_X; x++) {
-			this->mapa[x][y] = NULL;
-			this->posLivres[x][y] = NULL;
+			this->mapa[x][y] = 0;
+			this->posLivres[x][y] = 0;
 		}
 	}
 	// desaloca plataformas
@@ -30,7 +30,7 @@ Mapa::~Mapa()
 // _______________________________________________________________________________
 const int Mapa::blocoAtual(sf::Vector2f pos) const
 {
-	/* Retona o bloco na posição passada por parametro */
+	/* Retona o bloco na posiï¿½ï¿½o passada por parametro */
 	int pos_x = (int)(pos.x) / 32;
 	int pos_y = (int)(pos.y) / 32;
 
@@ -108,7 +108,7 @@ void Mapa::iniciaPosicoesLivres()
 // _______________________________________________________________________________
 void Mapa::iniciarEntidades(int tipo)
 {
-	/* Inicia todas as plataformas e obstaculos, se for do tipo 1 os obstaculos são cactus e espinhos*/
+	/* Inicia todas as plataformas e obstaculos, se for do tipo 1 os obstaculos sï¿½o cactus e espinhos*/
 	/* Se for do tipo 2 os obstaculos sao espinhos e areia das almas*/
 	// inicia todas as plataformas
 	bool colidir;
@@ -117,7 +117,7 @@ void Mapa::iniciarEntidades(int tipo)
 		this->blocos.push_back(static_cast<Obstaculo* >(new Plataforma(this->inicioPlataformas + i,colidir)));
 	}
 	
-	// define as posiçoes dos obstaculos
+	// define as posiï¿½oes dos obstaculos
 	int obst1 = 0;
 	int obst2 = 0;
 	while (obst1 < 3 || obst2 < 3) {

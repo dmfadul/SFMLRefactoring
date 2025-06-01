@@ -21,7 +21,7 @@ Dragao::Dragao(): gerProj(NULL){}
 
 // _______________________________________________________________________________
 Dragao::~Dragao() {
-	this->gerProj = NULL;
+	this->gerProj = 0;
 }
 
 

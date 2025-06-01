@@ -16,7 +16,7 @@ ListaProjeteis::~ListaProjeteis()
 // _______________________________________________________________________________
 void ListaProjeteis::incluirProjetil(Projetil *p)
 {
-	if (p != NULL) {
+	if (p != 0) {
 		this->listaProjeteis.incluaInfo(p);
 	}
 }

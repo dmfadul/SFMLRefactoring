@@ -13,7 +13,7 @@ Fase::Fase(int n_jogadores):
 Fase::~Fase()
 {
 	Lista<Inimigo>::Elemento<Inimigo>* elIni = listaIni.getPrimeiro();
-	while (elIni != NULL) {
+	while (elIni != 0) {
 		listaEntidades.removerEntidade(elIni->getId());
 		elIni->getInfo()->setVivo(false);
 		elIni = elIni->getProximo();
@@ -73,7 +73,7 @@ void Fase::atualizarEntidades()
 {
 	// atualiza jogadores
 	Lista<Jogador>::Elemento<Jogador>* elJogador = this->listaJog.getPrimeiro();
-	while (elJogador != NULL) {
+	while (elJogador != 0) {
 		Jogador* pJogador = elJogador->getInfo();
 		pJogador->atualizar();
 		elJogador = elJogador->getProximo();
@@ -87,7 +87,7 @@ void Fase::atualizarEntidades()
 
 	// atualiza inimigos
 	Lista<Inimigo>::Elemento<Inimigo>* elInimigo = this->listaIni.getPrimeiro();
-	while (elInimigo != NULL) {
+	while (elInimigo != 0) {
 		Inimigo* pInimigo = elInimigo->getInfo();
 		elInimigo = elInimigo->getProximo();
 		pInimigo->atualizar();
@@ -102,7 +102,7 @@ void Fase::atualizarEntidades()
 	}
 
 	Lista<Projetil>::Elemento<Projetil>* elProjetil = this->listaProj.getPrimeiro();
-	while (elProjetil != NULL) {
+	while (elProjetil != 0) {
 		Projetil* pProjetil = elProjetil->getInfo();
 		elProjetil = elProjetil->getProximo();
 		pProjetil->atualizar();
@@ -146,7 +146,7 @@ void Fase::desenharEntidades(sf::RenderTarget& janela)
 {
 	// desenha entidades 
 	Lista<Entidade>::Elemento<Entidade>* elEntidade = this->listaEntidades.getPrimeiro();
-	while (elEntidade != NULL) {
+	while (elEntidade != 0) {
 		Entidade* pEntidade = elEntidade->getInfo();
 		elEntidade = elEntidade->getProximo();
 		pEntidade->desenhar(janela);
@@ -156,7 +156,7 @@ void Fase::desenharEntidades(sf::RenderTarget& janela)
 // _______________________________________________________________________________
 void Fase::realizarAcaoMenuPause()
 {
-	/* Realiza a ação vinculada com o botao ativo */
+	/* Realiza a aï¿½ï¿½o vinculada com o botao ativo */
 	int botao_ativo = this->caixaPause.getBotaoAtivo();
 	if (botao_ativo == continuar) {
 		this->pausado = false;
