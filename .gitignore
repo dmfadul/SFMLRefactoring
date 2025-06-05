@@ -1,6 +1,4 @@
-.dll
-SFML/
-Modelagem/
+dll/
 .vscode/
-Jogo/build/
-Jogo/build/CMakeFiles/
+build/
+build/CMakeFiles/
