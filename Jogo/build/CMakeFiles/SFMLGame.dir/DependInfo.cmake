@@ -63,6 +63,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/david/Files/CorreDoGaucho/Jogo/src/levels/Mapa.cpp" "CMakeFiles/SFMLGame.dir/src/levels/Mapa.cpp.o" "gcc" "CMakeFiles/SFMLGame.dir/src/levels/Mapa.cpp.o.d"
   "/home/david/Files/CorreDoGaucho/Jogo/src/levels/NinhoDoDragao.cpp" "CMakeFiles/SFMLGame.dir/src/levels/NinhoDoDragao.cpp.o" "gcc" "CMakeFiles/SFMLGame.dir/src/levels/NinhoDoDragao.cpp.o.d"
   "/home/david/Files/CorreDoGaucho/Jogo/src/levels/VelhoOeste.cpp" "CMakeFiles/SFMLGame.dir/src/levels/VelhoOeste.cpp.o" "gcc" "CMakeFiles/SFMLGame.dir/src/levels/VelhoOeste.cpp.o.d"
+  "/home/david/Files/CorreDoGaucho/Jogo/src/main.cpp" "CMakeFiles/SFMLGame.dir/src/main.cpp.o" "gcc" "CMakeFiles/SFMLGame.dir/src/main.cpp.o.d"
   "" "SFMLGame" "gcc" "CMakeFiles/SFMLGame.dir/link.d"
   )
 

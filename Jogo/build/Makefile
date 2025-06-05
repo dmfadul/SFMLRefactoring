@@ -1449,6 +1449,30 @@ src/levels/VelhoOeste.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SFMLGame.dir/build.make CMakeFiles/SFMLGame.dir/src/levels/VelhoOeste.cpp.s
 .PHONY : src/levels/VelhoOeste.cpp.s
 
+src/main.o: src/main.cpp.o
+.PHONY : src/main.o
+
+# target to build an object file
+src/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SFMLGame.dir/build.make CMakeFiles/SFMLGame.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
+
+src/main.i: src/main.cpp.i
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SFMLGame.dir/build.make CMakeFiles/SFMLGame.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
+
+src/main.s: src/main.cpp.s
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SFMLGame.dir/build.make CMakeFiles/SFMLGame.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1623,6 +1647,9 @@ help:
 	@echo "... src/levels/VelhoOeste.o"
 	@echo "... src/levels/VelhoOeste.i"
 	@echo "... src/levels/VelhoOeste.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
 .PHONY : help
 
 

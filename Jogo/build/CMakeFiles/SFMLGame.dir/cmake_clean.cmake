@@ -110,6 +110,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/SFMLGame.dir/src/levels/NinhoDoDragao.cpp.o.d"
   "CMakeFiles/SFMLGame.dir/src/levels/VelhoOeste.cpp.o"
   "CMakeFiles/SFMLGame.dir/src/levels/VelhoOeste.cpp.o.d"
+  "CMakeFiles/SFMLGame.dir/src/main.cpp.o"
+  "CMakeFiles/SFMLGame.dir/src/main.cpp.o.d"
   "SFMLGame"
   "SFMLGame.pdb"
 )
