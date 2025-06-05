@@ -3,12 +3,7 @@
 
 int main()
 {
-    // Objeto Principal
     Jogo jogo;
-
-    // Inicia a aplicação
     jogo.executar();
-
-    // Fim da aplicação
     return 0;
 }
