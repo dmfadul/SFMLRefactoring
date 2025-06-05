@@ -1,0 +1,3 @@
+/home/david/Files/CorreDoGaucho/Jogo/build/CMakeFiles/SFMLGame.dir
+/home/david/Files/CorreDoGaucho/Jogo/build/CMakeFiles/edit_cache.dir
+/home/david/Files/CorreDoGaucho/Jogo/build/CMakeFiles/rebuild_cache.dir
