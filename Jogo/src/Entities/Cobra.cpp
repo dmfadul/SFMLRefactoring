@@ -13,7 +13,7 @@ Cobra::Cobra(ListaJogadores* jogadores, sf::Vector2f position)
 {
 	this->recompensa = 15;
 	this->jogadores = jogadores;
-	this->iniciarSprite("./Recursos/Imagens/Personagens/cobra.png", 2.f, 2.f);
+	this->iniciarSprite("../assets/Imagens/Personagens/cobra.png", 2.f, 2.f);
 	this->sprite.setTextureRect(sf::IntRect(0, 0, 32, 32));
 	this->iniciarPersInfo(VIDA_INICIAL_COBRA, DANO_COBRA);
 	this->iniciarHitbox(28.f, 26.f, 10, 37);

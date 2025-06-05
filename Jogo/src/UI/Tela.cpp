@@ -5,7 +5,7 @@
 Tela::Tela()
 	: Ente()
 {
-	this->carregarFonte("./Recursos/Fontes/Bebas.ttf");
+	this->carregarFonte("../assets/Fontes/Bebas.ttf");
 }
 
 // _______________________________________________________________________________
@@ -18,7 +18,7 @@ void Tela::carregarFonte(std::string diretorio)
 {
 	/* carrega a fonte */
 	try {
-		this->fonte.loadFromFile("./Recursos/Fontes/Bebas.ttf");
+		this->fonte.loadFromFile("../assets/Fontes/Bebas.ttf");
 	}
 	catch (...) {
 		std::cerr << "TELA::INICARSPRITE FALHA AO CARREGAR FONTE " << std::endl;

@@ -10,8 +10,8 @@ VelhoOeste::VelhoOeste(int n_jogadores, bool carregar_jogo)
 	else
 		this->iniciarPersonagens();
 
-	this->iniciarBackground("./Recursos/Imagens/backgrounds/velho_oeste.png");
-	this->iniciarMapa("./Recursos/mapas/velho_oeste.txt", 1, 17);
+	this->iniciarBackground("../assets/Imagens/backgrounds/velho_oeste.png");
+	this->iniciarMapa("../assets/mapas/velho_oeste.txt", 1, 17);
 	this->iniciarGerenciadorColisoes();
 	this->iniciarGeradorProjeteis();
 	JogoInfo::getInstancia()->getTocaDisco()->tocarFallenDown();

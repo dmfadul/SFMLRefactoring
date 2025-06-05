@@ -7,7 +7,7 @@ MenuQtdJogadores::MenuQtdJogadores()
 {
 	this->botaoAtivo = um_jogador;
 	this->iniciarBotoes();
-	this->iniciarBackground("./Recursos/Imagens/backgrounds/menu_jogadores.png");
+	this->iniciarBackground("../assets/Imagens/backgrounds/menu_jogadores.png");
 }
 
 // _______________________________________________________________________________

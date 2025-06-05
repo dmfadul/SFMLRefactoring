@@ -7,7 +7,7 @@ MenuPrincipal::MenuPrincipal():
 {
 	this->botaoAtivo = novo_jogo;
 	this->iniciarBotoes();
-	this->iniciarBackground("./Recursos/Imagens/backgrounds/menu.png");
+	this->iniciarBackground("../assets/Imagens/backgrounds/menu.png");
 	JogoInfo::getInstancia()->getTocaDisco()->tocarMusicaInicio();
 }
 
@@ -54,7 +54,7 @@ void MenuPrincipal::carregarJogo()
 	// le arquivo
 	std::fstream arquivo_jogo_salvo;
 	try {
-		arquivo_jogo_salvo.open("./Recursos/dados/fase_salva.txt", std::ios::in);
+		arquivo_jogo_salvo.open("../assets/dados/fase_salva.txt", std::ios::in);
 	}
 	catch (...) {
 		std::cerr << "MENUPRINCIPAL::CARREGARJOGO FALHA AO CARREGAR JOGO." << std::endl;

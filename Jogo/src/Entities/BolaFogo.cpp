@@ -5,7 +5,7 @@
 BolaFogo::BolaFogo() {}
 
 // _______________________________________________________________________________
-BolaFogo::BolaFogo(sf::Vector2f posicao, bool direcao) :Projetil(posicao, direcao, "./Recursos/Imagens/Projeteis/bolafogo.png",0.25f,0.25f)
+BolaFogo::BolaFogo(sf::Vector2f posicao, bool direcao) :Projetil(posicao, direcao, "../assets/Imagens/Projeteis/bolafogo.png",0.25f,0.25f)
 {
 	this->dano = 50;
 	this->atirador = "INIMIGO";

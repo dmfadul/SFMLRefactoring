@@ -7,7 +7,7 @@ MenuEscolhaFases::MenuEscolhaFases()
 {
 	this->botaoAtivo = velho_oeste;
 	this->iniciarBotoes();
-	this->iniciarBackground("./Recursos/Imagens/backgrounds/menu_fases.png");
+	this->iniciarBackground("../assets/Imagens/backgrounds/menu_fases.png");
 }
 
 // _______________________________________________________________________________

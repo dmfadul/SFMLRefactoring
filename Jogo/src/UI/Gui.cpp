@@ -15,7 +15,7 @@ Gui::~Gui()
 void Gui::iniciarTexto(float pos_x, float pos_y, std::string texto)
 {
 	/* Inicia fonte e centraliza o texto no bot�o */
-	if (!this->fonte.loadFromFile("./Recursos/Fontes/Bebas.ttf")) {
+	if (!this->fonte.loadFromFile("../assets/Fontes/Bebas.ttf")) {
 		std::cout << "BOTAO::FALHA AO CARREGAR FONTE" << std::endl;
 	}
 

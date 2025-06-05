@@ -52,7 +52,7 @@ void CowGirl::atualizar()
 // _______________________________________________________________________________
 void CowGirl::iniciarCowgirl()
 {
-	this->iniciarSprite("./Recursos/Imagens/Personagens/cowgirl.png", 2.f, 2.f);
+	this->iniciarSprite("../assets/Imagens/Personagens/cowgirl.png", 2.f, 2.f);
 	this->sprite.setTextureRect(sf::IntRect(0, 0, 32, 32));
 	this->iniciarPersInfo(VIDA_INICIAL_JOGADOR, DANO_ATAQUE);
 	this->iniciarHitbox(25.f, 36.f, 15, 25);

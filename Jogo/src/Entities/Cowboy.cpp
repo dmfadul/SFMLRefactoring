@@ -25,7 +25,7 @@ Cowboy::~Cowboy()
 // _______________________________________________________________________________
 void Cowboy::iniciarCowboy()
 {
-	this->iniciarSprite("./Recursos/Imagens/Personagens/cowboy.png", 2.f, 2.f);
+	this->iniciarSprite("../assets/Imagens/Personagens/cowboy.png", 2.f, 2.f);
 	this->iniciarPersInfo(VIDA_INICIAL_JOGADOR, DANO_ATAQUE);
 	this->iniciarHitbox(25.f, 36.f, 15, 25);
 	this->iniciarCompMov(VEL_MAX_PLAYER);

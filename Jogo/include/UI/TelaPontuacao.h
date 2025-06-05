@@ -23,7 +23,7 @@ private:
         Linha(sf::Vector2f pos, std::string n, std::string p, int colocacao) 
         {
             // carrega a fonte
-            if (!this->fonte.loadFromFile("./Recursos/Fontes/Bebas.ttf")) {
+            if (!this->fonte.loadFromFile("../assets/Fontes/Bebas.ttf")) {
                 std::cout << "PONTUACAO::FALHA AO CARREGAR FONTE" << std::endl;
             }
 

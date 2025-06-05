@@ -14,7 +14,7 @@ GerenciadorJogoSalvo::~GerenciadorJogoSalvo()
 // _______________________________________________________________________________
 void GerenciadorJogoSalvo::salvarEstadoDaFase(std::string nome_fase, int qtd_jogadores){
 	std::ofstream arquivo_jogo_salvo;
-	arquivo_jogo_salvo.open("./Recursos/dados/fase_salva.txt", std::ios::out | std::ios::trunc);
+	arquivo_jogo_salvo.open("../assets/dados/fase_salva.txt", std::ios::out | std::ios::trunc);
 	arquivo_jogo_salvo << nome_fase << " " << qtd_jogadores << "\n";
 	arquivo_jogo_salvo.close();
 }
@@ -23,7 +23,7 @@ void GerenciadorJogoSalvo::salvarEstadoDaFase(std::string nome_fase, int qtd_jog
 void GerenciadorJogoSalvo::salvarJogadores(ListaJogadores* lp, int score)
 {
 	std::ofstream arquivo_jogo_salvo;
-	arquivo_jogo_salvo.open("./Recursos/dados/jogadores_salvos.txt", std::ios::out | std::ios::trunc);
+	arquivo_jogo_salvo.open("../assets/dados/jogadores_salvos.txt", std::ios::out | std::ios::trunc);
 
 	// NOME - POSICAOX - POSICAOY - VIDA
 
@@ -43,7 +43,7 @@ void GerenciadorJogoSalvo::salvarJogadores(ListaJogadores* lp, int score)
 void GerenciadorJogoSalvo::salvarInimigos(ListaInimigos* li)
 {
 	std::ofstream arquivo_jogo_salvo;
-	arquivo_jogo_salvo.open("./Recursos/dados/inimigos_salvos.txt", std::ios::out | std::ios::trunc);
+	arquivo_jogo_salvo.open("../assets/dados/inimigos_salvos.txt", std::ios::out | std::ios::trunc);
 
 	// NOME - POSICAOX - POSICAOY - VIDA
 
@@ -63,7 +63,7 @@ void GerenciadorJogoSalvo::salvarInimigos(ListaInimigos* li)
 void GerenciadorJogoSalvo::salvarProjeteis(ListaProjeteis* lp)
 {
 	std::ofstream arquivo_jogo_salvo;
-	arquivo_jogo_salvo.open("./Recursos/dados/projeteis_salvos.txt", std::ios::out | std::ios::trunc);
+	arquivo_jogo_salvo.open("../assets/dados/projeteis_salvos.txt", std::ios::out | std::ios::trunc);
 
 	// NOME - POSICAOX - POSICAOY - DIRECAO
 
@@ -91,7 +91,7 @@ void GerenciadorJogoSalvo::carregarJogadores(ListaJogadores* lj, ListaEntidades*
 	// abre arquivo
 	std::fstream arquivo_jogo_salvo;
 	try {
-		arquivo_jogo_salvo.open("./Recursos/dados/jogadores_salvos.txt", std::ios::in);
+		arquivo_jogo_salvo.open("../assets/dados/jogadores_salvos.txt", std::ios::in);
 	}
 	catch (...) {
 		std::cerr << "MENUPRINCIPAL::CARREGARJOGO FALHA AO CARREGAR JOGO." << std::endl;
@@ -133,7 +133,7 @@ void GerenciadorJogoSalvo::carregarInimigos(ListaInimigos* li, ListaEntidades* l
 	// abre arquivo
 	std::fstream arquivo_jogo_salvo;
 	try {
-		arquivo_jogo_salvo.open("./Recursos/dados/inimigos_salvos.txt", std::ios::in);
+		arquivo_jogo_salvo.open("../assets/dados/inimigos_salvos.txt", std::ios::in);
 	}
 	catch (...) {
 		std::cerr << "GERENCIADORJOGOSALVO::CARREGARINIMIGOS FALHA AO CARREGAR INIMIGOS." << std::endl;
@@ -175,7 +175,7 @@ void GerenciadorJogoSalvo::carregarProjeteis(ListaProjeteis* lp, ListaEntidades*
 	// abre arquivo
 	std::fstream arquivo_jogo_salvo;
 	try {
-		arquivo_jogo_salvo.open("./Recursos/dados/projeteis_salvos.txt", std::ios::in);
+		arquivo_jogo_salvo.open("../assets/dados/projeteis_salvos.txt", std::ios::in);
 	}
 	catch (...) {
 		std::cerr << "GERENCIADORJOGOSALVO::CARREGAR PROEJTEIS FALHA AO CARREGAR PROJETEIS." << std::endl;

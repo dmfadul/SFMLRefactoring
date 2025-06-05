@@ -11,8 +11,8 @@ NinhoDoDragao::NinhoDoDragao(int n_jogadores, bool carregar_jogo)
 	else
 		this->iniciarPersonagens();
 
-	this->iniciarBackground("./Recursos/Imagens/backgrounds/ninho_do_dragao.png");
-	this->iniciarMapa("./Recursos/mapas/ninho_dragao.txt", 101, 17, 2);
+	this->iniciarBackground("../assets/Imagens/backgrounds/ninho_do_dragao.png");
+	this->iniciarMapa("../assets/mapas/ninho_dragao.txt", 101, 17, 2);
 	this->iniciarGerenciadorColisoes();
 	this->iniciarGeradorProjeteis();
 	this->atualizarScore(0);

@@ -18,7 +18,7 @@ ObstaculoDanoso::~ObstaculoDanoso()
 void ObstaculoDanoso::iniciarSprite(int indice, float scale_x, float scale_y)
 {
 	/* carrega textura e inicia o sprite */
-	std::string s = "./Recursos/Imagens/obstaculos/" + std::to_string(indice) + ".png";
+	std::string s = "../assets/Imagens/obstaculos/" + std::to_string(indice) + ".png";
 
 	if (!this->textura.loadFromFile(s)) {
 		std::cout << "OBSTACULO::INICIARSPRITE FALHA AO CARREGAR TEXTURA" << std::endl;

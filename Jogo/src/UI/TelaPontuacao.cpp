@@ -6,7 +6,7 @@ TelaPontuacao::TelaPontuacao() :
 	Tela()
 {
 	// chama os metodos de inicializa��o
-	this->iniciarBackground("./Recursos/Imagens/backgrounds/pontuacao.png");
+	this->iniciarBackground("../assets/Imagens/backgrounds/pontuacao.png");
 	this->iniciarCaixa();
 	this->iniciarBotao();
 	this->carregarPontuacao();
@@ -72,7 +72,7 @@ void TelaPontuacao::carregarPontuacao()
 	// abre o arquivo com o pontuacao
 	std::fstream arquivo_pontuacao;
 	try{
-		arquivo_pontuacao.open("./Recursos/dados/pontuacao.txt", std::ios::in);
+		arquivo_pontuacao.open("../assets/dados/pontuacao.txt", std::ios::in);
 	}
 	catch (...){
 		std::cerr << "MAPA::CARREGARPONTUCAO FALHA AO CARREGAR PONTUACAO " << std::endl;

@@ -45,7 +45,7 @@ void TelaAdicionarPontuacao::adicionarPontuacao()
 {
 	/* Adiciona uma nova pontua��o no arquivo de pontuacoes */
 	std::ofstream arquivo_pontuacao;
-	arquivo_pontuacao.open("./Recursos/dados/pontuacao.txt", std::ios::out | std::ios::app);
+	arquivo_pontuacao.open("../assets/dados/pontuacao.txt", std::ios::out | std::ios::app);
 	arquivo_pontuacao << "\n" << this->nomeInput << " " << this->score;
 	arquivo_pontuacao.close();
 }

@@ -11,7 +11,7 @@ Bruxa::Bruxa(sf::Vector2f position, GeradorProjeteis* gp, int tempo_direcao):
 	vivo = true;
 	this->tempo_cooldown = rand() % 1000 + 500;
 	this->recompensa = 20;
-	this->iniciarSprite("./Recursos/Imagens/Personagens/bruxa.png", 2.f, 2.f);
+	this->iniciarSprite("../assets/Imagens/Personagens/bruxa.png", 2.f, 2.f);
 	this->iniciarPersInfo(VIDA_INICIAL, DANO_ATAQUE);
 	this->iniciarHitbox(25.f, 36.f, 15, 25);
 	this->iniciarCompMov(VEL_MAX_BRUXA);
