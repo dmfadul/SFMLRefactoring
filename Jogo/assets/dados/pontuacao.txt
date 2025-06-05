@@ -30,3 +30,4 @@ ffajas 30
 fjjjj 80
 fffff 20
 ffffffffff 90
+fffffff 0
