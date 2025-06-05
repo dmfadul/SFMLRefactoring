@@ -25,6 +25,8 @@ void Jogo::iniciarJanela()
 	/* Inicia a janela principal do jogo*/
     this->janela.create(sf::VideoMode(TAM_JANELA_X, TAM_JANELA_Y), "Corre Do Gaucho");
 
+    this->janela.setView(this->janela.getDefaultView());
+
     // define taxa de frame
     this->janela.setFramerateLimit(FRAME_RATE);
 }
