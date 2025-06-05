@@ -15,3 +15,10 @@
    - Ter em cada fase um cenário constituído por obstáculos, sendo que parte deles seriam plataformas ou similares.
    - Gerenciar colisões entre jogador para com inimigos e seus projeteis bem como entre jogador e obstáculos.
    - Permitir: sarvar nome do usuário, salvar pontuação do jogador controlado pelo usuário e gerar lista de pontuação. E pausar e salvar jogada.
+
+
+mkdir build
+cd build
+cmake ..
+cmake --build .
+./SFMLGame
