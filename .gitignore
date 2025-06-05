@@ -2,4 +2,5 @@
 SFML/
 Modelagem/
 .vscode/
-Jogo/build
+Jogo/build/
+Jogo/build/CMakeFiles/
