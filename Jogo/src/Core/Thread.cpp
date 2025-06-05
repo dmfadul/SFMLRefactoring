@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "Thread.h"
+#include "Core/stdafx.h"
+#include "Core/Thread.h"
 
 int Thread::t_id = 0;
 

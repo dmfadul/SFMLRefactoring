@@ -1,11 +1,11 @@
-#include "stdafx.h"
+#include "Core/stdafx.h"
 #include "configuracoes.h"
-#include "Jogo.h"
+#include "Core/Jogo.h"
 
 // _______________________________________________________________________________
 Jogo::Jogo()
 {
-    // Inicia Configurações iniciais do jogo
+    // Inicia Configuraï¿½ï¿½es iniciais do jogo
 	this->iniciarJanela();
     srand((unsigned int)(time(NULL)));
 
@@ -69,7 +69,7 @@ void Jogo::desenhar()
 // _______________________________________________________________________________
 void Jogo::executar()
 {
-    /* Inicia o jogo e o mantém rodando */
+    /* Inicia o jogo e o mantï¿½m rodando */
     while (this->janela.isOpen())
     {
         this->atualizar();

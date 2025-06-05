@@ -1,5 +1,5 @@
 #pragma once
-#include "Jogador.h"
+#include "Entities/Jogador.h"
 class CowGirl :
     public Jogador
 {

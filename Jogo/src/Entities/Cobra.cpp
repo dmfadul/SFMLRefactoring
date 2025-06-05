@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "Cobra.h"
+#include "Core/stdafx.h"
+#include "Entities/Cobra.h"
 
 // _______________________________________________________________________________
 Cobra::Cobra()

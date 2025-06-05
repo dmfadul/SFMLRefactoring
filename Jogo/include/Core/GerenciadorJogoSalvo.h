@@ -1,16 +1,16 @@
 #pragma once
-#include "ListaEntidades.h"
-#include "ListaInimigos.h"
-#include "ListaJogadores.h"
-#include "ListaProjeteis.h"
-#include "Cowboy.h"
-#include "CowGirl.h"
-#include "Bruxa.h"
-#include "Cobra.h"
-#include "Morcego.h"
-#include "Shuriken.h"
-#include "Dragao.h"
-#include "BolaFogo.h"
+#include "Utils/ListaEntidades.h"
+#include "Utils/ListaInimigos.h"
+#include "Utils/ListaJogadores.h"
+#include "Utils/ListaProjeteis.h"
+#include "Entities/Cowboy.h"
+#include "Entities/CowGirl.h"
+#include "Entities/Bruxa.h"
+#include "Entities/Cobra.h"
+#include "Entities/Morcego.h"
+#include "Entities/Shuriken.h"
+#include "Entities/Dragao.h"
+#include "Entities/BolaFogo.h"
 
 class GerenciadorJogoSalvo
 {

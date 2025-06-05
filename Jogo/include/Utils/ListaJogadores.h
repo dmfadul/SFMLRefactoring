@@ -1,6 +1,6 @@
 #pragma once
 #include "Lista.h"
-#include "Jogador.h"
+#include "Entities/Jogador.h"
 /* Classe que armazena os jogadores */
 class ListaJogadores
 {

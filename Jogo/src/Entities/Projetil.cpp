@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "Projetil.h"
+#include "Core/stdafx.h"
+#include "Entities/Projetil.h"
 
 // _______________________________________________________________________________
 Projetil::Projetil():direcao(true),dano(20){}

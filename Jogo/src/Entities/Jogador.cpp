@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "Jogador.h"
+#include "Core/stdafx.h"
+#include "Entities/Jogador.h"
 
 // _______________________________________________________________________________
 Jogador::Jogador(){

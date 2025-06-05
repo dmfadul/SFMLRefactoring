@@ -1,5 +1,5 @@
 #pragma once
-#include "ObstaculoDanoso.h"
+#include "Entities/ObstaculoDanoso.h"
 
 #define VELOCIDADE_MAX 0.5
 
@@ -13,7 +13,7 @@ public:
     AreiaDasAlmas(const int indice = 0);
     ~AreiaDasAlmas();
 
-    // metodo da ação especifica da areia das almas
+    // metodo da aï¿½ï¿½o especifica da areia das almas
     void realizarAcao(Jogador* p);
 };
 

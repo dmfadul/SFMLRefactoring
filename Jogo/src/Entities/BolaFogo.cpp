@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "BolaFogo.h"
+#include "Core/stdafx.h"
+#include "Entities/BolaFogo.h"
 
 // _______________________________________________________________________________
 BolaFogo::BolaFogo() {}

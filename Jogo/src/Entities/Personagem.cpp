@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "Personagem.h"
+#include "Core/stdafx.h"
+#include "Entities/Personagem.h"
 
 // _______________________________________________________________________________
 Personagem::Personagem():

@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "Cowboy.h"
+#include "Core/stdafx.h"
+#include "Entities/Cowboy.h"
 
 // _______________________________________________________________________________
 Cowboy::Cowboy()

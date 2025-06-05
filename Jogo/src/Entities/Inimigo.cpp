@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "Inimigo.h"
+#include "Core/stdafx.h"
+#include "Entities/Inimigo.h"
 
 // _______________________________________________________________________________
 Inimigo::Inimigo():direction(true), recompensa(0) {

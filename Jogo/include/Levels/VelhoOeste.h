@@ -1,9 +1,9 @@
 #pragma once
-#include "NinhoDoDragao.h"
-#include "Jogador.h"
-#include "TelaAdicionarPontuacao.h"
-#include "Bruxa.h"
-#include "Cobra.h"
+#include "Levels/NinhoDoDragao.h"
+#include "Entities/Jogador.h"
+#include "UI/TelaAdicionarPontuacao.h"
+#include "Entities/Bruxa.h"
+#include "Entities/Cobra.h"
 
 class VelhoOeste :
     public Fase
@@ -21,11 +21,11 @@ public:
     // Criar inimigos
     void invocarCobra();
 
-    // Métodos de Atualização
+    // Mï¿½todos de Atualizaï¿½ï¿½o
     void atualizar();
     void atualizarEventos(sf::Event& evento_sfml);
 
-    // Métodos de Renderização
+    // Mï¿½todos de Renderizaï¿½ï¿½o
     void desenhar(sf::RenderTarget& janela);
     void iniciarInimigos();
 

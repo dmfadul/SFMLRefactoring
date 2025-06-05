@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "Ente.h"
+#include "Core/stdafx.h"
+#include "Entities/Ente.h"
 
 // _______________________________________________________________________________
 Ente::Ente()

@@ -1,6 +1,6 @@
-#include "stdafx.h"
-#include "JogoInfo.h"
-#include "Ente.h"
+#include "Core/stdafx.h"
+#include "Utils/JogoInfo.h"
+#include "Entities/Ente.h"
 
 JogoInfo* JogoInfo::_instancia = 0;
 

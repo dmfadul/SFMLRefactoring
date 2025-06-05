@@ -1,7 +1,7 @@
 #pragma once
-#include "Inimigo.h"
-#include "GeradorProjeteis.h"
-#include "Thread.h"
+#include "Entities/Inimigo.h"
+#include "Core/GeradorProjeteis.h"
+#include "Core/Thread.h"
 #define VEL_MAX_BRUXA 1.5
 #define VIDA_INICIAL 100
 #define DANO_ATAQUE 20

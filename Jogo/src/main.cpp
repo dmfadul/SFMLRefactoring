@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "Jogo.h"
+#include "Core/stdafx.h"
+#include "Core/Jogo.h"
 
 int main()
 {

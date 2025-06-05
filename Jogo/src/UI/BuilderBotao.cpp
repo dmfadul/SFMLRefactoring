@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "BuilderBotao.h"
+#include "Core/stdafx.h"
+#include "UI/BuilderBotao.h"
 
 // _______________________________________________________________________________
 BuilderBotao::BuilderBotao()

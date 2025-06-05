@@ -1,6 +1,6 @@
 #pragma once
-#include "Obstaculo.h"
-#include "Jogador.h"
+#include "Entities/Obstaculo.h"
+#include "Entities/Jogador.h"
 
 class ObstaculoDanoso :
     public Obstaculo

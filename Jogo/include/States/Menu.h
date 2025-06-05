@@ -1,6 +1,6 @@
 #pragma once
-#include "Ente.h"
-#include "GerenciadorBotoes.h"
+#include "Entities/Ente.h"
+#include "Core/GerenciadorBotoes.h"
 
 /* Classe Abstrata de um Menu Generico */
 class Menu :
@@ -15,10 +15,10 @@ public:
     Menu();
     virtual ~Menu();
 
-    // Métodos de Atualização
+    // Mï¿½todos de Atualizaï¿½ï¿½o
     virtual void atualizarEventos(sf::Event& evento_sfml);
 
-    // Métodos de Renderização
+    // Mï¿½todos de Renderizaï¿½ï¿½o
     virtual void desenhar(sf::RenderTarget& janela);
 };
 

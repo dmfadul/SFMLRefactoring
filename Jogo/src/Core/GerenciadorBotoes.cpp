@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "GerenciadorBotoes.h"
+#include "Core/stdafx.h"
+#include "Core/GerenciadorBotoes.h"
 
 // _______________________________________________________________________________
 GerenciadorBotoes::GerenciadorBotoes()

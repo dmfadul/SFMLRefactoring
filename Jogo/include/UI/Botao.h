@@ -1,7 +1,7 @@
 #pragma once
-#include "Gui.h"
+#include "UI/Gui.h"
 namespace gui {
-	/* Classe de um botão generico */
+	/* Classe de um botï¿½o generico */
 	class Botao : public Gui 
 	{
 	private:

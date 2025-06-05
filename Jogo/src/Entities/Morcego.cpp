@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "Morcego.h"
+#include "Core/stdafx.h"
+#include "Entities/Morcego.h"
 
 Morcego::Morcego(){}
 

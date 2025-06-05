@@ -1,5 +1,5 @@
 #pragma once
-#include "ObstaculoDanoso.h"
+#include "Entities/ObstaculoDanoso.h"
 
 #define DANO_ESPINHO 10
 

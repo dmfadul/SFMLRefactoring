@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "Plataforma.h"
+#include "Core/stdafx.h"
+#include "Entities/Plataforma.h"
 
 // _______________________________________________________________________________
 Plataforma::Plataforma(int indice, const bool colidir)

@@ -1,9 +1,9 @@
 #pragma once
-#include "Fase.h"
-#include "Cowboy.h"
-#include "CowGirl.h"
-#include "Dragao.h"
-#include "Cobra.h"
+#include "States/Fase.h"
+#include "Entities/Cowboy.h"
+#include "Entities/CowGirl.h"
+#include "Entities/Dragao.h"
+#include "Entities/Cobra.h"
 
 class NinhoDoDragao :
     public Fase
@@ -16,12 +16,12 @@ public:
     NinhoDoDragao(int n_jogadores = 1, bool carregar_jogo = false);
     ~NinhoDoDragao();
 
-    // Métodos de Atualização
+    // Mï¿½todos de Atualizaï¿½ï¿½o
     void atualizar();
     void atualizarEventos(sf::Event& evento_sfml);
     void invocarInimigo();
 
-    // Métodos de Renderização
+    // Mï¿½todos de Renderizaï¿½ï¿½o
     void desenhar(sf::RenderTarget& janela);
     
     void iniciarInimigos();

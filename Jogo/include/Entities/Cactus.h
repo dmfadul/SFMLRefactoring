@@ -1,5 +1,5 @@
 #pragma once
-#include "ObstaculoDanoso.h"
+#include "Entities/ObstaculoDanoso.h"
 
 #define DANO_CACTO 15
 
@@ -11,7 +11,7 @@ public:
     Cactus(const int indice = 0);
     ~Cactus();
 
-    // realiza ação especifica do cactus
+    // realiza aï¿½ï¿½o especifica do cactus
     void realizarAcao(Jogador* p);
 
 };

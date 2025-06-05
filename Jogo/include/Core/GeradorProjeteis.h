@@ -1,10 +1,10 @@
 #pragma once
-#include "ListaInimigos.h"
-#include "Projetil.h"
-#include "ListaProjeteis.h"
-#include "ListaEntidades.h"
-#include "Morcego.h"
-#include "BolaFogo.h"
+#include "Utils/ListaInimigos.h"
+#include "Entities/Projetil.h"
+#include "Utils/ListaProjeteis.h"
+#include "Utils/ListaEntidades.h"
+#include "Entities/Morcego.h"
+#include "Entities/BolaFogo.h"
 class GeradorProjeteis
 {
 private:

@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "Entidade.h"
+#include "Core/stdafx.h"
+#include "Entities/Entidade.h"
 
 int Entidade::qtdEntidades = 0;
 

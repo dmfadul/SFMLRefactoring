@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "Mapa.h"
+#include "Core/stdafx.h"
+#include "Levels/Mapa.h"
 
 // _______________________________________________________________________________
 Mapa::Mapa() { 

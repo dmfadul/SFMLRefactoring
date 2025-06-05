@@ -1,11 +1,11 @@
-#include "stdafx.h"
-#include "TelaPontuacao.h"
+#include "Core/stdafx.h"
+#include "UI/TelaPontuacao.h"
 
 // _______________________________________________________________________________
 TelaPontuacao::TelaPontuacao() :
 	Tela()
 {
-	// chama os metodos de inicialização
+	// chama os metodos de inicializaï¿½ï¿½o
 	this->iniciarBackground("./Recursos/Imagens/backgrounds/pontuacao.png");
 	this->iniciarCaixa();
 	this->iniciarBotao();
@@ -22,7 +22,7 @@ TelaPontuacao::~TelaPontuacao()
 // _______________________________________________________________________________
 void TelaPontuacao::iniciarCaixa()
 {
-	/* Inicia a caixa que engloba a lista de pontuaçoes */
+	/* Inicia a caixa que engloba a lista de pontuaï¿½oes */
 	this->caixaPontuacao.setFillColor(sf::Color(0, 0, 0, 150));
 
 	// Inicia a caixa
@@ -44,7 +44,7 @@ void TelaPontuacao::iniciarCaixa()
 
 	// pontuacao
 	this->pontuacao.setFont(this->fonte);
-	this->pontuacao.setString("PONTUAÇÃO:");
+	this->pontuacao.setString("PONTUAï¿½ï¿½O:");
 	this->pontuacao.setCharacterSize(TAM_CHAR);
 	this->pontuacao.setPosition(
 		this->caixaPontuacao.getPosition().x + TAM_CAIXA_X / 2.f,
@@ -79,7 +79,7 @@ void TelaPontuacao::carregarPontuacao()
 		std::exit(EXIT_FAILURE);
 	}
 
-	// adiciona as pontuaçoes em um multimap ordenado
+	// adiciona as pontuaï¿½oes em um multimap ordenado
 	while (arquivo_pontuacao >> n && arquivo_pontuacao >> p) {
 		ranking.insert({p, n});
 	}

@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "Shuriken.h"
+#include "Core/stdafx.h"
+#include "Entities/Shuriken.h"
 
 // _______________________________________________________________________________
 Shuriken::Shuriken()

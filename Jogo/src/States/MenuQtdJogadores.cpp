@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "MenuQtdJogadores.h"
+#include "Core/stdafx.h"
+#include "States/MenuQtdJogadores.h"
 
 // _______________________________________________________________________________
 MenuQtdJogadores::MenuQtdJogadores()
@@ -44,7 +44,7 @@ void MenuQtdJogadores::atualizar()
 // _______________________________________________________________________________
 void MenuQtdJogadores::GerenciarCliqueBotao()
 {
-	/* Realiza a ação vinculada com o botao ativo */
+	/* Realiza a aï¿½ï¿½o vinculada com o botao ativo */
 
 	if (this->botaoAtivo == um_jogador) {
 		JogoInfo::getInstancia()->getTocaDisco()->pararMusica();

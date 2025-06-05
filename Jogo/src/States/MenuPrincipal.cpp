@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "MenuPrincipal.h"
+#include "Core/stdafx.h"
+#include "States/MenuPrincipal.h"
 
 // _______________________________________________________________________________
 MenuPrincipal::MenuPrincipal():
@@ -26,7 +26,7 @@ void MenuPrincipal::iniciarBotoes()
 	this->botoes[novo_jogo] = builderBotaoPadrao.criarBotao(TAM_JANELA_X / 2 - 100.f, 210.f, "NOVO JOGO");
 	this->botoes[carregar_jogo] = builderBotaoPadrao.criarBotao(TAM_JANELA_X / 2 - 100.f, 260.f, "CARREGAR JOGO");
 	this->botoes[escolha_de_fases] = builderBotaoPadrao.criarBotao(TAM_JANELA_X / 2 - 100.f, 313.f, "ESCOLHER FASE");
-	this->botoes[lista_de_pontuacoes] = builderBotaoPadrao.criarBotao(TAM_JANELA_X / 2 - 100.f, 375.f, "PONTUAÇÃO");
+	this->botoes[lista_de_pontuacoes] = builderBotaoPadrao.criarBotao(TAM_JANELA_X / 2 - 100.f, 375.f, "PONTUAï¿½ï¿½O");
 	this->botoes[sair] = builderBotaoSair.criarBotao(TAM_JANELA_X / 2 - 100.f, 430.f, "SAIR");
 
 	// Inicia a caixa que contem os botoes
@@ -77,7 +77,7 @@ void MenuPrincipal::carregarJogo()
 // _______________________________________________________________________________
 void MenuPrincipal::GerenciarCliqueBotao()
 {
-	/* Realiza a ação vinculada com o botao ativo */
+	/* Realiza a aï¿½ï¿½o vinculada com o botao ativo */
 
 	if (this->botaoAtivo == novo_jogo)
 		JogoInfo::getInstancia()->pushEnte(static_cast<Ente* >(new MenuQtdJogadores()));

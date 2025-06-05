@@ -1,11 +1,11 @@
 #pragma once
 #include "Tela.h"
-#include "GerenciadorBotoes.h"
+#include "Core/GerenciadorBotoes.h"
 #define TAM_CHAR 30
 #define TAM_CAIXA_X 800
 #define TAM_CAIXA_Y 400
 
-/* Classe do menu de Pontuação */
+/* Classe do menu de Pontuaï¿½ï¿½o */
 class TelaPontuacao :
     public Tela, public GerenciadorBotoes
 {
@@ -62,16 +62,16 @@ public:
     TelaPontuacao();
     ~TelaPontuacao();
 
-    // Métodos de Inicialização
+    // Mï¿½todos de Inicializaï¿½ï¿½o
     void iniciarCaixa();
     void iniciarBotao();
     void carregarPontuacao();
 
-    // Métodos de Atualização
+    // Mï¿½todos de Atualizaï¿½ï¿½o
     void adicionarLinha(std::string nome, std::string pontuacao, int pos);
     void atualizar();
     void atualizarEventos(sf::Event& evento_sfml);
 
-    // Métodos de Renderização
+    // Mï¿½todos de Renderizaï¿½ï¿½o
     void desenhar(sf::RenderTarget& janela);
 };

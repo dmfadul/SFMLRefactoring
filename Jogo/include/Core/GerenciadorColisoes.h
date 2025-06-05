@@ -1,11 +1,11 @@
 #pragma once
-#include "Mapa.h"
-#include "Cowboy.h"
-#include "HitBox.h"
-#include "ListaJogadores.h"
-#include "ListaInimigos.h"
-#include "ListaProjeteis.h"
-#include "ListaEntidades.h"
+#include "Levels/Mapa.h"
+#include "Entities/Cowboy.h"
+#include "Utils/HitBox.h"
+#include "Utils/ListaJogadores.h"
+#include "Utils/ListaInimigos.h"
+#include "Utils/ListaProjeteis.h"
+#include "Utils/ListaEntidades.h"
 
 class GerenciadorColisoes
 {

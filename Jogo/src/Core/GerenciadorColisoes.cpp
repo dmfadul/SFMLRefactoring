@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "GerenciadorColisoes.h"
+#include "Core/stdafx.h"
+#include "Core/GerenciadorColisoes.h"
 
 // _______________________________________________________________________________
 GerenciadorColisoes::GerenciadorColisoes()

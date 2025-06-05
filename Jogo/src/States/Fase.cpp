@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "Fase.h"
+#include "Core/stdafx.h"
+#include "States/Fase.h"
 
 // _______________________________________________________________________________
 Fase::Fase(int n_jogadores):

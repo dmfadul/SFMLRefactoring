@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "GeradorProjeteis.h"
+#include "Core/stdafx.h"
+#include "Core/GeradorProjeteis.h"
 
 // _______________________________________________________________________________
 GeradorProjeteis::GeradorProjeteis():listIni(NULL),listProj(NULL), listEnt(NULL){}

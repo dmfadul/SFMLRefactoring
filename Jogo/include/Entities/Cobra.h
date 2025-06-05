@@ -1,6 +1,6 @@
 #pragma once
-#include "Inimigo.h"
-#include "ListaJogadores.h"
+#include "Entities/Inimigo.h"
+#include "Utils/ListaJogadores.h"
 
 #define VIDA_INICIAL_COBRA 40
 #define DANO_COBRA 30

@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "ObstaculoDanoso.h"
+#include "Core/stdafx.h"
+#include "Entities/ObstaculoDanoso.h"
 
 // _______________________________________________________________________________
 ObstaculoDanoso::ObstaculoDanoso(const int indice, const bool colidir)

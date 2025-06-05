@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "HitBox.h"
+#include "Core/stdafx.h"
+#include "Utils/HitBox.h"
 
 // _______________________________________________________________________________
 HitBox::HitBox(sf::Sprite* s)

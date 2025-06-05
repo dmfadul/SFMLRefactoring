@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "ComponenteMovimento.h"
+#include "Core/stdafx.h"
+#include "Core/ComponenteMovimento.h"
 
 // _______________________________________________________________________________
 ComponenteMovimento::ComponenteMovimento():

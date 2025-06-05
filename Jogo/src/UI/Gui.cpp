@@ -1,5 +1,6 @@
-#include "stdafx.h"
-#include "Gui.h"
+#include "Core/stdafx.h"
+#include "UI/Gui.h"
+#include <string>
 
 // _______________________________________________________________________________
 Gui::Gui()
@@ -14,8 +15,8 @@ Gui::~Gui()
 // _______________________________________________________________________________
 void Gui::iniciarTexto(float pos_x, float pos_y, std::string texto)
 {
-	/* Inicia fonte e centraliza o texto no botão */
-	if (!this->fonte.loadFromFile("./Recursos/Fontes/Bebas.ttf")) {
+	/* Inicia fonte e centraliza o texto no botï¿½o */
+	if (!this->fonte.loadFromFile(std::string(ASSET_PATH) + "/Fontes/Bebas.ttf")) {
 		std::cout << "BOTAO::FALHA AO CARREGAR FONTE" << std::endl;
 	}
 

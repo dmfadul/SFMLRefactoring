@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "CowGirl.h"
+#include "Core/stdafx.h"
+#include "Entities/CowGirl.h"
 
 // _______________________________________________________________________________
 CowGirl::CowGirl()

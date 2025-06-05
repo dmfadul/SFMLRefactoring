@@ -1,6 +1,6 @@
 #pragma once
-#include "Botao.h"
-#include "GerenciadorBotoes.h"
+#include "UI/Botao.h"
+#include "Core/GerenciadorBotoes.h"
 
 enum botoes_pause {
 	continuar,

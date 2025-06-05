@@ -1,5 +1,5 @@
 #pragma once
-#include "Ente.h"
+#include "Entities/Ente.h"
 class Tela :
     public Ente
 {
@@ -11,7 +11,7 @@ public:
     Tela();
     ~Tela();
 
-    // metodos de inicialização
+    // metodos de inicializaï¿½ï¿½o
     void carregarFonte(std::string diretorio);
 };
 

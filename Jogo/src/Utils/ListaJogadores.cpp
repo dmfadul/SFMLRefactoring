@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "ListaJogadores.h"
+#include "Core/stdafx.h"
+#include "Utils/ListaJogadores.h"
 
 // _______________________________________________________________________________
 ListaJogadores::ListaJogadores()

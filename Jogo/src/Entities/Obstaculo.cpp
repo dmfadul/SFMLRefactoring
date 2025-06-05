@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "Obstaculo.h"
+#include "Core/stdafx.h"
+#include "Entities/Obstaculo.h"
 
 // _______________________________________________________________________________
 Obstaculo::Obstaculo(const bool colidir)

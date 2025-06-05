@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "ListaEntidades.h"
+#include "Core/stdafx.h"
+#include "Utils/ListaEntidades.h"
 
 // _______________________________________________________________________________
 ListaEntidades::ListaEntidades()

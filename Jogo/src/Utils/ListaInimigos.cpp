@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "ListaInimigos.h"
+#include "Core/stdafx.h"
+#include "Utils/ListaInimigos.h"
 
 // _______________________________________________________________________________
 ListaInimigos::ListaInimigos()

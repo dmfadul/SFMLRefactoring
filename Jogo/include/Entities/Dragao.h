@@ -1,7 +1,7 @@
 #pragma once
-#include "Inimigo.h"
-#include "BolaFogo.h"
-#include "GeradorProjeteis.h"
+#include "Entities/Inimigo.h"
+#include "Entities/BolaFogo.h"
+#include "Core/GeradorProjeteis.h"
 #define VIDA_INICIAL_DRAGAO 400
 #define DANO_ATAQUE 20
 class Dragao :

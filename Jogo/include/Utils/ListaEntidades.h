@@ -1,6 +1,6 @@
 #pragma once
 #include "Lista.h"
-#include "Personagem.h"
+#include "Entities/Personagem.h"
 
 /* Lista que armazena todas as entidades */
 class ListaEntidades

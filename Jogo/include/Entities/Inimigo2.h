@@ -1,5 +1,5 @@
 #pragma once
-#include "Inimigo.h"
+#include "Entities/Inimigo.h"
 class Inimigo2 :
     public Inimigo
 {

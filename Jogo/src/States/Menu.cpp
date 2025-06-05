@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "Menu.h"
+#include "Core/stdafx.h"
+#include "States/Menu.h"
 
 // _______________________________________________________________________________
 Menu::Menu():

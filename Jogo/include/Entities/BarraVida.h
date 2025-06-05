@@ -1,5 +1,5 @@
 #pragma once
-#include "Gui.h"
+#include "UI/Gui.h"
 
 #define VALOR_MAX_DEFAULT 100
 #define TAM_X_DEFAULT 150

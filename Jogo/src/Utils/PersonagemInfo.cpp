@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "PersonagemInfo.h"
+#include "Core/stdafx.h"
+#include "Utils/PersonagemInfo.h"
 
 // variaveis e metodos estaticos
 int PersonagemInfo::score = 0;

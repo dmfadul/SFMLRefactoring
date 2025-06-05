@@ -1,5 +1,5 @@
 #pragma once
-#include "Entidade.h"
+#include "Entities/Entidade.h"
 
 class Obstaculo :
     public Entidade

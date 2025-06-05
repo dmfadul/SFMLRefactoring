@@ -1,8 +1,8 @@
 #pragma once
 
-#include "JogoInfo.h"
+#include "Utils/JogoInfo.h"
 #include "configuracoes.h"
-#include "Entidade.h"
+#include "Entities/Entidade.h"
 
 /* Classe abstrata de Entes */
 class Ente : public Entidade
@@ -12,10 +12,10 @@ public:
     Ente();
     virtual ~Ente();
 
-    // Metodos de Inicialização
+    // Metodos de Inicializaï¿½ï¿½o
     void iniciarBackground(std::string diretorio);
 
-    // Métodos de Atualização
+    // Mï¿½todos de Atualizaï¿½ï¿½o
     virtual void atualizarEventos(sf::Event& evento_sfml) = 0;
 };
 

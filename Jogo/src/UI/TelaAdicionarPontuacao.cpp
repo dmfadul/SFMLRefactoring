@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "TelaAdicionarPontuacao.h"
+#include "Core/stdafx.h"
+#include "UI/TelaAdicionarPontuacao.h"
 
 // _______________________________________________________________________________
 TelaAdicionarPontuacao::TelaAdicionarPontuacao(int s)
@@ -43,7 +43,7 @@ void TelaAdicionarPontuacao::iniciarTextos()
 // _______________________________________________________________________________
 void TelaAdicionarPontuacao::adicionarPontuacao()
 {
-	/* Adiciona uma nova pontuação no arquivo de pontuacoes */
+	/* Adiciona uma nova pontuaï¿½ï¿½o no arquivo de pontuacoes */
 	std::ofstream arquivo_pontuacao;
 	arquivo_pontuacao.open("./Recursos/dados/pontuacao.txt", std::ios::out | std::ios::app);
 	arquivo_pontuacao << "\n" << this->nomeInput << " " << this->score;
@@ -61,7 +61,7 @@ void TelaAdicionarPontuacao::atualizarEventos(sf::Event& evento_sfml)
 	/* Checa por eventos SFML*/
 	if (evento_sfml.type == sf::Event::KeyReleased)
 	{
-		// adiciona a nova pontuação e vai a tela de pontuacao
+		// adiciona a nova pontuaï¿½ï¿½o e vai a tela de pontuacao
 		if (evento_sfml.key.code == sf::Keyboard::Enter && this->nomeInput.size() >= 3) {
 			this->adicionarPontuacao();
 			JogoInfo::getInstancia()->getTocaDisco()->tocarMusicaInicio();

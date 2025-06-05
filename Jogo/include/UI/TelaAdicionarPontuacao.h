@@ -1,6 +1,6 @@
 #pragma once
-#include "Tela.h"
-#include "TelaPontuacao.h"
+#include "UI/Tela.h"
+#include "UI/TelaPontuacao.h"
 class TelaAdicionarPontuacao :
     public Tela
 {
@@ -17,15 +17,15 @@ public:
     TelaAdicionarPontuacao(int s = 0);
     ~TelaAdicionarPontuacao();
 
-    // Metodos de inicialização
+    // Metodos de inicializaï¿½ï¿½o
     void iniciarTextos();
 
-    // Métodos de Atualização
+    // Mï¿½todos de Atualizaï¿½ï¿½o
     void adicionarPontuacao();
     void atualizar();
     void atualizarEventos(sf::Event& evento_sfml);
 
-    // Métodos de Renderização
+    // Mï¿½todos de Renderizaï¿½ï¿½o
     void desenhar(sf::RenderTarget& janela);
 };
 

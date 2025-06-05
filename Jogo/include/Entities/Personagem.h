@@ -1,10 +1,10 @@
 #pragma once
-#include "Entidade.h"
-#include "HitBox.h"
-#include "ComponenteMovimento.h"
-#include "PersonagemInfo.h"
-#include "BarraVida.h"
-#include "Entidade.h"
+#include "Entities/Entidade.h"
+#include "Utils/HitBox.h"
+#include "Core/ComponenteMovimento.h"
+#include "Utils/PersonagemInfo.h"
+#include "Entities/BarraVida.h"
+#include "Entities/Entidade.h"
 
 /* Classe Abstrata de Personagem */
 class Personagem : public Entidade{

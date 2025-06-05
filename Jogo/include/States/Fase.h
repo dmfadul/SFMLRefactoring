@@ -1,16 +1,16 @@
 #pragma once
-#include "Ente.h"
-#include "Mapa.h"
-#include "CowGirl.h"
-#include "GerenciadorColisoes.h"
-#include "ListaJogadores.h"
-#include "ListaInimigos.h"
-#include "ListaProjeteis.h"
-#include "ListaEntidades.h"
-#include "GeradorProjeteis.h"
-#include "CaixaPause.h"
-#include "TelaAdicionarPontuacao.h"
-#include "GerenciadorJogoSalvo.h"
+#include "Entities/Ente.h"
+#include "Levels/Mapa.h"
+#include "Entities/CowGirl.h"
+#include "Core/GerenciadorColisoes.h"
+#include "Utils/ListaJogadores.h"
+#include "Utils/ListaInimigos.h"
+#include "Utils/ListaProjeteis.h"
+#include "Utils/ListaEntidades.h"
+#include "Core/GeradorProjeteis.h"
+#include "Entities/CaixaPause.h"
+#include "UI/TelaAdicionarPontuacao.h"
+#include "Core/GerenciadorJogoSalvo.h"
 
 /* Classe abstrata de Fase */
 class Fase :

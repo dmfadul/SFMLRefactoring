@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "ListaProjeteis.h"
+#include "Core/stdafx.h"
+#include "Utils/ListaProjeteis.h"
 
 // _______________________________________________________________________________
 ListaProjeteis::ListaProjeteis()

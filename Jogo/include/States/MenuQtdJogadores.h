@@ -1,6 +1,6 @@
 #pragma once
-#include "Menu.h"
-#include "VelhoOeste.h"
+#include "States/Menu.h"
+#include "Levels/VelhoOeste.h"
 
 class MenuQtdJogadores :
     public Menu
@@ -18,10 +18,10 @@ public:
     MenuQtdJogadores();
     ~MenuQtdJogadores();
 
-    // Metodos de Inicialização
+    // Metodos de Inicializaï¿½ï¿½o
     void iniciarBotoes();
 
-    // Métodos de Atualização
+    // Mï¿½todos de Atualizaï¿½ï¿½o
     void atualizar();
     void GerenciarCliqueBotao();
 };

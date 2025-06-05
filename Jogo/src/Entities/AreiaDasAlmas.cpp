@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "AreiaDasAlmas.h"
+#include "Core/stdafx.h"
+#include "Entities/AreiaDasAlmas.h"
 
 // _______________________________________________________________________________
 AreiaDasAlmas::AreiaDasAlmas(const int indice)

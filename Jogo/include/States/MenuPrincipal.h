@@ -1,9 +1,9 @@
 #pragma once
-#include "VelhoOeste.h"
-#include "TelaPontuacao.h"
-#include "MenuEscolhaFases.h"
-#include "MenuQtdJogadores.h"
-#include "BotaoPadrao.h"
+#include "Levels/VelhoOeste.h"
+#include "UI/TelaPontuacao.h"
+#include "States/MenuEscolhaFases.h"
+#include "States/MenuQtdJogadores.h"
+#include "UI/BotaoPadrao.h"
 
 /* Classe do Menu Principal */
 class MenuPrincipal :
@@ -24,10 +24,10 @@ public:
     MenuPrincipal();
     ~MenuPrincipal();
     
-    // Metodos de Inicialização
+    // Metodos de Inicializaï¿½ï¿½o
     void iniciarBotoes();
 
-    // Métodos de Atualização
+    // Mï¿½todos de Atualizaï¿½ï¿½o
     void atualizar();
     void carregarJogo();
     void GerenciarCliqueBotao();

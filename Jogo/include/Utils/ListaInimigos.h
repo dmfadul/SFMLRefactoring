@@ -1,6 +1,6 @@
 #pragma once
 #include "Lista.h"
-#include "Inimigo.h"
+#include "Entities/Inimigo.h"
 /* Lista que armazena os inimigos */
 class ListaInimigos
 {

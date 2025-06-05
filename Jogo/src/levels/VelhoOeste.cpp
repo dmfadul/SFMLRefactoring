@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "VelhoOeste.h"
+#include "Core/stdafx.h"
+#include "Levels/VelhoOeste.h"
 
 // _______________________________________________________________________________
 VelhoOeste::VelhoOeste(int n_jogadores, bool carregar_jogo)

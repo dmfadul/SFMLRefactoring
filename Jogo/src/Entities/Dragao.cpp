@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "Dragao.h"
+#include "Core/stdafx.h"
+#include "Entities/Dragao.h"
 
 // _______________________________________________________________________________
 Dragao::Dragao(sf::Vector2f position, GeradorProjeteis* gp)

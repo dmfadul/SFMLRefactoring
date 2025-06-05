@@ -1,7 +1,7 @@
 #pragma once
-#include "VelhoOeste.h"
-#include "TelaPontuacao.h"
-#include "Menu.h"
+#include "Levels/VelhoOeste.h"
+#include "UI/TelaPontuacao.h"
+#include "States/Menu.h"
 
 
 class MenuEscolhaFases :
@@ -19,10 +19,10 @@ public:
     MenuEscolhaFases();
     ~MenuEscolhaFases();
 
-    // Metodos de Inicialização
+    // Metodos de Inicializaï¿½ï¿½o
     void iniciarBotoes();
 
-    // Métodos de Atualização
+    // Mï¿½todos de Atualizaï¿½ï¿½o
     void atualizar();
     void GerenciarCliqueBotao();
 };

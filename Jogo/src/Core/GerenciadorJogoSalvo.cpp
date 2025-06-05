@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "GerenciadorJogoSalvo.h"
+#include "Core/stdafx.h"
+#include "Core/GerenciadorJogoSalvo.h"
 
 // _______________________________________________________________________________
 GerenciadorJogoSalvo::GerenciadorJogoSalvo()

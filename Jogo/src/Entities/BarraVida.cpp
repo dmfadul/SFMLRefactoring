@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "BarraVida.h"
+#include "Core/stdafx.h"
+#include "Entities/BarraVida.h"
 
 // _______________________________________________________________________________
 gui::BarraVida::BarraVida()

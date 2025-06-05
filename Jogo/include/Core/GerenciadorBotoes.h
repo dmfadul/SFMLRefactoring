@@ -1,8 +1,8 @@
 #pragma once
-#include "Botao.h"
-#include "JogoInfo.h"
-#include "BotaoPadrao.h"
-#include "BotaoSair.h"
+#include "UI/Botao.h"
+#include "Utils/JogoInfo.h"
+#include "UI/BotaoPadrao.h"
+#include "UI/BotaoSair.h"
 
 class GerenciadorBotoes
 {
@@ -19,7 +19,7 @@ public:
 	GerenciadorBotoes();
 	~GerenciadorBotoes();
 
-	// Metodos de Inicialização
+	// Metodos de Inicializaï¿½ï¿½o
 	virtual void iniciarBotoes();
 
 	void trocarBotao(int direcao);

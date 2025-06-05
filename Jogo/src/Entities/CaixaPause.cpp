@@ -1,6 +1,6 @@
-#include "stdafx.h"
+#include "Core/stdafx.h"
 #include "configuracoes.h"
-#include "CaixaPause.h"
+#include "Entities/CaixaPause.h"
 
 // _______________________________________________________________________________
 CaixaPause::CaixaPause()

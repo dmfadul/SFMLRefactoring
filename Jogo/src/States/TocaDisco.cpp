@@ -1,5 +1,6 @@
-#include "stdafx.h"
-#include "TocaDisco.h"
+#include "Core/stdafx.h"
+#include "States/TocaDisco.h"
+#include <string>
 
 // _______________________________________________________________________________
 som::TocaDisco::TocaDisco()
@@ -35,7 +36,7 @@ void som::TocaDisco::pararMusica() { musica.stop(); }
 // _______________________________________________________________________________
 void som::TocaDisco::tocarTrocaBotao()
 {
-	if (!buffer.loadFromFile("./Recursos/sons/troca_botao.wav"))
+	if (!buffer.loadFromFile(std::string(ASSET_PATH) + "/sons/troca_botao.wav"))
 		std::cout << "falha ao carregar ./Recursos/sons/troca_botao.wav" << std::endl;
 
 	som.setBuffer(buffer);

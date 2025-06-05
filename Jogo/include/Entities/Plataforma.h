@@ -1,5 +1,5 @@
 #pragma once
-#include "Obstaculo.h"
+#include "Entities/Obstaculo.h"
 
 /* Classe das plataformas do jogo */
 class Plataforma :

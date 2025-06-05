@@ -1,5 +1,5 @@
 #pragma once
-#include "Botao.h"
+#include "UI/Botao.h"
 
 class BuilderBotao
 {
@@ -8,7 +8,7 @@ protected:
 	gui::Botao* botao;
 	sf::Font fonte;
 
-	// metodos de construção
+	// metodos de construï¿½ï¿½o
 	virtual void buildTexto(int tam_char, std::string fontDir, std::string texto);
 	virtual void buildCaixa(float pos_x, float pos_y, sf::Vector2f tam);
 	virtual void buildCores(sf::Color ativado, sf::Color desativado, sf::Color cor_caixa);

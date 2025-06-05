@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "Espinho.h"
+#include "Core/stdafx.h"
+#include "Entities/Espinho.h"
 
 // _______________________________________________________________________________
 Espinho::Espinho(const int indice)

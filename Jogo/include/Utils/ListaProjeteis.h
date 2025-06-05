@@ -1,6 +1,6 @@
 #pragma once
 #include "Lista.h"
-#include "Projetil.h"
+#include "Entities/Projetil.h"
 
 /* Lista que armazena projeteis */
 class ListaProjeteis

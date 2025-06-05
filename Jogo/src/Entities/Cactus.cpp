@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "Cactus.h"
+#include "Core/stdafx.h"
+#include "Entities/Cactus.h"
 
 // _______________________________________________________________________________
 Cactus::Cactus(const int indice)

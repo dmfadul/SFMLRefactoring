@@ -1,6 +1,6 @@
 #pragma once
-#include "MenuPrincipal.h"
-#include "JogoInfo.h"
+#include "States/MenuPrincipal.h"
+#include "Utils/JogoInfo.h"
 
 /* Classe Principal */
 class Jogo
@@ -15,14 +15,14 @@ public:
 	Jogo();
 	~Jogo();
 
-	// Métodos de Inicialização
+	// Mï¿½todos de Inicializaï¿½ï¿½o
 	void iniciarJanela();
 
-	// Métodos de Atualização
+	// Mï¿½todos de Atualizaï¿½ï¿½o
 	void atualizar();
 	void atualizarEventos();
 
-	// Métodos de Renderização
+	// Mï¿½todos de Renderizaï¿½ï¿½o
 	void desenhar();
 
 	// Inicia o Jogo

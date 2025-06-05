@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "MenuEscolhaFases.h"
+#include "Core/stdafx.h"
+#include "States/MenuEscolhaFases.h"
 
 // _______________________________________________________________________________
 MenuEscolhaFases::MenuEscolhaFases()
@@ -23,7 +23,7 @@ void MenuEscolhaFases::iniciarBotoes()
 {
 	/* Inicia todos os botoes do menu principal */
 	this->botoes[velho_oeste] = builderBotaoPadrao.criarBotao(TAM_JANELA_X / 2 - 100.f, 220.f, "Velho Oeste");
-	this->botoes[ninho_do_dragao] = builderBotaoPadrao.criarBotao(TAM_JANELA_X / 2 - 100.f, 280.f, "Ninho Do Dragão");
+	this->botoes[ninho_do_dragao] = builderBotaoPadrao.criarBotao(TAM_JANELA_X / 2 - 100.f, 280.f, "Ninho Do Dragï¿½o");
 	this->botoes[voltar] = builderBotaoPadrao.criarBotao(TAM_JANELA_X / 2 - 100.f, 430.f, "Voltar");
 
 	// Inicia a caixa que contem os botoes
@@ -45,7 +45,7 @@ void MenuEscolhaFases::atualizar()
 // _______________________________________________________________________________
 void MenuEscolhaFases::GerenciarCliqueBotao()
 {
-	/* Realiza a ação vinculada com o botao ativo */
+	/* Realiza a aï¿½ï¿½o vinculada com o botao ativo */
 
 	if (this->botaoAtivo == velho_oeste) {
 		JogoInfo::getInstancia()->getTocaDisco()->pararMusica();

@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "Inimigo2.h"
+#include "Core/stdafx.h"
+#include "Entities/Inimigo2.h"
 
 Inimigo2::Inimigo2() {}
 

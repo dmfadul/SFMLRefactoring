@@ -1,6 +1,6 @@
-#include "stdafx.h"
-#include "NinhoDoDragao.h"
-#include "VelhoOeste.h"
+#include "Core/stdafx.h"
+#include "Levels/NinhoDoDragao.h"
+#include "Levels/VelhoOeste.h"
 
 // _______________________________________________________________________________
 NinhoDoDragao::NinhoDoDragao(int n_jogadores, bool carregar_jogo)

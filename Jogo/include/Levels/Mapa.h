@@ -1,9 +1,9 @@
 #pragma once
-#include "Plataforma.h"
-#include "Cactus.h"
-#include "Espinho.h"
-#include "AreiaDasAlmas.h"
-#include "JogoInfo.h"
+#include "Entities/Plataforma.h"
+#include "Entities/Cactus.h"
+#include "Entities/Espinho.h"
+#include "Entities/AreiaDasAlmas.h"
+#include "Utils/JogoInfo.h"
 #include "configuracoes.h"
 
 class Mapa
@@ -13,7 +13,7 @@ private:
 	std::vector<std::vector<int > > posLivres; // posicoes que pode receber um obstaculo
 	std::vector<Obstaculo* > blocos;
 
-	// os arquivos estão nomeados como "<numero>.png"
+	// os arquivos estï¿½o nomeados como "<numero>.png"
 	// armazena o numero de inicio e fim de cada tipo de de entidade
 	int inicioPlataformas;
 	int qtdPlataformas;
@@ -27,12 +27,12 @@ public:
 	const int blocoAtual(sf::Vector2f pos) const;
 	Obstaculo* getBloco(const int i) const;
 
-	// metodos de inicialização
+	// metodos de inicializaï¿½ï¿½o
 	void iniciarMapa(std::string diretorio , int ini, int qtd, int tipo = 1);
 	void carregarMapa(std::string diretorio);
 	void iniciaPosicoesLivres();
 	void iniciarEntidades(int tipo);
 
-	// metodo de renderização
+	// metodo de renderizaï¿½ï¿½o
 	void desenharMapa(sf::RenderTarget& janela);
 };
