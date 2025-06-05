@@ -1,5 +1,5 @@
 #include "Core/stdafx.h"
-#include "Bruxa.h"
+#include "Entities/Bruxa.h"
 
 // _______________________________________________________________________________
 Bruxa::Bruxa(): tempo_direcao(1000), gerProj(NULL), tempo_cooldown(500) {}

@@ -1,5 +1,5 @@
 #include "Core/stdafx.h"
-#include "BotaoPadrao.h"
+#include "UI/BotaoPadrao.h"
 
 // _______________________________________________________________________________
 BotaoPadrao::BotaoPadrao()

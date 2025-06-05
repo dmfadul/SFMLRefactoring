@@ -1,5 +1,5 @@
 #pragma once
-#include "Tela.h"
+#include "UI/Tela.h"
 #include "Core/GerenciadorBotoes.h"
 #define TAM_CHAR 30
 #define TAM_CAIXA_X 800

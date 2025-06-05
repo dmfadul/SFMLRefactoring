@@ -1,5 +1,5 @@
 #include "Core/stdafx.h"
-#include "BotaoSair.h"
+#include "UI/BotaoSair.h"
 
 // _______________________________________________________________________________
 BotaoSair::BotaoSair()
